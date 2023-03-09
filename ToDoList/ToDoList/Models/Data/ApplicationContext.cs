@@ -4,7 +4,7 @@ namespace ToDoList.Models.Data
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<NotesToDo> Notes { get; set; }
+        public DbSet<ToDoDataBase> ToDoList { get; set; }
         public ApplicationContext() => Database.EnsureCreated();
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -13,7 +13,7 @@ namespace ToDoList.Models.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<NotesToDo>().HasKey((key) => key.Id);
+            modelBuilder.Entity<ToDoDataBase>().HasKey((key) => key.Id);
         }
     }
 }

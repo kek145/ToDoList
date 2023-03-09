@@ -8,15 +8,17 @@
     <title>To Do List</title>
 </head>
 <body>
-    <h1>To Do List</h1>
+    <center><h1>To Do List</h1></center>
     <div class="container">
-        <p>TaskName: <input type="text" placeholder="Task name"></p>
-        <p>Description: <input type="text" placeholder="Description"></p>
-        <p>Create Date: <input type="Date" placeholder="Create Date"></p>
-        <p><button id="saveBtn">Save Task</button></p>
-        <p><button id="resetBtn">Reset Form</button></p>
+        <input type="hidden" id="userId">
+        <p>TaskName: <input id="taskName" type="text" placeholder="Task name"></p>
+        <p>Description: <input id="description" type="text" placeholder="Description"></p>
+        <p>Create Date: <input id="dateCreation" type="Date" placeholder="Create Date"></p>
+        <center>
+            <p><button id="saveBtn">Save Task</button></p>
+            <p><button id="resetBtn">Reset Form</button></p>
+        </center>
     </div>
-
     <table>
         <thead>
             <tr>
