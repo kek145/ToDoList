@@ -26,7 +26,6 @@ async function getTask(id){
         document.getElementById("userId").value = task.id;
         document.getElementById("taskName").value = task.taskName;
         document.getElementById("description").value = task.description;
-        document.getElementById("dateCreation").value = task.creationDate;
     }
     else {
         const error = await response.json();
@@ -34,14 +33,13 @@ async function getTask(id){
     }
 }
 
-async function createTask(TaskName, Description, DateCreation){
+async function createTask(TaskName, Description){
     const response = await fetch("/api/ToDo", {
         method: "POST",
         headers: { "Accept": "application/json", "Content-Type": "application/json" },
         body: JSON.stringify({
             taskName: TaskName,
             description: Description,
-            dateCreation: new Date(DateCreation)
         })
     });
 
@@ -55,7 +53,7 @@ async function createTask(TaskName, Description, DateCreation){
     }
 }
 
-async function editTask(userId, TaskName, Description, DateCreation){
+async function editTask(userId, TaskName, Description){
     const response = await fetch("/api/ToDo", {
         method: "PUT",
         headers: { "Accept": "application/json", "Content-Type": "application/json" },
@@ -63,7 +61,6 @@ async function editTask(userId, TaskName, Description, DateCreation){
             id: userId,
             taskName: TaskName,
             description: Description,
-            dateCreation: new Date(DateCreation)
         })
     });
 
@@ -96,20 +93,23 @@ async function deleteTask(id){
 function reset(){
     document.getElementById("taskName").value = "";
     document.getElementById("description").value = "";
-    document.getElementById("dateCreation").value = "";
 }
 
 function row(task){
     const tr = document.createElement("tr");
-    tr.setAttribute("data-rowid", user.id);
+    tr.setAttribute("data-rowid", task.id);
   
-    const nameTd = document.createElement("td");
-    nameTd.append(user.name);
-    tr.append(nameTd);
+    const taskTd = document.createElement("td");
+    taskTd.append(task.taskName);
+    tr.append(taskTd);
   
-    const ageTd = document.createElement("td");
-    ageTd.append(user.age);
-    tr.append(ageTd);
+    const descriptionTd = document.createElement("td");
+    descriptionTd.append(task.description);
+    tr.append(descriptionTd);
+
+    const dateCreationTd = document.createElement("td");
+    dateCreationTd.append(task.DateCreation);
+    tr.append(descriptionTd);
   
     const linksTd = document.createElement("td");
   
@@ -134,11 +134,12 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
         const id = document.getElementById("userId").value;
         const taskName = document.getElementById("taskName").value;
         const description = document.getElementById("description").value;
-        const creationDate = document.getElementById("dateCreation").value
 
         if (id === "")
-            await createUser(taskName, description, creationDate);
+            await createUser(taskName, description);
         else
-            await editUser(id, taskName, description, creationDate);
+            await editUser(id, taskName, description);
         reset();
 });
+
+getAllTask();

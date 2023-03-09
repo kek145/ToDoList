@@ -4,7 +4,7 @@ namespace ToDoList.Models.Data
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<ToDoDataBase> ToDoList { get; set; }
+        public DbSet<ToDoDataBase>? ToDoList { get; set; }
         public ApplicationContext() => Database.EnsureCreated();
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

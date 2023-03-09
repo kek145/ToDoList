@@ -9,22 +9,22 @@
 </head>
 <body>
     <center><h1>To Do List</h1></center>
-    <div class="container">
-        <input type="hidden" id="userId">
-        <p>TaskName: <input id="taskName" type="text" placeholder="Task name"></p>
-        <p>Description: <input id="description" type="text" placeholder="Description"></p>
-        <p>Create Date: <input id="dateCreation" type="Date" placeholder="Create Date"></p>
-        <center>
-            <p><button id="saveBtn">Save Task</button></p>
-            <p><button id="resetBtn">Reset Form</button></p>
-        </center>
+    <form>
+        <div class="container">
+            <input type="hidden" type="number" id="userId" name="userId">
+            <p>TaskName: <input id="taskName" name="taskName" type="text" placeholder="Task name"></p>
+            <p>Description: <input id="description" name="description" type="text" placeholder="Description"></p>
+            <center>
+                <p><button id="saveBtn">Save Task</button></p>
+                <p><button id="resetBtn">Reset Form</button></p>
+            </center>
     </div>
+    </form>
     <table>
         <thead>
             <tr>
                 <th>Task Name</th>
                 <th>Description</th>
-                <th>Create Date</th>
             </tr>
         </thead>
         <tbody></tbody>

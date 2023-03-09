@@ -1,16 +1,13 @@
+using ToDoList.WebApi;
 using System.Threading;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using ToDoList;
-using ToDoList.Models;
-using ToDoList.Models.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
 app.UseStaticFiles();
 
-var todo = new ToDo();
+var todo = new ToDoMain();
 
 new Thread(
     () =>
