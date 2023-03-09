@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using ToDoList.Models;
+using ToDoList.Models.Data;
 
 namespace ToDoList.WebApi
 {
@@ -14,7 +16,17 @@ namespace ToDoList.WebApi
                 ToDoDataBase? toDoDb = await request.ReadFromJsonAsync<ToDoDataBase>();
                 if(toDoDb != null)
                 {
+                    using(ApplicationContext db = new ApplicationContext())
+                    {
+                        var task = db?.ToDoList?.FirstOrDefault((t) => t.Id == toDoDb.Id);
 
+                        if(task != null)
+                        {
+                            task.TaskName = toDoDb.TaskName;
+                            task.Description = toDoDb.Description;
+                            await response.WriteAsJsonAsync(task);
+                        }
+                    }
                 }
                 else
                 {

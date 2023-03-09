@@ -16,19 +16,15 @@ namespace ToDoList.WebApi
                 var json = request?.ReadFromJsonAsync<ToDoDataBase>();
                 if(json != null)
                 {
-                    new Thread(
-                        () =>
-                        {
-                            var form = request?.Form;
-                            var task = form?["taskName"];
-                            var description = form?["description"];
-                            using(ApplicationContext db = new ApplicationContext())
-                            {
-                                ToDoDataBase toDo = new ToDoDataBase { TaskName = task, Description = description };
-                                db.Add(toDo);
-                                db.SaveChanges();
-                            }
-                        }).Start();
+                    var form = request?.Form;
+                    var task = form?["taskName"];
+                    var description = form?["description"];
+                    using (ApplicationContext db = new ApplicationContext())
+                    {
+                        ToDoDataBase toDo = new ToDoDataBase { TaskName = task, Description = description };
+                        db.Add(toDo);
+                        db.SaveChanges();
+                    }
                 }
                 else
                 {

@@ -11,6 +11,7 @@ namespace ToDoList.WebApi
         private GetTaskClass _getTaskClass = new GetTaskClass();
         private DeleteTaskClass _deleteTaskClass = new DeleteTaskClass();
         private CreateTaskClass _createTaskClass = new CreateTaskClass();
+        private ChangeTaskClass _changeTaskClass = new ChangeTaskClass();
 
         public async Task MainToDo(HttpContext context)
         {
@@ -38,7 +39,7 @@ namespace ToDoList.WebApi
             }
             else if (path == "/api/ToDo" && request.Method == "PUT")
             {
-
+                await _changeTaskClass.ChangeTask(response, request);
             }
             else if (Regex.IsMatch(path, expressionForNumber) && request.Method == "DELETE")
             {
