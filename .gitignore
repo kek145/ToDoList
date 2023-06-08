@@ -1,0 +1,33 @@
+# Binaries
+**/bin/
+**/obj/
+
+# User-specific files
+**/.vs/
+**/.idea/
+**/.vscode/
+**/*.userprefs
+**/*.suo
+**/*.cache
+
+# Build results
+**/Build/
+
+# NuGet
+**/packages/
+*.nupkg
+*.snupkg
+
+# MSTest test Results
+**/*.trx
+**/*.log
+
+# ReSharper
+**/_ReSharper.*/
+
+# Visual Studio Code
+.vscode/
+
+# Others
+*.nuget.props
+*.nuget.targets
