@@ -1,0 +1,34 @@
+﻿using ToDoList.Dto;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using ToDoList.Services.Interfaces;
+
+namespace ToDoList.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class RegistrationController : ControllerBase
+    {
+        private readonly ILogger<RegistrationController> _logger;
+        private readonly IRegistrationService _registrationService;
+        public RegistrationController(ILogger<RegistrationController> logger, IRegistrationService registrationService)
+        {
+            _logger = logger;
+            _registrationService = registrationService;
+        }
+
+        [HttpPost("signup")]
+        public async Task<IActionResult> CreateAccount([FromBody] UserDto userDto)
+        {
+            bool emailExists = await _registrationService.IsEmailExistsAsync(userDto.Email);
+            if (emailExists)
+                return Conflict("User with the same email already exists");
+
+
+            await _registrationService.RegisterAsync(userDto.UserName, userDto.Email, userDto.Password);
+
+            return Ok("Registration successful");
+        }
+    }
+}

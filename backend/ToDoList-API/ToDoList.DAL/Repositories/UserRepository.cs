@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Text;
+using ToDoList.DAL.Core;
+using System.Threading.Tasks;
 using ToDoList.Domain.Entity;
 using ToDoList.DAL.Interfaces;
-using ToDoList.DAL.Core;
-using ToDoList.Services.Helpers;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
 
 namespace ToDoList.DAL.Repositories
 {
@@ -14,9 +15,22 @@ namespace ToDoList.DAL.Repositories
         {
             _db = db;
         }
+        public static string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
         public async Task CreateUserAsync(UserEntity user)
         {
-            user.Password = HashDataHelper.HashPassword(user.Password);
+            user.Password = HashPassword(user.Password);
             _db.Users.Add(user);
             await _db.SaveChangesAsync();
         }
