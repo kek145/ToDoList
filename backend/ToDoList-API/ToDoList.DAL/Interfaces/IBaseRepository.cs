@@ -7,7 +7,7 @@ namespace ToDoList.DAL.Interfaces
     {
         Task CreateAsync(T entity);
 
-        Task<IQueryable<T>> GetAllAsync();
+        IQueryable<T> GetAllAsync();
 
         Task DeleteAsync(T entity);
 
