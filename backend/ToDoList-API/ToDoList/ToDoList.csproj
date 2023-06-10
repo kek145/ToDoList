@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ToDoList.DAL\ToDoList.DAL.csproj" />
-    <ProjectReference Include="..\ToDoList.Services\ToDoList.Services.csproj" />
   </ItemGroup>
 
 </Project>

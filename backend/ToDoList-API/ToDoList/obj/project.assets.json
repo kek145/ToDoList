@@ -597,8 +597,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.5",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4",
-          "ToDoList.Domain": "1.0.0",
-          "ToDoList.Services": "1.0.0"
+          "ToDoList.Domain": "1.0.0"
         },
         "compile": {
           "bin/placeholder/ToDoList.DAL.dll": {}
@@ -610,21 +609,14 @@
       "ToDoList.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4"
+        },
         "compile": {
           "bin/placeholder/ToDoList.Domain.dll": {}
         },
         "runtime": {
           "bin/placeholder/ToDoList.Domain.dll": {}
-        }
-      },
-      "ToDoList.Services/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "compile": {
-          "bin/placeholder/ToDoList.Services.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ToDoList.Services.dll": {}
         }
       }
     }
@@ -1688,11 +1680,6 @@
       "type": "project",
       "path": "../ToDoList.Domain/ToDoList.Domain.csproj",
       "msbuildProject": "../ToDoList.Domain/ToDoList.Domain.csproj"
-    },
-    "ToDoList.Services/1.0.0": {
-      "type": "project",
-      "path": "../ToDoList.Services/ToDoList.Services.csproj",
-      "msbuildProject": "../ToDoList.Services/ToDoList.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1702,8 +1689,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 7.0.5",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.4",
       "Swashbuckle.AspNetCore >= 6.4.0",
-      "ToDoList.DAL >= 1.0.0",
-      "ToDoList.Services >= 1.0.0"
+      "ToDoList.DAL >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1736,9 +1722,6 @@
           "projectReferences": {
             "D:\\GitHub\\ToDoList\\backend\\ToDoList-API\\ToDoList.DAL\\ToDoList.DAL.csproj": {
               "projectPath": "D:\\GitHub\\ToDoList\\backend\\ToDoList-API\\ToDoList.DAL\\ToDoList.DAL.csproj"
-            },
-            "D:\\GitHub\\ToDoList\\backend\\ToDoList-API\\ToDoList.Services\\ToDoList.Services.csproj": {
-              "projectPath": "D:\\GitHub\\ToDoList\\backend\\ToDoList-API\\ToDoList.Services\\ToDoList.Services.csproj"
             }
           }
         }
