@@ -18,7 +18,7 @@ namespace ToDoList.Controllers
             _registrationService = registrationService;
         }
 
-        [HttpPost("signup")]
+        [HttpPost("CreateAccount")]
         public async Task<IActionResult> CreateAccount([FromBody] UserDto userDto)
         {
             bool emailExists = await _registrationService.IsEmailExistsAsync(userDto.Email);
