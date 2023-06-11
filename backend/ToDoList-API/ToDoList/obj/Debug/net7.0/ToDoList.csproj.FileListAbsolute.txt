@@ -54,3 +54,12 @@ D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\refint\ToDoLis
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.pdb
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.genruntimeconfig.cache
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ref\ToDoList.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\JWT.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

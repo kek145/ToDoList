@@ -44,6 +44,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "JWT": {
+              "target": "Package",
+              "version": "[10.0.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.5, )"
@@ -121,6 +129,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "JWT": {
+              "target": "Package",
+              "version": "[10.0.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[7.0.4, )"
@@ -188,6 +204,16 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "JWT": {
+              "target": "Package",
+              "version": "[10.0.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -252,6 +278,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "JWT": {
+              "target": "Package",
+              "version": "[10.0.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
             "Microsoft.AspNetCore.Authentication.Negotiate": {
               "target": "Package",
               "version": "[7.0.5, )"
@@ -272,7 +306,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

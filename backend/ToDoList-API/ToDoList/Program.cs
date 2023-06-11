@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using ToDoList.Services.Implementations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +20,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IRegistrationService, RegistrationService>();
+builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 
 builder.Services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationContext>(options =>
 {
