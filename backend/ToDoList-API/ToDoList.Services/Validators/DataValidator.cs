@@ -12,9 +12,9 @@ namespace ToDoList.Services.Validators
             return true;
         }
 
-        public bool CheckWhitespace(string username, string email, string password)
+        public bool CheckWhitespace(string username, string email, string password, string confirmPassword)
         {
-            if (username.Contains(" ") || email.Contains(" ") || password.Contains(" "))
+            if (username.Contains(" ") || email.Contains(" ") || password.Contains(" ") || confirmPassword.Contains(" "))
                 return false;
             else return true;
         }
@@ -34,9 +34,9 @@ namespace ToDoList.Services.Validators
 
         public bool IsEmailValid(string email)
         {
-            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            string pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
 
-            Regex regex = new Regex(pattern);
+            Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
             return regex.IsMatch(email);
         }
     }

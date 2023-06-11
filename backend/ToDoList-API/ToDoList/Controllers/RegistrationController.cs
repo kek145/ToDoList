@@ -29,7 +29,7 @@ namespace ToDoList.Controllers
                 return Conflict("User with the same email already exists!");
             if (!validator.ValidateFieldsNotEmpty(userDto.UserName, userDto.Email, userDto.Password))
                 return BadRequest("Fields cannot be empty!");
-            if (!validator.CheckWhitespace(userDto.UserName, userDto.Email, userDto.Password))
+            if (!validator.CheckWhitespace(userDto.UserName, userDto.Email, userDto.Password, userDto.ConfirmPassword))
                 return BadRequest("The entered data cannot contain spaces!");
             if (!validator.ContainsRussian(userDto.UserName, userDto.Email, userDto.Password))
                 return BadRequest("The entered data cannot contain Russian characters!");

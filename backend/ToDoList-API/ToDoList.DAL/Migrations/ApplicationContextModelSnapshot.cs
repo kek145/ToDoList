@@ -34,7 +34,7 @@ namespace ToDoList.DAL.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 6, 10, 12, 42, 25, 743, DateTimeKind.Utc).AddTicks(1005))
+                        .HasDefaultValue(new DateTime(2023, 6, 11, 9, 26, 54, 815, DateTimeKind.Utc).AddTicks(5954))
                         .HasColumnName("created");
 
                     b.Property<string>("Description")
@@ -95,8 +95,8 @@ namespace ToDoList.DAL.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("character varying(150)")
+                        .HasMaxLength(255)
+                        .HasColumnType("character varying(255)")
                         .HasColumnName("password");
 
                     b.Property<string>("UserName")
