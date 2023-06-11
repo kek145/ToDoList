@@ -11,5 +11,7 @@ namespace ToDoList.Dto
         public required string Email { get; set; }
         [MaxLength (50)]
         public required string Password { get; set; }
+        [MaxLength(50)]
+        public required string ConfirmPassword { get; set; }
     }
 }

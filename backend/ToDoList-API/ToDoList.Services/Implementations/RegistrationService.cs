@@ -24,10 +24,12 @@ namespace ToDoList.Services.Implementations
             return false;
         }
 
-        public async Task<HttpStatusCode> RegisterAsync(string username, string email, string password)
+        public async Task<HttpStatusCode> RegisterAsync(string username, string email, string password, string confirmpassword)
         {
             try
             {
+                if (password != confirmpassword)
+                    return HttpStatusCode.BadRequest;
                 var entity = new UserEntity
                 {
                     UserName = username,

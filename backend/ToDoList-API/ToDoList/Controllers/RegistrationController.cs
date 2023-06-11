@@ -26,18 +26,20 @@ namespace ToDoList.Controllers
             bool emailExists = await _registrationService.IsEmailExistsAsync(userDto.Email);
 
             if (emailExists)
-                return Conflict("User with the same email already exists");
+                return Conflict("User with the same email already exists!");
             if (!validator.ValidateFieldsNotEmpty(userDto.UserName, userDto.Email, userDto.Password))
-                return BadRequest("Fields cannot be empty");
+                return BadRequest("Fields cannot be empty!");
             if (!validator.CheckWhitespace(userDto.UserName, userDto.Email, userDto.Password))
-                return BadRequest("The entered data cannot contain spaces");
+                return BadRequest("The entered data cannot contain spaces!");
             if (!validator.ContainsRussian(userDto.UserName, userDto.Email, userDto.Password))
-                return BadRequest("The entered data cannot contain Russian characters");
+                return BadRequest("The entered data cannot contain Russian characters!");
             if (!validator.IsEmailValid(userDto.Email))
-                return BadRequest("Mail cannot contain characters");
+                return BadRequest("Mail cannot contain characters!");
+            if (userDto.Password != userDto.ConfirmPassword)
+                return BadRequest("Password mismatch!");
 
 
-            await _registrationService.RegisterAsync(userDto.UserName, userDto.Email, userDto.Password);
+            await _registrationService.RegisterAsync(userDto.UserName, userDto.Email, userDto.Password, userDto.ConfirmPassword);
 
             return Ok("Registration successful");
         }
