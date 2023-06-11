@@ -28,7 +28,7 @@ namespace ToDoList.DAL.Core
                 builder.Property(user => user.UserId).HasColumnName("userid").IsRequired();
                 builder.Property(user => user.UserName).HasColumnName("username").HasMaxLength(20).IsRequired();
                 builder.Property(user => user.Email).HasColumnName("email").HasMaxLength(100).IsRequired();
-                builder.Property(user => user.Password).HasColumnName("password").HasMaxLength(150).IsRequired();
+                builder.Property(user => user.Password).HasColumnName("password").HasMaxLength(255).IsRequired();
             });
 
             modelBuilder.Entity<TaskEntity>(builder =>

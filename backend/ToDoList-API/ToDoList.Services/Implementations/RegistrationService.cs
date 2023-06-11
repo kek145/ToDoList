@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using ToDoList.Domain.Entity;
 using ToDoList.DAL.Interfaces;
 using ToDoList.Services.Interfaces;
+using ToDoList.Services.Helpers;
 
 namespace ToDoList.Services.Implementations
 {
@@ -31,7 +32,7 @@ namespace ToDoList.Services.Implementations
                 {
                     UserName = username,
                     Email = email,
-                    Password = password
+                    Password = HashDataHelper.HashPassword(password)
                 };
                 await _userRepository.CreateUserAsync(entity);
 
