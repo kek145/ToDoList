@@ -15,24 +15,24 @@ namespace ToDoList.DAL.Repositories
         }
         public async Task CreateUserAsync(UserEntity user)
         {
-            _db.Users.Add(user);
+            _db.UsersEntity.Add(user);
             await _db.SaveChangesAsync();
         }
 
         public async Task DeleteUserAsync(int userid)
         {
-            var user = await _db.Users.FindAsync(userid);
+            var user = await _db.UsersEntity.FindAsync(userid);
 
             if (user != null) 
             {
-                _db.Users.Remove(user);
+                _db.UsersEntity.Remove(user);
                 await _db.SaveChangesAsync();
             }
         }
 
         public async Task<UserEntity> FindByEmailAsync(string email)
         {
-            var user = await _db.Users.FirstOrDefaultAsync(user => user.Email == email);
+            var user = await _db.UsersEntity.FirstOrDefaultAsync(user => user.Email == email);
 
             if (user is null)
                 return null!;
@@ -42,7 +42,7 @@ namespace ToDoList.DAL.Repositories
 
         public async Task<UserEntity> FindByIdAsync(int id)
         {
-            var user = await _db.Users.FirstOrDefaultAsync(user => user.UserId == id);
+            var user = await _db.UsersEntity.FirstOrDefaultAsync(user => user.UserId == id);
 
             if (user is null)
                 return null!;
@@ -52,7 +52,7 @@ namespace ToDoList.DAL.Repositories
 
         public async Task<UserEntity> FindByUserNameAsync(string username)
         {
-            var user = await _db.Users.FirstOrDefaultAsync(user => user.UserName == username);
+            var user = await _db.UsersEntity.FirstOrDefaultAsync(user => user.UserName == username);
 
             if(user is null) 
                 return null!;
@@ -61,7 +61,7 @@ namespace ToDoList.DAL.Repositories
 
         public async Task UpdateUserAsync(UserEntity user)
         {
-            _db.Users.Update(user);
+            _db.UsersEntity.Update(user);
             await _db.SaveChangesAsync();
         }
     }

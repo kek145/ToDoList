@@ -9,8 +9,8 @@ namespace ToDoList.DAL.Core
 {
     public class ApplicationContext : IdentityDbContext
     {
-        public DbSet<UserEntity> Users { get; set; }
-        public DbSet<TaskEntity> Tasks { get; set; }
+        public DbSet<UserEntity> UsersEntity { get; set; }
+        public DbSet<TaskEntity> TasksEtnity { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options): base(options) { }
 
