@@ -2,11 +2,8 @@
 
 namespace ToDoList.Models.Dto
 {
-    public class UserDto
+    public class LoginDto
     {
-        [Required]
-        [MaxLength(20)]
-        public string UserName { get; set; } = string.Empty;
         [Required]
         [EmailAddress]
         [MaxLength(100)]
@@ -14,8 +11,5 @@ namespace ToDoList.Models.Dto
         [Required]
         [MaxLength(50)]
         public string Password { get; set; } = string.Empty;
-        [Required]
-        [MaxLength(50)]
-        public string ConfirmPassword { get; set; } = string.Empty;
     }
 }

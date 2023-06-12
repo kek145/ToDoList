@@ -1,23 +1,64 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Text;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using ToDoList.Domain.Entity;
+using ToDoList.DAL.Interfaces;
+using ToDoList.Services.Helpers;
 using ToDoList.Services.Interfaces;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
+using ToDoList.Services.Configurations;
+using Microsoft.Extensions.Options;
 
 namespace ToDoList.Services.Implementations
 {
     public class AuthenticationService : IAuthenticationService
     {
-        public Task<bool> AuthenticateAsync(string email, string password)
+        private readonly IUserRepository _userRepository;
+        private readonly JwtConfiguration _options;
+        public AuthenticationService(IUserRepository userRepository, IOptions<JwtConfiguration> options)
         {
-            throw new System.NotImplementedException();
+            _userRepository = userRepository;
+            _options = options.Value;
         }
 
-        public Task<string> GenerateTokenAsync(string username)
+        public async Task<string> AuthenticateAsync(string email, string password)
         {
-            throw new System.NotImplementedException();
+            var user = await _userRepository.FindByEmailAsync(email);
+
+            if (user is null)
+                return null!;
+
+            bool isPasswordValid = HashDataHelper.VerifyPassword(password, user.Password);
+            if(!isPasswordValid)
+                return null!;
+
+            string token = GenerateToken(user);
+
+            return token;
         }
 
-        public Task<bool> ValidateTokenAsync(string token)
+        public string GenerateToken(UserEntity entity)
         {
-            throw new System.NotImplementedException();
+            List<Claim> claims = new List<Claim>();
+            claims.Add(new Claim(ClaimTypes.Email, entity.Email));
+
+            var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey));
+
+            var jwt = new JwtSecurityToken(
+                issuer: _options.Issuer,
+                audience: _options.Audience,
+                claims: claims,
+                expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(60)),
+                notBefore: DateTime.UtcNow,
+                signingCredentials: new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
+                );
+
+            return new JwtSecurityTokenHandler().WriteToken(jwt);
         }
+
     }
 }

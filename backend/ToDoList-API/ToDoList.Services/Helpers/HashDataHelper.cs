@@ -18,5 +18,11 @@ namespace ToDoList.Services.Helpers
                 return builder.ToString();
             }
         }
+
+        public static bool VerifyPassword(string password, string hashedPassword)
+        {
+            string hashedInput = HashPassword(password);
+            return string.Equals(hashedInput, hashedPassword);
+        }
     }
 }
