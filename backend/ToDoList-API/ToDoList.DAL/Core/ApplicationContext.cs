@@ -2,10 +2,12 @@
 using ToDoList.Domain.Enum;
 using ToDoList.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace ToDoList.DAL.Core
 {
-    public class ApplicationContext : DbContext
+    public class ApplicationContext : IdentityDbContext
     {
         public DbSet<UserEntity> Users { get; set; }
         public DbSet<TaskEntity> Tasks { get; set; }
@@ -14,6 +16,22 @@ namespace ToDoList.DAL.Core
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<IdentityUserLogin<string>>(entity =>
+            {
+                entity.HasNoKey();
+            });
+
+            modelBuilder.Entity<IdentityUserRole<string>>(entity =>
+            {
+                entity.HasNoKey();
+            });
+
+            modelBuilder.Entity<IdentityUserToken<string>>(entity =>
+            {
+                entity.HasNoKey();
+            });
+
+
             modelBuilder.Entity<UserEntity>().ToTable("users");
             modelBuilder.Entity<TaskEntity>().ToTable("tasks");
 
