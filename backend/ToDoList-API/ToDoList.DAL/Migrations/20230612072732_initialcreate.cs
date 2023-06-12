@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ToDoList.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class initialcreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -37,18 +37,18 @@ namespace ToDoList.DAL.Migrations
                     description = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
                     status = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false),
                     priority = table.Column<int>(type: "integer", nullable: false, defaultValue: 1),
-                    created = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2023, 6, 11, 9, 26, 54, 815, DateTimeKind.Utc).AddTicks(5954)),
-                    user_id = table.Column<int>(type: "integer", nullable: false),
-                    UserId = table.Column<int>(type: "integer", nullable: true)
+                    created = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2023, 6, 12, 7, 27, 32, 907, DateTimeKind.Utc).AddTicks(5899)),
+                    user_id = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_tasks", x => x.taskid);
                     table.ForeignKey(
-                        name: "FK_tasks_users_UserId",
-                        column: x => x.UserId,
+                        name: "FK_tasks_users_user_id",
+                        column: x => x.user_id,
                         principalTable: "users",
-                        principalColumn: "userid");
+                        principalColumn: "userid",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -58,9 +58,9 @@ namespace ToDoList.DAL.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_tasks_UserId",
+                name: "IX_tasks_user_id",
                 table: "tasks",
-                column: "UserId");
+                column: "user_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_users_email",

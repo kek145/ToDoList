@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ToDoList.Dto
+namespace ToDoList.Models.Dto
 {
     public class UserDto
     {
@@ -9,7 +9,7 @@ namespace ToDoList.Dto
         [EmailAddress]
         [MaxLength(100)]
         public required string Email { get; set; }
-        [MaxLength (50)]
+        [MaxLength(50)]
         public required string Password { get; set; }
         [MaxLength(50)]
         public required string ConfirmPassword { get; set; }

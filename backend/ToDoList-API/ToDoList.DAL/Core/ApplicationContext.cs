@@ -39,7 +39,7 @@ namespace ToDoList.DAL.Core
                 builder.Property(task => task.Status).HasColumnName("status").HasDefaultValue(false);
                 builder.Property(task => task.Priority).HasColumnName("priority").HasDefaultValue(Priority.Easy);
                 builder.Property(task => task.CreatedDate).HasColumnName("created").HasDefaultValue(DateTime.UtcNow);
-                builder.Property(task => task.UsersId).HasColumnName("user_id").IsRequired();
+                builder.Property(task => task.UserID).HasColumnName("user_id").IsRequired();
             });
         }
     }

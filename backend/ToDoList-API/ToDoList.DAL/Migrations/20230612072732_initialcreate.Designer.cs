@@ -12,8 +12,8 @@ using ToDoList.DAL.Core;
 namespace ToDoList.DAL.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230611092654_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230612072732_initialcreate")]
+    partial class initialcreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,7 +37,7 @@ namespace ToDoList.DAL.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 6, 11, 9, 26, 54, 815, DateTimeKind.Utc).AddTicks(5954))
+                        .HasDefaultValue(new DateTime(2023, 6, 12, 7, 27, 32, 907, DateTimeKind.Utc).AddTicks(5899))
                         .HasColumnName("created");
 
                     b.Property<string>("Description")
@@ -64,10 +64,7 @@ namespace ToDoList.DAL.Migrations
                         .HasColumnType("character varying(30)")
                         .HasColumnName("title");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("UsersId")
+                    b.Property<int>("UserID")
                         .HasColumnType("integer")
                         .HasColumnName("user_id");
 
@@ -76,7 +73,7 @@ namespace ToDoList.DAL.Migrations
                     b.HasIndex("Title")
                         .IsUnique();
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserID");
 
                     b.ToTable("tasks", (string)null);
                 });
@@ -120,7 +117,9 @@ namespace ToDoList.DAL.Migrations
                 {
                     b.HasOne("ToDoList.Domain.Entity.UserEntity", "User")
                         .WithMany("Tasks")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
