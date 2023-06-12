@@ -63,3 +63,9 @@ D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\refint\ToDoLis
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.pdb
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.genruntimeconfig.cache
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ref\ToDoList.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\Microsoft.Extensions.Options.dll

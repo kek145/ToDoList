@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using ToDoList.Domain.Entity;
+﻿using System;
 using ToDoList.Domain.Enum;
+using ToDoList.Domain.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace ToDoList.DAL.Core
 {
