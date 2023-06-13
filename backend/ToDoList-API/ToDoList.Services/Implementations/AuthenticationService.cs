@@ -52,7 +52,7 @@ namespace ToDoList.Services.Implementations
                 issuer: _options.Issuer,
                 audience: _options.Audience,
                 claims: claims,
-                expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(60)),
+                expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(1)),
                 notBefore: DateTime.UtcNow,
                 signingCredentials: new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
                 );

@@ -1,25 +1,22 @@
-﻿using ToDoList.Models.Dto;
+﻿using System;
+using ToDoList.Models.Dto;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ToDoList.Services.Validators;
 using ToDoList.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
-using ToDoList.Domain.Entity;
-using System;
-using ToDoList.Services.Configurations;
-using Microsoft.Extensions.Options;
 
 namespace ToDoList.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AuthenticationController : ControllerBase
+    public class AuthController : ControllerBase
     {
-        private readonly ILogger<AuthenticationController> _logger;
+        private readonly ILogger<AuthController> _logger;
         private readonly IRegistrationService _registrationService;
         private readonly IAuthenticationService _authenticationService;
-        public AuthenticationController(ILogger<AuthenticationController> logger, IRegistrationService registrationService, IAuthenticationService authenticationService)
+        public AuthController(ILogger<AuthController> logger, IRegistrationService registrationService, IAuthenticationService authenticationService)
         {
             _logger = logger;
             _registrationService = registrationService;
@@ -37,10 +34,8 @@ namespace ToDoList.Controllers
 
             string token = await _authenticationService.AuthenticateAsync(loginDto.Email, loginDto.Password);
 
-            if (token == null)
-            {
+            if (token is null)
                 return Unauthorized();
-            }
 
             return Ok(new { Token = token });
         }
@@ -71,11 +66,6 @@ namespace ToDoList.Controllers
 
         [Authorize]
         [HttpGet("protected")]
-        public IActionResult ProtectedEndpoint()
-        {
-            // Защищенный конечный точка, доступный только авторизованным пользователям
-            // Возвращает данные или выполняет операции, доступные только для авторизованных пользователей
-            return Ok($"{DateTime.Now} Это защищенный ресурс.");
-        }
+        public IActionResult ProtectedEndpoint() => Ok($"{DateTime.Now} Это защищенный ресурс.");
     }
 }
