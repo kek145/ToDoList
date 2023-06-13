@@ -1,19 +1,19 @@
 using System.Text;
 using ToDoList.DAL.Core;
 using ToDoList.DAL.Interfaces;
+using Microsoft.OpenApi.Models;
 using ToDoList.DAL.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using ToDoList.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using ToDoList.Services.Configurations;
+using Swashbuckle.AspNetCore.Filters;
 using ToDoList.Services.Implementations;
 using Microsoft.Extensions.Configuration;
+using ToDoList.Configurations.Configurations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 

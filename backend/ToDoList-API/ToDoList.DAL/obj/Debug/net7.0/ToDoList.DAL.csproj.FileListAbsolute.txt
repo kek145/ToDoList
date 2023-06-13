@@ -15,3 +15,5 @@ D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList.DAL\obj\Debug\net7.0\refint\ToD
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList.DAL\obj\Debug\net7.0\ToDoList.DAL.pdb
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList.DAL\obj\Debug\net7.0\ToDoList.DAL.genruntimeconfig.cache
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList.DAL\obj\Debug\net7.0\ref\ToDoList.DAL.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList.DAL\bin\Debug\net7.0\ToDoList.Configurations.dll
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList.DAL\bin\Debug\net7.0\ToDoList.Configurations.pdb

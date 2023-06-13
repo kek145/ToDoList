@@ -5,13 +5,12 @@ using System.Threading.Tasks;
 using ToDoList.Domain.Entity;
 using ToDoList.DAL.Interfaces;
 using ToDoList.Services.Helpers;
+using System.Collections.Generic;
 using ToDoList.Services.Interfaces;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using Microsoft.Extensions.Configuration;
-using System.Collections.Generic;
-using ToDoList.Services.Configurations;
-using Microsoft.Extensions.Options;
+using ToDoList.Configurations.Configurations;
 
 namespace ToDoList.Services.Implementations
 {
@@ -59,6 +58,5 @@ namespace ToDoList.Services.Implementations
 
             return new JwtSecurityTokenHandler().WriteToken(jwt);
         }
-
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QM5PuAX2vgDRQ+0TRljT5dM48xbw9hLjgjUte9PuVlYAb/6cX/KZcwmW2wMeOa5eYEYiIRNcwnN2Lp9FJIC2yA==",
+  "dgSpecHash": "H7Ni+nUnVLSS7+zKh2DNeggsuJQdqAF7OER5Rs14+zh8TLYpTTLGP7hSJX3j98eDrrRnryZstDa3u/karOytHw==",
   "success": true,
   "projectFilePath": "D:\\GitHub\\ToDoList\\backend\\ToDoList-API\\ToDoList.Services\\ToDoList.Services.csproj",
   "expectedPackageFiles": [

@@ -15,6 +15,7 @@
           "Microsoft.EntityFrameworkCore.Design": "7.0.5",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.5",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4",
+          "ToDoList.Configurations": "1.0.0",
           "ToDoList.Domain": "1.0.0"
         },
         "runtime": {
@@ -351,6 +352,11 @@
           "System.Text.Encodings.Web": "7.0.0"
         }
       },
+      "ToDoList.Configurations/1.0.0": {
+        "runtime": {
+          "ToDoList.Configurations.dll": {}
+        }
+      },
       "ToDoList.Domain/1.0.0": {
         "dependencies": {
           "JWT": "10.0.2",
@@ -641,6 +647,11 @@
       "sha512": "sha512-DaGSsVqKsn/ia6RG8frjwmJonfos0srquhw09TlT8KRw5I43E+4gs+/bZj4K0vShJ5H9imCuXupb4RmS+dBy3w==",
       "path": "system.text.json/7.0.0",
       "hashPath": "system.text.json.7.0.0.nupkg.sha512"
+    },
+    "ToDoList.Configurations/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "ToDoList.Domain/1.0.0": {
       "type": "project",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DQteRenopm0HNYWpQnbiaN78zX62HVC0wMzgiM33Lfe6oroMYmSevZa0FV5akLTs+H0shWNAW9mj8bli+XvB/A==",
+  "dgSpecHash": "dLeQ7R0f1KI4RVuxAwdM3P07Zt3vyJYUzfn8xL6PQXpH1msOL4mHTux16ZH+rFhHQxNfRKyqKtH5CLMMSKYwuw==",
   "success": true,
   "projectFilePath": "D:\\GitHub\\ToDoList\\backend\\ToDoList-API\\ToDoList.DAL\\ToDoList.DAL.csproj",
   "expectedPackageFiles": [

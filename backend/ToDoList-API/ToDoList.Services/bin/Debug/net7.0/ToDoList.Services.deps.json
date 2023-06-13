@@ -10,6 +10,7 @@
         "dependencies": {
           "JWT": "10.0.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.5",
+          "ToDoList.Configurations": "1.0.0",
           "ToDoList.DAL": "1.0.0",
           "ToDoList.Domain": "1.0.0"
         },
@@ -295,6 +296,11 @@
           "System.Text.Encodings.Web": "6.0.0"
         }
       },
+      "ToDoList.Configurations/1.0.0": {
+        "runtime": {
+          "ToDoList.Configurations.dll": {}
+        }
+      },
       "ToDoList.DAL/1.0.0": {
         "dependencies": {
           "JWT": "10.0.2",
@@ -302,6 +308,7 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.5",
           "Microsoft.EntityFrameworkCore": "7.0.5",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4",
+          "ToDoList.Configurations": "1.0.0",
           "ToDoList.Domain": "1.0.0"
         },
         "runtime": {
@@ -563,6 +570,11 @@
       "sha512": "sha512-/Tf/9XjprpHolbcDOrxsKVYy/mUG/FS7aGd9YUgBVEiHeQH4kAE0T1sMbde7q6B5xcrNUsJ5iW7D1RvHudQNqA==",
       "path": "system.text.json/6.0.7",
       "hashPath": "system.text.json.6.0.7.nupkg.sha512"
+    },
+    "ToDoList.Configurations/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "ToDoList.DAL/1.0.0": {
       "type": "project",

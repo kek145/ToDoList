@@ -585,6 +585,16 @@
           "buildTransitive/netcoreapp3.1/System.Text.Json.targets": {}
         }
       },
+      "ToDoList.Configurations/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/ToDoList.Configurations.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ToDoList.Configurations.dll": {}
+        }
+      },
       "ToDoList.DAL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -594,6 +604,7 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.5",
           "Microsoft.EntityFrameworkCore": "7.0.5",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4",
+          "ToDoList.Configurations": "1.0.0",
           "ToDoList.Domain": "1.0.0"
         },
         "compile": {
@@ -1530,6 +1541,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "ToDoList.Configurations/1.0.0": {
+      "type": "project",
+      "path": "../ToDoList.Configurations/ToDoList.Configurations.csproj",
+      "msbuildProject": "../ToDoList.Configurations/ToDoList.Configurations.csproj"
+    },
     "ToDoList.DAL/1.0.0": {
       "type": "project",
       "path": "../ToDoList.DAL/ToDoList.DAL.csproj",
@@ -1545,6 +1561,7 @@
     "net7.0": [
       "JWT >= 10.0.2",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 7.0.5",
+      "ToDoList.Configurations >= 1.0.0",
       "ToDoList.DAL >= 1.0.0",
       "ToDoList.Domain >= 1.0.0"
     ]
@@ -1576,6 +1593,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "D:\\GitHub\\ToDoList\\backend\\ToDoList-API\\ToDoList.Configurations\\ToDoList.Configurations.csproj": {
+              "projectPath": "D:\\GitHub\\ToDoList\\backend\\ToDoList-API\\ToDoList.Configurations\\ToDoList.Configurations.csproj"
+            },
             "D:\\GitHub\\ToDoList\\backend\\ToDoList-API\\ToDoList.DAL\\ToDoList.DAL.csproj": {
               "projectPath": "D:\\GitHub\\ToDoList\\backend\\ToDoList-API\\ToDoList.DAL\\ToDoList.DAL.csproj"
             },

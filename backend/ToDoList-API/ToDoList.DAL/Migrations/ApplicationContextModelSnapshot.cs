@@ -22,39 +22,6 @@ namespace ToDoList.DAL.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("ToDoList.Domain.Entity.RefreshTokenEntity", b =>
-                {
-                    b.Property<int>("TokenId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("tokenid");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("TokenId"));
-
-                    b.Property<DateTime>("Expiration")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("expiration");
-
-                    b.Property<string>("Token")
-                        .IsRequired()
-                        .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)")
-                        .HasColumnName("token");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("integer")
-                        .HasColumnName("user_id");
-
-                    b.HasKey("TokenId");
-
-                    b.HasIndex("Token")
-                        .IsUnique();
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("tokens", (string)null);
-                });
-
             modelBuilder.Entity("ToDoList.Domain.Entity.TaskEntity", b =>
                 {
                     b.Property<int>("TaskId")
@@ -67,7 +34,7 @@ namespace ToDoList.DAL.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 6, 13, 8, 33, 44, 45, DateTimeKind.Utc).AddTicks(9814))
+                        .HasDefaultValue(new DateTime(2023, 6, 13, 14, 43, 0, 268, DateTimeKind.Utc).AddTicks(350))
                         .HasColumnName("created");
 
                     b.Property<string>("Description")
@@ -141,17 +108,6 @@ namespace ToDoList.DAL.Migrations
                         .IsUnique();
 
                     b.ToTable("users", (string)null);
-                });
-
-            modelBuilder.Entity("ToDoList.Domain.Entity.RefreshTokenEntity", b =>
-                {
-                    b.HasOne("ToDoList.Domain.Entity.UserEntity", "User")
-                        .WithMany()
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ToDoList.Domain.Entity.TaskEntity", b =>
