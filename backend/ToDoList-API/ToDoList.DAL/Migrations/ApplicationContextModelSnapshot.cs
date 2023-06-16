@@ -17,7 +17,7 @@ namespace ToDoList.DAL.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.5")
+                .HasAnnotation("ProductVersion", "7.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -34,7 +34,7 @@ namespace ToDoList.DAL.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 6, 13, 14, 43, 0, 268, DateTimeKind.Utc).AddTicks(350))
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 9, 19, 20, 146, DateTimeKind.Utc).AddTicks(7121))
                         .HasColumnName("created");
 
                     b.Property<string>("Description")

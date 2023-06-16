@@ -11,7 +11,7 @@ namespace ToDoList.Domain.Entity
         public bool Status { get; set; }
         public Priority Priority { get; set; }
         public DateTime CreatedDate { get; set; }
-        public int UserID{ get; set; }
+        public int UserID { get; set; }
         public UserEntity? User { get; set; }
     }
 }

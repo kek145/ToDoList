@@ -1,9 +1,3 @@
-D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.csproj.AssemblyReference.cache
-D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.GeneratedMSBuildEditorConfig.editorconfig
-D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.AssemblyInfoInputs.cache
-D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.AssemblyInfo.cs
-D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.csproj.CoreCompileInputs.cache
-D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.MvcApplicationPartsAssemblyInfo.cache
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\appsettings.Development.json
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\appsettings.json
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\ToDoList.exe
@@ -59,7 +53,13 @@ D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\ToDoList.Confi
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\ToDoList.DAL.pdb
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\ToDoList.Services.pdb
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\bin\Debug\net7.0\ToDoList.Domain.pdb
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.csproj.AssemblyReference.cache
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.AssemblyInfoInputs.cache
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.AssemblyInfo.cs
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.csproj.CoreCompileInputs.cache
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.MvcApplicationPartsAssemblyInfo.cs
+D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\ToDoList.MvcApplicationPartsAssemblyInfo.cache
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\staticwebassets\msbuild.ToDoList.Microsoft.AspNetCore.StaticWebAssets.props
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\staticwebassets\msbuild.build.ToDoList.props
 D:\GitHub\ToDoList\backend\ToDoList-API\ToDoList\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.ToDoList.props

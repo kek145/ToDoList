@@ -37,7 +37,7 @@ namespace ToDoList.DAL.Migrations
                     description = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
                     status = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false),
                     priority = table.Column<int>(type: "integer", nullable: false, defaultValue: 1),
-                    created = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2023, 6, 13, 14, 43, 0, 268, DateTimeKind.Utc).AddTicks(350)),
+                    created = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2023, 6, 16, 9, 19, 20, 146, DateTimeKind.Utc).AddTicks(7121)),
                     user_id = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>

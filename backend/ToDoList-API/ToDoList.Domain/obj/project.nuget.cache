@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "2CDX09P5E7ET2sgtC18CQPWRapBzmIMVvVTqVJl7Ex/oJRfYe+LYALMfrjPcVVqAsZfHHsveP8fy2jEIaskfsg==",
+  "dgSpecHash": "Gjk10aRivO/xDTKaCD8reug2oawSGF8t6+pM/kkglF2XsK3dPt5F+AeEP7JUBKssw0X2KCcRr9ml2dqyhLJbtw==",
   "success": true,
   "projectFilePath": "D:\\GitHub\\ToDoList\\backend\\ToDoList-API\\ToDoList.Domain\\ToDoList.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\urabo\\.nuget\\packages\\jwt\\10.0.2\\jwt.10.0.2.nupkg.sha512",
-    "C:\\Users\\urabo\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.5\\microsoft.aspnetcore.authentication.jwtbearer.7.0.5.nupkg.sha512",
+    "C:\\Users\\urabo\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.7\\microsoft.aspnetcore.authentication.jwtbearer.7.0.7.nupkg.sha512",
     "C:\\Users\\urabo\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\urabo\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",
     "C:\\Users\\urabo\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.5\\microsoft.entityframeworkcore.abstractions.7.0.5.nupkg.sha512",
