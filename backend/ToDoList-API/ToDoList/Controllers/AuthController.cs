@@ -68,6 +68,6 @@ namespace ToDoList.Controllers
 
         [Authorize]
         [HttpGet("protected")]
-        public IActionResult ProtectedEndpoint() => Ok($"{DateTime.Now} Это защищенный ресурс.");
+        public IActionResult ProtectedEndpoint() => Ok($"Это защищенный ресурс.");
     }
 }

@@ -42,8 +42,10 @@ namespace ToDoList.Services.Implementations
 
         public string GenerateToken(UserEntity entity)
         {
-            List<Claim> claims = new List<Claim>();
-            claims.Add(new Claim(ClaimTypes.Email, entity.Email));
+            List<Claim> claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Email, entity.Email)
+            };
 
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey));
 
