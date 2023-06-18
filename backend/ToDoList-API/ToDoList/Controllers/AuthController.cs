@@ -29,21 +29,16 @@ namespace ToDoList.Controllers
         [Route("LoginAccount")]
         public async Task<IActionResult> LoginAccount([FromBody] LoginDto loginDto)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             string token = await _authenticationService.AuthenticateAsync(loginDto.Email, loginDto.Password);
 
             if (token is null)
-                return Unauthorized();
+                return Unauthorized("User is not found");
 
             return Ok(new { Token = token });
         }
 
         [HttpPost("CreateAccount")]
-        public async Task<IActionResult> CreateAccount([FromBody] UserDto userDto)
+        public async Task<IActionResult> CreateAccount([FromBody] RegisterDto userDto)
         {
             var validator = new DataValidator();
             bool emailExists = await _registrationService.IsEmailExistsAsync(userDto.Email);
@@ -65,9 +60,5 @@ namespace ToDoList.Controllers
 
             return Ok("Registration successful");
         }
-
-        [Authorize]
-        [HttpGet("protected")]
-        public IActionResult ProtectedEndpoint() => Ok($"Это защищенный ресурс.");
     }
 }

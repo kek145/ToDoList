@@ -28,7 +28,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 builder.Services.AddScoped<IRegistrationService, RegistrationService>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 
