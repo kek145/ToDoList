@@ -3,6 +3,7 @@ using ToDoList.Domain.Enum;
 using ToDoList.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 
 namespace ToDoList.DAL.Core
 {
@@ -10,8 +11,8 @@ namespace ToDoList.DAL.Core
     {
         public DbSet<UserEntity> UsersEntity { get; set; }
         public DbSet<TaskEntity> TasksEntity { get; set; }
-
-        public ApplicationContext(DbContextOptions<ApplicationContext> options): base(options) { }
+        
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) {}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         { 
@@ -22,7 +23,6 @@ namespace ToDoList.DAL.Core
             modelBuilder.Entity<TaskEntity>().HasKey(task => task.TaskId);
 
             modelBuilder.Entity<UserEntity>().HasIndex(user => user.Email).IsUnique();
-            modelBuilder.Entity<TaskEntity>().HasIndex(task => task.Title).IsUnique();
 
             modelBuilder.Entity<UserEntity>(builder =>
             {

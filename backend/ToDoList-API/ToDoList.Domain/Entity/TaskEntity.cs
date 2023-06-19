@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 using ToDoList.Domain.Enum;
 
 namespace ToDoList.Domain.Entity
@@ -12,6 +13,7 @@ namespace ToDoList.Domain.Entity
         public Priority Priority { get; set; }
         public DateTime CreatedDate { get; set; }
         public int UserID { get; set; }
+        [JsonIgnore]
         public UserEntity? User { get; set; }
     }
 }

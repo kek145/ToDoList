@@ -26,5 +26,6 @@
     <ProjectReference Include="..\ToDoList.Configurations\ToDoList.Configurations.csproj" />
     <ProjectReference Include="..\ToDoList.Domain\ToDoList.Domain.csproj" />
   </ItemGroup>
+ 
 
 </Project>
