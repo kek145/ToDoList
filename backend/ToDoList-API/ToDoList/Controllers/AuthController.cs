@@ -1,13 +1,9 @@
-﻿using System;
-using ToDoList.Models.Dto;
+﻿using ToDoList.Models.Dto;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ToDoList.Services.Validators;
 using ToDoList.Services.Interfaces;
-using Microsoft.AspNetCore.Authorization;
-using ToDoList.Configurations.Configurations;
-using Microsoft.AspNetCore.Http;
 
 namespace ToDoList.Controllers
 {
