@@ -6,8 +6,8 @@ namespace ToDoList.DAL.Interfaces
 {
     public interface ITaskRepository
     {
-        Task CreateTaskAsync(TaskEntity entity, int userId);
-        Task UpdateTaskAsync(TaskEntity entity);
+        Task CreateTaskAsync(TaskEntity entity);
+        Task UpdateTaskAsync(TaskEntity entity, int taskId);
         Task DeleteTaskAsync(int taskId, int userId);
         Task<IEnumerable<TaskEntity>> GetTasksByUserIdAsync(int userId);
     }

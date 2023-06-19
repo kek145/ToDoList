@@ -17,21 +17,20 @@ namespace ToDoList.DAL.Repositories
             _db = db;
         }
 
-        public async Task CreateTaskAsync(TaskEntity entity, int userId)
+        public async Task CreateTaskAsync(TaskEntity entity)
         {
-            entity.UserID = userId;
             await _db.Set<TaskEntity>().AddAsync(entity);
             await _db.SaveChangesAsync();
         }
 
-        public async Task UpdateTaskAsync(TaskEntity entity)
+        public async Task UpdateTaskAsync(TaskEntity entity, int taskId)
         {
-            var existingTask = await _db.Set<TaskEntity>().FindAsync(entity.TaskId);
+            var existingTask = await _db.TasksEntity.FindAsync(taskId);
 
             if (existingTask is not null)
             {
-                existingTask.Title = entity.Title;
-                existingTask.Description = entity.Description;
+                existingTask.Title = entity.Title.Trim();
+                existingTask.Description = entity.Description.Trim();
                 existingTask.Status = entity.Status;
                 existingTask.Priority = entity.Priority;
                 await _db.SaveChangesAsync();
@@ -40,18 +39,18 @@ namespace ToDoList.DAL.Repositories
 
         public async Task DeleteTaskAsync(int taskId, int userId)
         {
-            var task = await _db.Set<TaskEntity>().FirstOrDefaultAsync(task => task.TaskId == taskId && task.UserID == userId);
+            var task = await _db.TasksEntity.FirstOrDefaultAsync(task => task.TaskId == taskId && task.UserID == userId);
 
             if (task is not null)
             {
-                _db.Set<TaskEntity>().Remove(task);
+                _db.TasksEntity.Remove(task);
                 await _db.SaveChangesAsync();
             }
         }
 
         public async Task<IEnumerable<TaskEntity>> GetTasksByUserIdAsync(int userId)
         {
-            return await _db.Set<TaskEntity>()
+            return await _db.TasksEntity
                 .Where(task => task.UserID == userId)
                 .ToListAsync();
         }

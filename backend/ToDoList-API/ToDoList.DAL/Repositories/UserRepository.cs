@@ -34,9 +34,9 @@ namespace ToDoList.DAL.Repositories
             return user!;
         }
 
-        public async Task<UserEntity> FindByIdAsync(int id)
+        public async Task<UserEntity> FindByIdAsync(int userId)
         {
-            var user = await _db.UsersEntity.FirstOrDefaultAsync(user => user.UserId == id);
+            var user = await _db.UsersEntity.FirstOrDefaultAsync(user => user.UserId == userId);
 
             if (user is null)
                 return null!;

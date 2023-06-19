@@ -28,7 +28,7 @@ namespace ToDoList.Controllers
             string token = await _authenticationService.AuthenticateAsync(loginDto.Email, loginDto.Password);
 
             if (token is null)
-                return Unauthorized("User is not found");
+                return Unauthorized("Wrong email or password!");
 
             return Ok(new { Token = token });
         }

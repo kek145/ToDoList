@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authorization;
+using ToDoList.Domain.Entity;
+using ToDoList.Services.Interfaces;
+using ToDoList.Services.Validators;
 
 namespace ToDoList.Controllers
 {
@@ -11,34 +14,52 @@ namespace ToDoList.Controllers
     public class TaskController : ControllerBase
     {
         private readonly ILogger<TaskController> _logger;
+        private readonly ITaskService _taskService;
 
-        public TaskController(ILogger<TaskController> logger)
+        public TaskController(ILogger<TaskController> logger, ITaskService taskService)
         {
             _logger = logger;
+            _taskService = taskService;
         }
 
         [HttpPost("CreateTask")]
-        public async Task<IActionResult> CreateTaskAsync()
+        public async Task<IActionResult> CreateTaskAsync(TaskEntity entity)
         {
-            return Ok();
+            var validator = new DataValidator();
+            if (!validator.TaskValidation(entity))
+                return BadRequest("Fields must be filled!");
+            
+            await _taskService.CreateTaskAsync(entity);
+            return Ok("Successful!");
         }
 
         [HttpGet("GetAllTask")]
-        public async Task<IActionResult> GetAllTaskAsync()
+        public async Task<IActionResult> GetAllTaskAsync(int userId)
         {
-            return Ok();
+            var result = await _taskService.GetTasksByUserIdAsync(userId);
+            if (result is null)
+                return NotFound("Tasks is not found!");
+            return Ok(result);
         }
 
-        [HttpPut("UpdateTask/{taskid}")]
-        public async Task<IActionResult> UpdateTaskAsync()
+        [HttpPut("UpdateTask/{taskId}")]
+        public async Task<IActionResult> UpdateTaskAsync(TaskEntity entity, int taskId)
         {
-            return Ok();
+            var validator = new DataValidator();
+            if (!validator.TaskValidation(entity))
+                return BadRequest("Fields must be filled!");
+            await _taskService.UpdateTaskAsync(entity, taskId);
+            return Ok("Successful!");
         }
 
-        [HttpDelete("DeleteTask/{taskid}")]
-        public async Task<IActionResult> DeleteTaskAsync()
+        [HttpDelete("DeleteTask/{taskId}")]
+        public async Task<IActionResult> DeleteTaskAsync(int taskId, int userId)
         {
-            return Ok();
+            var task = await _taskService.GetTasksByUserIdAsync(userId);
+            if (task is null)
+                return NotFound("No such task!");
+            await _taskService.DeleteTaskAsync(taskId, userId);
+            return Ok("Successful!");
         }
     }
 }

@@ -11,6 +11,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using ToDoList.Configurations.Configurations;
+using ToDoList.Models.Dto;
 
 namespace ToDoList.Services.Implementations
 {

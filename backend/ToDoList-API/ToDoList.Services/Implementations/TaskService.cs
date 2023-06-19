@@ -14,9 +14,9 @@ namespace ToDoList.Services.Implementations
         {
             _taskRepository = taskRepository;
         }
-        public async Task UpdateTaskAsync(TaskEntity task)
+        public async Task UpdateTaskAsync(TaskEntity task, int taskId)
         {
-            await _taskRepository.UpdateTaskAsync(task);
+            await _taskRepository.UpdateTaskAsync(task, taskId);
         }
 
         public async Task DeleteTaskAsync(int taskId, int userId)
@@ -24,9 +24,9 @@ namespace ToDoList.Services.Implementations
             await _taskRepository.DeleteTaskAsync(taskId, userId);
         }
 
-        public async Task CreateTaskAsync(TaskEntity task, int userId)
+        public async Task CreateTaskAsync(TaskEntity task)
         {
-            await _taskRepository.CreateTaskAsync(task, userId);
+            await _taskRepository.CreateTaskAsync(task);
         }
 
         public async Task<IEnumerable<TaskEntity>> GetTasksByUserIdAsync(int userId)

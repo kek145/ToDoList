@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using ToDoList.Domain.Entity;
 
 namespace ToDoList.Services.Validators
 {
@@ -16,7 +17,7 @@ namespace ToDoList.Services.Validators
         {
             if (username.Contains(" ") || email.Contains(" ") || password.Contains(" ") || confirmPassword.Contains(" "))
                 return false;
-            else return true;
+            return true;
         }
 
         public bool ContainsRussian(string username, string email, string password)
@@ -29,7 +30,7 @@ namespace ToDoList.Services.Validators
                 return false;
             else if(russianAlphabet.IsMatch(password))
                 return false;
-            else return true;
+            return true;
         }
 
         public bool IsEmailValid(string email)
@@ -38,6 +39,13 @@ namespace ToDoList.Services.Validators
 
             Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
             return regex.IsMatch(email);
+        }
+
+        public bool TaskValidation(TaskEntity entity)
+        {
+            if (string.IsNullOrEmpty(entity.Title) || string.IsNullOrEmpty(entity.Description))
+                return false;
+            return true;
         }
     }
 }
