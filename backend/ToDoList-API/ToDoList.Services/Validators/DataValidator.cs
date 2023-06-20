@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using ToDoList.Domain.Entity;
+using ToDoList.Services.Models.Dto;
 
 namespace ToDoList.Services.Validators
 {
@@ -41,9 +42,9 @@ namespace ToDoList.Services.Validators
             return regex.IsMatch(email);
         }
 
-        public bool TaskValidation(TaskEntity entity)
+        public bool TaskValidation(TaskDto taskDto)
         {
-            if (string.IsNullOrEmpty(entity.Title) || string.IsNullOrEmpty(entity.Description))
+            if (string.IsNullOrEmpty(taskDto.Title) || string.IsNullOrEmpty(taskDto.Description))
                 return false;
             return true;
         }

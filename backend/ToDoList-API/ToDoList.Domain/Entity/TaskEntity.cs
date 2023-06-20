@@ -9,8 +9,8 @@ namespace ToDoList.Domain.Entity
         public int TaskId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-        public bool Status { get; set; }
-        public Priority Priority { get; set; }
+        public bool Status { get; set; } = false;
+        public Priority Priority { get; set; } = Priority.Medium;
         public DateTime CreatedDate { get; set; }
         public int UserID { get; set; }
         [JsonIgnore]

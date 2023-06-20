@@ -1,9 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authorization;
 using ToDoList.Domain.Entity;
 using ToDoList.Services.Interfaces;
+using ToDoList.Services.Models.Dto;
 using ToDoList.Services.Validators;
 
 namespace ToDoList.Controllers
@@ -23,43 +26,55 @@ namespace ToDoList.Controllers
         }
 
         [HttpPost("CreateTask")]
-        public async Task<IActionResult> CreateTaskAsync(TaskEntity entity)
+        public async Task<IActionResult> CreateTaskAsync([FromBody] TaskDto taskDto)
         {
-            var validator = new DataValidator();
-            if (!validator.TaskValidation(entity))
-                return BadRequest("Fields must be filled!");
+            string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            if (token is null)
+                return BadRequest("Null token");
             
-            await _taskService.CreateTaskAsync(entity);
+            await _taskService.CreateTaskAsync(taskDto, token);
+            
             return Ok("Successful!");
         }
 
         [HttpGet("GetAllTask")]
-        public async Task<IActionResult> GetAllTaskAsync(int userId)
+        public async Task<IActionResult> GetAllTaskAsync()
         {
-            var result = await _taskService.GetTasksByUserIdAsync(userId);
+            string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            var result = await _taskService.GetTasksByUserIdAsync(token);
             if (result is null)
                 return NotFound("Tasks is not found!");
             return Ok(result);
         }
 
         [HttpPut("UpdateTask/{taskId}")]
-        public async Task<IActionResult> UpdateTaskAsync(TaskEntity entity, int taskId)
+        public async Task<IActionResult> UpdateTaskAsync(TaskDto taskDto, int taskId)
         {
             var validator = new DataValidator();
-            if (!validator.TaskValidation(entity))
+            string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            if (!validator.TaskValidation(taskDto))
                 return BadRequest("Fields must be filled!");
-            await _taskService.UpdateTaskAsync(entity, taskId);
+            await _taskService.UpdateTaskAsync(taskDto, token, taskId);
             return Ok("Successful!");
         }
 
         [HttpDelete("DeleteTask/{taskId}")]
-        public async Task<IActionResult> DeleteTaskAsync(int taskId, int userId)
+        public async Task<IActionResult> DeleteTaskAsync(int taskId)
         {
-            var task = await _taskService.GetTasksByUserIdAsync(userId);
-            if (task is null)
-                return NotFound("No such task!");
-            await _taskService.DeleteTaskAsync(taskId, userId);
-            return Ok("Successful!");
+            try
+            {
+                string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+                await _taskService.DeleteTaskAsync(taskId, token);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                if (ex is Exception)
+                    return NotFound("Task is not found");
+                if (ex is UnauthorizedAccessException)
+                    return Forbid("User is not authorized to update this task");
+                return StatusCode(500);
+            }
         }
     }
 }

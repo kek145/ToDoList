@@ -19,33 +19,29 @@ namespace ToDoList.DAL.Repositories
 
         public async Task CreateTaskAsync(TaskEntity entity)
         {
-            await _db.Set<TaskEntity>().AddAsync(entity);
+            _db.TasksEntity.Add(entity);
             await _db.SaveChangesAsync();
         }
 
-        public async Task UpdateTaskAsync(TaskEntity entity, int taskId)
+        public async Task UpdateTaskAsync(TaskEntity entity)
         {
-            var existingTask = await _db.TasksEntity.FindAsync(taskId);
-
-            if (existingTask is not null)
-            {
-                existingTask.Title = entity.Title.Trim();
-                existingTask.Description = entity.Description.Trim();
-                existingTask.Status = entity.Status;
-                existingTask.Priority = entity.Priority;
-                await _db.SaveChangesAsync();
-            }
+            _db.Entry(entity).State = EntityState.Modified;
+            await _db.SaveChangesAsync();
         }
 
-        public async Task DeleteTaskAsync(int taskId, int userId)
+        public async Task DeleteTaskAsync(TaskEntity entity)
         {
-            var task = await _db.TasksEntity.FirstOrDefaultAsync(task => task.TaskId == taskId && task.UserID == userId);
+            _db.TasksEntity.Remove(entity);
+            await _db.SaveChangesAsync();
+        }
 
-            if (task is not null)
-            {
-                _db.TasksEntity.Remove(task);
-                await _db.SaveChangesAsync();
-            }
+        public async Task<TaskEntity> GetTaskByIdAsync(int taskId)
+        {
+            var task = await _db.TasksEntity.FindAsync(taskId);
+            if (task is null)
+                return null!;
+
+            return task;
         }
 
         public async Task<IEnumerable<TaskEntity>> GetTasksByUserIdAsync(int userId)

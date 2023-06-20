@@ -41,11 +41,12 @@ namespace ToDoList.Services.Implementations
             return token;
         }
 
-        public string GenerateToken(UserEntity entity)
+        private string GenerateToken(UserEntity entity)
         {
             List<Claim> claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Email, entity.Email)
+                new Claim(ClaimTypes.Email, entity.Email),
+                new Claim("userid", entity.UserId.ToString())
             };
 
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey));
