@@ -50,11 +50,11 @@ namespace ToDoList.Controllers
                 return BadRequest("Mail cannot contain characters!");
             if (userDto.Password != userDto.ConfirmPassword)
                 return BadRequest("Password mismatch!");
-
-
+            if (userDto.Password == "" || userDto.ConfirmPassword == "")
+                return BadRequest("Password or confirm password is null");
             await _registrationService.RegisterAsync(userDto.UserName, userDto.Email, userDto.Password, userDto.ConfirmPassword);
 
-            return Ok("Registration successful");
+            return Ok(new {message = "Registration successful"});
         }
     }
 }

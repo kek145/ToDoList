@@ -34,7 +34,7 @@ namespace ToDoList.Controllers
             
             await _taskService.CreateTaskAsync(taskDto, token);
             
-            return Ok("Successful!");
+            return Ok(new { message = "Successful!" });
         }
 
         [HttpGet("GetAllTask")]
@@ -55,7 +55,7 @@ namespace ToDoList.Controllers
             if (!validator.TaskValidation(taskDto))
                 return BadRequest("Fields must be filled!");
             await _taskService.UpdateTaskAsync(taskDto, token, taskId);
-            return Ok("Successful!");
+            return Ok(new { message = "Successful!" });
         }
 
         [HttpDelete("DeleteTask/{taskId}")]
