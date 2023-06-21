@@ -30,20 +30,4 @@ export class AuthenticationService {
   public login(user: ILoginModel): Observable<IJwtAuth> {
     return this.http.post<IJwtAuth>(`${environment.apiUrl}/${this.loginUrl}`, user);
   }
-
-  public createTask(task: ITaskModel): Observable<any> {
-    return this.http.post<any>(`${environment.apiUrl}/${this.createTaskUrl}`, task);
-  }
-
-  public getTask(): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}/${this.getTaskUrl}`);
-  }
-
-  public updateTask(taskId: number, task: ITaskModel): Observable<any> {
-    return this.http.put(`${environment.apiUrl}/${this.updateTaskUrl}/${taskId}`, task);
-  }
-
-  public deleteTask(taskId: number): Observable<any> {
-    return this.http.delete(`${environment.apiUrl}/${this.deleteTaskUrl}/${taskId}`);
-  }
 }
