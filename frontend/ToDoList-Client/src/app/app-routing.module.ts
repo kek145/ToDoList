@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { TodoComponent } from './todo/todo.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { AllTaskComponent } from './components/all-task/all-task.component';
+import { CreateTaskComponent } from './components/create-task/create-task.component';
 
 const routes: Routes = [
-  { path: 'todo', component: TodoComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'all-task', component: AllTaskComponent },
+  { path: 'create-task', component: CreateTaskComponent },
   { path: 'registration', component: RegistrationComponent }
 ];
 
