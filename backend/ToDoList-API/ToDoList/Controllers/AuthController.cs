@@ -54,7 +54,7 @@ namespace ToDoList.Controllers
 
             await _registrationService.RegisterAsync(userDto.UserName, userDto.Email, userDto.Password, userDto.ConfirmPassword);
 
-            return Ok("Registration successful");
+            return Ok(new { message = "Registration successful" });
         }
     }
 }

@@ -44,7 +44,7 @@ export class RegistrationComponent implements OnInit {
     console.log(registerDto);
     this.authService.register(registerDto).subscribe(
       response => {
-        console.log('Registration successful', response);
+        console.log('Registration successful');
       },
       error => {
         console.log('Registration error: ', error);

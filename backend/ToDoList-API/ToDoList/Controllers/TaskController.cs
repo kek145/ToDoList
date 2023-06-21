@@ -34,7 +34,7 @@ namespace ToDoList.Controllers
             
             await _taskService.CreateTaskAsync(taskDto, token);
             
-            return Ok("Successful!");
+            return Ok(new { message = "Successful!" });
         }
 
         [HttpGet("GetAllTask")]
@@ -43,7 +43,7 @@ namespace ToDoList.Controllers
             string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
             var result = await _taskService.GetTasksByUserIdAsync(token);
             if (result is null)
-                return NotFound("Tasks is not found!");
+                return NotFound(new { message = "Tasks is not found!" });
             return Ok(result);
         }
 
@@ -55,7 +55,7 @@ namespace ToDoList.Controllers
             if (!validator.TaskValidation(taskDto))
                 return BadRequest("Fields must be filled!");
             await _taskService.UpdateTaskAsync(taskDto, token, taskId);
-            return Ok("Successful!");
+            return Ok(new { message = "Successful!" });
         }
 
         [HttpDelete("DeleteTask/{taskId}")]
