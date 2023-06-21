@@ -5,13 +5,13 @@
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control input-width" id="email" placeholder="Введите ваш email">
+          <input type="email" class="form-control input-width" id="email" placeholder="Enter your email" name="email" [(ngModel)]="login.email">
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control input-width" id="password" placeholder="Введите ваш пароль">
+          <input type="password" class="form-control input-width" id="password" placeholder="Enter your password" name="password" [(ngModel)]="login.password">
         </div>
         <button type="submit" class="btn btn-primary">Sign In</button>
-        <p class="text-center mt-2">Don't have an account? <a routerLink="/login">Sign Up</a></p>
+        <p class="text-center mt-2">Don't have an account? <a routerLink="/registration">Sign Up</a></p>
     </form>      
 </div>
