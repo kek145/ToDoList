@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AllTaskComponent } from './components/all-task/all-task.component';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { AuthenticationService } from './services/authentication.service';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { RegistrationComponent } from './components/registration/registration.co
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

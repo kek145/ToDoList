@@ -5,7 +5,6 @@ import { IJwtAuth } from '../models/jwtAuth.model';
 import { ILoginModel } from '../models/login.model';
 import { IRegisterModel } from '../models/register.model';
 import { environment } from 'src/environments/environment';
-import { ITaskModel } from '../models/task.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +22,8 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
-  public register(user: IRegisterModel): Observable<IJwtAuth> {
-    return this.http.post<IJwtAuth>(`${environment.apiUrl}/${this.registerUrl}`, user);
+  public register(user: IRegisterModel): Observable<any> {
+    return this.http.post<any>(`${environment.apiUrl}/${this.registerUrl}`, user);
   }
 
   public login(user: ILoginModel): Observable<IJwtAuth> {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { IJwtAuth } from 'src/app/models/jwtAuth.model';
 import { IRegisterModel } from 'src/app/models/register.model';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-registration',
@@ -8,20 +10,45 @@ import { IRegisterModel } from 'src/app/models/register.model';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  constructor(private titleService: Title) {}
+  constructor(private authService: AuthenticationService, private titleService: Title) {}
 
-  register: IRegisterModel = {
+  registerDto: IRegisterModel = {
     username: '',
     email: '',
     password: '',
-    confirm: ''
+    confirmPassword: ''
   };
+
+  jwtDto: IJwtAuth = {
+    token: ''
+  }
 
   ngOnInit(): void {
     this.titleService.setTitle('Sign Up');
   }
 
-  submitForm(): void {
-    console.log(`username: ${this.register.username}, email: ${this.register.email}, password: ${this.register.password}, confirm: ${this.register.confirm}`);
+  register(registerDto: IRegisterModel) {
+    if(this.registerDto.password != this.registerDto.confirmPassword) {
+      alert("Password and Confirm Password do not match");
+    }
+
+    if(!this.registerDto.confirmPassword) {
+      alert('Confirm is required');
+    }
+
+    if(this.registerDto.password === "" || this.registerDto.confirmPassword === "") {
+      alert("Password and confirm is null");
+    }
+
+
+    console.log(registerDto);
+    this.authService.register(registerDto).subscribe(
+      response => {
+        console.log('Registration successful', response);
+      },
+      error => {
+        console.log('Registration error: ', error);
+      }
+    );
   }
 }

@@ -1,28 +1,27 @@
 <div class="form__container">
-    <form class="form" (ngSubmit)="submitForm()">
+    <form class="form" (ngSubmit)="register(registerDto)">
         <div class="form-group">
             <h2>Sign Up</h2>
         </div>
         <div class="form-group">
           <label for="username">User name</label>
-          <input type="text" id="username" class="form-control input-width" name="username" required maxlength="20" [(ngModel)]="register.username">
+          <input type="text" id="username" class="form-control input-width" name="username" [(ngModel)]="registerDto.username">
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" class="form-control input-width" name="email" required maxlength="50" [(ngModel)]="register.email">
+          <input type="email" id="email" class="form-control input-width" name="email" required [(ngModel)]="registerDto.email">
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" class="form-control input-width" name="password" required maxlength="30" [(ngModel)]="register.password">
+          <input type="password" id="password" class="form-control input-width" name="password" [(ngModel)]="registerDto.password">
         </div>
         <div class="form-group">
           <label for="confirmPassword">Confirm password</label>
-          <input type="password" id="confirmPassword" class="form-control input-width" name="confirmPassword" required maxlength="30" [(ngModel)]="register.confirm">
+          <input type="password" id="confirmPassword" class="form-control input-width" name="confirmPassword" [(ngModel)]="registerDto.confirmPassword">
         </div>
         <button type="submit" class="btn btn-primary">Sign Up</button>
         <p class="text-center mt-2">Already registered? <a routerLink="/login">Sign In</a></p>
     </form>
 </div>
-
 <div class="back"></div>
   
