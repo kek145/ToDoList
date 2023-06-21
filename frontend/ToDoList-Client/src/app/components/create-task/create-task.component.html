@@ -1,1 +1,30 @@
-<p>create-task works!</p>
+<div class="form__container">
+    <form class="form" (ngSubmit)="submitForm()">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control input-width" id="title" name="title" placeholder="Enter title" required [(ngModel)]="task.title">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea class="form-control input-width-area" id="description" name="description" rows="3" placeholder="Enter description" required [(ngModel)]="task.description"></textarea>
+        </div>
+        <div class="mb-3 form-check">
+            <label class="form-check-label" for="status">Status</label>
+            <input type="checkbox" class="form-check-input" id="status" name="status" [(ngModel)]="task.status">
+        </div>
+        <div class="mb-3">
+          <label for="priority" class="form-label">Priority</label>
+          <select class="form-select input-width" id="priority" name="priority" [(ngModel)]="task.priority">
+            <option value="1">Easy</option>
+            <option value="2">Medium</option>
+            <option value="3">Hard</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="created" class="form-label">Created</label>
+          <input type="date" class="form-control input-width" id="created" name="created" [(ngModel)]="task.created">
+        </div>
+        <button type="submit" class="btn btn-primary">Create Task</button>
+    </form>
+      
+</div>
