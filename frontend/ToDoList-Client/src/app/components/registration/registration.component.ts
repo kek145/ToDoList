@@ -22,6 +22,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   submitForm(): void {
-
+    console.log(`username: ${this.register.username}, email: ${this.register.email}, password: ${this.register.password}, confirm: ${this.register.confirm}`);
   }
 }

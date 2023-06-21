@@ -18,4 +18,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle('Sign In');
   }
+
+  submitForm(): void {
+    console.log(`email: ${this.login.email}, password: ${this.login.password}`)
+  }
 }
