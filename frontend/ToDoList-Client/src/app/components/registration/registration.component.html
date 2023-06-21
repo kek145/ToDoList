@@ -1,1 +1,28 @@
-<p>registration works!</p>
+<div class="form__container">
+    <form class="form" (ngSubmit)="submitForm()">
+        <div class="form-group">
+            <h2>Sign Up</h2>
+        </div>
+        <div class="form-group">
+          <label for="username">User name</label>
+          <input type="text" id="username" class="form-control input-width" name="username" required maxlength="20">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" class="form-control input-width" name="email" required maxlength="50">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" class="form-control input-width" name="password" required maxlength="30">
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm password</label>
+          <input type="password" id="confirmPassword" class="form-control input-width" name="confirmPassword" required maxlength="30">
+        </div>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+        <p class="text-center mt-2">Already registered? <a routerLink="/login">Sign In</a></p>
+    </form>
+</div>
+
+<div class="back"></div>
+  

@@ -7,6 +7,7 @@ import { CreateTaskComponent } from './components/create-task/create-task.compon
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: '', component: RegistrationComponent},
   { path: 'all-task', component: AllTaskComponent },
   { path: 'create-task', component: CreateTaskComponent },
   { path: 'registration', component: RegistrationComponent }
