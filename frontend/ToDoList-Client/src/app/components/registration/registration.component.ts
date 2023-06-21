@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { IJwtAuth } from 'src/app/models/jwtAuth.model';
@@ -10,7 +11,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  constructor(private authService: AuthenticationService, private titleService: Title) {}
+  constructor(private authService: AuthenticationService, private titleService: Title, private toastr: ToastrService) {}
 
   registerDto: IRegisterModel = {
     username: '',
@@ -44,10 +45,10 @@ export class RegistrationComponent implements OnInit {
     console.log(registerDto);
     this.authService.register(registerDto).subscribe(
       response => {
-        console.log('Registration successful');
+        this.toastr.success('Registration completed successfully!', 'Successfully');
       },
       error => {
-        console.log('Registration error: ', error);
+        this.toastr.error('Error', 'Registration failed!');
       }
     );
   }
