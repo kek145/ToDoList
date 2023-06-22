@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   login(loginDto: ILoginModel): void {
     if(loginDto.email === "" || loginDto.password === "") {
-      this.toastr.warning("All fields must be filled!", "Warning")
+      this.toastr.warning("All fields must be filled!", "Warning");
     }
 
     this.authService.login(loginDto).subscribe((jwtDto) => {

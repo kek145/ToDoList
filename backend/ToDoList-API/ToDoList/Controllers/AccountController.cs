@@ -1,4 +1,6 @@
-﻿using ToDoList.Models.Dto;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using ToDoList.Models.Dto;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -9,20 +11,35 @@ namespace ToDoList.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AuthController : ControllerBase
+    public class AccountController : ControllerBase
     {
-        private readonly ILogger<AuthController> _logger;
+        private readonly ILogger<AccountController> _logger;
         private readonly IRegistrationService _registrationService;
         private readonly IAuthenticationService _authenticationService;
-        public AuthController(ILogger<AuthController> logger, IRegistrationService registrationService, IAuthenticationService authenticationService)
+        public AccountController(ILogger<AccountController> logger, IRegistrationService registrationService, IAuthenticationService authenticationService)
         {
             _logger = logger;
             _registrationService = registrationService;
             _authenticationService = authenticationService;
         }
 
-        [HttpPost]
-        [Route("LoginAccount")]
+        [HttpPost("Logout")]
+        public async Task<IActionResult> LogoutAccount()
+        {
+            string token = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+
+            if (token != null)
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var jwtToken = tokenHandler.ReadJwtToken(token);
+                string userId = jwtToken.Claims.FirstOrDefault(c => c.Type == "sub")?.Value;
+                Response.Cookies.Delete(userId!);
+            }
+
+            return Ok(new { message = "Logout successful" });
+        }
+
+        [HttpPost("LoginAccount")]
         public async Task<IActionResult> LoginAccount([FromBody] LoginDto loginDto)
         {
             string token = await _authenticationService.AuthenticateAsync(loginDto.Email, loginDto.Password);

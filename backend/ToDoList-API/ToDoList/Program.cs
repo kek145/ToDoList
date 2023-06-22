@@ -60,6 +60,8 @@ builder.Services.AddAuthentication(options =>
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(options =>
 {
+    var key = Encoding.ASCII.GetBytes(builder.Configuration.GetSection("JwtConfiguration:SecretKey").Value);
+    options.SaveToken = true;
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
@@ -68,7 +70,7 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = audience,
         ValidateLifetime = true,
         IssuerSigningKey = signingKey,
-        ValidateIssuerSigningKey = true
+        ValidateIssuerSigningKey = true 
     };
 });
 

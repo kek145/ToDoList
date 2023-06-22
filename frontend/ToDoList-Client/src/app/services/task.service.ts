@@ -8,12 +8,12 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class TaskService {
-
+  
   // Task endpoints
-  createTaskUrl = "Task/CreateTask";
-  getTaskUrl = "Task/GetAllTask";
-  updateTaskUrl = "Task/UpdateTask/{taskId}";
-  deleteTaskUrl = "Task/DeleteTask/{taskId}";
+  private createTaskUrl = "Task/CreateTask";
+  private getTaskUrl = "Task/GetAllTask";
+  private updateTaskUrl = "Task/UpdateTask/{taskId}";
+  private deleteTaskUrl = "Task/DeleteTask/{taskId}";
 
   constructor(private http: HttpClient) { }
 

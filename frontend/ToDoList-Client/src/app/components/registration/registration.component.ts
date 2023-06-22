@@ -43,9 +43,6 @@ export class RegistrationComponent implements OnInit {
     this.authService.register(registerDto).subscribe(
       response => {
         this.toastr.success('Registration completed successfully!', 'Successfully');
-      },
-      error => {
-        this.toastr.error('Registration failed!', 'Error');
       }
     );
   }
