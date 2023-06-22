@@ -1,28 +1,25 @@
 <div class="form__container" *ngIf="isAuthenticated">
-    <form class="form" (ngSubmit)="submitForm()">
+    <form class="form" (ngSubmit)="createTask(taskDto)">
+        <h2>Create Task</h2>
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
-          <input type="text" class="form-control input-width" id="title" name="title" placeholder="Enter title" required [(ngModel)]="task.title">
+          <input type="text" class="form-control input-width" id="title" name="title" placeholder="Enter title" required [(ngModel)]="taskDto.title">
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
-          <textarea class="form-control input-width-area" id="description" name="description" rows="3" placeholder="Enter description" required [(ngModel)]="task.description"></textarea>
+          <textarea class="form-control input-width-area" id="description" name="description" rows="3" placeholder="Enter description" required [(ngModel)]="taskDto.description"></textarea>
         </div>
         <div class="mb-3 form-check">
             <label class="form-check-label" for="status">Status</label>
-            <input type="checkbox" class="form-check-input" id="status" name="status" [(ngModel)]="task.status">
+            <input type="checkbox" class="form-check-input" id="status" name="status" [(ngModel)]="taskDto.status">
         </div>
         <div class="mb-3">
           <label for="priority" class="form-label">Priority</label>
-          <select class="form-select input-width" id="priority" name="priority" [(ngModel)]="task.priority">
+          <select class="form-select input-width" id="priority" name="priority" [(ngModel)]="taskDto.priority">
             <option value="1">Easy</option>
             <option value="2">Medium</option>
             <option value="3">Hard</option>
           </select>
-        </div>
-        <div class="mb-3">
-          <label for="created" class="form-label">Created</label>
-          <input type="date" class="form-control input-width" id="created" name="created" [(ngModel)]="task.created">
         </div>
         <button type="submit" class="btn btn-primary">Create Task</button>
     </form>

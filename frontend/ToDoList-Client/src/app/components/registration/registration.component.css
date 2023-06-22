@@ -27,10 +27,15 @@ a{
 .btn {
     width: 400px;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 label {
     margin-top: 15px;
+}
+
+.text-center{
+    margin-top: 10px;
 }
 
 @media (max-width: 390px) {

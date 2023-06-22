@@ -16,8 +16,8 @@ namespace ToDoList.Controllers
     [Route("api/[controller]")]
     public class TaskController : ControllerBase
     {
-        private readonly ILogger<TaskController> _logger;
         private readonly ITaskService _taskService;
+        private readonly ILogger<TaskController> _logger;
 
         public TaskController(ILogger<TaskController> logger, ITaskService taskService)
         {
@@ -29,7 +29,7 @@ namespace ToDoList.Controllers
         public async Task<IActionResult> CreateTaskAsync([FromBody] TaskDto taskDto)
         {
             string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
-            if (token is null)
+            if (token == null!)
                 return BadRequest("Null token");
             
             await _taskService.CreateTaskAsync(taskDto, token);
@@ -42,7 +42,7 @@ namespace ToDoList.Controllers
         {
             string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
             var result = await _taskService.GetTasksByUserIdAsync(token);
-            if (result is null)
+            if (result == null!)
                 return NotFound(new { message = "Tasks is not found!" });
             return Ok(result);
         }

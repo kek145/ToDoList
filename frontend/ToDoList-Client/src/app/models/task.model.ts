@@ -5,5 +5,5 @@ export interface ITaskModel {
     description: string;
     status: boolean;
     priority: Priority;
-    created: Date;
+    createdDate: Date;
 }

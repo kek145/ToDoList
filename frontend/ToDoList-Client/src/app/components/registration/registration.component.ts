@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { IJwtAuth } from 'src/app/models/jwtAuth.model';
 import { IRegisterModel } from 'src/app/models/register.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({

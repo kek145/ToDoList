@@ -4,6 +4,7 @@
     padding-top: 150px;
     background-color: #808080;
 }
+
 a{
     text-decoration: none;
 }
@@ -26,6 +27,7 @@ a{
 .btn {
     width: 400px;
     margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 @media (max-width: 390px) {

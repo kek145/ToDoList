@@ -4,19 +4,22 @@ import { ToastrService } from 'ngx-toastr';
 import { IJwtAuth } from '../models/jwtAuth.model';
 import { ILoginModel } from '../models/login.model';
 import { IRegisterModel } from '../models/register.model';
-import { Observable, catchError, map, throwError } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+  private headers: HttpHeaders;
+
   // Auth status
   private isAuthenticated = false;
 
   // Auth endpoints
   private loginUrl = "Account/LoginAccount";
+  private logoutUrl = "Account/Logout";
   private registerUrl = "Account/CreateAccount";
 
   public isAuthenticatedResult(): boolean {
@@ -25,18 +28,26 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) {
     this.checkAuthentication();
+    this.headers = new HttpHeaders();
   }
 
   private checkAuthentication(): void {
     const token = localStorage.getItem('jwtToken');
 
     if (token) {
+      this.router.navigate(['create-task']);
       this.isAuthenticated = true;
     } 
     else {
       this.router.navigate(['/login']);
       this.isAuthenticated = false;
     }
+  }
+
+  public logout() {
+    localStorage.clear();
+    this.toastr.success('you have successfully logged out!', 'Logout');
+    return this.http.post(`${environment.apiUrl}/${this.logoutUrl}`, { headers: this.headers });
   }
 
   public register(user: IRegisterModel): Observable<any> {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Text;
-using System.IdentityModel.Tokens.Jwt;
 using ToDoList.Services.Interfaces;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 using ToDoList.Configurations.Configurations;
 
 namespace ToDoList.Services.Implementations

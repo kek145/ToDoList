@@ -44,8 +44,9 @@ namespace ToDoList.Services.Implementations
         {
             List<Claim> claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Email, entity.Email),
-                new Claim("userid", entity.UserId.ToString())
+                new Claim("userid", entity.UserId.ToString()),
+                new Claim(JwtRegisteredClaimNames.Sub, entity.Email),
+                new Claim(JwtRegisteredClaimNames.Email, entity.Email)
             };
 
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey));
@@ -54,7 +55,7 @@ namespace ToDoList.Services.Implementations
                 issuer: _options.Issuer,
                 audience: _options.Audience,
                 claims: claims,
-                expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(2)),
+                expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(15)),
                 notBefore: DateTime.UtcNow,
                 signingCredentials: new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
                 );

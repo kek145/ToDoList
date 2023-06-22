@@ -26,13 +26,13 @@ namespace ToDoList.Controllers
         [HttpPost("Logout")]
         public async Task<IActionResult> LogoutAccount()
         {
-            string token = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            var token = HttpContext?.Request?.Headers?["Authorization"]!.FirstOrDefault()!.Split(" ").Last();
 
-            if (token != null)
+            if(token != null!)
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var jwtToken = tokenHandler.ReadJwtToken(token);
-                string userId = jwtToken.Claims.FirstOrDefault(c => c.Type == "sub")?.Value;
+                var userId = jwtToken?.Claims?.FirstOrDefault(c => c?.Type == "Sub")?.Value;
                 Response.Cookies.Delete(userId!);
             }
 
@@ -44,7 +44,7 @@ namespace ToDoList.Controllers
         {
             string token = await _authenticationService.AuthenticateAsync(loginDto.Email, loginDto.Password);
 
-            if (token is null)
+            if (token == null!)
                 return Unauthorized("Wrong email or password!");
 
             return Ok(new { Token = token });

@@ -74,10 +74,15 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.AddCors(options => options.AddPolicy("FrontEnd", policy =>
+builder.Services.AddCors(options =>
 {
-    policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
-}));
+    options.AddPolicy("FrontEnd", policy =>
+    {
+        policy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
 
 var app = builder.Build();
 
