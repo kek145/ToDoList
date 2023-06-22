@@ -10,6 +10,13 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  // Auth status
+  private isAuthenticated = false;
+
+  public isAuthenticatedResult(): boolean {
+    return this.isAuthenticated;
+  }
+
   // Auth endpoints
   loginUrl = "Auth/LoginAccount";
   registerUrl = "Auth/CreateAccount";
@@ -20,13 +27,27 @@ export class AuthenticationService {
   updateTaskUrl = "Task/UpdateTask/{taskId}";
   deleteTaskUrl = "Task/DeleteTask/{taskId}";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.checkAuthentication();
+  }
+
+  private checkAuthentication(): void {
+    const token = localStorage.getItem('jwtToken'); // Получение токена из localStorage (может потребоваться проверка и в sessionStorage)
+
+    if (token) {
+      this.isAuthenticated = true;
+    } 
+    else {
+      this.isAuthenticated = false;
+    }
+  }
 
   public register(user: IRegisterModel): Observable<any> {
     return this.http.post<any>(`${environment.apiUrl}/${this.registerUrl}`, user);
   }
 
   public login(user: ILoginModel): Observable<IJwtAuth> {
+    this.isAuthenticated = true;
     return this.http.post<IJwtAuth>(`${environment.apiUrl}/${this.loginUrl}`, user);
   }
 }

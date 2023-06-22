@@ -13,7 +13,7 @@ a{
     width: 450px;
     height: 500px;
     margin: 0 auto;
-    padding-top: 50px;
+    padding-top: 30px;
     padding-left: 25px;
     border-radius: 10px;
     border: 1px solid #000;
@@ -27,4 +27,29 @@ a{
 .btn {
     width: 400px;
     margin-top: 10px;
+}
+
+label {
+    margin-top: 15px;
+}
+
+@media (max-width: 390px) {
+    .form__container{
+        height: 844px;
+    }
+    .form {
+        width: 370px;
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+    label{
+        margin-top: 20px;
+    }
+    .input-width {
+        width: 350px;
+    }
+
+    .btn {
+        width: 350px;
+    }
 }

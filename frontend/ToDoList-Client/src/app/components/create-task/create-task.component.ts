@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Priority } from 'src/app/enums/priority.enum';
 import { ITaskModel } from 'src/app/models/task.model';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-create-task',
@@ -10,7 +11,7 @@ import { ITaskModel } from 'src/app/models/task.model';
 })
 export class CreateTaskComponent implements OnInit {
   task: ITaskModel;
-  constructor(private titleService: Title) { 
+  constructor(private titleService: Title, private authService: AuthenticationService) { 
     this.task = {
       title: '',
       description: '',
@@ -26,5 +27,9 @@ export class CreateTaskComponent implements OnInit {
 
   submitForm() {
     console.log(`title: ${this.task.title}, description: ${this.task.description}, status: ${this.task.status}, priority: ${this.task.priority}, created: ${this.task.created}`)
+  }
+
+  get isAuthenticated(): boolean {
+    return this.authService.isAuthenticatedResult();
   }
 }
