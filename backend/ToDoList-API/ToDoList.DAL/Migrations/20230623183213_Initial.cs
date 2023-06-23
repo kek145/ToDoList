@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ToDoList.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -37,7 +37,7 @@ namespace ToDoList.DAL.Migrations
                     description = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
                     status = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false),
                     priority = table.Column<int>(type: "integer", nullable: false, defaultValue: 1),
-                    created = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2023, 6, 23, 17, 25, 9, 332, DateTimeKind.Utc).AddTicks(8462)),
+                    created = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2023, 6, 23, 18, 32, 13, 175, DateTimeKind.Utc).AddTicks(9705)),
                     user_id = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>

@@ -1,4 +1,4 @@
-import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { IJwtAuth } from 'src/app/models/jwtAuth.model';
@@ -11,7 +11,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  constructor(private authService: AuthenticationService, private titleService: Title, private toastr: ToastrService) {  }
+  constructor(private authService: AuthenticationService, private titleService: Title) {  }
 
   registerDto: IRegisterModel = {
     username: '',
@@ -30,18 +30,18 @@ export class RegistrationComponent implements OnInit {
 
   register(registerDto: IRegisterModel) {
     if(this.registerDto.username === "" || this.registerDto.email === "" || this.registerDto.password === "" || this.registerDto.confirmPassword === "") {
-      this.toastr.warning('All fields must be filled!', 'Warning');
+      Swal.fire('Warning', 'All fields must be filled!', 'warning');
       return;
     }
 
     if(this.registerDto.password != this.registerDto.confirmPassword) {
-      this.toastr.warning('Password mismatch!', 'Warning');
+      Swal.fire('Warning', 'Password mismatch!', 'warning');
       return;
     }
 
     this.authService.register(registerDto).subscribe(
       response => {
-        this.toastr.success('Registration completed successfully!', 'Successfully');
+        Swal.fire('Successfully', 'Registration completed successfully!', 'success');
       }
     );
   }

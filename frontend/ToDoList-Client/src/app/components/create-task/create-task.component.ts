@@ -17,6 +17,7 @@ export class CreateTaskComponent implements OnInit {
   constructor(private titleService: Title, private authService: AuthenticationService, private taskService: TaskService, private toastr: ToastrService) { }
 
   taskDto: ITaskModel = {
+    taskId: 0,
     title: '',
     description: '',
     status: false,

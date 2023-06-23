@@ -1,5 +1,4 @@
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { IJwtAuth } from 'src/app/models/jwtAuth.model';
@@ -13,7 +12,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private authService: AuthenticationService, private titleService: Title, private toastr: ToastrService, private router: Router) {}
+  constructor(private authService: AuthenticationService, private titleService: Title, private router: Router) {}
 
   loginDto: ILoginModel = {
     email: '',

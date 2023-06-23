@@ -1,12 +1,10 @@
+import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ITaskModel } from 'src/app/models/task.model';
-import { Priority } from 'src/app/enums/priority.enum';
-import Swal from 'sweetalert2';
 import { TaskService } from 'src/app/services/task.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-all-task',
@@ -30,7 +28,18 @@ export class AllTaskComponent implements OnInit {
       }
     );
   }
-
+  getPriorityText(priority: number): string {
+    switch (priority) {
+      case 1:
+        return 'Easy';
+      case 2:
+        return 'Medium';
+      case 3:
+        return 'Hard';
+      default:
+        return '';
+    }
+  }
   get isAuthenticated(): boolean {
     return this.authService.isAuthenticatedResult();
   }
@@ -39,6 +48,25 @@ export class AllTaskComponent implements OnInit {
     this.authService.logout().subscribe(
       () => {
         this.router.navigate(['/login']);
+      },
+      (error) => {
+        Swal.fire('Error', `${error}`, 'error');
+      }
+    );
+  }
+
+  removeTask(taskId: number) {
+    this.taskService.deleteTask(taskId).subscribe(
+      (response) => {
+        Swal.fire('Accesfull', `${response}`, 'success');
+        this.taskService.getTask().subscribe(
+          (response: ITaskModel[]) => {
+            this.items = response;
+          },
+          (error: any) => {
+            console.log(error)
+          }
+        );
       },
       (error) => {
         Swal.fire('Error', `${error}`, 'error');

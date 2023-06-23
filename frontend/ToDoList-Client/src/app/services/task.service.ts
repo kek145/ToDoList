@@ -15,8 +15,8 @@ export class TaskService {
   // Task endpoints
   private createTaskUrl = "Task/CreateTask";
   private getTaskUrl = "Task/GetAllTask";
-  private updateTaskUrl = "Task/UpdateTask/{taskId}";
-  private deleteTaskUrl = "Task/DeleteTask/{taskId}";
+  private updateTaskUrl = "Task/UpdateTask/${taskId}";
+  private deleteTaskUrl = "Task/DeleteTask/${taskId}";
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -39,7 +39,7 @@ export class TaskService {
   }
 
   public deleteTask(taskId: number): Observable<any> {
-    return this.http.delete(`${environment.apiUrl}/${this.deleteTaskUrl}/${taskId}`);
+    return this.http.delete(`${environment.apiUrl}/Task/DeleteTask/${taskId}`);
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {

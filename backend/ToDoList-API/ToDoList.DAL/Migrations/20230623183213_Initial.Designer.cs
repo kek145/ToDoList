@@ -12,8 +12,8 @@ using ToDoList.DAL.Core;
 namespace ToDoList.DAL.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230623172509_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230623183213_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,7 +37,7 @@ namespace ToDoList.DAL.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 6, 23, 17, 25, 9, 332, DateTimeKind.Utc).AddTicks(8462))
+                        .HasDefaultValue(new DateTime(2023, 6, 23, 18, 32, 13, 175, DateTimeKind.Utc).AddTicks(9705))
                         .HasColumnName("created");
 
                     b.Property<string>("Description")

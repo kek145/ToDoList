@@ -1,13 +1,12 @@
+import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 import { IJwtAuth } from '../models/jwtAuth.model';
 import { ILoginModel } from '../models/login.model';
 import { IRegisterModel } from '../models/register.model';
-import { Observable, catchError, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Observable, catchError, tap, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +26,7 @@ export class AuthenticationService {
     return this.isAuthenticated;
   }
 
-  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) {
+  constructor(private http: HttpClient, private router: Router) {
     this.checkAuthentication();
     this.headers = new HttpHeaders();
   }
@@ -46,7 +45,7 @@ export class AuthenticationService {
 
   public logout() {
     localStorage.clear();
-    this.toastr.success('you have successfully logged out!', 'Logout');
+    Swal.fire('Succesfull', 'you have successfully logged out!', 'success');
     return this.http.post(`${environment.apiUrl}/${this.logoutUrl}`, { headers: this.headers });
   }
 
@@ -62,7 +61,6 @@ export class AuthenticationService {
   private removeJwtTokenAfterDelay(delay: number) {
     setTimeout(() => {
       localStorage.removeItem('jwtToken');
-      // Другие действия, если необходимо
     }, delay);
   }
 

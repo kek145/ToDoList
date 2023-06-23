@@ -18,6 +18,8 @@
                     <th>Priority</th>
                     <th>Created</th>
                     <th>Action</th>
+                    <th>Edit</th>
+                    <th>Remove</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -25,10 +27,16 @@
                     <td>{{ item.title }}</td>
                     <td>{{ item.description }}</td>
                     <td>{{ item.status }}</td>
-                    <td>{{ item.priority }}</td>
+                    <td>{{ getPriorityText(item.priority) }}</td>
                     <td>{{ item.createdDate}}</td>
                     <td>
                       <button class="btn btn-success">Done</button>
+                    </td>
+                    <td>
+                      <button class="btn btn-warning">Edit</button>
+                    </td>
+                    <td>
+                      <button class="btn btn-danger" (click)="removeTask(item.taskId)">Remove</button>
                     </td>
                   </tr>
                 </tbody>

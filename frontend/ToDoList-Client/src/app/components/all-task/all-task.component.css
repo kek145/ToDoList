@@ -23,17 +23,17 @@
 
 .panel{
     width: 1800px;
-    height: 700px;
     margin: 0 auto;
     border-radius: 10px;
-    padding-top: 50px;
+    padding-top: 10px;
     border: 1px solid #000;
     background-color: #F5DEB3;
 }
 
 .table{
-    width: 1790px;
+    width: 1780px;
     margin: 0 auto;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 390px) {
