@@ -35,7 +35,6 @@ export class AuthenticationService {
     const token = localStorage.getItem('jwtToken');
 
     if (token) {
-      this.router.navigate(['create-task']);
       this.isAuthenticated = true;
     } 
     else {

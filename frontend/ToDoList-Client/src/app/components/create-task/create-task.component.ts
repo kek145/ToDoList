@@ -1,4 +1,4 @@
-import { DatePipe } from '@angular/common';
+
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
@@ -13,15 +13,21 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./create-task.component.css']
 })
 export class CreateTaskComponent implements OnInit {
-  constructor(private titleService: Title, private authService: AuthenticationService, private taskService: TaskService, private datePipe: DatePipe, private toastr: ToastrService) { }
+  constructor(private titleService: Title, private authService: AuthenticationService, private taskService: TaskService, private toastr: ToastrService) { }
 
   taskDto: ITaskModel = {
     title: '',
     description: '',
     status: false,
-    priority: Priority.easy,
+    priority:  Priority.Easy,
     createdDate: new Date()
   };
+
+  priorityOptions = [
+    { value: Priority.Easy, label: 'Easy' },
+    { value: Priority.Medium, label: 'Medium' },
+    { value: Priority.Hard, label: 'Hard' }
+  ];
 
   ngOnInit(): void {
     this.titleService.setTitle('Create Task');
@@ -33,13 +39,10 @@ export class CreateTaskComponent implements OnInit {
       return;
     }
 
-
     this.taskService.createTask(taskDto).subscribe(
       response => {
+        console.log(response);
         this.toastr.success('Task added successfully', 'Successfully');
-      },
-      error => {
-        this.toastr.error(`${error.message}`, 'Error');
       }
     );
   }
