@@ -5,10 +5,10 @@ namespace ToDoList.Services.Models.Dto
 {
     public class TaskDto
     {
-        public string Title { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-        public bool Status { get; set; } = false;
-        public Priority Priority { get; set; } = Priority.Easy;
-        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
+        public required string Title { get; set; }
+        public required string Description { get; set; }
+        public required bool Status { get; set; }
+        public required Priority Priority { get; set; }
+        public required DateTime CreatedDate { get; set; }
     }
 }

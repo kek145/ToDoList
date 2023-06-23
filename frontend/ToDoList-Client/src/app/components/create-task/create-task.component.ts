@@ -6,6 +6,7 @@ import { Priority } from 'src/app/enums/priority.enum';
 import { ITaskModel } from 'src/app/models/task.model';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { TaskService } from 'src/app/services/task.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-task',
@@ -35,14 +36,14 @@ export class CreateTaskComponent implements OnInit {
 
   createTask(taskDto: ITaskModel) {
     if(this.taskDto.title === "" || this.taskDto.description === "") {
-      this.toastr.warning('All fields must be filled!', 'Warning');
+      Swal.fire('Warning', 'All fields must be filled!', 'warning');
       return;
     }
 
     this.taskService.createTask(taskDto).subscribe(
       response => {
         console.log(response);
-        this.toastr.success('Task added successfully', 'Successfully');
+        Swal.fire('Ok', 'Task created successfully', 'success');
       }
     );
   }

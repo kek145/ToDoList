@@ -4,9 +4,10 @@ import { ToastrService } from 'ngx-toastr';
 import { IJwtAuth } from '../models/jwtAuth.model';
 import { ILoginModel } from '../models/login.model';
 import { IRegisterModel } from '../models/register.model';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -58,11 +59,23 @@ export class AuthenticationService {
     );
   }
 
+  private removeJwtTokenAfterDelay(delay: number) {
+    setTimeout(() => {
+      localStorage.removeItem('jwtToken');
+      // Другие действия, если необходимо
+    }, delay);
+  }
+
   public login(user: ILoginModel): Observable<IJwtAuth> {
     this.isAuthenticated = true;
     return this.http.post<IJwtAuth>(`${environment.apiUrl}/${this.loginUrl}`, user)
     .pipe(
+      tap((authResponse: IJwtAuth) => {
+        localStorage.setItem('jwtToken', authResponse.token);
+        this.removeJwtTokenAfterDelay(24 * 60 * 60 * 1000);
+      }),
       catchError((error: HttpErrorResponse) => {
+        this.isAuthenticated = false;
         return this.handleError(error);
       })
     );
@@ -71,20 +84,20 @@ export class AuthenticationService {
   private handleError(error: HttpErrorResponse): Observable<never> {
     if (error.status === 400) {
       console.error('Bad Request:', error.error);
-      this.toastr.error(`${error.error}`, 'Error');
+      Swal.fire('Error', `${error.error}`, 'error');
     } 
     else if (error.status === 401) {
       console.error('Unauthorized:', error.error);
-      this.toastr.error(`${error.error}`, 'Error');
+      Swal.fire('Error', `${error.error}`, 'error');
       this.router.navigate(['/login']);
     } 
     else if (error.status === 500) {
       console.error('Internal Server Error:', error.error);
-      this.toastr.error(`${error.error}`, 'Error');
+      Swal.fire('Error', `${error.error}`, 'error');
     } 
     else {
       console.error('An error occurred:', error);
-      this.toastr.error('An error occurred', 'Error');
+      Swal.fire('Error', 'An error occurred!', 'error');
     }
 
     return throwError('Something went wrong. Please try again later.');

@@ -5,6 +5,7 @@ import { Title } from '@angular/platform-browser';
 import { IJwtAuth } from 'src/app/models/jwtAuth.model';
 import { ILoginModel } from 'src/app/models/login.model';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,8 @@ export class LoginComponent implements OnInit {
 
   login(loginDto: ILoginModel): void {
     if(loginDto.email === "" || loginDto.password === "") {
-      this.toastr.warning("All fields must be filled!", "Warning");
+      Swal.fire('Warning', 'All fields must be filled!', 'warning');
+      return;
     }
 
     this.authService.login(loginDto).subscribe((jwtDto) => {

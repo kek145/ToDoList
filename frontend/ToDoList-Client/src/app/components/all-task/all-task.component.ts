@@ -5,6 +5,8 @@ import { Title } from '@angular/platform-browser';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ITaskModel } from 'src/app/models/task.model';
 import { Priority } from 'src/app/enums/priority.enum';
+import Swal from 'sweetalert2';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-all-task',
@@ -13,16 +15,20 @@ import { Priority } from 'src/app/enums/priority.enum';
 })
 export class AllTaskComponent implements OnInit {
      
-    items: ITaskModel[] = [
-      { title: "Task 1", description: "Description 1", status: false, priority: Priority.Easy, createdDate: new Date(2023, 5, 3) },
-      { title: "Task 2", description: "Description 2", status: false, priority: Priority.Easy, createdDate: new Date(2023, 5, 3) },
-      { title: "Task 3", description: "Description 3", status: false, priority: Priority.Easy, createdDate: new Date(2023, 5, 3) },
-      { title: "Task 4", description: "Description 4", status: false, priority: Priority.Easy, createdDate: new Date(2023, 5, 3) }
-    ];
-  constructor(private titleService: Title, private authService: AuthenticationService, private router: Router, private toastr: ToastrService) {}
+  items: ITaskModel[] = [];
+  constructor(private titleService: Title, private authService: AuthenticationService, private router: Router, private taskService: TaskService) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle('All Tasks')
+    this.titleService.setTitle('All Tasks');
+
+    this.taskService.getTask().subscribe(
+      (response: ITaskModel[]) => {
+        this.items = response;
+      },
+      (error: any) => {
+        console.log(error)
+      }
+    );
   }
 
   get isAuthenticated(): boolean {
@@ -35,7 +41,7 @@ export class AllTaskComponent implements OnInit {
         this.router.navigate(['/login']);
       },
       (error) => {
-        this.toastr.error(`${error}`, 'Warning');
+        Swal.fire('Error', `${error}`, 'error');
       }
     );
   }

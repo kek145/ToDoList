@@ -9,7 +9,7 @@
     </header>
     <main class="main">
         <div class="panel">
-            <table class="table table-striped">
+            <table class="table table-dark">
                 <thead>
                   <tr>
                     <th>Title</th>
@@ -17,6 +17,7 @@
                     <th>Status</th>
                     <th>Priority</th>
                     <th>Created</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,9 @@
                     <td>{{ item.status }}</td>
                     <td>{{ item.priority }}</td>
                     <td>{{ item.createdDate}}</td>
+                    <td>
+                      <button class="btn btn-success">Done</button>
+                    </td>
                   </tr>
                 </tbody>
               </table>

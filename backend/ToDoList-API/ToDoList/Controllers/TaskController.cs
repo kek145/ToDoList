@@ -29,8 +29,12 @@ namespace ToDoList.Controllers
         public async Task<IActionResult> CreateTaskAsync([FromBody] TaskDto taskDto)
         {
             string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            var validator = new DataValidator();
             if (token == null!)
-                return BadRequest("Null token");
+                return BadRequest(new { message = "Null token"});
+
+            if (!validator.TaskValidation(taskDto))
+                return BadRequest(new { message = "Task is not valid!"});
             
             await _taskService.CreateTaskAsync(taskDto, token);
             
@@ -53,7 +57,7 @@ namespace ToDoList.Controllers
             var validator = new DataValidator();
             string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
             if (!validator.TaskValidation(taskDto))
-                return BadRequest("Fields must be filled!");
+                return BadRequest(new { message = "Fields must be filled!" });
             await _taskService.UpdateTaskAsync(taskDto, token, taskId);
             return Ok(new { message = "Successful!" });
         }
@@ -70,7 +74,7 @@ namespace ToDoList.Controllers
             catch (Exception ex)
             {
                 if (ex is Exception)
-                    return NotFound("Task is not found");
+                    return NotFound(new { message = "Task is not found"});
                 if (ex is UnauthorizedAccessException)
                     return Forbid("User is not authorized to update this task");
                 return StatusCode(500);

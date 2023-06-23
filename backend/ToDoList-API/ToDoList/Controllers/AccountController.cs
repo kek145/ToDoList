@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ToDoList.Services.Validators;
 using ToDoList.Services.Interfaces;
+using ToDoList.Services.Models.Dto;
 
 namespace ToDoList.Controllers
 {
@@ -26,9 +27,9 @@ namespace ToDoList.Controllers
         [HttpPost("Logout")]
         public async Task<IActionResult> LogoutAccount()
         {
-            var token = HttpContext?.Request?.Headers?["Authorization"]!.FirstOrDefault()!.Split(" ").Last();
+            string token = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
-            if(token != null!)
+            if(token != null)
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var jwtToken = tokenHandler.ReadJwtToken(token);
@@ -45,7 +46,7 @@ namespace ToDoList.Controllers
             string token = await _authenticationService.AuthenticateAsync(loginDto.Email, loginDto.Password);
 
             if (token == null!)
-                return Unauthorized("Wrong email or password!");
+                return Unauthorized(new { message = "Wrong email or password!"});
 
             return Ok(new { Token = token });
         }
@@ -56,17 +57,17 @@ namespace ToDoList.Controllers
             var validator = new DataValidator();
             bool emailExists = await _registrationService.IsEmailExistsAsync(userDto.Email);
             if (emailExists)
-                return BadRequest("User with the same email already exists!");
+                return BadRequest(new { message = "User with the same email already exists!"});
             if (!validator.ValidateFieldsNotEmpty(userDto.UserName, userDto.Email, userDto.Password))
-                return BadRequest("Fields cannot be empty!");
+                return BadRequest(new { message = "Fields cannot be empty!"});
             if (!validator.CheckWhitespace(userDto.UserName, userDto.Email, userDto.Password, userDto.ConfirmPassword))
-                return BadRequest("The entered data cannot contain spaces!");
+                return BadRequest(new { message = "The entered data cannot contain spaces!"});
             if (!validator.ContainsRussian(userDto.UserName, userDto.Email, userDto.Password))
-                return BadRequest("The entered data cannot contain Russian characters!");
+                return BadRequest(new { message = "The entered data cannot contain Russian characters!"});
             if (!validator.IsEmailValid(userDto.Email))
-                return BadRequest("Mail cannot contain characters!");
+                return BadRequest(new { message = "Mail cannot contain characters!"});
             if (userDto.Password != userDto.ConfirmPassword)
-                return BadRequest("Password mismatch!");
+                return BadRequest(new { message = "Password mismatch!"});
 
 
             await _registrationService.RegisterAsync(userDto.UserName, userDto.Email, userDto.Password, userDto.ConfirmPassword);

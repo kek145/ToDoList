@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using ToDoList.DAL.Interfaces;
 using ToDoList.Domain.Entity;
+using ToDoList.DAL.Interfaces;
+using System.Collections.Generic;
 using ToDoList.Services.Interfaces;
 using ToDoList.Services.Models.Dto;
 

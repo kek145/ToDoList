@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using System.Linq;
 using ToDoList.DAL.Core;
-using ToDoList.DAL.Interfaces;
+using System.Threading.Tasks;
 using ToDoList.Domain.Entity;
+using ToDoList.DAL.Interfaces;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace ToDoList.DAL.Repositories
 {

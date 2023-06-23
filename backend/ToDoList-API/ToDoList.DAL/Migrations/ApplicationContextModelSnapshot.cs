@@ -34,7 +34,7 @@ namespace ToDoList.DAL.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 6, 22, 8, 35, 40, 779, DateTimeKind.Utc).AddTicks(3327))
+                        .HasDefaultValue(new DateTime(2023, 6, 23, 17, 25, 9, 332, DateTimeKind.Utc).AddTicks(8462))
                         .HasColumnName("created");
 
                     b.Property<string>("Description")
