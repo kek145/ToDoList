@@ -13,6 +13,7 @@ import { AllTaskComponent } from './components/all-task/all-task.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { UpdateTaskComponent } from './components/update-task/update-task.component';
 
 
 @NgModule({
@@ -20,8 +21,9 @@ import { RegistrationComponent } from './components/registration/registration.co
     AppComponent,
     LoginComponent,
     AllTaskComponent,
+    UpdateTaskComponent,
     CreateTaskComponent,
-    RegistrationComponent
+    RegistrationComponent,
   ],
   imports: [
     FormsModule,

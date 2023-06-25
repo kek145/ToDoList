@@ -11,17 +11,10 @@ import Swal from 'sweetalert2';
   providedIn: 'root'
 })
 export class TaskService {
-  
-  // Task endpoints
-  private createTaskUrl = "Task/CreateTask";
-  private getTaskUrl = "Task/GetAllTask";
-  private updateTaskUrl = "Task/UpdateTask/${taskId}";
-  private deleteTaskUrl = "Task/DeleteTask/${taskId}";
-
   constructor(private http: HttpClient, private router: Router) { }
 
   public createTask(task: ITaskModel): Observable<any> {
-    return this.http.post<any>(`${environment.apiUrl}/${this.createTaskUrl}`, task)
+    return this.http.post<any>(`${environment.apiUrl}/Task/CreateTask`, task)
     .pipe(
       catchError((error: HttpErrorResponse) => {
         Swal.fire('Error', 'Task not created!', 'error');
@@ -31,15 +24,22 @@ export class TaskService {
   }
 
   public getTask(): Observable<ITaskModel[]> {
-    return this.http.get<ITaskModel[]>(`${environment.apiUrl}/${this.getTaskUrl}`);
+    return this.http.get<ITaskModel[]>(`${environment.apiUrl}/Task/GetAllTask`);
+  }
+
+  public getTaskById(taskId: number) : Observable<ITaskModel> {
+    return this.http.get<ITaskModel>(`${environment.apiUrl}/Task/GetTaskById/${taskId}`);
   }
 
   public updateTask(taskId: number, task: ITaskModel): Observable<any> {
-    return this.http.put<any>(`${environment.apiUrl}/${this.updateTaskUrl}/${taskId}`, task);
+    return this.http.put<any>(`${environment.apiUrl}/Task/UpdateTask/${taskId}`, task);
   }
 
   public deleteTask(taskId: number): Observable<any> {
     return this.http.delete(`${environment.apiUrl}/Task/DeleteTask/${taskId}`);
+  }
+  public endTask(taskId: number): Observable<any> {
+    return this.http.patch(`${environment.apiUrl}/Task/CompleteTask/${taskId}`, null);
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {

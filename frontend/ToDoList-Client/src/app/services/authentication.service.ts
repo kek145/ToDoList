@@ -70,7 +70,7 @@ export class AuthenticationService {
     .pipe(
       tap((authResponse: IJwtAuth) => {
         localStorage.setItem('jwtToken', authResponse.token);
-        this.removeJwtTokenAfterDelay(24 * 60 * 60 * 1000);
+        this.removeJwtTokenAfterDelay(1 * 60 * 60 * 1000);
       }),
       catchError((error: HttpErrorResponse) => {
         this.isAuthenticated = false;

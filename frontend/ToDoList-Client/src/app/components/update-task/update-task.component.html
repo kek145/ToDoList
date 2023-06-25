@@ -1,0 +1,22 @@
+<div class="form__container" *ngIf="isAuthenticated">
+    <form class="form" (ngSubmit)="updateTask()">
+        <h2>Update Task</h2>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control input-width" id="title" name="title" placeholder="Enter title" required [(ngModel)]="task.title">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea class="form-control input-width-area" id="description" name="description" rows="3" placeholder="Enter description" required [(ngModel)]="task.description"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="priority" class="form-label">Priority</label>
+          <div *ngFor="let option of priorityOptions">
+            <input type="radio" name="priority" [(ngModel)]="task.priority" [value]="option.value" id="{{ option.value }}">
+            <label for="{{ option.value }}" class="option">{{ option.label }}</label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Task</button>
+        <button type="button" routerLink="/all-task" class="btn btn-secondary">Back</button>
+    </form>
+</div>

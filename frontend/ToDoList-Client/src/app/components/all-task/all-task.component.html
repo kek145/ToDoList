@@ -30,10 +30,10 @@
                     <td>{{ getPriorityText(item.priority) }}</td>
                     <td>{{ item.createdDate}}</td>
                     <td>
-                      <button class="btn btn-success">Done</button>
+                      <button class="btn btn-success" (click)="endTask(item.taskId)">Done</button>
                     </td>
                     <td>
-                      <button class="btn btn-warning">Edit</button>
+                      <button class="btn btn-warning" (click)="updateTask(item.taskId)">Edit</button>
                     </td>
                     <td>
                       <button class="btn btn-danger" (click)="removeTask(item.taskId)">Remove</button>

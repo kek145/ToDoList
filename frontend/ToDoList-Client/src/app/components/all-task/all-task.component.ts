@@ -58,7 +58,7 @@ export class AllTaskComponent implements OnInit {
   removeTask(taskId: number) {
     this.taskService.deleteTask(taskId).subscribe(
       (response) => {
-        Swal.fire('Accesfull', `${response}`, 'success');
+        Swal.fire('Accesfull', 'Task deleted successfully!', 'success');
         this.taskService.getTask().subscribe(
           (response: ITaskModel[]) => {
             this.items = response;
@@ -72,5 +72,28 @@ export class AllTaskComponent implements OnInit {
         Swal.fire('Error', `${error}`, 'error');
       }
     );
+  }
+
+  endTask(taskId: number){
+    this.taskService.endTask(taskId).subscribe(
+      (response) => {
+        Swal.fire('Accesfull', 'Task completed', 'success');
+        this.taskService.getTask().subscribe(
+          (response: ITaskModel[]) => {
+            this.items = response;
+          },
+          (error: any) => {
+            console.log(error)
+          }
+        );
+      },
+      (error) => {
+        Swal.fire('Error', `${error}`, 'error');
+      }
+    );
+  }
+
+  updateTask(taskId: number) {
+    this.router.navigate(['/update-task', taskId]);
   }
 }
