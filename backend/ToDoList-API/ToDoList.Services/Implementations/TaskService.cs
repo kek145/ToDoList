@@ -19,6 +19,21 @@ namespace ToDoList.Services.Implementations
             _jwtTokenService = jwtTokenService;
         }
 
+        public async Task<bool> EndTask(int taskId, string token)
+        {
+            int? userId = _jwtTokenService.GetUserIdFromToken(token);
+            if (userId.HasValue)
+            {
+                var task = await _taskRepository.GetTaskByIdAsync(taskId);
+                if (task == null)
+                    return false;
+                task.Status = true;
+                await _taskRepository.UpdateTaskAsync(task);
+            }
+
+            return true;
+        }
+
         public async Task DeleteTaskAsync(int taskId, string token)
         {
             int? userId = _jwtTokenService.GetUserIdFromToken(token);
@@ -55,6 +70,21 @@ namespace ToDoList.Services.Implementations
 
                 await _taskRepository.UpdateTaskAsync(taskEntity);
             }
+        }
+
+        public async Task<TaskEntity> GetTaskByIdAsync(string token, int taskId)
+        {
+            int? userId = _jwtTokenService.GetUserIdFromToken(token);
+
+            if (!userId.HasValue)
+            {
+                throw new UnauthorizedAccessException("Invalid token");
+            }
+            
+            var task = await _taskRepository.GetTaskByIdAsync(taskId);
+            if (task == null)
+                throw new Exception("Task not found");
+            return task;
         }
 
         public async Task CreateTaskAsync(TaskDto taskDto, string token)

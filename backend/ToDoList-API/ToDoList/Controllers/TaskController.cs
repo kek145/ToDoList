@@ -51,6 +51,18 @@ namespace ToDoList.Controllers
             return Ok(result);
         }
 
+        [HttpGet("GetTaskById/{taskId}")]
+        public async Task<IActionResult> GetTaskById(int taskId)
+        {
+            string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            var result = await _taskService.GetTaskByIdAsync(token, taskId);
+
+            if (result == null)
+                return NotFound(new { message = "Task is not found" });
+
+            return Ok(result);
+        }
+
         [HttpPut("UpdateTask/{taskId}")]
         public async Task<IActionResult> UpdateTaskAsync(TaskDto taskDto, int taskId)
         {
@@ -79,6 +91,14 @@ namespace ToDoList.Controllers
                     return Forbid("User is not authorized to update this task");
                 return StatusCode(500);
             }
+        }
+
+        [HttpPatch("CompleteTask/{taskId}")]
+        public async Task<IActionResult> CompleteTask(int taskId)
+        {
+            string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            await _taskService.EndTask(taskId, token);
+            return Ok(new { message = "Task completed" });
         }
     }
 }

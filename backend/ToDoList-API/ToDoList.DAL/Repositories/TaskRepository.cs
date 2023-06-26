@@ -47,7 +47,7 @@ namespace ToDoList.DAL.Repositories
         public async Task<IEnumerable<TaskEntity>> GetTasksByUserIdAsync(int userId)
         {
             return await _db.TasksEntity
-                .Where(task => task.UserID == userId)
+                .Where(task => task.UserID == userId && task.Status == false)
                 .ToListAsync();
         }
     }
