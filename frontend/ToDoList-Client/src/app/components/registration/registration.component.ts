@@ -11,7 +11,9 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  constructor(private authService: AuthenticationService, private titleService: Title) {  }
+
+  constructor(private authService: AuthenticationService, private titleService: Title) { }
+
 
   registerDto: IRegisterModel = {
     username: '',
@@ -42,6 +44,9 @@ export class RegistrationComponent implements OnInit {
     this.authService.register(registerDto).subscribe(
       response => {
         Swal.fire('Successfully', 'Registration completed successfully!', 'success');
+      },
+      error => {
+        Swal.fire('Error', 'Error registration', 'error');
       }
     );
   }

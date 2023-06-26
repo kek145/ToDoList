@@ -70,7 +70,7 @@ export class AuthenticationService {
     .pipe(
       tap((authResponse: IJwtAuth) => {
         localStorage.setItem('jwtToken', authResponse.token);
-        this.removeJwtTokenAfterDelay(1 * 60 * 60 * 1000);
+        this.removeJwtTokenAfterDelay(24 * 60 * 60 * 1000);
       }),
       catchError((error: HttpErrorResponse) => {
         this.isAuthenticated = false;
@@ -95,7 +95,7 @@ export class AuthenticationService {
     } 
     else {
       console.error('An error occurred:', error);
-      Swal.fire('Error', 'An error occurred!', 'error');
+      Swal.fire('Error', `${error.message.toString()}`, 'error');
     }
 
     return throwError('Something went wrong. Please try again later.');

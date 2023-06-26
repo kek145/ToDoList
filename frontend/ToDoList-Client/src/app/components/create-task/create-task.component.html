@@ -12,11 +12,11 @@
         <div class="mb-3">
           <label for="priority" class="form-label">Priority</label>
           <div *ngFor="let option of priorityOptions">
-            <input type="radio" name="priority" [(ngModel)]="taskDto.priority" [value]="option.value" id="{{ option.value }}">
+            <input type="radio" id="priority" name="priority" [(ngModel)]="taskDto.priority" [value]="option.value" id="{{ option.value }}">
             <label for="{{ option.value }}" class="option">{{ option.label }}</label>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Create Task</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!taskDto.title || !taskDto.description">Create Task</button>
         <button type="button" routerLink="/all-task" class="btn btn-secondary">Back</button>
     </form>
 </div>

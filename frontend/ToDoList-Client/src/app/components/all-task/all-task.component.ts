@@ -28,6 +28,16 @@ export class AllTaskComponent implements OnInit {
       }
     );
   }
+
+  getTaskStatus(status: boolean): string {
+    switch(status) {
+      case false:
+        return 'Not Done';
+      case true:
+        return 'Done';
+    }
+  }
+
   getPriorityText(priority: number): string {
     switch (priority) {
       case 1:
@@ -58,7 +68,7 @@ export class AllTaskComponent implements OnInit {
   removeTask(taskId: number) {
     this.taskService.deleteTask(taskId).subscribe(
       (response) => {
-        Swal.fire('Accesfull', 'Task deleted successfully!', 'success');
+        Swal.fire('Successfully', 'Task deleted successfully!', 'success');
         this.taskService.getTask().subscribe(
           (response: ITaskModel[]) => {
             this.items = response;
@@ -69,7 +79,7 @@ export class AllTaskComponent implements OnInit {
         );
       },
       (error) => {
-        Swal.fire('Error', `${error}`, 'error');
+        Swal.fire('Error', 'Error when deleting task', 'error');
       }
     );
   }

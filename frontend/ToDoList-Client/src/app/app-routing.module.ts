@@ -5,13 +5,14 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { AllTaskComponent } from './components/all-task/all-task.component';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { UpdateTaskComponent } from './components/update-task/update-task.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: RegistrationComponent},
-  { path: 'all-task', component: AllTaskComponent },
-  { path: 'update-task/:taskId', component: UpdateTaskComponent},
-  { path: 'create-task', component: CreateTaskComponent },
+  { path: 'all-task', component: AllTaskComponent, canActivate: [AuthGuard] },
+  { path: 'update-task/:taskId', component: UpdateTaskComponent, canActivate: [AuthGuard]},
+  { path: 'create-task', component: CreateTaskComponent, canActivate: [AuthGuard] },
   { path: 'registration', component: RegistrationComponent },
 ];
 

@@ -5,6 +5,7 @@ import { Priority } from 'src/app/enums/priority.enum';
 import { ITaskModel } from 'src/app/models/task.model';
 import { TaskService } from 'src/app/services/task.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-update-task',
@@ -12,7 +13,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./update-task.component.css']
 })
 export class UpdateTaskComponent implements OnInit {
-  task: ITaskModel = {
+  taskDto: ITaskModel = {
     taskId: 0,
     title: '',
     description: '',
@@ -33,20 +34,21 @@ export class UpdateTaskComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle('Update Task');
     this.route.params.subscribe(params => {
-        this.task.taskId = + params['taskId'];
-        this.taskService.getTaskById(this.task.taskId).subscribe((task: ITaskModel) => {
-        this.task = task;
+        this.taskDto.taskId = + params['taskId'];
+        this.taskService.getTaskById(this.taskDto.taskId).subscribe((task: ITaskModel) => {
+        this.taskDto = task;
       })
     });
   }
 
-  updateTask(): void { 
-    this.taskService.updateTask(this.task.taskId, this.task).subscribe(
+  updateTask(taskDto: ITaskModel): void {
+    this.taskService.updateTask(taskDto.taskId, taskDto).subscribe(
       (response) => {
-        console.log('Задача успешно обновлена', response);
+        Swal.fire('Successfully', 'Task updated successfully', 'success');
       },
       (error) => {
-        console.error('Ошибка при обновлении задачи', error);
+        Swal.fire('Error', '', 'error');
+        console.error('Error while updating task', error);
       }
     );
   }
