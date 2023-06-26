@@ -1,2 +1,2 @@
 # ToDoList
-# ToDo List | ASP.NET Core | Angular | PostgreSQL | EF Core
+ToDo List | ASP.NET Core | Angular | PostgreSQL | EF Core
