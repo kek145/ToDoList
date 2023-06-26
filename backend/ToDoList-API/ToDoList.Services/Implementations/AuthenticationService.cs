@@ -11,14 +11,13 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using ToDoList.Configurations.Configurations;
-using ToDoList.Models.Dto;
 
 namespace ToDoList.Services.Implementations
 {
     public class AuthenticationService : IAuthenticationService
     {
-        private readonly IUserRepository _userRepository;
         private readonly JwtConfiguration _options;
+        private readonly IUserRepository _userRepository;
         public AuthenticationService(IUserRepository userRepository, IOptions<JwtConfiguration> options)
         {
             _userRepository = userRepository;
@@ -45,8 +44,9 @@ namespace ToDoList.Services.Implementations
         {
             List<Claim> claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Email, entity.Email),
-                new Claim("userid", entity.UserId.ToString())
+                new Claim("userid", entity.UserId.ToString()),
+                new Claim(JwtRegisteredClaimNames.Sub, entity.Email),
+                new Claim(JwtRegisteredClaimNames.Email, entity.Email)
             };
 
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey));
@@ -55,7 +55,7 @@ namespace ToDoList.Services.Implementations
                 issuer: _options.Issuer,
                 audience: _options.Audience,
                 claims: claims,
-                expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(60)),
+                expires: DateTime.UtcNow.Add(TimeSpan.FromDays(1)),
                 notBefore: DateTime.UtcNow,
                 signingCredentials: new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
                 );

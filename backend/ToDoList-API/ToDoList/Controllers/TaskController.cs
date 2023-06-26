@@ -16,8 +16,8 @@ namespace ToDoList.Controllers
     [Route("api/[controller]")]
     public class TaskController : ControllerBase
     {
-        private readonly ILogger<TaskController> _logger;
         private readonly ITaskService _taskService;
+        private readonly ILogger<TaskController> _logger;
 
         public TaskController(ILogger<TaskController> logger, ITaskService taskService)
         {
@@ -29,12 +29,16 @@ namespace ToDoList.Controllers
         public async Task<IActionResult> CreateTaskAsync([FromBody] TaskDto taskDto)
         {
             string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
-            if (token is null)
-                return BadRequest("Null token");
+            var validator = new DataValidator();
+            if (token == null!)
+                return BadRequest(new { message = "Null token"});
+
+            if (!validator.TaskValidation(taskDto))
+                return BadRequest(new { message = "Task is not valid!"});
             
             await _taskService.CreateTaskAsync(taskDto, token);
             
-            return Ok("Successful!");
+            return Ok(new { message = "Successful!" });
         }
 
         [HttpGet("GetAllTask")]
@@ -42,8 +46,20 @@ namespace ToDoList.Controllers
         {
             string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
             var result = await _taskService.GetTasksByUserIdAsync(token);
-            if (result is null)
-                return NotFound("Tasks is not found!");
+            if (result == null!)
+                return NotFound(new { message = "Tasks is not found!" });
+            return Ok(result);
+        }
+
+        [HttpGet("GetTaskById/{taskId}")]
+        public async Task<IActionResult> GetTaskById(int taskId)
+        {
+            string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            var result = await _taskService.GetTaskByIdAsync(token, taskId);
+
+            if (result == null)
+                return NotFound(new { message = "Task is not found" });
+
             return Ok(result);
         }
 
@@ -53,9 +69,9 @@ namespace ToDoList.Controllers
             var validator = new DataValidator();
             string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
             if (!validator.TaskValidation(taskDto))
-                return BadRequest("Fields must be filled!");
+                return BadRequest(new { message = "Fields must be filled!" });
             await _taskService.UpdateTaskAsync(taskDto, token, taskId);
-            return Ok("Successful!");
+            return Ok(new { message = "Successful!" });
         }
 
         [HttpDelete("DeleteTask/{taskId}")]
@@ -70,11 +86,19 @@ namespace ToDoList.Controllers
             catch (Exception ex)
             {
                 if (ex is Exception)
-                    return NotFound("Task is not found");
+                    return NotFound(new { message = "Task is not found"});
                 if (ex is UnauthorizedAccessException)
                     return Forbid("User is not authorized to update this task");
                 return StatusCode(500);
             }
+        }
+
+        [HttpPatch("CompleteTask/{taskId}")]
+        public async Task<IActionResult> CompleteTask(int taskId)
+        {
+            string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            await _taskService.EndTask(taskId, token);
+            return Ok(new { message = "Task completed" });
         }
     }
 }

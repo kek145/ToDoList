@@ -1,15 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ToDoList.Models.Dto
+namespace ToDoList.Services.Models.Dto
 {
     public class LoginDto
     {
-        [Required]
         [EmailAddress]
         [MaxLength(100)]
-        public string Email { get; set; } = string.Empty;
-        [Required]
-        [MaxLength(50)]
-        public string Password { get; set; } = string.Empty;
+        public required string Email { get; set; }
+
+        [MaxLength(50)] 
+        public required string Password { get; set; }
     }
 }

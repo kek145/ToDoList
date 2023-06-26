@@ -1,0 +1,46 @@
+<div *ngIf="isAuthenticated" class="form__container">
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__container">
+                <button class="btn btn-primary" routerLink="/create-task">Create task</button>
+                <button (click)="onLogout()" class="btn btn-secondary">Logout</button>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="panel">
+            <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Priority</th>
+                    <th>Created</th>
+                    <th>Done</th>
+                    <th>Edit</th>
+                    <th>Remove</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of items">
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ getTaskStatus(item.status) }}</td>
+                    <td>{{ getPriorityText(item.priority) }}</td>
+                    <td>{{ item.createdDate}}</td>
+                    <td>
+                      <button class="btn btn-success" (click)="endTask(item.taskId)">Done</button>
+                    </td>
+                    <td>
+                      <button class="btn btn-warning" (click)="updateTask(item.taskId)">Edit</button>
+                    </td>
+                    <td>
+                      <button class="btn btn-danger" (click)="removeTask(item.taskId)">Remove</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </main>
+</div>

@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using System.Linq;
 using ToDoList.DAL.Core;
-using ToDoList.DAL.Interfaces;
+using System.Threading.Tasks;
 using ToDoList.Domain.Entity;
+using ToDoList.DAL.Interfaces;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace ToDoList.DAL.Repositories
 {
@@ -47,7 +47,7 @@ namespace ToDoList.DAL.Repositories
         public async Task<IEnumerable<TaskEntity>> GetTasksByUserIdAsync(int userId)
         {
             return await _db.TasksEntity
-                .Where(task => task.UserID == userId)
+                .Where(task => task.UserID == userId && task.Status == false)
                 .ToListAsync();
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using ToDoList.Domain.Entity;
+using ToDoList.Domain.Enum;
 using ToDoList.Services.Models.Dto;
 
 namespace ToDoList.Services.Validators
@@ -45,6 +46,10 @@ namespace ToDoList.Services.Validators
         public bool TaskValidation(TaskDto taskDto)
         {
             if (string.IsNullOrEmpty(taskDto.Title) || string.IsNullOrEmpty(taskDto.Description))
+                return false;
+            if (taskDto.Priority != Priority.Easy && 
+                taskDto.Priority != Priority.Medium &&
+                taskDto.Priority != Priority.Hard)
                 return false;
             return true;
         }
