@@ -28,7 +28,7 @@ namespace ToDoList.Services.Implementations
         {
             try
             {
-                if (password != confirmpassword)
+                if (password != confirmPassword)
                     return HttpStatusCode.BadRequest;
                 var entity = new UserEntity
                 {
