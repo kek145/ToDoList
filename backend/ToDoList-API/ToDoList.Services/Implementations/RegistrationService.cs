@@ -24,7 +24,7 @@ namespace ToDoList.Services.Implementations
             return false;
         }
 
-        public async Task<HttpStatusCode> RegisterAsync(string username, string email, string password, string confirmpassword)
+        public async Task<HttpStatusCode> RegisterAsync(string username, string email, string password, string confirmPassword)
         {
             try
             {
