@@ -23,7 +23,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ToDoList.DAL.Contracts\ToDoList.DAL.Contracts.csproj" />
       <ProjectReference Include="..\ToDoList.DAL.Core\ToDoList.DAL.Core.csproj" />
+      <ProjectReference Include="..\ToDoList.DAL.Repositories\ToDoList.DAL.Repositories.csproj" />
     </ItemGroup>
 
 </Project>
