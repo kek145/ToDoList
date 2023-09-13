@@ -30,7 +30,7 @@ builder.Services.AddScoped<IRequestHandler<DeleteTaskCommand, bool>, DeleteTaskH
 builder.Services.AddScoped<IRequestHandler<CreateTaskCommand, GetTaskResponse>, CreateTaskHandler>();
 
 builder.Services.AddTransient<IRequestHandler<GetTaskQuery, GetTaskResponse>, GetTaskHandler>();
-builder.Services.AddTransient<IRequestHandler<GetAllTaskQuery, IEnumerable<GetTaskResponse>>, GetAllTaskHandler>();
+builder.Services.AddTransient<IRequestHandler<GetAllTaskQuery, TaskResponse<GetTaskResponse>>, GetAllTaskHandler>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssemblies(typeof(Program).Assembly));

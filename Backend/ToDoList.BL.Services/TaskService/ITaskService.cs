@@ -9,7 +9,7 @@ public interface ITaskService
 {
     Task<bool> DeleteTaskAsync(int taskId);
     Task<GetTaskResponse> GetTaskByIdAsync(int taskId);
-    Task<IEnumerable<GetTaskResponse>> GetAllTaskAsync();
+    Task<TaskResponse<GetTaskResponse>> GetAllTaskAsync(int page);
     Task<bool> UpdateTaskAsync(TaskRequest request, int taskId);
     Task<GetTaskResponse> CreateTaskAsync(TaskRequest request);
 }

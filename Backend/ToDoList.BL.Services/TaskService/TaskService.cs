@@ -38,9 +38,9 @@ public class TaskService : ITaskService
         return result;
     }
 
-    public async Task<IEnumerable<GetTaskResponse>> GetAllTaskAsync()
+    public async Task<TaskResponse<GetTaskResponse>> GetAllTaskAsync(int page)
     {
-        var query = new GetAllTaskQuery();
+        var query = new GetAllTaskQuery(page);
 
         var result = await _mediator.Send(query);
 

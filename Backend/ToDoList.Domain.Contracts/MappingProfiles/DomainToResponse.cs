@@ -9,17 +9,17 @@ public class DomainToResponse : Profile
     public DomainToResponse()
     {
         CreateMap<TaskEntity, GetTaskResponse>()
-            .ForMember(dest => dest.Id, 
+            .ForMember(dest => dest.Id,
                 opt => opt.MapFrom(src => src.Id))
-            .ForMember(dest => dest.Title, 
+            .ForMember(dest => dest.Title,
                 opt => opt.MapFrom(src => src.Title))
-            .ForMember(dest => dest.Description, 
+            .ForMember(dest => dest.Description,
                 opt => opt.MapFrom(src => src.Description))
-            .ForMember(dest => dest.Status, 
+            .ForMember(dest => dest.Status,
                 opt => opt.MapFrom(src => src.Status))
-            .ForMember(dest => dest.Priority, 
+            .ForMember(dest => dest.Priority,
                 opt => opt.MapFrom(src => src.Priority))
-            .ForMember(dest => dest.Deadline, 
+            .ForMember(dest => dest.Deadline,
                 opt => opt.MapFrom(src => src.Deadline));
     }
 }

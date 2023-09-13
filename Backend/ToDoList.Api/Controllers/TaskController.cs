@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
 using ToDoList.BL.Services.TaskService;
 using ToDoList.Domain.Contracts.Request;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ToDoList.Api.Controllers;
 
@@ -30,9 +30,9 @@ public class TaskController : ControllerBase
     [HttpGet]
     [AllowAnonymous]
     [Route("All-Task")]
-    public async Task<IActionResult> GetAllTask()
+    public async Task<IActionResult> GetAllTask([FromQuery] int page = 1)
     {
-        var tasks = await _taskService.GetAllTaskAsync();
+        var tasks = await _taskService.GetAllTaskAsync(page);
 
         return Ok(tasks);
     }
