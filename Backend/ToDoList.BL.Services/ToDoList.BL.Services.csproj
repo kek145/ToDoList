@@ -6,4 +6,15 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+
+    <ItemGroup>
+      <ProjectReference Include="..\ToDoList.BL.Mediator\ToDoList.BL.Mediator.csproj" />
+      <ProjectReference Include="..\ToDoList.Domain.Contracts\ToDoList.Domain.Contracts.csproj" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.1.1" />
+    </ItemGroup>
+
 </Project>

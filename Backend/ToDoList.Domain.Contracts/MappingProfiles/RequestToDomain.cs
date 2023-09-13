@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using ToDoList.Domain.Contracts.Request;
 using ToDoList.Domain.Entities.DbSet;
+using ToDoList.Domain.Contracts.Request;
 
 namespace ToDoList.Domain.Contracts.MappingProfiles;
 
