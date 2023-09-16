@@ -23,7 +23,7 @@ public class CreateTaskHandler : IRequestHandler<CreateTaskCommand, GetTaskRespo
     public async Task<GetTaskResponse> Handle(CreateTaskCommand request, CancellationToken cancellationToken)
     {
         var task = _mapper.Map<TaskEntity>(request.Request);
-
+        
         await _unitOfWork.TaskRepository.CreateAsync(task);
         await _unitOfWork.CommitAsync();
 

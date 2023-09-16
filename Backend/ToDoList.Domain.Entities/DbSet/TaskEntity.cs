@@ -13,4 +13,6 @@ public class TaskEntity
     public DateTime Deadline { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
+    public int UserId { get; set; }
+    public UserEntity User { get; set; } = null!;
 }

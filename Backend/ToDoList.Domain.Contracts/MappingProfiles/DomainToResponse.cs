@@ -21,5 +21,13 @@ public class DomainToResponse : Profile
                 opt => opt.MapFrom(src => src.Priority))
             .ForMember(dest => dest.Deadline,
                 opt => opt.MapFrom(src => src.Deadline));
+
+        CreateMap<UserEntity, GetUserResponse>()
+            .ForMember(dest => dest.Id,
+                opt => opt.MapFrom(src => src.Id))
+            .ForMember(dest => dest.FullName,
+                opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"))
+            .ForMember(dest => dest.Email,
+                opt => opt.MapFrom(src => src.Email));
     }
 }

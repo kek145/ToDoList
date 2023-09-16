@@ -15,4 +15,10 @@
       <ProjectReference Include="..\ToDoList.Domain.Contracts\ToDoList.Domain.Contracts.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Commands\TokenCommands\" />
+      <Folder Include="Handlers\TokenHandlers\" />
+      <Folder Include="Queries\UserQueries\" />
+    </ItemGroup>
+
 </Project>

@@ -22,6 +22,37 @@ namespace ToDoList.DAL.Core.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("ToDoList.Domain.Entities.DbSet.RefreshTokenEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("ExpiresDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("expires_date");
+
+                    b.Property<string>("RefreshToken")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("refresh_token");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("pk_refresh_tokens");
+
+                    b.HasIndex("UserId")
+                        .HasDatabaseName("ix_refresh_tokens_user_id");
+
+                    b.ToTable("refresh_tokens", (string)null);
+                });
+
             modelBuilder.Entity("ToDoList.Domain.Entities.DbSet.TaskEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -34,7 +65,7 @@ namespace ToDoList.DAL.Core.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 9, 11, 19, 21, 26, 386, DateTimeKind.Utc).AddTicks(2918))
+                        .HasDefaultValue(new DateTime(2023, 9, 16, 12, 27, 9, 515, DateTimeKind.Utc).AddTicks(8714))
                         .HasColumnName("created_at");
 
                     b.Property<DateTime>("Deadline")
@@ -66,13 +97,91 @@ namespace ToDoList.DAL.Core.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 9, 11, 19, 21, 26, 386, DateTimeKind.Utc).AddTicks(3017))
+                        .HasDefaultValue(new DateTime(2023, 9, 16, 12, 27, 9, 515, DateTimeKind.Utc).AddTicks(8831))
                         .HasColumnName("updated_at");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("user_id");
 
                     b.HasKey("Id")
                         .HasName("pk_tasks");
 
+                    b.HasIndex("UserId")
+                        .HasDatabaseName("ix_tasks_user_id");
+
                     b.ToTable("tasks", (string)null);
+                });
+
+            modelBuilder.Entity("ToDoList.Domain.Entities.DbSet.UserEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("email");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("first_name");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("last_name");
+
+                    b.Property<byte[]>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("bytea")
+                        .HasColumnName("password_hash");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
+                        .HasColumnType("bytea")
+                        .HasColumnName("password_salt");
+
+                    b.HasKey("Id")
+                        .HasName("pk_users");
+
+                    b.ToTable("users", (string)null);
+                });
+
+            modelBuilder.Entity("ToDoList.Domain.Entities.DbSet.RefreshTokenEntity", b =>
+                {
+                    b.HasOne("ToDoList.Domain.Entities.DbSet.UserEntity", "User")
+                        .WithMany("RefreshToken")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("fk_token_user");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ToDoList.Domain.Entities.DbSet.TaskEntity", b =>
+                {
+                    b.HasOne("ToDoList.Domain.Entities.DbSet.UserEntity", "User")
+                        .WithMany("Task")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("fk_tasks_user");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ToDoList.Domain.Entities.DbSet.UserEntity", b =>
+                {
+                    b.Navigation("RefreshToken");
+
+                    b.Navigation("Task");
                 });
 #pragma warning restore 612, 618
         }
