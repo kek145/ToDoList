@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ToDoList.Domain.Contracts.Response;
+﻿namespace ToDoList.Domain.Contracts.Response;
 
 public class GetTaskResponse
 {

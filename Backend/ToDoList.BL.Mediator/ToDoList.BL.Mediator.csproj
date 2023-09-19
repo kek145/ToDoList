@@ -7,18 +7,17 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="12.0.1" />
       <PackageReference Include="MediatR" Version="12.1.1" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ToDoList.DAL.Contracts\ToDoList.DAL.Contracts.csproj" />
+      <ProjectReference Include="..\ToDoList.DAL.Repositories\ToDoList.DAL.Repositories.csproj" />
       <ProjectReference Include="..\ToDoList.Domain.Contracts\ToDoList.Domain.Contracts.csproj" />
+      <ProjectReference Include="..\ToDoList.Security\ToDoList.Security.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Commands\TokenCommands\" />
-      <Folder Include="Handlers\TokenHandlers\" />
-      <Folder Include="Queries\UserQueries\" />
-    </ItemGroup>
+
+
 
 </Project>

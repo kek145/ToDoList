@@ -1,69 +1,63 @@
-﻿using MediatR;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using ToDoList.Domain.Contracts.Request;
-using ToDoList.Domain.Contracts.Response;
-using ToDoList.BL.Mediator.Queries.TaskQueries;
-using ToDoList.BL.Mediator.Commands.TaskCommands;
+﻿using ToDoList.BL.Mediator.Queries.TaskQueries;
 
 namespace ToDoList.BL.Services.TaskService;
 
 public class TaskService : ITaskService
 {
     private readonly IMediator _mediator;
+    private readonly IValidator<TaskRequest> _validator;
 
-    public TaskService(IMediator mediator)
+    public TaskService(
+        IMediator mediator,
+        IValidator<TaskRequest> validator)
     {
         _mediator = mediator;
+        _validator = validator;
     }
 
-    public async Task<bool> DeleteTaskAsync(int taskId)
+    public async Task<PaginationResponse<GetTaskResponse>> GetAllTasksAsync(int page, int userId)
     {
-        var command = new DeleteTaskCommand(taskId);
-
-        var result = await _mediator.Send(command);
-
-        if (!result)
-            return false;
-        
-        return true;
+        var result = await _mediator.Send(new GetAllTaskQuery(page, userId));
+        return result;
     }
 
     public async Task<GetTaskResponse> GetTaskByIdAsync(int taskId)
     {
-        var query = new GetTaskQuery(taskId);
+        var result = await _mediator.Send(new GetTaskByIdQuery(taskId));
 
-        var result = await _mediator.Send(query);
-
+        if (result == null)
+            throw new NotFoundException("Task not found");
+        
         return result;
     }
 
-    public async Task<TaskResponse<GetTaskResponse>> GetAllTaskAsync(int page)
+    public async Task UpdateTaskAsync(TaskRequest request, int taskId)
     {
-        var query = new GetAllTaskQuery(page);
-
-        var result = await _mediator.Send(query);
-
-        return result;
-    }
-
-    public async Task<bool> UpdateTaskAsync(TaskRequest request, int taskId)
-    {
-        var command = new UpdateTaskCommand(taskId, request);
-
-        var result = await _mediator.Send(command);
+        var result = await _mediator.Send(new UpdateTaskCommand(taskId, request));
 
         if (!result)
-            return false;
-
-        return true;
+            throw new NotFoundException("Task not found");
     }
 
-    public async Task<GetTaskResponse> CreateTaskAsync(TaskRequest request)
+    public async Task DeleteTaskAsync(int taskId)
     {
-        var command = new CreateTaskCommand(request);
+        var result = await _mediator.Send(new DeleteTaskCommand(taskId));
 
-        var result = await _mediator.Send(command);
+        if (!result)
+            throw new NotFoundException("Task not found");
+    }
+
+    public async Task<GetTaskResponse> CreateTaskAsync(TaskRequest request, int userId)
+    {
+        var validator = await _validator.ValidateAsync(request);
+
+        if (!validator.IsValid)
+            throw new BadRequestException($"Validation error: {validator}");
+        
+        var result = await _mediator.Send(new CreateTaskCommand(request, userId));
+
+        if (result == null!)
+            throw new BadRequestException("Task is null!");
 
         return result;
     }

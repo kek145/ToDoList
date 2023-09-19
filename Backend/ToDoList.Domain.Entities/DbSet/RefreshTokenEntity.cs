@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ToDoList.Domain.Entities.DbSet;
+﻿namespace ToDoList.Domain.Entities.DbSet;
 
 public class RefreshTokenEntity
 {

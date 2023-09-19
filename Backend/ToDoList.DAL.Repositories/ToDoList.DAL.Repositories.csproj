@@ -6,10 +6,16 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.11" />
+    </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ToDoList.DAL.Contracts\ToDoList.DAL.Contracts.csproj" />
+      <ProjectReference Include="..\ToDoList.DAL.Core\ToDoList.DAL.Core.csproj" />
+      <ProjectReference Include="..\ToDoList.Domain.Entities\ToDoList.Domain.Entities.csproj" />
     </ItemGroup>
+
+
+
 
 </Project>

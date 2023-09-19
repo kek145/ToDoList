@@ -1,13 +1,8 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using ToDoList.BL.Services.TaskService;
-using ToDoList.Domain.Contracts.Request;
-using Microsoft.AspNetCore.Authorization;
-
-namespace ToDoList.Api.Controllers;
+﻿namespace ToDoList.Api.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/[controller]/[action]")]
+[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class TaskController : ControllerBase
 {
     private readonly ITaskService _taskService;
@@ -18,61 +13,96 @@ public class TaskController : ControllerBase
     }
 
     [HttpPost]
-    [AllowAnonymous]
-    [Route("Create-Task")]
     public async Task<IActionResult> CreateTask([FromBody] TaskRequest request)
     {
-        var result = await _taskService.CreateTaskAsync(request);
+        var userId = User.FindFirst("UserId")?.Value;
 
-        return StatusCode(201, new { data = result });
+        if (userId is null or "0")
+            return Unauthorized(new { error = "User not found!" });
+        
+        var response = await _taskService.CreateTaskAsync(request, Convert.ToInt32(userId));
+
+        return StatusCode(201, response);
     }
 
     [HttpGet]
-    [AllowAnonymous]
-    [Route("All-Task")]
-    public async Task<IActionResult> GetAllTask([FromQuery] int page = 1)
+    public async Task<IActionResult> GetAllTasks([FromQuery] int page = 1)
     {
-        var tasks = await _taskService.GetAllTaskAsync(page);
+        var userId = User.FindFirst("UserId")?.Value;
 
-        return Ok(tasks);
+        if (userId is null or "0")
+            return Unauthorized(new { error = "User not found!" });
+        
+        var response = await _taskService.GetAllTasksAsync(page,Convert.ToInt32(userId));
+
+        return Ok(response);
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetAllFailedTasks([FromQuery] int page = 1)
+    {
+        return Ok();
     }
 
     [HttpGet]
-    [AllowAnonymous]
-    [Route("Get-Task/{taskId:int}")]
+    public async Task<IActionResult> GetAllCompleteTasks([FromQuery] int page = 1)
+    {
+        return Ok();
+    }
+
+    [HttpGet]
+    [Route("task{taskId:int}")]
     public async Task<IActionResult> GetTaskById(int taskId)
     {
-        var result = await _taskService.GetTaskByIdAsync(taskId);
+        var response = await _taskService.GetTaskByIdAsync(taskId);
+        return Ok(response);
+    }
+    
+    [HttpGet]
+    [Route("{priority}")]
+    public async Task<IActionResult> GetAllTasksByPriority([FromQuery] string priority)
+    {
+        return Ok();
+    }
 
-        if (result == null!)
-            return NotFound(new { error = "Task not found!" });
-        
-        return Ok(result);
+    [HttpGet]
+    public async Task<IActionResult> SearchTask([FromQuery] string search)
+    {
+        return Ok();
+    }
+
+    [HttpPatch]
+    [Route("task{taskId:int}")]
+    public async Task<IActionResult> CompleteTask(int taskId)
+    {
+        return NoContent();
     }
 
     [HttpPut]
-    [AllowAnonymous]
-    [Route("Update-Task/{taskId:int}")]
+    [Route("task{taskId:int}")]
     public async Task<IActionResult> UpdateTask([FromBody] TaskRequest request, int taskId)
     {
-        var result = await _taskService.UpdateTaskAsync(request, taskId);
+        var userId = User.FindFirst("UserId")?.Value;
+        
+        if (userId is null or "0")
+            return Unauthorized(new { error = "User not found!" });
 
-        if (!result)
-            return NotFound(new { error = "Task not found!" });
-
+        await _taskService.UpdateTaskAsync(request, taskId);
+        
         return NoContent();
     }
 
     [HttpDelete]
-    [AllowAnonymous]
-    [Route("Delete-Task/{taskId:int}")]
+    [Route("task{taskId:int}")]
     public async Task<IActionResult> DeleteTask(int taskId)
     {
-        var result = await _taskService.DeleteTaskAsync(taskId);
+        var userId = User.FindFirst("UserId")?.Value;
+        
+        if (userId is null or "0")
+            return Unauthorized(new { error = "User not found!" });
 
-        if (!result)
-            return NotFound(new { error = "Task not found!" });
-
+        await _taskService.DeleteTaskAsync(taskId);
+        
         return NoContent();
     }
 }

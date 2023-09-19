@@ -1,25 +1,29 @@
-﻿using System.Threading.Tasks;
-using MediatR;
-using ToDoList.BL.Mediator.Commands.UserCommands;
-using ToDoList.Domain.Contracts.Request;
-using ToDoList.Domain.Contracts.Response;
-
-namespace ToDoList.BL.Services.RegistrationService;
+﻿namespace ToDoList.BL.Services.RegistrationService;
 
 public class RegistrationService : IRegistrationService
 {
     private readonly IMediator _mediator;
+    private readonly IValidator<RegistrationRequest> _validator;
 
-    public RegistrationService(IMediator mediator)
+    public RegistrationService(
+        IMediator mediator,
+        IValidator<RegistrationRequest> validator)
     {
         _mediator = mediator;
+        _validator = validator;
     }
     public async Task<GetUserResponse> RegistrationAsync(RegistrationRequest request)
     {
-        var command = new CreateUserCommand(request);
+        var validator = await _validator.ValidateAsync(request);
 
-        var result = await _mediator.Send(command);
+        if (!validator.IsValid)
+            throw new BadRequestException($"{validator}");
+        
+        var result = await _mediator.Send(new CreateUserCommand(request));
 
-        return result == null! ? null! : result;
+        if (result == null)
+            throw new BadRequestException("Result is null");
+        
+        return result;
     }
 }

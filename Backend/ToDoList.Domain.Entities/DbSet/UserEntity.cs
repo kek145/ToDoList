@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ToDoList.Domain.Entities.DbSet;
-
+﻿namespace ToDoList.Domain.Entities.DbSet;
 public class UserEntity
 {
     public int Id { get; set; }

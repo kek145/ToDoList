@@ -1,13 +1,17 @@
-﻿using AutoMapper;
-using ToDoList.Domain.Entities.DbSet;
-using ToDoList.Domain.Contracts.Response;
-
-namespace ToDoList.Domain.Contracts.MappingProfiles;
+﻿namespace ToDoList.Domain.Contracts.MappingProfiles;
 
 public class DomainToResponse : Profile
 {
     public DomainToResponse()
     {
+        CreateMap<UserEntity, GetUserResponse>()
+            .ForMember(dest => dest.UserId,
+                opt => opt.MapFrom(src => src.Id))
+            .ForMember(dest => dest.FullName,
+                opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"))
+            .ForMember(dest => dest.Email,
+                opt => opt.MapFrom(src => src.Email));
+
         CreateMap<TaskEntity, GetTaskResponse>()
             .ForMember(dest => dest.Id,
                 opt => opt.MapFrom(src => src.Id))
@@ -21,13 +25,5 @@ public class DomainToResponse : Profile
                 opt => opt.MapFrom(src => src.Priority))
             .ForMember(dest => dest.Deadline,
                 opt => opt.MapFrom(src => src.Deadline));
-
-        CreateMap<UserEntity, GetUserResponse>()
-            .ForMember(dest => dest.Id,
-                opt => opt.MapFrom(src => src.Id))
-            .ForMember(dest => dest.FullName,
-                opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"))
-            .ForMember(dest => dest.Email,
-                opt => opt.MapFrom(src => src.Email));
     }
 }

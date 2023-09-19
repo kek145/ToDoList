@@ -1,7 +1,4 @@
-﻿using System;
-using ToDoList.Domain.Entities.Enums;
-
-namespace ToDoList.Domain.Entities.DbSet;
+﻿namespace ToDoList.Domain.Entities.DbSet;
 
 public class TaskEntity
 {

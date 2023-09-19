@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ToDoList.Domain.Entities.DbSet;
-using ToDoList.DAL.Core.Configurations;
-
-namespace ToDoList.DAL.Core.DataContext;
+﻿namespace ToDoList.DAL.Core.DataContext;
 
 public class ApplicationDbContext : DbContext
 {
@@ -14,26 +10,22 @@ public class ApplicationDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new TaskEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new RefreshTokenEntityConfiguration());
 
-        modelBuilder.ApplyConfiguration(new TaskConfiguration());
+        modelBuilder.Entity<TaskEntity>()
+            .HasOne(user => user.User)
+            .WithMany(task => task.Task)
+            .HasForeignKey(key => key.UserId)
+            .OnDelete(DeleteBehavior.Cascade)
+            .HasConstraintName("fk_task_user");
 
-        modelBuilder.Entity<TaskEntity>(entity =>
-        {
-            entity.HasOne(t => t.User)
-                .WithMany(u => u.Task)
-                .HasForeignKey(k => k.UserId)
-                .OnDelete(DeleteBehavior.NoAction)
-                .HasConstraintName("fk_tasks_user");
-        });
-
-        modelBuilder.Entity<RefreshTokenEntity>(entity =>
-        {
-            entity.HasOne(t => t.User)
-                .WithMany(u => u.RefreshToken)
-                .HasForeignKey(k => k.UserId)
-                .OnDelete(DeleteBehavior.NoAction)
-                .HasConstraintName("fk_token_user");
-        });
+        modelBuilder.Entity<RefreshTokenEntity>()
+            .HasOne(user => user.User)
+            .WithMany(token => token.RefreshToken)
+            .HasForeignKey(key => key.UserId)
+            .OnDelete(DeleteBehavior.Cascade)
+            .HasConstraintName("fk_token_user");
     }
 }
