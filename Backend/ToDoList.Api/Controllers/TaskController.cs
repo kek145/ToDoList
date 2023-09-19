@@ -1,7 +1,7 @@
 ﻿namespace ToDoList.Api.Controllers;
 
 [ApiController]
-[Route("api/[controller]/[action]")]
+[Route("todo/api/[controller]/[action]")]
 [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class TaskController : ControllerBase
 {
@@ -41,40 +41,77 @@ public class TaskController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAllFailedTasks([FromQuery] int page = 1)
     {
-        return Ok();
+        var userId = User.FindFirst("UserId")?.Value;
+
+        if (userId is null or "0")
+            return Unauthorized(new { error = "User not found!" });
+
+        var response = await _taskService.GetAllFailedTaskAsync(page, Convert.ToInt32(userId));
+        
+        return Ok(response);
     }
 
     [HttpGet]
     public async Task<IActionResult> GetAllCompleteTasks([FromQuery] int page = 1)
     {
-        return Ok();
+        var userId = User.FindFirst("UserId")?.Value;
+
+        if (userId is null or "0")
+            return Unauthorized(new { error = "User not found!" });
+
+        var response = await _taskService.GetAllCompletedTaskAsync(page, Convert.ToInt32(userId));
+        
+        return Ok(response);
     }
 
     [HttpGet]
     [Route("task{taskId:int}")]
     public async Task<IActionResult> GetTaskById(int taskId)
     {
+        var userId = User.FindFirst("UserId")?.Value;
+
+        if (userId is null or "0")
+            return Unauthorized(new { error = "User not found!" });
+        
         var response = await _taskService.GetTaskByIdAsync(taskId);
         return Ok(response);
     }
     
     [HttpGet]
-    [Route("{priority}")]
-    public async Task<IActionResult> GetAllTasksByPriority([FromQuery] string priority)
+    public async Task<IActionResult> GetAllTasksByPriority([FromQuery] string priority, [FromQuery] int page = 1)
     {
-        return Ok();
+        var userId = User.FindFirst("UserId")?.Value;
+
+        if (userId is null or "0")
+            return Unauthorized(new { error = "User not found!" });
+
+        var response = await _taskService.GetAllTasksByPriorityAsync(priority, page,Convert.ToInt32(userId));
+        
+        return Ok(response);
     }
 
     [HttpGet]
-    public async Task<IActionResult> SearchTask([FromQuery] string search)
+    public async Task<IActionResult> SearchTask([FromQuery] string search, [FromQuery] int page = 1)
     {
-        return Ok();
+        var userId = User.FindFirst("UserId")?.Value;
+
+        if (userId is null or "0")
+            return Unauthorized(new { error = "User not found!" });
+        
+        var response = await _taskService.SearchTaskAsync(page, Convert.ToInt32(userId), search);
+        return Ok(response);
     }
 
     [HttpPatch]
     [Route("task{taskId:int}")]
     public async Task<IActionResult> CompleteTask(int taskId)
     {
+        var userId = User.FindFirst("UserId")?.Value;
+
+        if (userId is null or "0")
+            return Unauthorized(new { error = "User not found!" });
+        
+        await _taskService.CompleteTaskAsync(taskId);
         return NoContent();
     }
 

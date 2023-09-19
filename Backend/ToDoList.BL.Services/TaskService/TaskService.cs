@@ -1,6 +1,4 @@
-﻿using ToDoList.BL.Mediator.Queries.TaskQueries;
-
-namespace ToDoList.BL.Services.TaskService;
+﻿namespace ToDoList.BL.Services.TaskService;
 
 public class TaskService : ITaskService
 {
@@ -19,6 +17,42 @@ public class TaskService : ITaskService
     {
         var result = await _mediator.Send(new GetAllTaskQuery(page, userId));
         return result;
+    }
+
+    public async Task<PaginationResponse<GetTaskResponse>> GetAllFailedTaskAsync(int page, int userId)
+    {
+        var result = await _mediator.Send(new GetAllFailedTaskQuery(page, userId));
+        return result;
+    }
+
+    public async Task<PaginationResponse<GetTaskResponse>> GetAllCompletedTaskAsync(int page, int userId)
+    {
+        var result = await _mediator.Send(new GetAllCompletedTaskQuery(page, userId));
+        return result;
+    }
+
+    public async Task<PaginationResponse<GetTaskResponse>> SearchTaskAsync(int page, int userId, string search)
+    {
+        var result = await _mediator.Send(new SearchTaskQuery(page, userId, search));
+        return result;
+    }
+
+    public async Task<PaginationResponse<GetTaskResponse>> GetAllTasksByPriorityAsync(string priority, int page, int userId)
+    {
+        var result = await _mediator.Send(new GetAllTaskByPriorityQuery(page, userId, priority));
+
+        if (result == null)
+            throw new NotFoundException("Priority not found");
+
+        return result;
+    }
+
+    public async Task CompleteTaskAsync(int taskId)
+    {
+        var result = await _mediator.Send(new CompleteTaskCommand(taskId));
+
+        if (!result)
+            throw new NotFoundException("Task not found");
     }
 
     public async Task<GetTaskResponse> GetTaskByIdAsync(int taskId)
@@ -53,10 +87,13 @@ public class TaskService : ITaskService
 
         if (!validator.IsValid)
             throw new BadRequestException($"Validation error: {validator}");
+
+        if (request.DeadLine < DateTime.Today || request.DeadLine < DateTime.UtcNow)
+            throw new BadRequestException("You cannot specify a date and time lower than the current one");
         
         var result = await _mediator.Send(new CreateTaskCommand(request, userId));
 
-        if (result == null!)
+        if (result == null)
             throw new BadRequestException("Task is null!");
 
         return result;

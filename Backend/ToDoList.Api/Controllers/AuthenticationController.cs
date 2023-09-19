@@ -26,12 +26,4 @@ public class AuthenticationController : ControllerBase
         
         return Ok(result);
     }
-
-    [HttpGet]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public IActionResult ProtectedEndpoint()
-    {
-        var userId = User.FindFirst("UserId")?.Value;
-        return Ok($"Hello World\nYour userId: {userId}");
-    }
 }

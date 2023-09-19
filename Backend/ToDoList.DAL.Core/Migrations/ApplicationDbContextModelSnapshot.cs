@@ -66,7 +66,7 @@ namespace ToDoList.DAL.Core.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 9, 19, 12, 1, 26, 55, DateTimeKind.Utc).AddTicks(5779))
+                        .HasDefaultValue(new DateTime(2023, 9, 19, 17, 11, 50, 959, DateTimeKind.Utc).AddTicks(8510))
                         .HasColumnName("created_at");
 
                     b.Property<DateTime>("Deadline")
@@ -98,7 +98,7 @@ namespace ToDoList.DAL.Core.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 9, 19, 12, 1, 26, 55, DateTimeKind.Utc).AddTicks(5944))
+                        .HasDefaultValue(new DateTime(2023, 9, 19, 17, 11, 50, 959, DateTimeKind.Utc).AddTicks(8707))
                         .HasColumnName("updated_at");
 
                     b.Property<int>("UserId")

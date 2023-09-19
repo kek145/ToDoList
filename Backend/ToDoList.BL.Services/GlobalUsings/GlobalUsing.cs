@@ -4,6 +4,7 @@ global using ToDoList.Security.Exceptions;
 global using ToDoList.BL.Services.TokenService;
 global using ToDoList.Domain.Contracts.Request;
 global using ToDoList.Domain.Contracts.Response;
+global using ToDoList.BL.Mediator.Queries.TaskQueries;
 global using ToDoList.BL.Mediator.Commands.TaskCommand;
 global using ToDoList.BL.Mediator.Commands.RegistrationCommand;
 global using ToDoList.BL.Mediator.Commands.AuthenticationCommand;
