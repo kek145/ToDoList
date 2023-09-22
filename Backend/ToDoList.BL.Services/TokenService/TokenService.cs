@@ -42,9 +42,22 @@ public class TokenService : ITokenService
         };
     }
 
-    public Task<AuthenticationResponse> RefreshTokenAsync(string refreshToken)
+    public async Task<AuthenticationResponse> RefreshTokenAsync(string refreshToken)
     {
-        throw new ArgumentOutOfRangeException();
+        var result = await _mediator.Send(new RefreshTokenCommand(refreshToken));
+
+        if (result == null)
+            throw new UnauthorizedException("Token not found!");
+
+        var tokens = GenerateTokens(result);
+        
+        await SaveTokenAsync(result.UserId, tokens.RefreshToken);
+        
+        return new AuthenticationResponse
+        {
+            AccessToken = tokens.AccessToken,
+            RefreshToken = tokens.RefreshToken
+        };
     }
 
     private string GenerateAccessToken(GetUserResponse entity)

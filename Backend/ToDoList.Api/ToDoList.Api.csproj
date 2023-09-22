@@ -4,6 +4,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>disable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -12,7 +13,7 @@
         <PackageReference Include="EFCore.NamingConventions" Version="7.0.2" />
         <PackageReference Include="FluentValidation" Version="11.7.1" />
         <PackageReference Include="MediatR" Version="12.1.1" />
-        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.22" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.11">
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -30,8 +31,4 @@
       <ProjectReference Include="..\ToDoList.Domain.Contracts\ToDoList.Domain.Contracts.csproj" />
       <ProjectReference Include="..\ToDoList.Security\ToDoList.Security.csproj" />
     </ItemGroup>
-
-
-
-
 </Project>

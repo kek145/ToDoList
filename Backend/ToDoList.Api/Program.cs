@@ -40,6 +40,7 @@ builder.Services.AddTransient<IRequestHandler<ValidationTokenCommand, bool>, Val
 builder.Services.AddTransient<IRequestHandler<CreateUserCommand, GetUserResponse>, CreateUserHandler>();
 builder.Services.AddTransient<IRequestHandler<CreateTaskCommand, GetTaskResponse>, CreateTaskHandler>();
 builder.Services.AddTransient<IRequestHandler<GetTaskByIdQuery, GetTaskResponse>, GetTaskByIdHandler>();
+builder.Services.AddTransient<IRequestHandler<RefreshTokenCommand, GetUserResponse>, RefreshTokenHandler>();
 builder.Services.AddTransient<IRequestHandler<AuthenticationCommand, GetUserResponse>, AuthenticationHandler>();
 builder.Services.AddTransient<IRequestHandler<SearchTaskQuery, PaginationResponse<GetTaskResponse>>, SearchTaskHandler>();
 builder.Services.AddTransient<IRequestHandler<GetAllTaskQuery, PaginationResponse<GetTaskResponse>>, GetAllTaskHandler>();
@@ -110,9 +111,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseCors("FrontEnd");
+app.AddGlobalErrorHandler();
 
 app.MapControllers();
-
-app.AddGlobalErrorHandler();
 
 app.Run();

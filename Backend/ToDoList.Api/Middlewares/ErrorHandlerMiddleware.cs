@@ -57,7 +57,7 @@ public class ErrorHandlerMiddleware
         }
         else
         {
-            message = ex.Message;
+            message = ex.ToString();
             statusCode = HttpStatusCode.InternalServerError;
         }
 
