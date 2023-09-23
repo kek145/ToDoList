@@ -11,17 +11,25 @@ public class ValidationTokenHandler : IRequestHandler<ValidationTokenCommand, bo
 
     public async Task<bool> Handle(ValidationTokenCommand request, CancellationToken cancellationToken)
     {
-        var token = await _unitOfWork.TokenRepository.GetAll()
-            .Where(find => find.RefreshToken == request.RefreshToken && find.ExpiresDate > DateTime.UtcNow)
-            .FirstOrDefaultAsync(cancellationToken: cancellationToken);
-        
-        var removeToken = await _unitOfWork.TokenRepository.GetAll()
+        var removeToken = await _unitOfWork.TokenRepository
+            .GetAll()
             .Where(find => find.RefreshToken == request.RefreshToken && find.ExpiresDate < DateTime.UtcNow)
-            .FirstOrDefaultAsync(cancellationToken: cancellationToken);
+            .FirstOrDefaultAsync(cancellationToken);
 
         if (removeToken != null)
+        {
             await _unitOfWork.TokenRepository.DeleteAsync(removeToken);
+            await _unitOfWork.CommitAsync();
+        }
+        
+        var token = await _unitOfWork.TokenRepository
+            .GetAll()
+            .Where(find => find.RefreshToken == request.RefreshToken && find.ExpiresDate > DateTime.UtcNow)
+            .FirstOrDefaultAsync(cancellationToken);
 
-        return token != null;
+        if (token == null)
+            return false;
+
+        return true;
     }
 }

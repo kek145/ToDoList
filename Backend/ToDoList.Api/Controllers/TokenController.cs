@@ -19,10 +19,7 @@ public class TokenController : ControllerBase
         if (refreshToken == null)
             return Unauthorized("Token not found!");
         
-        var token = await _tokenService.ValidationRefreshTokenAsync(refreshToken);
-
-        if (!token)
-            return Unauthorized("e");
+        await _tokenService.ValidationRefreshTokenAsync(refreshToken);
         
         var response = await _tokenService.RefreshTokenAsync(refreshToken);
 

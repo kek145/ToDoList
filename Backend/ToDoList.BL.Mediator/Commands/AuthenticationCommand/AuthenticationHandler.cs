@@ -17,9 +17,8 @@ public class AuthenticationHandler : IRequestHandler<AuthenticationCommand, GetU
     {
         var user = await _unitOfWork.UserRepository
             .GetAll()
-            .AsNoTracking()
             .Where(find => find.Email == request.Request.Email)
-            .FirstOrDefaultAsync(cancellationToken: cancellationToken);
+            .FirstOrDefaultAsync(cancellationToken);
         
         if (user == null || !PasswordHasher.VerifyPasswordHash(request.Request.Password, user.PasswordHash, user.PasswordSalt))
             throw new UnauthorizedException("Invalid email or password");

@@ -27,6 +27,10 @@ public class TokenService : ITokenService
     public async Task<bool> ValidationRefreshTokenAsync(string refreshToken)
     {
         var result = await _mediator.Send(new ValidationTokenCommand(refreshToken));
+
+        if (!result)
+            throw new UnauthorizedException("Your token has not been validated");
+        
         return result;
     }
 

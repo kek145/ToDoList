@@ -15,7 +15,7 @@ public class UpdateTaskHandler : IRequestHandler<UpdateTaskCommand, bool>
         var task = await _unitOfWork.TaskRepository
             .GetAll()
             .Where(x => x.Id == request.TaskId)
-            .FirstOrDefaultAsync(cancellationToken: cancellationToken);
+            .FirstOrDefaultAsync(cancellationToken);
 
         if (task == null)
             return false;

@@ -13,7 +13,7 @@ public class SaveTokenHandler : IRequestHandler<SaveTokenCommand>
         var token = await _unitOfWork.TokenRepository
             .GetAll()
             .Where(find => find.UserId == request.UserId)
-            .FirstOrDefaultAsync(cancellationToken: cancellationToken);
+            .FirstOrDefaultAsync(cancellationToken);
 
         if (token != null)
         {
@@ -26,7 +26,7 @@ public class SaveTokenHandler : IRequestHandler<SaveTokenCommand>
             var refresh = new RefreshTokenEntity
             {
                 RefreshToken = request.RefreshToken,
-                ExpiresDate = DateTime.UtcNow.AddDays(90),
+                ExpiresDate = DateTime.UtcNow.AddMinutes(2),
                 UserId = request.UserId
             };
             await _unitOfWork.TokenRepository.AddAsync(refresh);

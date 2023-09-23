@@ -12,9 +12,8 @@ public class DeleteTaskHandler : IRequestHandler<DeleteTaskCommand, bool>
     {
         var task = await _unitOfWork.TaskRepository
             .GetAll()
-            .AsNoTracking()
             .Where(find => find.Id == request.TaskId)
-            .FirstOrDefaultAsync(cancellationToken: cancellationToken);
+            .FirstOrDefaultAsync(cancellationToken);
 
         if (task == null)
             return false;

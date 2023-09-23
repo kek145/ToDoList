@@ -19,9 +19,8 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, GetUserRespo
     {
         var user = await _unitOfWork.UserRepository
             .GetAll()
-            .AsNoTracking()
             .Where(find => find.Email == request.Request.Email)
-            .FirstOrDefaultAsync(cancellationToken: cancellationToken);
+            .FirstOrDefaultAsync(cancellationToken);
 
         if (user != null)
             throw new ConflictException($"A user with this email address {request.Request.Email} is already registered");
