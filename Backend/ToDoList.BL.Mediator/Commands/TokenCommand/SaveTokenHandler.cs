@@ -26,7 +26,7 @@ public class SaveTokenHandler : IRequestHandler<SaveTokenCommand>
             var refresh = new RefreshTokenEntity
             {
                 RefreshToken = request.RefreshToken,
-                ExpiresDate = DateTime.UtcNow.AddMinutes(2),
+                ExpiresDate = DateTime.UtcNow.AddMonths(3),
                 UserId = request.UserId
             };
             await _unitOfWork.TokenRepository.AddAsync(refresh);

@@ -12,6 +12,16 @@ public class DomainToResponse : Profile
             .ForMember(dest => dest.Email,
                 opt => opt.MapFrom(src => src.Email));
 
+        CreateMap<UserEntity, GetUserFullNameResponse>()
+            .ForMember(dest => dest.FullName,
+                opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"));
+        
+        CreateMap<UserEntity, GetUserInfoResponse>()
+            .ForMember(dest => dest.FullName,
+                opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"))
+            .ForMember(dest => dest.Email,
+                opt => opt.MapFrom(src => src.Email));
+
         CreateMap<TaskEntity, GetTaskResponse>()
             .ForMember(dest => dest.Id,
                 opt => opt.MapFrom(src => src.Id))

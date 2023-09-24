@@ -19,6 +19,14 @@ public class TokenService : ITokenService
         _configuration = configuration;
     }
 
+    public async Task DeleteTokenAsync(string refreshToken)
+    {
+        var result = await _mediator.Send(new DeleteTokenCommand(refreshToken));
+
+        if (!result)
+            throw new NotFoundException("Token not found");
+    }
+
     public async Task SaveTokenAsync(int userId, string refreshToken)
     {
         await _mediator.Send(new SaveTokenCommand(userId, refreshToken));

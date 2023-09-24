@@ -27,6 +27,7 @@ builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 
 builder.Services.AddTransient<ITaskService, TaskService>();
 builder.Services.AddTransient<ITokenService, TokenService>();
+builder.Services.AddTransient<IAccountService, AccountService>();
 builder.Services.AddTransient<IRegistrationService, RegistrationService>();
 builder.Services.AddTransient<IAuthenticationService, AuthenticationService>();
 builder.Services.AddTransient<IValidator<TaskRequest>, TaskRequestValidator>();
@@ -34,14 +35,17 @@ builder.Services.AddTransient<IRequestHandler<SaveTokenCommand>, SaveTokenHandle
 builder.Services.AddTransient<IRequestHandler<UpdateTaskCommand, bool>, UpdateTaskHandler>();
 builder.Services.AddTransient<IRequestHandler<DeleteTaskCommand, bool>, DeleteTaskHandler>();
 builder.Services.AddTransient<IValidator<RegistrationRequest>, RegistrationRequestValidator>();
+builder.Services.AddTransient<IRequestHandler<DeleteTokenCommand, bool>, DeleteTokenHandler>();
 builder.Services.AddTransient<IRequestHandler<CompleteTaskCommand, bool>, CompleteTaskHandler>();
 builder.Services.AddTransient<IValidator<AuthenticationRequest>, AuthenticationRequestValidator>();
 builder.Services.AddTransient<IRequestHandler<ValidationTokenCommand, bool>, ValidationTokenHandler>();
 builder.Services.AddTransient<IRequestHandler<CreateUserCommand, GetUserResponse>, CreateUserHandler>();
 builder.Services.AddTransient<IRequestHandler<CreateTaskCommand, GetTaskResponse>, CreateTaskHandler>();
 builder.Services.AddTransient<IRequestHandler<GetTaskByIdQuery, GetTaskResponse>, GetTaskByIdHandler>();
+builder.Services.AddTransient<IRequestHandler<GetUserInfoQuery, GetUserInfoResponse>, GetUserInfoHandler>();
 builder.Services.AddTransient<IRequestHandler<RefreshTokenCommand, GetUserResponse>, RefreshTokenHandler>();
 builder.Services.AddTransient<IRequestHandler<AuthenticationCommand, GetUserResponse>, AuthenticationHandler>();
+builder.Services.AddTransient<IRequestHandler<GetUserFullNameQuery, GetUserFullNameResponse>, GetUserFullNameHandler>();
 builder.Services.AddTransient<IRequestHandler<SearchTaskQuery, PaginationResponse<GetTaskResponse>>, SearchTaskHandler>();
 builder.Services.AddTransient<IRequestHandler<GetAllTaskQuery, PaginationResponse<GetTaskResponse>>, GetAllTaskHandler>();
 builder.Services.AddTransient<IRequestHandler<GetAllFailedTaskQuery, PaginationResponse<GetTaskResponse>>, GetAllFailedTaskHandler>();

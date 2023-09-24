@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MaterialModule } from './material.module';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
 import { HomeComponent } from './components/home/home.component';
+import { TodolistComponent } from './components/todolist/todolist.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
-import { TodolistComponent } from './components/todolist/todolist.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { TodolistComponent } from './components/todolist/todolist.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    MaterialModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
