@@ -35,6 +35,7 @@ builder.Services.AddTransient<IRequestHandler<SaveTokenCommand>, SaveTokenHandle
 builder.Services.AddTransient<IRequestHandler<DeleteUserCommand, bool>, DeleteUserHandler>();
 builder.Services.AddTransient<IRequestHandler<UpdateTaskCommand, bool>, UpdateTaskHandler>();
 builder.Services.AddTransient<IRequestHandler<DeleteTaskCommand, bool>, DeleteTaskHandler>();
+builder.Services.AddTransient<IRequestHandler<UpdateEmailCommand, bool>, UpdateEmailHandler>();
 builder.Services.AddTransient<IValidator<RegistrationRequest>, RegistrationRequestValidator>();
 builder.Services.AddTransient<IRequestHandler<DeleteTokenCommand, bool>, DeleteTokenHandler>();
 builder.Services.AddTransient<IRequestHandler<CompleteTaskCommand, bool>, CompleteTaskHandler>();
@@ -45,7 +46,7 @@ builder.Services.AddTransient<IRequestHandler<CreateTaskCommand, GetTaskResponse
 builder.Services.AddTransient<IRequestHandler<GetTaskByIdQuery, GetTaskResponse>, GetTaskByIdHandler>();
 builder.Services.AddTransient<IRequestHandler<GetUserInfoQuery, GetUserInfoResponse>, GetUserInfoHandler>();
 builder.Services.AddTransient<IRequestHandler<RefreshTokenCommand, GetUserResponse>, RefreshTokenHandler>();
-builder.Services.AddTransient<IRequestHandler<UpdateUserFullNameCommand, bool>, UpdateUserFullNameHandler>();
+builder.Services.AddTransient<IRequestHandler<UpdateFullNameCommand, bool>, UpdateFullNameHandler>();
 builder.Services.AddTransient<IRequestHandler<AuthenticationCommand, GetUserResponse>, AuthenticationHandler>();
 builder.Services.AddTransient<IRequestHandler<GetUserFullNameQuery, GetUserFullNameResponse>, GetUserFullNameHandler>();
 builder.Services.AddTransient<IRequestHandler<SearchTaskQuery, PaginationResponse<GetTaskResponse>>, SearchTaskHandler>();

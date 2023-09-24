@@ -54,14 +54,27 @@ public class AccountController : ControllerBase
     }
 
     [HttpPut]
-    public async Task<IActionResult> UpdateUserFullName([FromBody] ChangeUserFullNameRequest request)
+    public async Task<IActionResult> UpdateEmail([FromBody] ChangeEmailRequest request)
     {
         var userId = User.FindFirst("UserId")?.Value;
 
         if (userId is null or "0")
             return Unauthorized(new { error = "User not found!" });
 
-        await _accountService.UpdateUserFullNameAsync(request, Convert.ToInt32(userId));
+        await _accountService.UpdateEmailAsync(request, Convert.ToInt32(userId));
+        
+        return NoContent();
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> UpdateFullName([FromBody] ChangeFullNameRequest request)
+    {
+        var userId = User.FindFirst("UserId")?.Value;
+
+        if (userId is null or "0")
+            return Unauthorized(new { error = "User not found!" });
+
+        await _accountService.UpdateFullNameAsync(request, Convert.ToInt32(userId));
         
         return NoContent();
     }

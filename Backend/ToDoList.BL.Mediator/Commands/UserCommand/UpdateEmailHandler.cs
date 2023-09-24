@@ -1,14 +1,14 @@
 ﻿namespace ToDoList.BL.Mediator.Commands.UserCommand;
 
-public class UpdateUserFullNameHandler : IRequestHandler<UpdateUserFullNameCommand, bool>
+public class UpdateEmailHandler : IRequestHandler<UpdateEmailCommand, bool>
 {
     private readonly IUnitOfWork _unitOfWork;
 
-    public UpdateUserFullNameHandler(IUnitOfWork unitOfWork)
+    public UpdateEmailHandler(IUnitOfWork unitOfWork)
     {
         _unitOfWork = unitOfWork;
     }
-    public async Task<bool> Handle(UpdateUserFullNameCommand request, CancellationToken cancellationToken)
+    public async Task<bool> Handle(UpdateEmailCommand request, CancellationToken cancellationToken)
     {
         var user = await _unitOfWork.UserRepository
             .GetAll()
@@ -18,8 +18,7 @@ public class UpdateUserFullNameHandler : IRequestHandler<UpdateUserFullNameComma
         if (user == null)
             return false;
 
-        user.FirstName = request.Request.FirstName;
-        user.LastName = request.Request.LastName;
+        user.Email = request.Request.Email;
 
         await _unitOfWork.UserRepository.UpdateAsync(user);
         await _unitOfWork.CommitAsync();
