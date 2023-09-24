@@ -36,4 +36,12 @@ public class AccountService : IAccountService
 
         return result;
     }
+
+    public async Task UpdateUserFullNameAsync(ChangeUserFullNameRequest request, int userId)
+    {
+        var result = await _mediator.Send(new UpdateUserFullNameCommand(userId, request));
+
+        if (!result)
+            throw new NotFoundException("User not found");
+    }
 }
