@@ -22,10 +22,8 @@ public class AuthenticationHandler : IRequestHandler<AuthenticationCommand, GetU
         
         if (user == null || !PasswordHasher.VerifyPasswordHash(request.Request.Password, user.PasswordHash, user.PasswordSalt))
             throw new UnauthorizedException("Invalid email or password");
-
-        var mapper = _mapper.Map<UserEntity>(user);
         
-        var result = _mapper.Map<GetUserResponse>(mapper);
+        var result = _mapper.Map<GetUserResponse>(user);
 
         return result;
     }
