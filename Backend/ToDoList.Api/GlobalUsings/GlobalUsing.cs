@@ -28,6 +28,7 @@ global using Microsoft.AspNetCore.Authorization;
 global using ToDoList.Domain.Contracts.Response;
 global using ToDoList.BL.Services.AccountService;
 global using ToDoList.DAL.Repositories.UnitOfWork;
+global using ToDoList.BL.Mediator.Commands.UserCommand;
 global using ToDoList.BL.Mediator.Queries.UserQueries;
 global using ToDoList.DAL.Repositories.TaskRepository;
 global using ToDoList.DAL.Repositories.UserRepository;

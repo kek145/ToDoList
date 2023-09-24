@@ -2,6 +2,7 @@
 
 public interface IAccountService
 {
+    Task DeleteAccountAsync(int userId);
     Task<GetUserInfoResponse> GetUserInfoAsync(int userId);
     Task<GetUserFullNameResponse> GetUserFullNameAsync(int userId);
 }

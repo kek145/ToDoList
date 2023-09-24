@@ -3,6 +3,12 @@ public class RequestToDomain : Profile
 {
     public RequestToDomain()
     {
+        CreateMap<ChangeUserNameRequest, UserEntity>()
+            .ForMember(dest => dest.FirstName,
+                opt => opt.MapFrom(src => src.FirstName))
+            .ForMember(dest => dest.LastName,
+                opt => opt.MapFrom(src => src.LastName));
+        
         CreateMap<RegistrationRequest, UserEntity>()
             .ForMember(dest => dest.FirstName,
                 opt => opt.MapFrom(src => src.FirstName))

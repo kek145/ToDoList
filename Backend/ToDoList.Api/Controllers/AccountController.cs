@@ -13,6 +13,19 @@ public class AccountController : ControllerBase
         _tokenService = tokenService;
         _accountService = accountService;
     }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetUserInfo()
+    {
+        var userId = User.FindFirst("UserId")?.Value;
+        
+        if (userId is null or "0")
+            return Unauthorized(new { error = "User not found!" });
+
+        var result = await _accountService.GetUserInfoAsync(Convert.ToInt32(userId));
+
+        return Ok(result);
+    }
 
     [HttpGet]
     public async Task<IActionResult> GetUserFullName()
@@ -27,17 +40,17 @@ public class AccountController : ControllerBase
         return Ok(result);
     }
 
-    [HttpGet]
-    public async Task<IActionResult> GetUserInfo()
+    [HttpDelete]
+    public async Task<IActionResult> DeleteAccount()
     {
         var userId = User.FindFirst("UserId")?.Value;
         
         if (userId is null or "0")
             return Unauthorized(new { error = "User not found!" });
 
-        var result = await _accountService.GetUserInfoAsync(Convert.ToInt32(userId));
+        await _accountService.DeleteAccountAsync(Convert.ToInt32(userId));
 
-        return Ok(result);
+        return NoContent();
     }
     
     [HttpDelete]

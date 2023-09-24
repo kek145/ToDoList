@@ -9,6 +9,14 @@ public class AccountService : IAccountService
         _mediator = mediator;
     }
 
+    public async Task DeleteAccountAsync(int userId)
+    {
+        var result = await _mediator.Send(new DeleteUserCommand(userId));
+
+        if (!result)
+            throw new NotFoundException("User not found");
+    }
+
     public async Task<GetUserInfoResponse> GetUserInfoAsync(int userId)
     {
         var result = await _mediator.Send(new GetUserInfoQuery(userId));

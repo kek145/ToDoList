@@ -32,6 +32,7 @@ builder.Services.AddTransient<IRegistrationService, RegistrationService>();
 builder.Services.AddTransient<IAuthenticationService, AuthenticationService>();
 builder.Services.AddTransient<IValidator<TaskRequest>, TaskRequestValidator>();
 builder.Services.AddTransient<IRequestHandler<SaveTokenCommand>, SaveTokenHandler>();
+builder.Services.AddTransient<IRequestHandler<DeleteUserCommand, bool>, DeleteUserHandler>();
 builder.Services.AddTransient<IRequestHandler<UpdateTaskCommand, bool>, UpdateTaskHandler>();
 builder.Services.AddTransient<IRequestHandler<DeleteTaskCommand, bool>, DeleteTaskHandler>();
 builder.Services.AddTransient<IValidator<RegistrationRequest>, RegistrationRequestValidator>();

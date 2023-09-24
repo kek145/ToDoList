@@ -16,6 +16,7 @@
       <ProjectReference Include="..\ToDoList.Domain.Contracts\ToDoList.Domain.Contracts.csproj" />
       <ProjectReference Include="..\ToDoList.Security\ToDoList.Security.csproj" />
 
+
     </ItemGroup>
 
 
