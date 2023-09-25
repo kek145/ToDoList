@@ -37,6 +37,14 @@ public class AccountService : IAccountService
         return result;
     }
 
+    public async Task UpdatePasswordAsync(ChangePasswordRequest request, int userId)
+    {
+        var result = await _mediator.Send(new UpdatePasswordCommand(userId, request));
+        
+        if(!result)
+            throw new BadRequestException("The old password is incorrect. Please make sure you have entered your current password correctly and try again.");
+    }
+
     public async Task UpdateEmailAsync(ChangeEmailRequest request, int userId)
     {
         var result = await _mediator.Send(new UpdateEmailCommand(userId, request));

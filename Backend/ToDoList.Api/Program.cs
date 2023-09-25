@@ -40,13 +40,14 @@ builder.Services.AddTransient<IValidator<RegistrationRequest>, RegistrationReque
 builder.Services.AddTransient<IRequestHandler<DeleteTokenCommand, bool>, DeleteTokenHandler>();
 builder.Services.AddTransient<IRequestHandler<CompleteTaskCommand, bool>, CompleteTaskHandler>();
 builder.Services.AddTransient<IValidator<AuthenticationRequest>, AuthenticationRequestValidator>();
+builder.Services.AddTransient<IRequestHandler<UpdatePasswordCommand, bool>, UpdatePasswordHandler>();
+builder.Services.AddTransient<IRequestHandler<UpdateFullNameCommand, bool>, UpdateFullNameHandler>();
 builder.Services.AddTransient<IRequestHandler<ValidationTokenCommand, bool>, ValidationTokenHandler>();
 builder.Services.AddTransient<IRequestHandler<CreateUserCommand, GetUserResponse>, CreateUserHandler>();
 builder.Services.AddTransient<IRequestHandler<CreateTaskCommand, GetTaskResponse>, CreateTaskHandler>();
 builder.Services.AddTransient<IRequestHandler<GetTaskByIdQuery, GetTaskResponse>, GetTaskByIdHandler>();
 builder.Services.AddTransient<IRequestHandler<GetUserInfoQuery, GetUserInfoResponse>, GetUserInfoHandler>();
 builder.Services.AddTransient<IRequestHandler<RefreshTokenCommand, GetUserResponse>, RefreshTokenHandler>();
-builder.Services.AddTransient<IRequestHandler<UpdateFullNameCommand, bool>, UpdateFullNameHandler>();
 builder.Services.AddTransient<IRequestHandler<AuthenticationCommand, GetUserResponse>, AuthenticationHandler>();
 builder.Services.AddTransient<IRequestHandler<GetUserFullNameQuery, GetUserFullNameResponse>, GetUserFullNameHandler>();
 builder.Services.AddTransient<IRequestHandler<SearchTaskQuery, PaginationResponse<GetTaskResponse>>, SearchTaskHandler>();
@@ -114,10 +115,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("FrontEnd");
+
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseCors("FrontEnd");
 app.AddGlobalErrorHandler();
 
 app.MapControllers();

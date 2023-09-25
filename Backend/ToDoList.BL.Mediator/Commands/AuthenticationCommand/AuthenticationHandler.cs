@@ -1,6 +1,4 @@
-﻿using ToDoList.Security.HashData;
-
-namespace ToDoList.BL.Mediator.Commands.AuthenticationCommand;
+﻿namespace ToDoList.BL.Mediator.Commands.AuthenticationCommand;
 
 public class AuthenticationHandler : IRequestHandler<AuthenticationCommand, GetUserResponse>
 {

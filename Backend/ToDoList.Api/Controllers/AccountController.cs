@@ -72,7 +72,28 @@ public class AccountController : ControllerBase
         
         return NoContent();
     }
-    
+
+    [HttpPut]
+    public async Task<IActionResult> UpdatePassword([FromBody] ChangePasswordRequest request)
+    {
+        var userId = User.FindFirst("UserId")?.Value;
+
+        if (userId is null or "0")
+            return Unauthorized(new { error = "User not found!" });
+
+        await _accountService.UpdatePasswordAsync(request, Convert.ToInt32(userId));
+        
+        var refreshToken = Request.Cookies["refreshToken"];
+
+        if (refreshToken == null)
+            return NotFound(new { error = "RefreshToken not found" });
+        
+        await _tokenService.DeleteTokenAsync(refreshToken);
+        
+        return Unauthorized(new { description = "The operation was successful but re-authentication is required" });
+        
+    }
+
     [HttpDelete]
     public async Task<IActionResult> DeleteAccount()
     {
