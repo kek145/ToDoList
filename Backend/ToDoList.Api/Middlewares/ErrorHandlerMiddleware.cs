@@ -3,12 +3,10 @@
 public class ErrorHandlerMiddleware
 {
     private readonly RequestDelegate _next;
-    private readonly ILogger<ErrorHandlerMiddleware> _logger;
 
-    public ErrorHandlerMiddleware(RequestDelegate next, ILogger<ErrorHandlerMiddleware> logger)
+    public ErrorHandlerMiddleware(RequestDelegate next)
     {
         _next = next;
-        _logger = logger;
     }
 
     public async Task InvokeAsync(HttpContext context)
@@ -26,7 +24,7 @@ public class ErrorHandlerMiddleware
     private static Task HandleExceptionAsync(HttpContext context, Exception ex)
     {
         HttpStatusCode statusCode;
-        var message = "";
+        string message;
 
         var exceptionType = ex.GetType();
 
@@ -57,7 +55,7 @@ public class ErrorHandlerMiddleware
         }
         else
         {
-            message = ex.ToString();
+            message = ex.Message;
             statusCode = HttpStatusCode.InternalServerError;
         }
 

@@ -1,5 +1,6 @@
 ﻿**/.dockerignore
 **/.env
+**/K8S
 **/.git
 **/.gitignore
 **/.project
