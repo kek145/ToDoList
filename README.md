@@ -2,10 +2,10 @@
 
     --------------------------------------------Technology stack---------------------------------------------
 - Backend
-  1.C#/.NET - (.NET 7)
+  1.C#/.NET - (.NET 6)
   2.ASP.NET Core Web API
   3.Entityframework Core
-  4.Microsoft SQL Server
+  4.PostgreSQL
 
 - Frontend
   1.HTML
