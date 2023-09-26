@@ -7,6 +7,7 @@ spec:
   selector:
     matchLabels:
       app: backend
+  replicas: 2
   template:
     metadata:
       labels:
