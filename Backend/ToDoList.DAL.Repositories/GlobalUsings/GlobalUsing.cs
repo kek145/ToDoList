@@ -1,9 +1,0 @@
-﻿global using System;
-global using System.Linq;
-global using System.Threading.Tasks;
-global using ToDoList.DAL.Core.DataContext;
-global using ToDoList.Domain.Entities.DbSet;
-global using ToDoList.DAL.Repositories.UserRepository;
-global using ToDoList.DAL.Repositories.TaskRepository;
-global using ToDoList.DAL.Repositories.TokenRepository;
-global using ToDoList.DAL.Repositories.GenericRepository;
