@@ -1,45 +1,76 @@
-﻿namespace ToDoList.BL.Services.TaskService;
+﻿using Microsoft.AspNetCore.Http;
+
+namespace ToDoList.BL.Services.TaskService;
 
 public class TaskService : ITaskService
 {
+    private string _userId = string.Empty;
     private readonly IMediator _mediator;
     private readonly IValidator<TaskRequest> _validator;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
     public TaskService(
         IMediator mediator,
-        IValidator<TaskRequest> validator)
+        IValidator<TaskRequest> validator,
+        IHttpContextAccessor httpContextAccessor)
     {
         _mediator = mediator;
         _validator = validator;
+        _httpContextAccessor = httpContextAccessor;
     }
 
-    public async Task<PaginationResponse<GetTaskResponse>> GetAllTasksAsync(int page, int userId)
+    public async Task<PaginationResponse<GetTaskResponse>> GetAllTasksAsync(int page)
     {
-        var result = await _mediator.Send(new GetAllTaskQuery(page, userId));
+        if (_httpContextAccessor.HttpContext is not null)
+            _userId = _httpContextAccessor.HttpContext.User.FindFirst("UserId")!.Value;
+        else
+            throw new UnauthorizedException("User is not found");
+        
+        var result = await _mediator.Send(new GetAllTaskQuery(page, Convert.ToInt32(_userId)));
         return result;
     }
 
-    public async Task<PaginationResponse<GetTaskResponse>> GetAllFailedTaskAsync(int page, int userId)
+    public async Task<PaginationResponse<GetTaskResponse>> GetAllFailedTaskAsync(int page)
     {
-        var result = await _mediator.Send(new GetAllFailedTaskQuery(page, userId));
+        if (_httpContextAccessor.HttpContext is not null)
+            _userId = _httpContextAccessor.HttpContext.User.FindFirst("UserId")!.Value;
+        else
+            throw new UnauthorizedException("User is not found");
+        
+        var result = await _mediator.Send(new GetAllFailedTaskQuery(page, Convert.ToInt32(_userId)));
         return result;
     }
 
-    public async Task<PaginationResponse<GetTaskResponse>> GetAllCompletedTaskAsync(int page, int userId)
+    public async Task<PaginationResponse<GetTaskResponse>> GetAllCompletedTaskAsync(int page)
     {
-        var result = await _mediator.Send(new GetAllCompletedTaskQuery(page, userId));
+        if (_httpContextAccessor.HttpContext is not null)
+            _userId = _httpContextAccessor.HttpContext.User.FindFirst("UserId")!.Value;
+        else
+            throw new UnauthorizedException("User is not found");
+        
+        var result = await _mediator.Send(new GetAllCompletedTaskQuery(page, Convert.ToInt32(_userId)));
         return result;
     }
 
-    public async Task<PaginationResponse<GetTaskResponse>> SearchTaskAsync(int page, int userId, string search)
+    public async Task<PaginationResponse<GetTaskResponse>> SearchTaskAsync(int page, string search)
     {
-        var result = await _mediator.Send(new SearchTaskQuery(page, userId, search));
+        if (_httpContextAccessor.HttpContext is not null)
+            _userId = _httpContextAccessor.HttpContext.User.FindFirst("UserId")!.Value;
+        else
+            throw new UnauthorizedException("User is not found");
+        
+        var result = await _mediator.Send(new SearchTaskQuery(page, Convert.ToInt32(_userId), search));
         return result;
     }
 
-    public async Task<PaginationResponse<GetTaskResponse>> GetAllTasksByPriorityAsync(string priority, int page, int userId)
+    public async Task<PaginationResponse<GetTaskResponse>> GetAllTasksByPriorityAsync(string priority, int page)
     {
-        var result = await _mediator.Send(new GetAllTaskByPriorityQuery(page, userId, priority));
+        if (_httpContextAccessor.HttpContext is not null)
+            _userId = _httpContextAccessor.HttpContext.User.FindFirst("UserId")!.Value;
+        else
+            throw new UnauthorizedException("User is not found");
+        
+        var result = await _mediator.Send(new GetAllTaskByPriorityQuery(page, Convert.ToInt32(_userId), priority));
 
         if (result == null)
             throw new NotFoundException("Priority not found");
@@ -81,17 +112,22 @@ public class TaskService : ITaskService
             throw new NotFoundException("Task not found");
     }
 
-    public async Task<GetTaskResponse> CreateTaskAsync(TaskRequest request, int userId)
+    public async Task<GetTaskResponse> CreateTaskAsync(TaskRequest request)
     {
+        if (_httpContextAccessor.HttpContext is not null)
+            _userId = _httpContextAccessor.HttpContext.User.FindFirst("UserId")!.Value;
+        else
+            throw new UnauthorizedException("User is not found");
+        
         var validator = await _validator.ValidateAsync(request);
 
         if (!validator.IsValid)
             throw new BadRequestException($"Validation error: {validator}");
 
-        if (request.DeadLine < DateTime.Today || request.DeadLine < DateTime.UtcNow)
+        if (request.DeadLine < DateTime.Today)
             throw new BadRequestException("You cannot specify a date and time lower than the current one");
         
-        var result = await _mediator.Send(new CreateTaskCommand(request, userId));
+        var result = await _mediator.Send(new CreateTaskCommand(request, Convert.ToInt32(_userId)));
 
         if (result == null)
             throw new BadRequestException("Task is null!");

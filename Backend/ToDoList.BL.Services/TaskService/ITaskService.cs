@@ -6,10 +6,10 @@ public interface ITaskService
     Task CompleteTaskAsync(int taskId);
     Task<GetTaskResponse> GetTaskByIdAsync(int taskId);
     Task UpdateTaskAsync(TaskRequest request, int taskId);
-    Task<GetTaskResponse> CreateTaskAsync(TaskRequest request, int userId);
-    Task<PaginationResponse<GetTaskResponse>> GetAllTasksAsync(int page, int userId);
-    Task<PaginationResponse<GetTaskResponse>> GetAllFailedTaskAsync(int page, int userId);
-    Task<PaginationResponse<GetTaskResponse>> GetAllCompletedTaskAsync(int page, int userId);
-    Task<PaginationResponse<GetTaskResponse>> SearchTaskAsync(int page, int userId, string search);
-    Task<PaginationResponse<GetTaskResponse>> GetAllTasksByPriorityAsync(string priority, int page, int userId);
+    Task<GetTaskResponse> CreateTaskAsync(TaskRequest request);
+    Task<PaginationResponse<GetTaskResponse>> GetAllTasksAsync(int page);
+    Task<PaginationResponse<GetTaskResponse>> GetAllFailedTaskAsync(int page);
+    Task<PaginationResponse<GetTaskResponse>> GetAllCompletedTaskAsync(int page);
+    Task<PaginationResponse<GetTaskResponse>> SearchTaskAsync(int page, string search);
+    Task<PaginationResponse<GetTaskResponse>> GetAllTasksByPriorityAsync(string priority, int page);
 }

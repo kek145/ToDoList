@@ -8,8 +8,10 @@ builder.Services.AddScopedService();
 
 builder.Services.AddTransientService();
 
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssemblies(typeof(Program).Assembly));
 

@@ -2,10 +2,10 @@
 
 public interface IAccountService
 {
-    Task DeleteAccountAsync(int userId);
-    Task<GetUserInfoResponse> GetUserInfoAsync(int userId);
-    Task UpdateEmailAsync(ChangeEmailRequest request, int userId);
-    Task<GetUserFullNameResponse> GetUserFullNameAsync(int userId);
-    Task UpdatePasswordAsync(ChangePasswordRequest request, int userId);
-    Task UpdateFullNameAsync(ChangeFullNameRequest request, int userId);
+    Task DeleteAccountAsync();
+    Task<GetUserInfoResponse> GetUserInfoAsync();
+    Task UpdateEmailAsync(ChangeEmailRequest request);
+    Task<GetUserFullNameResponse> GetUserFullNameAsync();
+    Task UpdatePasswordAsync(ChangePasswordRequest request);
+    Task UpdateFullNameAsync(ChangeFullNameRequest request);
 }

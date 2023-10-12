@@ -1,25 +1,40 @@
-﻿namespace ToDoList.BL.Services.AccountService;
+﻿using Microsoft.AspNetCore.Http;
+
+namespace ToDoList.BL.Services.AccountService;
 
 public class AccountService : IAccountService
 {
+    private string _userId = string.Empty;
     private readonly IMediator _mediator;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public AccountService(IMediator mediator)
+    public AccountService(IMediator mediator, IHttpContextAccessor httpContextAccessor)
     {
         _mediator = mediator;
+        _httpContextAccessor = httpContextAccessor;
     }
 
-    public async Task DeleteAccountAsync(int userId)
+    public async Task DeleteAccountAsync()
     {
-        var result = await _mediator.Send(new DeleteUserCommand(userId));
+        if (_httpContextAccessor.HttpContext is not null)
+            _userId = _httpContextAccessor.HttpContext.User.FindFirst("UserId")!.Value;
+        else
+            throw new UnauthorizedException("User is not found");
+        
+        var result = await _mediator.Send(new DeleteUserCommand(Convert.ToInt32(_userId)));
 
         if (!result)
-            throw new NotFoundException("User not found");
+            throw new UnauthorizedException("User not found");
     }
 
-    public async Task<GetUserInfoResponse> GetUserInfoAsync(int userId)
+    public async Task<GetUserInfoResponse> GetUserInfoAsync()
     {
-        var result = await _mediator.Send(new GetUserInfoQuery(userId));
+        if (_httpContextAccessor.HttpContext is not null)
+            _userId = _httpContextAccessor.HttpContext.User.FindFirst("UserId")!.Value;
+        else
+            throw new UnauthorizedException("User is not found");
+        
+        var result = await _mediator.Send(new GetUserInfoQuery(Convert.ToInt32(_userId)));
 
         if (result == null)
             throw new NotFoundException("User not found");
@@ -27,9 +42,14 @@ public class AccountService : IAccountService
         return result;
     }
 
-    public async Task<GetUserFullNameResponse> GetUserFullNameAsync(int userId)
+    public async Task<GetUserFullNameResponse> GetUserFullNameAsync()
     {
-        var result = await _mediator.Send(new GetUserFullNameQuery(userId));
+        if (_httpContextAccessor.HttpContext is not null)
+            _userId = _httpContextAccessor.HttpContext.User.FindFirst("UserId")!.Value;
+        else
+            throw new UnauthorizedException("User is not found");
+        
+        var result = await _mediator.Send(new GetUserFullNameQuery(Convert.ToInt32(_userId)));
 
         if (result == null)
             throw new NotFoundException("User not found");
@@ -37,25 +57,40 @@ public class AccountService : IAccountService
         return result;
     }
 
-    public async Task UpdatePasswordAsync(ChangePasswordRequest request, int userId)
+    public async Task UpdatePasswordAsync(ChangePasswordRequest request)
     {
-        var result = await _mediator.Send(new UpdatePasswordCommand(userId, request));
+        if (_httpContextAccessor.HttpContext is not null)
+            _userId = _httpContextAccessor.HttpContext.User.FindFirst("UserId")!.Value;
+        else
+            throw new UnauthorizedException("User is not found");
+        
+        var result = await _mediator.Send(new UpdatePasswordCommand(Convert.ToInt32(_userId), request));
         
         if(!result)
             throw new BadRequestException("The old password is incorrect. Please make sure you have entered your current password correctly and try again.");
     }
 
-    public async Task UpdateEmailAsync(ChangeEmailRequest request, int userId)
+    public async Task UpdateEmailAsync(ChangeEmailRequest request)
     {
-        var result = await _mediator.Send(new UpdateEmailCommand(userId, request));
+        if (_httpContextAccessor.HttpContext is not null)
+            _userId = _httpContextAccessor.HttpContext.User.FindFirst("UserId")!.Value;
+        else
+            throw new UnauthorizedException("User is not found");
+        
+        var result = await _mediator.Send(new UpdateEmailCommand(Convert.ToInt32(_userId), request));
         
         if (!result)
             throw new NotFoundException("User not found");
     }
 
-    public async Task UpdateFullNameAsync(ChangeFullNameRequest request, int userId)
+    public async Task UpdateFullNameAsync(ChangeFullNameRequest request)
     {
-        var result = await _mediator.Send(new UpdateFullNameCommand(userId, request));
+        if (_httpContextAccessor.HttpContext is not null)
+            _userId = _httpContextAccessor.HttpContext.User.FindFirst("UserId")!.Value;
+        else
+            throw new UnauthorizedException("User is not found");
+        
+        var result = await _mediator.Send(new UpdateFullNameCommand(Convert.ToInt32(_userId), request));
 
         if (!result)
             throw new NotFoundException("User not found");

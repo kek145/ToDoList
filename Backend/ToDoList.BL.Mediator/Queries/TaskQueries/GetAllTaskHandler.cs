@@ -21,7 +21,7 @@ public class GetAllTaskHandler : IRequestHandler<GetAllTaskQuery, PaginationResp
             .GetAll()
             .AsNoTracking()
             .AsSplitQuery()
-            .Where(x => x.UserId == request.UserId)
+            .Where(x => x.UserId == request.UserId && x.Deadline > DateTime.UtcNow)
             .OrderBy(s => s.UpdatedAt)
             .Skip((request.Page - 1) * (int)pageResult)
             .Take((int)pageResult)

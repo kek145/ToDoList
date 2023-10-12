@@ -17,38 +17,21 @@ public class AccountController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetUserInfo()
     {
-        var userId = User.FindFirst("UserId")?.Value;
-        
-        if (userId is null or "0")
-            return Unauthorized(new { error = "User not found!" });
-
-        var result = await _accountService.GetUserInfoAsync(Convert.ToInt32(userId));
-
+        var result = await _accountService.GetUserInfoAsync();
         return Ok(result);
     }
 
     [HttpGet]
     public async Task<IActionResult> GetUserFullName()
     {
-        var userId = User.FindFirst("UserId")?.Value;
-        
-        if (userId is null or "0")
-            return Unauthorized(new { error = "User not found!" });
-
-        var result = await _accountService.GetUserFullNameAsync(Convert.ToInt32(userId));
-        
+        var result = await _accountService.GetUserFullNameAsync();
         return Ok(result);
     }
 
     [HttpPut]
     public async Task<IActionResult> UpdateEmail([FromBody] ChangeEmailRequest request)
     {
-        var userId = User.FindFirst("UserId")?.Value;
-
-        if (userId is null or "0")
-            return Unauthorized(new { error = "User not found!" });
-
-        await _accountService.UpdateEmailAsync(request, Convert.ToInt32(userId));
+        await _accountService.UpdateEmailAsync(request);
         
         var refreshToken = Request.Cookies["refreshToken"];
 
@@ -63,25 +46,14 @@ public class AccountController : ControllerBase
     [HttpPut]
     public async Task<IActionResult> UpdateFullName([FromBody] ChangeFullNameRequest request)
     {
-        var userId = User.FindFirst("UserId")?.Value;
-
-        if (userId is null or "0")
-            return Unauthorized(new { error = "User not found!" });
-
-        await _accountService.UpdateFullNameAsync(request, Convert.ToInt32(userId));
-        
+        await _accountService.UpdateFullNameAsync(request);
         return NoContent();
     }
 
     [HttpPut]
     public async Task<IActionResult> UpdatePassword([FromBody] ChangePasswordRequest request)
     {
-        var userId = User.FindFirst("UserId")?.Value;
-
-        if (userId is null or "0")
-            return Unauthorized(new { error = "User not found!" });
-
-        await _accountService.UpdatePasswordAsync(request, Convert.ToInt32(userId));
+        await _accountService.UpdatePasswordAsync(request);
         
         var refreshToken = Request.Cookies["refreshToken"];
 
@@ -97,18 +69,13 @@ public class AccountController : ControllerBase
     [HttpDelete]
     public async Task<IActionResult> DeleteAccount()
     {
-        var userId = User.FindFirst("UserId")?.Value;
-        
-        if (userId is null or "0")
-            return Unauthorized(new { error = "User not found!" });
-        
         var refreshToken = Request.Cookies["refreshToken"];
 
         if (refreshToken == null)
             return NotFound(new { error = "RefreshToken not found" });
         
         await _tokenService.DeleteTokenAsync(refreshToken);
-        await _accountService.DeleteAccountAsync(Convert.ToInt32(userId));
+        await _accountService.DeleteAccountAsync();
 
         return NoContent();
     }
@@ -116,16 +83,10 @@ public class AccountController : ControllerBase
     [HttpDelete]
     public async Task<IActionResult> LogoutAccount()
     {
-        var userId = User.FindFirst("UserId")?.Value;
-
-        if (userId is null or "0")
-            return Unauthorized(new { error = "User not found!" });
-        
         var refreshToken = Request.Cookies["refreshToken"];
 
         if (refreshToken == null)
             return NotFound(new { error = "RefreshToken not found" });
-
 
         await _tokenService.DeleteTokenAsync(refreshToken);
         
