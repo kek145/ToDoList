@@ -1,7 +1,7 @@
 ﻿namespace ToDoList.Api.Controllers;
 
 [ApiController]
-[Route("api/[controller]/[action]")]
+[Route("api/authentication")]
 public class AuthenticationController : ControllerBase
 {
     private readonly IAuthenticationService _authenticationService;

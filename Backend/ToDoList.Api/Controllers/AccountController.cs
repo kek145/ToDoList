@@ -1,7 +1,7 @@
 ﻿namespace ToDoList.Api.Controllers;
 
 [ApiController]
-[Route("api/[controller]/[action]")]
+[Route("api/account")]
 [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class AccountController : ControllerBase
 {
@@ -15,6 +15,7 @@ public class AccountController : ControllerBase
     }
     
     [HttpGet]
+    [Route("get-info")]
     public async Task<IActionResult> GetUserInfo()
     {
         var result = await _accountService.GetUserInfoAsync();
@@ -22,6 +23,7 @@ public class AccountController : ControllerBase
     }
 
     [HttpGet]
+    [Route("get-fullname")]
     public async Task<IActionResult> GetUserFullName()
     {
         var result = await _accountService.GetUserFullNameAsync();
@@ -29,6 +31,7 @@ public class AccountController : ControllerBase
     }
 
     [HttpPut]
+    [Route("update-email")]
     public async Task<IActionResult> UpdateEmail([FromBody] ChangeEmailRequest request)
     {
         await _accountService.UpdateEmailAsync(request);
@@ -44,6 +47,7 @@ public class AccountController : ControllerBase
     }
 
     [HttpPut]
+    [Route("update-fullname")]
     public async Task<IActionResult> UpdateFullName([FromBody] ChangeFullNameRequest request)
     {
         await _accountService.UpdateFullNameAsync(request);
@@ -51,6 +55,7 @@ public class AccountController : ControllerBase
     }
 
     [HttpPut]
+    [Route("update-password")]
     public async Task<IActionResult> UpdatePassword([FromBody] ChangePasswordRequest request)
     {
         await _accountService.UpdatePasswordAsync(request);
@@ -67,6 +72,7 @@ public class AccountController : ControllerBase
     }
 
     [HttpDelete]
+    [Route("delete-account")]
     public async Task<IActionResult> DeleteAccount()
     {
         var refreshToken = Request.Cookies["refreshToken"];
@@ -81,6 +87,7 @@ public class AccountController : ControllerBase
     }
     
     [HttpDelete]
+    [Route("logout")]
     public async Task<IActionResult> LogoutAccount()
     {
         var refreshToken = Request.Cookies["refreshToken"];

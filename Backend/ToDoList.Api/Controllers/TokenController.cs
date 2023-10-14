@@ -1,7 +1,7 @@
 ﻿namespace ToDoList.Api.Controllers;
 
 [ApiController]
-[Route("api/[controller]/[action]")]
+[Route("api/token")]
 public class TokenController : ControllerBase
 {
     private readonly ITokenService _tokenService;
@@ -12,6 +12,7 @@ public class TokenController : ControllerBase
     }
 
     [HttpPost]
+    [Route("refresh-token")]
     public async Task<IActionResult> RefreshToken()
     {
         var refreshToken = Request.Cookies["refreshToken"];

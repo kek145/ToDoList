@@ -1,7 +1,7 @@
 ﻿namespace ToDoList.Api.Controllers;
 
 [ApiController]
-[Route("api/[controller]/[action]")]
+[Route("api/registration")]
 public class RegistrationController : ControllerBase
 {
     private readonly IRegistrationService _registrationService;

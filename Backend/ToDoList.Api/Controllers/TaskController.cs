@@ -1,7 +1,7 @@
 ﻿namespace ToDoList.Api.Controllers;
 
 [ApiController]
-[Route("api/[controller]/[action]")]
+[Route("api/task")]
 [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class TaskController : ControllerBase
 {
@@ -13,6 +13,7 @@ public class TaskController : ControllerBase
     }
 
     [HttpPost]
+    [Route("create")]
     public async Task<IActionResult> CreateTask([FromBody] TaskRequest request)
     {
         var response = await _taskService.CreateTaskAsync(request);
@@ -20,6 +21,7 @@ public class TaskController : ControllerBase
     }
 
     [HttpGet]
+    [Route("tasks")]
     public async Task<IActionResult> GetAllTasks([FromQuery] int page = 1)
     {
         var response = await _taskService.GetAllTasksAsync(page);
@@ -27,6 +29,7 @@ public class TaskController : ControllerBase
     }
     
     [HttpGet]
+    [Route("failed")]
     public async Task<IActionResult> GetAllFailedTasks([FromQuery] int page = 1)
     {
         var response = await _taskService.GetAllFailedTaskAsync(page);
@@ -34,6 +37,7 @@ public class TaskController : ControllerBase
     }
 
     [HttpGet]
+    [Route("completed")]
     public async Task<IActionResult> GetAllCompleteTasks([FromQuery] int page = 1)
     {
         var response = await _taskService.GetAllCompletedTaskAsync(page);
@@ -41,7 +45,7 @@ public class TaskController : ControllerBase
     }
 
     [HttpGet]
-    [Route("task{taskId:int}")]
+    [Route("{taskId:int}")]
     public async Task<IActionResult> GetTaskById(int taskId)
     {
         var response = await _taskService.GetTaskByIdAsync(taskId);
@@ -49,6 +53,7 @@ public class TaskController : ControllerBase
     }
     
     [HttpGet]
+    [Route("by-priority")]
     public async Task<IActionResult> GetAllTasksByPriority([FromQuery] string priority, [FromQuery] int page = 1)
     {
         var response = await _taskService.GetAllTasksByPriorityAsync(priority, page);
@@ -56,6 +61,7 @@ public class TaskController : ControllerBase
     }
 
     [HttpGet]
+    [Route("search")]
     public async Task<IActionResult> SearchTask([FromQuery] string search, [FromQuery] int page = 1)
     {
         var response = await _taskService.SearchTaskAsync(page,search);
@@ -63,7 +69,7 @@ public class TaskController : ControllerBase
     }
 
     [HttpPatch]
-    [Route("task{taskId:int}")]
+    [Route("complete/{taskId:int}")]
     public async Task<IActionResult> CompleteTask(int taskId)
     {
         await _taskService.CompleteTaskAsync(taskId);
@@ -71,7 +77,7 @@ public class TaskController : ControllerBase
     }
 
     [HttpPut]
-    [Route("task{taskId:int}")]
+    [Route("update/{taskId:int}")]
     public async Task<IActionResult> UpdateTask([FromBody] TaskRequest request, int taskId)
     {
         await _taskService.UpdateTaskAsync(request, taskId);
@@ -79,7 +85,7 @@ public class TaskController : ControllerBase
     }
 
     [HttpDelete]
-    [Route("task{taskId:int}")]
+    [Route("delete/{taskId:int}")]
     public async Task<IActionResult> DeleteTask(int taskId)
     {
         await _taskService.DeleteTaskAsync(taskId);
