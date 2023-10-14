@@ -12,7 +12,7 @@ using ToDoList.DAL.Core.DataContext;
 namespace ToDoList.DAL.Core.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231014074657_Initial")]
+    [Migration("20231014105633_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -69,7 +69,7 @@ namespace ToDoList.DAL.Core.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 10, 14, 7, 46, 57, 694, DateTimeKind.Utc).AddTicks(2236))
+                        .HasDefaultValue(new DateTime(2023, 10, 14, 10, 56, 33, 241, DateTimeKind.Utc).AddTicks(49))
                         .HasColumnName("created_at");
 
                     b.Property<DateTime>("Deadline")
@@ -101,7 +101,7 @@ namespace ToDoList.DAL.Core.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 10, 14, 7, 46, 57, 694, DateTimeKind.Utc).AddTicks(2428))
+                        .HasDefaultValue(new DateTime(2023, 10, 14, 10, 56, 33, 241, DateTimeKind.Utc).AddTicks(261))
                         .HasColumnName("updated_at");
 
                     b.Property<int>("UserId")

@@ -20,7 +20,6 @@ public class AuthenticationController : ControllerBase
         {
             HttpOnly = true,
             Secure = true,
-            MaxAge = TimeSpan.FromDays(90),
             SameSite = SameSiteMode.Strict
         });
         

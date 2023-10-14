@@ -1,14 +1,46 @@
-<mat-toolbar color="primary" class="mat-elevation-z8">
-    <mat-icon class="logo" routerLink="/home">home</mat-icon>
-    <span class="todo__title">ToDo List</span>
-    <span class="spacer"></span>
-    <button class="btn__signup" mat-raised-button routerLink="/sign-up">Sign Up</button>
-    <button class="btn__signin" mat-raised-button routerLink="/sign-in">Sign In</button>
-</mat-toolbar>
-<router-outlet></router-outlet>
+<ng-container *ngIf="!isUserLogged(); else loggedIn;">
+    <mat-toolbar color="primary" class="mat-elevation-z8">
+        <mat-icon class="logo" routerLink="/home">home</mat-icon>
+        <span class="todo__title">ToDo List</span>
+        <span class="spacer"></span>
+        <button class="btn__signup" mat-raised-button routerLink="/sign-up">Sign Up</button>
+        <button class="btn__signin" mat-raised-button routerLink="/sign-in">Sign In</button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+</ng-container>
+
+<ng-template #loggedIn>
+    <mat-toolbar color="primary" class="mat-elevation-z8">
+        <button (click)="drawer.toggle()" mat-icon-button>
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-icon routerLink="/home">home</mat-icon>
+        <span class="admin">Admin panel</span>
+        <span class="spacer__logout"></span>
+        <button class="btn__logout" (click)="logout();" mat-raised-button >Logout</button>
+    </mat-toolbar>
+    
+    <mat-drawer-container autosize>
+        <mat-drawer #drawer opened="true" mode="side" position="start">
+            <mat-nav-list>
+                <mat-list-item>
+                    <button routerLink="/home" mat-button><mat-icon>home</mat-icon>Home</button>
+                </mat-list-item>
+                <mat-list-item>
+                    <button routerLink="/dashboard" mat-button><mat-icon>dashboard</mat-icon>Dashboard</button>
+                </mat-list-item>
+            </mat-nav-list>
+        </mat-drawer>
+        <mat-drawer-content>
+            <div style="text-align: center;min-height: 600px;">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</ng-template>
+
 <mat-toolbar color="primary" class="footer">
     <div class="footer-content">
         <span class="footer__span">Website for creating a tasks 2023</span>
     </div>
 </mat-toolbar>
-  

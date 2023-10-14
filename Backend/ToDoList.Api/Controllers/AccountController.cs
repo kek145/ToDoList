@@ -93,12 +93,12 @@ public class AccountController : ControllerBase
         var refreshToken = Request.Cookies["refreshToken"];
 
         if (refreshToken == null)
-            return NotFound(new { error = "RefreshToken not found" });
-
+            return Unauthorized(new { error = "Token not found | account controller" });
+        
         await _tokenService.DeleteTokenAsync(refreshToken);
         
-        Response.Cookies.Delete(refreshToken);
+        Response.Cookies.Delete("refreshToken");
 
-        return NoContent();
+        return Unauthorized();
     }
 }

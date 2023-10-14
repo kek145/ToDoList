@@ -32,7 +32,6 @@ public class TokenController : ControllerBase
             HttpOnly = true,
             Secure = true,
             SameSite = SameSiteMode.Strict,
-            Expires = DateTime.UtcNow.AddDays(89)
         });
         
         return Ok(response);
