@@ -15,8 +15,9 @@
             <mat-icon>menu</mat-icon>
         </button>
         <mat-icon routerLink="/home">home</mat-icon>
-        <span class="admin">Admin panel</span>
+        <span class="admin">ToDo List</span>
         <span class="spacer__logout"></span>
+        <span class="fullName__span">{{ fullName }}</span>
         <button class="btn__logout" (click)="logout();" mat-raised-button >Logout</button>
     </mat-toolbar>
     

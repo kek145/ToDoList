@@ -14,7 +14,7 @@ public class GetAllTaskHandler : IRequestHandler<GetAllTaskQuery, PaginationResp
     }
     public async Task<PaginationResponse<GetTaskResponse>> Handle(GetAllTaskQuery request, CancellationToken cancellationToken)
     {
-        const float pageResult = 10f;
+        const float pageResult = 13f;
         var pageCount = Math.Ceiling(_unitOfWork.TaskRepository.GetAll().Count() / pageResult);
         
         var tasks = await _unitOfWork.TaskRepository
