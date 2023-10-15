@@ -10,4 +10,13 @@ public static class EnumExtension
             .GetCustomAttribute<DisplayAttribute>()
             ?.GetName() ?? "Undefined";
     }
+
+    public static string GetDisplayName(this bool boolValue)
+    {
+        return boolValue.GetType()
+            .GetMember(boolValue.ToString())
+            .First()
+            .GetCustomAttribute<DisplayAttribute>()
+            ?.GetName() ?? "Undefined";
+    }
 }

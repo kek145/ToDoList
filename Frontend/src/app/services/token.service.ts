@@ -13,6 +13,6 @@ export class TokenService {
   constructor(private http: HttpClient) { }
 
   public refreshToken() : Observable<ITokenModel> {
-    return this.http.post<ITokenModel>(`${environment.httpUrlApi}${tokenEndpoints.refreshToken}`, {}, { withCredentials: true });
+    return this.http.post<ITokenModel>(`${environment.httpUrlApi}${tokenEndpoints.refreshToken}`, { withCredentials: true });
   }
 }

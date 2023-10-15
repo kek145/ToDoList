@@ -24,9 +24,6 @@ public class TokenController : ControllerBase
         
         var response = await _tokenService.RefreshTokenAsync(refreshToken);
 
-        if (response == null!)
-            return Unauthorized(new { error = "The provided refresh token is invalid or expired." });
-        
         Response.Cookies.Append("refreshToken", response.RefreshToken, new CookieOptions
         {
             HttpOnly = true,

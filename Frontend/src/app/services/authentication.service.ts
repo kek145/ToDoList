@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { ITokenModel } from '../models/token.model';
 import { ILoginModel } from '../models/authentication.model';
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { authenticationEndpoints } from '../routes/authentication.route';
 
@@ -19,7 +19,7 @@ export class AuthenticationService {
   }
 
   private getToken(): string | null {
-    return localStorage.getItem("jwtToken");
+    return localStorage.getItem("accessToken");
   }
 
   public authentication(authRequest: ILoginModel) : Observable<ITokenModel> {

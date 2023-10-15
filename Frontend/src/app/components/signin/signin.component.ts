@@ -24,7 +24,7 @@ export class SigninComponent {
 
   protected authentication(login: ILoginModel) {
     this.authenticationService.authentication(login).subscribe((login) => {
-      localStorage.setItem("jwtToken", login.accessToken);
+      localStorage.setItem("accessToken", login.accessToken);
       this.router.navigateByUrl('/dashboard');
     });
   }

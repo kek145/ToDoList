@@ -17,10 +17,12 @@
 }
 
 .footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
+    z-index: 999;
 }
+
   
 .footer-content {
     text-align: center;

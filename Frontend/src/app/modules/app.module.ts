@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
-import { MaterialModule } from './material.module';
+import { AppComponent } from '../components/main/app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { HomeComponent } from './components/home/home.component';
-import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { HomeComponent } from '../components/home/home.component';
+import { AuthInterceptor } from '../interceptors/auth.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SignupComponent } from './components/signup/signup.component';
-import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from '../components/signup/signup.component';
+import { SigninComponent } from '../components/signin/signin.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashboardComponent } from '../components/dashboard/dashboard.component';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     HomeComponent,
     SignupComponent,
     SigninComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     FormsModule,

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ToDoList.BL.Mediator.Queries.TaskQueries;
+﻿namespace ToDoList.BL.Mediator.Queries.TaskQueries;
 
 public class GetAllTaskHandler : IRequestHandler<GetAllTaskQuery, PaginationResponse<GetTaskResponse>>
 {
@@ -25,7 +23,7 @@ public class GetAllTaskHandler : IRequestHandler<GetAllTaskQuery, PaginationResp
             .OrderBy(s => s.UpdatedAt)
             .Skip((request.Page - 1) * (int)pageResult)
             .Take((int)pageResult)
-            .ToListAsync(cancellationToken: cancellationToken);
+            .ToListAsync(cancellationToken);
 
         var result = _mapper.Map<List<GetTaskResponse>>(tasks);
 

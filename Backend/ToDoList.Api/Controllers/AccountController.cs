@@ -86,7 +86,7 @@ public class AccountController : ControllerBase
         return NoContent();
     }
     
-    [HttpDelete]
+    [HttpPost]
     [Route("logout")]
     public async Task<IActionResult> LogoutAccount()
     {

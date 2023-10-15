@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from './services/authentication.service';
-import { AccountService } from './services/account.service';
+import { AuthenticationService } from '../../services/authentication.service';
+import { AccountService } from '../../services/account.service';
 import { Router } from '@angular/router';
-import { IFullName } from './models/fullName.model';
+import { IFullName } from '../../models/fullName.model';
 
 @Component({
   selector: 'app-root',
@@ -14,26 +14,29 @@ export class AppComponent implements OnInit {
   protected fullName: string = "";
 
   constructor(private auth: AuthenticationService, private account: AccountService, private router: Router) {}
-  ngOnInit(): void {
-    this.account.getFullName().subscribe(
-      (res: IFullName) => {
-        this.fullName = `Hi ${res.fullName}`;
-      },
-      (error: any) => {
-        console.log(error.error);
-      }
-    );
+  public ngOnInit(): void {
+    const state = this.isUserLogged();
+    if(state === true) {
+      this.account.getFullName().subscribe(
+        (res: IFullName) => {
+          this.fullName = `Hi ${res.fullName}`;
+        },
+        (error: any) => {
+          console.log(error.error);
+        }
+      );
+    }
   }
 
   protected logout(): void {
     this.account.logout().subscribe(
       (res: any) => {
-        alert(res.message);
+        console.log(res.message);
         localStorage.clear();
         this.router.navigateByUrl('/sign-in');
       },
       (error: any) => {
-        alert(`Exit error: ${JSON.stringify(error.error)}`);
+        console.log(`Exit error: ${JSON.stringify(error.error)}`);
       }
     );
   }

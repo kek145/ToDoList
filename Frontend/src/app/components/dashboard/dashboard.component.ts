@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator, PageEvent } from '@angular/material/paginator'; // Добавьте PageEvent
 import { ITaskModel } from 'src/app/models/task.model';
 import { TaskService } from 'src/app/services/task.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +11,7 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class DashboardComponent implements OnInit {
   dataSource: MatTableDataSource<ITaskModel> = new MatTableDataSource<ITaskModel>();
-  displayedColumns: string[] = ['id', 'title', 'description', 'status', 'priority', 'deadline'];
+  displayedColumns: string[] = ['id', 'title', 'description', 'status', 'priority', 'deadline', 'action'];
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
   pagination: {
@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
     this.loadPage();
   }
 
-  loadPage(): void {
+  private loadPage(): void {
     this.taskService.getAllTasks(this.pagination.currentPage).subscribe(
       (data: { items: ITaskModel[], currentPage: number, pages: number }) => {
         this.dataSource.data = data.items;
@@ -42,8 +42,17 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  onPageChange(event: PageEvent): void {
+  protected onPageChange(event: PageEvent): void {
     this.pagination.currentPage = event.pageIndex + 1;
     this.loadPage();
+  }
+
+  protected getTaskStatus(status: boolean): string {
+    switch(status) {
+      case false:
+        return 'Not Done';
+      case true:
+        return 'Done';
+    }
   }
 }

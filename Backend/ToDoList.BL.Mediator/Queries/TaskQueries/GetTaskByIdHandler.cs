@@ -14,8 +14,10 @@ public class GetTaskByIdHandler : IRequestHandler<GetTaskByIdQuery, GetTaskRespo
     {
         var task = await _unitOfWork.TaskRepository
             .GetAll()
+            .AsNoTracking()
+            .AsSplitQuery()
             .Where(x => x.Id == request.TaskId)
-            .FirstOrDefaultAsync(cancellationToken: cancellationToken);
+            .FirstOrDefaultAsync(cancellationToken);
 
         var result = _mapper.Map<GetTaskResponse>(task);
 

@@ -14,10 +14,10 @@ import {
       switchMap,
        throwError 
       } from 'rxjs';
-      import { Router } from '@angular/router';
-      import { ITokenModel } from '../models/token.model';
-import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
+import { ITokenModel } from '../models/token.model';
 import { TokenService } from '../services/token.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -27,7 +27,7 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private auth: AuthenticationService, private tokenService: TokenService, private router: Router) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('accessToken');
 
     if (token) {
       request = request.clone({
@@ -55,7 +55,7 @@ export class AuthInterceptor implements HttpInterceptor {
             return this.tokenService.refreshToken().pipe(
               switchMap((jwtDto: ITokenModel) => {
                 this.refreshTokenSubject.next(jwtDto.refreshToken);
-                localStorage.setItem('jwtToken', jwtDto.accessToken);
+                localStorage.setItem('accessToken', jwtDto.accessToken);
                 return next.handle(this.addToken(request));
               }),
               catchError((refreshError: HttpErrorResponse) => {
@@ -78,7 +78,7 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   private addToken(request: HttpRequest<any>): HttpRequest<any> {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('accessToken');
     return request.clone({
       setHeaders: {
         Authorization: `Bearer ${token}`
