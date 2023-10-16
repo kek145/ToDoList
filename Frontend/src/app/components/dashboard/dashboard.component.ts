@@ -10,6 +10,8 @@ import { MatPaginator, MatPaginatorIntl, PageEvent } from '@angular/material/pag
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  protected items: ITaskModel[] = [];
+
   dataSource: MatTableDataSource<ITaskModel> = new MatTableDataSource<ITaskModel>();
   displayedColumns: string[] = ['id', 'title', 'description', 'status', 'priority', 'deadline', 'action'];
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
@@ -42,6 +44,45 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  protected completedTask(id: number): void {
+    this.taskService.completedTask(id).subscribe(
+      (res: any) => {
+        this.loadPage();
+      },
+      (error) => {
+        console.log("Error");
+      }
+    );
+  }
+
+  protected getFailedTask(): void {
+    this.taskService.getFailedTasks(this.pagination.currentPage).subscribe(
+      (data: { items: ITaskModel[], currentPage: number, pages: number }) => {
+        this.dataSource.data = data.items;
+        this.pagination.currentPage = data.currentPage;
+        this.pagination.pages = data.pages;
+        this.paginator.length = data.pages * 13;
+      },
+      (error: any) => {
+        console.log("Error:", error);
+      }
+    );
+  }
+
+  protected getCompletedTask(): void {
+    this.taskService.getCompletedTasks(this.pagination.currentPage).subscribe(
+      (data: { items: ITaskModel[], currentPage: number, pages: number }) => {
+        this.dataSource.data = data.items;
+        this.pagination.currentPage = data.currentPage;
+        this.pagination.pages = data.pages;
+        this.paginator.length = data.pages * 13;
+      },
+      (error: any) => {
+        console.log("Error:", error);
+      }
+    );
+  }
+
   protected onPageChange(event: PageEvent): void {
     this.pagination.currentPage = event.pageIndex + 1;
     this.loadPage();
@@ -54,5 +95,16 @@ export class DashboardComponent implements OnInit {
       case true:
         return 'Done';
     }
+  }
+
+  protected deleteTask(id: number): void {
+    this.taskService.deleteTask(id).subscribe(
+      (res: any) => {
+        this.loadPage();
+      },
+      (error) => {
+        console.log("Error");
+      }
+    );
   }
 }

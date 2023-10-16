@@ -12,7 +12,7 @@ public class CompleteTaskHandler : IRequestHandler<CompleteTaskCommand, bool>
     {
         var task = await _unitOfWork.TaskRepository
             .GetAll()
-            .Where(x => x.Id == request.TaskId)
+            .Where(x => x.Id == request.TaskId && x.Status == false)
             .FirstOrDefaultAsync(cancellationToken);
 
         if (task == null)

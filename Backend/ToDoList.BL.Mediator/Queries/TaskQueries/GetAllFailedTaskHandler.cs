@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ToDoList.BL.Mediator.Queries.TaskQueries;
+﻿namespace ToDoList.BL.Mediator.Queries.TaskQueries;
 
 public class GetAllFailedTaskHandler : IRequestHandler<GetAllFailedTaskQuery, PaginationResponse<GetTaskResponse>>
 {
@@ -21,7 +19,7 @@ public class GetAllFailedTaskHandler : IRequestHandler<GetAllFailedTaskQuery, Pa
             .GetAll()
             .AsNoTracking()
             .AsSplitQuery()
-            .Where(x => x.Deadline < DateTime.Today && x.Status == false && x.UserId == request.UserId)
+            .Where(x => x.Deadline < DateTime.UtcNow && x.Status == false && x.UserId == request.UserId)
             .ToListAsync(cancellationToken);
 
         var result = _mapper.Map<List<GetTaskResponse>>(tasks);

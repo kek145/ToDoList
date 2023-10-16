@@ -24,18 +24,14 @@ public static class ServicesBuilderExtension
         serviceCollection.AddTransient<IRequestHandler<DeleteUserCommand, bool>, DeleteUserHandler>();
         serviceCollection.AddTransient<IRequestHandler<UpdateTaskCommand, bool>, UpdateTaskHandler>();
         serviceCollection.AddTransient<IRequestHandler<DeleteTaskCommand, bool>, DeleteTaskHandler>();
-        serviceCollection.AddTransient<IRequestHandler<UpdateEmailCommand, bool>, UpdateEmailHandler>();
         serviceCollection.AddTransient<IValidator<RegistrationRequest>, RegistrationRequestValidator>();
         serviceCollection.AddTransient<IRequestHandler<DeleteTokenCommand, bool>, DeleteTokenHandler>();
         serviceCollection.AddTransient<IRequestHandler<CompleteTaskCommand, bool>, CompleteTaskHandler>();
         serviceCollection.AddTransient<IValidator<AuthenticationRequest>, AuthenticationRequestValidator>();
-        serviceCollection.AddTransient<IRequestHandler<UpdatePasswordCommand, bool>, UpdatePasswordHandler>();
-        serviceCollection.AddTransient<IRequestHandler<UpdateFullNameCommand, bool>, UpdateFullNameHandler>();
         serviceCollection.AddTransient<IRequestHandler<ValidationTokenCommand, bool>, ValidationTokenHandler>();
         serviceCollection.AddTransient<IRequestHandler<CreateUserCommand, GetUserResponse>, CreateUserHandler>();
         serviceCollection.AddTransient<IRequestHandler<CreateTaskCommand, GetTaskResponse>, CreateTaskHandler>();
         serviceCollection.AddTransient<IRequestHandler<GetTaskByIdQuery, GetTaskResponse>, GetTaskByIdHandler>();
-        serviceCollection.AddTransient<IRequestHandler<GetUserInfoQuery, GetUserInfoResponse>, GetUserInfoHandler>();
         serviceCollection.AddTransient<IRequestHandler<RefreshTokenCommand, GetUserResponse>, RefreshTokenHandler>();
         serviceCollection.AddTransient<IRequestHandler<AuthenticationCommand, GetUserResponse>, AuthenticationHandler>();
         serviceCollection.AddTransient<IRequestHandler<GetUserFullNameQuery, GetUserFullNameResponse>, GetUserFullNameHandler>();

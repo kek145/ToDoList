@@ -6,7 +6,7 @@ export const taskEndpoints = {
     taskById: "/api/task/",
     taskByPriority: "/api/task/by-priority",
     searchTask: "/api/task/search",
-    completeTask: "/api/task/complete/",
+    completeTask: "/api/task/complete",
     updateTask: "/api/task/update/",
     deleteTask: "/api/task/delete"    
 }
