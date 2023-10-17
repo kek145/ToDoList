@@ -1,8 +1,10 @@
 import { ITaskModel } from 'src/app/models/task.model';
+import { MatDialog } from '@angular/material/dialog';
 import { TaskService } from 'src/app/services/task.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
+import { TaskAddEditComponent } from '../task-add-edit/task-add-edit.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +13,7 @@ import { MatPaginator, MatPaginatorIntl, PageEvent } from '@angular/material/pag
 })
 export class DashboardComponent implements OnInit {
   protected items: ITaskModel[] = [];
+  protected isLoading: boolean = true;
 
   dataSource: MatTableDataSource<ITaskModel> = new MatTableDataSource<ITaskModel>();
   displayedColumns: string[] = ['id', 'title', 'description', 'status', 'priority', 'deadline', 'action'];
@@ -24,10 +27,18 @@ export class DashboardComponent implements OnInit {
     pages: 1,
   };
 
-  constructor(private taskService: TaskService) {}
+  constructor(
+    private taskService: TaskService, 
+    private _dialog: MatDialog
+  ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.isLoading = false;
     this.loadPage();
+  }
+
+  protected openFormDialog(): void {
+    this._dialog.open(TaskAddEditComponent);
   }
 
   private loadPage(): void {
@@ -70,6 +81,7 @@ export class DashboardComponent implements OnInit {
   }
 
   protected getCompletedTask(): void {
+    this.isLoading = true;
     this.taskService.getCompletedTasks(this.pagination.currentPage).subscribe(
       (data: { items: ITaskModel[], currentPage: number, pages: number }) => {
         this.dataSource.data = data.items;
