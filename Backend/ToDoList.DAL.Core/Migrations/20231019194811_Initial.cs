@@ -61,8 +61,8 @@ namespace ToDoList.DAL.Core.Migrations
                     status = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false),
                     priority = table.Column<int>(type: "integer", nullable: false),
                     deadline = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2023, 10, 15, 19, 9, 31, 213, DateTimeKind.Utc).AddTicks(6704)),
-                    updated_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2023, 10, 15, 19, 9, 31, 213, DateTimeKind.Utc).AddTicks(6900)),
+                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2023, 10, 19, 19, 48, 11, 442, DateTimeKind.Utc).AddTicks(3965)),
+                    updated_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2023, 10, 19, 19, 48, 11, 442, DateTimeKind.Utc).AddTicks(4111)),
                     user_id = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>

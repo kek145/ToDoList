@@ -12,6 +12,10 @@ public class TaskRequestValidator : AbstractValidator<TaskRequest>
             .NotEmpty().WithMessage("Description is not empty")
             .NotNull().WithMessage("Description is not null");
         
+        RuleFor(req => req.Priority)
+            .NotEmpty().WithMessage("Priority is not empty")
+            .NotNull().WithMessage("Priority is not null");
+        
         RuleFor(req => req.DeadLine)
             .NotEmpty().WithMessage("DeadLine is not empty")
             .NotNull().WithMessage("DeadLine is not null");

@@ -11,6 +11,10 @@ import { environment } from 'src/environments/environment.development';
 export class TaskService {
 
   constructor(private http: HttpClient) {}
+
+  public createTask(taskRequest: ITaskModel): Observable<ITaskModel> {
+    return this.http.post<ITaskModel>(`${environment.httpUrlApi}${taskEndpoints.createTask}`, taskRequest, { withCredentials: true });
+  }
   
   public completedTask(taskId: number): Observable<any> {
     return this.http.patch(`${environment.httpUrlApi}${taskEndpoints.completeTask}/${taskId}`, { withCredentials: true });

@@ -1,5 +1,4 @@
-﻿using System;
-using ToDoList.Domain.Entities.Enums;
+﻿using ToDoList.Domain.Entities.Enums;
 
 namespace ToDoList.Domain.Contracts.Request;
 
