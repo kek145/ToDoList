@@ -1,5 +1,9 @@
 var builder = WebApplication.CreateBuilder(args);
 
+var secretKey = Encoding.UTF8.GetBytes(builder.Configuration.GetSection("JWTConfiguration:JWT_ACCESS_SECRET").Value!);
+var issuer = builder.Configuration.GetSection("JWTConfiguration:Issuer").Value;
+var audience = builder.Configuration.GetSection("JWTConfiguration:Audience").Value;
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -40,10 +44,6 @@ builder.Services.AddSwaggerGen(options =>
     options.OperationFilter<SecurityRequirementsOperationFilter>();
 });
 
-var secretKey = Encoding.UTF8.GetBytes(builder.Configuration.GetSection("JWTConfiguration:JWT_ACCESS_SECRET").Value!);
-var issuer = builder.Configuration.GetSection("JWTConfiguration:Issuer").Value;
-var audience = builder.Configuration.GetSection("JWTConfiguration:Audience").Value;
-
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -52,17 +52,7 @@ builder.Services.AddAuthentication(options =>
 }).AddJwtBearer(jwt =>
 {
     jwt.SaveToken = true;
-    jwt.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidIssuer = issuer,
-        ValidateAudience = true,
-        ValidAudience = audience,
-        ValidateLifetime = true,
-        ClockSkew = TimeSpan.Zero,
-        RequireExpirationTime = true,
-        IssuerSigningKey = new SymmetricSecurityKey(secretKey)
-    };
+    jwt.TokenValidationParameters = TokenParametersExtension.Parameters(issuer!, audience!, secretKey);
 });
 
 builder.Services.AddCors(options =>
