@@ -13,10 +13,10 @@ export class AccountService {
   constructor(private http: HttpClient) {}
 
   public logout(): Observable<any> {
-    return this.http.post(`${environment.httpUrlApi}${accountEndpoints.logout}`, { withCredentials: true });
+    return this.http.post(`${environment.httpUrlApi}${accountEndpoints.logout}`, {}, { withCredentials: true });
   }
 
   public getFullName(): Observable<IFullName> {
-    return this.http.get<IFullName>(`${environment.httpUrlApi}${accountEndpoints.getFullName}`, {withCredentials: true});
+    return this.http.get<IFullName>(`${environment.httpUrlApi}${accountEndpoints.getFullName}`,  {withCredentials: true});
   }
 }

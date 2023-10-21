@@ -15,9 +15,13 @@ export class TaskService {
   public createTask(taskRequest: ITaskModel): Observable<ITaskModel> {
     return this.http.post<ITaskModel>(`${environment.httpUrlApi}${taskEndpoints.createTask}`, taskRequest, { withCredentials: true });
   }
+
+  public updateTask(taskId: number, taskRequest: ITaskModel) {
+    return this.http.put(`${environment.httpUrlApi}${taskEndpoints.updateTask}${taskId}`, taskRequest, { withCredentials: true });
+  }
   
   public completedTask(taskId: number): Observable<any> {
-    return this.http.patch(`${environment.httpUrlApi}${taskEndpoints.completeTask}/${taskId}`, { withCredentials: true });
+    return this.http.patch(`${environment.httpUrlApi}${taskEndpoints.completeTask}/${taskId}`, {}, { withCredentials: true });
   }
 
   public getAllTasks(page: number): Observable<{ items: ITaskModel[], currentPage: number, pages: number }> {
@@ -33,6 +37,6 @@ export class TaskService {
   }
 
   public deleteTask(taskId: number): Observable<any> {
-    return this.http.delete(`${environment.httpUrlApi}${taskEndpoints.deleteTask}/${taskId}`, { withCredentials: true });
+    return this.http.delete(`${environment.httpUrlApi}${taskEndpoints.deleteTask}/${taskId}`,  { withCredentials: true });
   }
 }

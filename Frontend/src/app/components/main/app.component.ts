@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   protected fullName: string = "";
 
   constructor(private auth: AuthenticationService, private account: AccountService, private router: Router) {}
+  
   public ngOnInit(): void {
     const state = this.isUserLogged();
     if(state === true) {

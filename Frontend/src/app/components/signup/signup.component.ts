@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { IRegistrationModel } from 'src/app/models/registration.model';
 import { RegistrationService } from 'src/app/services/registration.service';
 
@@ -21,14 +21,14 @@ export class SignupComponent {
   constructor(private registrationService: RegistrationService, private router: Router) {}
 
   protected registration(register: IRegistrationModel): void {
-    this.registrationService.registration(register).subscribe(
-      (response: any) => {
+    this.registrationService.registration(register).subscribe({
+      next: (res) => {
         alert("ok");
         this.router.navigateByUrl("/sign-in");
       },
-      (error: any) => {
-        alert("Error");
+      error: (error) => {
+        alert("error");
       }
-    );
+    });
   }
 }

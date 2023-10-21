@@ -5,6 +5,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
 import { TaskAddEditComponent } from '../task-add-edit/task-add-edit.component';
+import { Priority } from 'src/app/enums/priority.enum';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +13,14 @@ import { TaskAddEditComponent } from '../task-add-edit/task-add-edit.component';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+
+  private _taskModel: any = {
+    title: "",
+    description: "",
+    priority: Priority.Easy,
+    deadline: "",
+  }
+
   protected items: ITaskModel[] = [];
   protected isLoading: boolean = true;
 
@@ -37,8 +46,14 @@ export class DashboardComponent implements OnInit {
     this.loadPage();
   }
 
-  protected openFormDialog(): void {
+  protected openAddedFormDialog(): void {
     this._dialog.open(TaskAddEditComponent);
+  }
+
+  protected openEditFormDialog(data: any): void {
+    this._dialog.open(TaskAddEditComponent, {
+      data
+    });
   }
 
   private loadPage(): void {

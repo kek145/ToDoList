@@ -1,5 +1,5 @@
 <div class="container">
-    <button class="add__btn" mat-raised-button (click)="openFormDialog()">Add Task</button>
+    <button class="add__btn" mat-raised-button (click)="openAddedFormDialog()">Add Task</button>
     <button class="all__btn" mat-raised-button (click)="ngOnInit()">All Tasks</button>
     <button class="completed__btn" mat-raised-button (click)="getCompletedTask()">Completed Tasks</button>
     <button class="failed__btn" mat-raised-button (click)="getFailedTask()">Failed Tasks</button>
@@ -40,7 +40,7 @@
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef> Action</th>
             <td mat-cell *matCellDef="let task">
-                <button class="edit__btn" mat-button color="primary"><mat-icon>edit</mat-icon></button>
+                <button class="edit__btn" mat-button color="primary" (click)="openEditFormDialog(task)"><mat-icon>edit</mat-icon></button>
                 <button class="delete_btn" mat-button color="warn" (click)="deleteTask(task.id)"><mat-icon>delete</mat-icon></button>
                 <button mat-raised-button color="primary" *ngIf="!isLoading" (click)="completedTask(task.id)">Done</button>
             </td>

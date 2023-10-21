@@ -44,7 +44,7 @@ public class AccountController : ControllerBase
         var refreshToken = Request.Cookies["refreshToken"];
 
         if (refreshToken == null)
-            return Unauthorized(new { error = "Token not found | account controller" });
+            return Unauthorized(new { error = "Token not found" });
         
         await _tokenService.DeleteTokenAsync(refreshToken);
         
