@@ -11,10 +11,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="MappingProfiles\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\ToDoList.Domain.Entities\ToDoList.Domain.Entities.csproj" />
     </ItemGroup>
 
