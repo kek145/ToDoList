@@ -24,6 +24,7 @@
       <ProjectReference Include="..\ToDoList.BL.Services\ToDoList.BL.Services.csproj" />
       <ProjectReference Include="..\ToDoList.DAL.Configurations\ToDoList.DAL.Configurations.csproj" />
       <ProjectReference Include="..\ToDoList.DAL.Repositories\ToDoList.DAL.Repositories.csproj" />
+      <ProjectReference Include="..\ToDoList.Domain.Contracts\ToDoList.Domain.Contracts.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ToDoList.BL.Services.TaskService;
+using ToDoList.Domain.Contracts.Request;
 
 namespace ToDoList.Api.Controllers;
 
@@ -17,7 +18,7 @@ public class TaskController : ControllerBase
 
     [HttpPost]
     [Route("create-task")]
-    public async Task<IActionResult> CreateTask()
+    public async Task<IActionResult> CreateTask([FromBody] CreateTaskRequestDto request)
     {
         return Ok();
     }
