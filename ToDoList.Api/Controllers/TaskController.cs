@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ToDoList.BL.Services.TaskService;
 
 namespace ToDoList.Api.Controllers;
 
@@ -7,6 +8,12 @@ namespace ToDoList.Api.Controllers;
 [Route("api/[controller]")]
 public class TaskController : ControllerBase
 {
+    private readonly ITaskService _taskService;
+
+    public TaskController(ITaskService taskService)
+    {
+        _taskService = taskService;
+    }
 
     [HttpPost]
     [Route("create-task")]

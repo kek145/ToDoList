@@ -21,7 +21,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ToDoList.BL.Services\ToDoList.BL.Services.csproj" />
       <ProjectReference Include="..\ToDoList.DAL.Configurations\ToDoList.DAL.Configurations.csproj" />
+      <ProjectReference Include="..\ToDoList.DAL.Repositories\ToDoList.DAL.Repositories.csproj" />
     </ItemGroup>
 
 </Project>
