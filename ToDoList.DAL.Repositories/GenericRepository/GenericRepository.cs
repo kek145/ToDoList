@@ -15,7 +15,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         Context = context;
     }
 
-    public async Task<T> GetById(int id)
+    public async Task<T> GetByIdAsync(int id)
     {
         var find = await Context.FindAsync<T>(id);
 
@@ -25,7 +25,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         return find;
     }
 
-    public virtual async Task<IEnumerable<T>> GetAll()
+    public virtual async Task<IEnumerable<T>> GetAllAsync()
     {
         return await Context.Set<T>().ToListAsync();
     }
