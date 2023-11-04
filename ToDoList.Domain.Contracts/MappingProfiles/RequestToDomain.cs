@@ -8,7 +8,7 @@ public class RequestToDomain : Profile
 {
     public RequestToDomain()
     {
-        CreateMap<CreateTaskRequestDto, TaskEntity>()
+        CreateMap<TaskRequestDto, TaskEntity>()
             .ForMember(dest => dest.Title,
                 opt => opt.MapFrom(src => src.Title))
             .ForMember(dest => dest.Description,

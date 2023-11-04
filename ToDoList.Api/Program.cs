@@ -14,8 +14,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScopedService();
+builder.Services.AddTransientService();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.AddMediatR(config => config
+    .RegisterServicesFromAssemblies(typeof(Program).Assembly));
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {

@@ -3,7 +3,7 @@ using ToDoList.Domain.Entities.Enum;
 
 namespace ToDoList.Domain.Contracts.Request;
 
-public class CreateTaskRequestDto
+public class TaskRequestDto
 {
     public string Title { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
