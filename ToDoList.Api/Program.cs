@@ -1,8 +1,8 @@
 using System;
 using ToDoList.Api.Extensions;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using ToDoList.DAL.Configurations.DataContext;
 using Microsoft.Extensions.DependencyInjection;
