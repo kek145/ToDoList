@@ -1,10 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using MediatR;
 using FluentValidation;
-using MediatR;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using ToDoList.Security.Exceptions;
 using ToDoList.BL.Queries.TaskQueries;
 using ToDoList.Domain.Contracts.Request;
 using ToDoList.Domain.Contracts.Response;
-using ToDoList.Security.Exceptions;
 
 namespace ToDoList.BL.Services.TaskService;
 
@@ -33,9 +34,10 @@ public class TaskService : ITaskService
         return result;
     }
 
-    public Task<GetTaskResponseDto> GetAllTaskAsync()
+    public async Task<IEnumerable<GetTaskResponseDto>> GetAllTaskAsync()
     {
-        throw new System.NotImplementedException();
+        var result = await _mediator.Send(new GetAllTaskQuery());
+        return result;
     }
 
     public Task UpdateTaskAsync(TaskRequestDto request, int taskId)
