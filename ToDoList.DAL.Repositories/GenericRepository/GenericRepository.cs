@@ -1,6 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Collections.Generic;
+using ToDoList.Security.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using ToDoList.DAL.Configurations.DataContext;
 
@@ -10,7 +10,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
     private readonly ApplicationDbContext _context;
 
-    public GenericRepository(ApplicationDbContext context)
+    protected GenericRepository(ApplicationDbContext context)
     {
         _context = context;
     }
@@ -25,7 +25,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         var find = await _context.FindAsync<T>(id);
 
         if (find == null)
-            throw new ArgumentException("An object with the specified ID was not found.", nameof(find));
+            throw new NotFoundException("An object with the specified ID was not found.");
 
         return find;
     }
@@ -33,7 +33,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
     public async Task<T> AddAsync(T entity)
     {
         if (entity == null)
-            throw new ArgumentException("An entity cannot be null.", nameof(entity));
+            throw new BadRequestException("An entity cannot be null.");
 
         await _context.AddAsync(entity);
 
@@ -43,7 +43,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
     public Task<T> UpdateAsync(T entity)
     {
         if (entity == null)
-            throw new ArgumentException("An entity cannot be null.", nameof(entity));
+            throw new BadRequestException("An entity cannot be null.");
 
         _context.Update(entity);
 
@@ -53,7 +53,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
     public Task<T> DeleteAsync(T entity)
     {
         if (entity == null)
-            throw new ArgumentException("An entity cannot be null.", nameof(entity));
+            throw new BadRequestException("An entity cannot be null.");
 
         _context.Remove(entity);
 

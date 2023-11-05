@@ -65,8 +65,8 @@ public class TaskService : ITaskService
         await _mediator.Send(new UpdateTaskCommand(taskId, request));
     }
 
-    public Task DeleteTaskAsync(int taskId)
+    public async Task DeleteTaskAsync(int taskId)
     {
-        throw new System.NotImplementedException();
+        await _mediator.Send(new DeleteTaskCommand(taskId));
     }
 }
