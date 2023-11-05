@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZRJIl3Z/5cVL1WViX0HKfRl3F91U6xbhKkvc54CLcZEWp1ApPohYac3mGE4MJ/1dNKjpBGTFnlIe4FSygh38xg==",
+  "success": true,
+  "projectFilePath": "D:\\GitHub\\FullStack\\ToDoList\\Backend\\ToDoList.Security\\ToDoList.Security.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\urabo\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\urabo\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
+    "C:\\Users\\urabo\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\urabo\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.22\\microsoft.netcore.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\urabo\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.22\\microsoft.windowsdesktop.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\urabo\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.22\\microsoft.aspnetcore.app.ref.6.0.22.nupkg.sha512"
+  ],
+  "logs": []
+}

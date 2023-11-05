@@ -1,0 +1,25 @@
+<div class="form__container">
+    <form class="form" (ngSubmit)="register(registerDto)">
+        <div class="form-group">
+            <h2>Sign Up</h2>
+        </div>
+        <div class="form-group">
+          <label for="username">User name</label>
+          <input type="text" class="form-control input-width" id="username" name="username" [(ngModel)]="registerDto.username">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" class="form-control input-width" name="email" [(ngModel)]="registerDto.email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" class="form-control input-width" name="password" [(ngModel)]="registerDto.password">
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm password</label>
+          <input type="password" id="confirmPassword" class="form-control input-width" name="confirmPassword" [(ngModel)]="registerDto.confirmPassword">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!registerDto.username || !registerDto.email || !registerDto.password || !registerDto.confirmPassword">Sign Up</button>
+        <p class="text-center mt-2">Already registered? <a routerLink="/login">Sign In</a></p>
+    </form>
+</div>

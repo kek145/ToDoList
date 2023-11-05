@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "Be/LYbBVdtOa2dGXjzNfQ/1aP7UFSnKVdT8ECjuhBf+akfilW85QflM6Fk0XjbkHgFCUJ9tKYodb/mzHo5BaNQ==",
+  "success": true,
+  "projectFilePath": "D:\\GitHub\\FullStack\\ToDoList\\Backend\\ToDoList.Domain.Contracts\\ToDoList.Domain.Contracts.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\urabo\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\urabo\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\urabo\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.22\\microsoft.netcore.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\urabo\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.22\\microsoft.windowsdesktop.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\urabo\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.22\\microsoft.aspnetcore.app.ref.6.0.22.nupkg.sha512"
+  ],
+  "logs": []
+}

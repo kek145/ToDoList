@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "IuwxYqWnWNDIdttTSuJQJSK/yTPCAF3tzF2LYK+xITt8qES3+fyaBezSAQEiLSgXWTBXN+87vsqXvwGda6JnUw==",
+  "success": true,
+  "projectFilePath": "D:\\GitHub\\FullStack\\ToDoList\\Backend\\ToDoList.Domain.Entities\\ToDoList.Domain.Entities.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\urabo\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.22\\microsoft.netcore.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\urabo\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.22\\microsoft.windowsdesktop.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\urabo\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.22\\microsoft.aspnetcore.app.ref.6.0.22.nupkg.sha512"
+  ],
+  "logs": []
+}

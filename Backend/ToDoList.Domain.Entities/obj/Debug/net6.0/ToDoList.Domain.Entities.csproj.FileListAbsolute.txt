@@ -1,0 +1,12 @@
+D:\GitHub\FullStack\ToDoList\Backend\ToDoList.Domain.Entities\bin\Debug\net6.0\ToDoList.Domain.Entities.deps.json
+D:\GitHub\FullStack\ToDoList\Backend\ToDoList.Domain.Entities\bin\Debug\net6.0\ToDoList.Domain.Entities.dll
+D:\GitHub\FullStack\ToDoList\Backend\ToDoList.Domain.Entities\bin\Debug\net6.0\ToDoList.Domain.Entities.pdb
+D:\GitHub\FullStack\ToDoList\Backend\ToDoList.Domain.Entities\obj\Debug\net6.0\ToDoList.Domain.Entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\FullStack\ToDoList\Backend\ToDoList.Domain.Entities\obj\Debug\net6.0\ToDoList.Domain.Entities.AssemblyInfoInputs.cache
+D:\GitHub\FullStack\ToDoList\Backend\ToDoList.Domain.Entities\obj\Debug\net6.0\ToDoList.Domain.Entities.AssemblyInfo.cs
+D:\GitHub\FullStack\ToDoList\Backend\ToDoList.Domain.Entities\obj\Debug\net6.0\ToDoList.Domain.Entities.csproj.CoreCompileInputs.cache
+D:\GitHub\FullStack\ToDoList\Backend\ToDoList.Domain.Entities\obj\Debug\net6.0\ToDoList.Domain.Entities.dll
+D:\GitHub\FullStack\ToDoList\Backend\ToDoList.Domain.Entities\obj\Debug\net6.0\refint\ToDoList.Domain.Entities.dll
+D:\GitHub\FullStack\ToDoList\Backend\ToDoList.Domain.Entities\obj\Debug\net6.0\ToDoList.Domain.Entities.pdb
+D:\GitHub\FullStack\ToDoList\Backend\ToDoList.Domain.Entities\obj\Debug\net6.0\ref\ToDoList.Domain.Entities.dll
+D:\GitHub\FullStack\ToDoList\Backend\ToDoList.Domain.Entities\obj\Debug\net6.0\ToDoList.Domain.Entities.sourcelink.json

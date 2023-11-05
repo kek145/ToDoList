@@ -1,0 +1,156 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\GitHub\\FullStack\\ToDoList\\Backend\\ToDoList.Domain.Contracts\\ToDoList.Domain.Contracts.csproj": {}
+  },
+  "projects": {
+    "D:\\GitHub\\FullStack\\ToDoList\\Backend\\ToDoList.Domain.Contracts\\ToDoList.Domain.Contracts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitHub\\FullStack\\ToDoList\\Backend\\ToDoList.Domain.Contracts\\ToDoList.Domain.Contracts.csproj",
+        "projectName": "ToDoList.Domain.Contracts",
+        "projectPath": "D:\\GitHub\\FullStack\\ToDoList\\Backend\\ToDoList.Domain.Contracts\\ToDoList.Domain.Contracts.csproj",
+        "packagesPath": "C:\\Users\\urabo\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\FullStack\\ToDoList\\Backend\\ToDoList.Domain.Contracts\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\urabo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\GitHub\\FullStack\\ToDoList\\Backend\\ToDoList.Domain.Entities\\ToDoList.Domain.Entities.csproj": {
+                "projectPath": "D:\\GitHub\\FullStack\\ToDoList\\Backend\\ToDoList.Domain.Entities\\ToDoList.Domain.Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.22, 6.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.22, 6.0.22]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.22, 6.0.22]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.1.23463.5\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\GitHub\\FullStack\\ToDoList\\Backend\\ToDoList.Domain.Entities\\ToDoList.Domain.Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitHub\\FullStack\\ToDoList\\Backend\\ToDoList.Domain.Entities\\ToDoList.Domain.Entities.csproj",
+        "projectName": "ToDoList.Domain.Entities",
+        "projectPath": "D:\\GitHub\\FullStack\\ToDoList\\Backend\\ToDoList.Domain.Entities\\ToDoList.Domain.Entities.csproj",
+        "packagesPath": "C:\\Users\\urabo\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\FullStack\\ToDoList\\Backend\\ToDoList.Domain.Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\urabo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.22, 6.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.22, 6.0.22]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.22, 6.0.22]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.1.23463.5\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
