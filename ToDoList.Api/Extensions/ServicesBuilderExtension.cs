@@ -27,6 +27,7 @@ public static class ServicesBuilderExtension
     {
         serviceCollection.AddTransient<ITaskService, TaskService>();
         serviceCollection.AddTransient<IValidator<TaskRequestDto>, TaskRequestValidator>();
+        serviceCollection.AddTransient<IRequestHandler<UpdateTaskCommand>, UpdateTaskCommandHandler>();
         serviceCollection.AddTransient<IRequestHandler<GetTaskByIdQuery, GetTaskResponseDto>, GetTaskByIdQueryHandler>();
         serviceCollection.AddTransient<IRequestHandler<CreateTaskCommand, GetTaskResponseDto>, CreateTaskCommandHandler>();
         serviceCollection.AddTransient<IRequestHandler<GetAllTaskQuery, IEnumerable<GetTaskResponseDto>>, GetAllTaskQueryHandler>();

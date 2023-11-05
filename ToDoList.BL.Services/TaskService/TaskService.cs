@@ -3,9 +3,9 @@ using MediatR;
 using FluentValidation;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using ToDoList.BL.Commands.TaskCommands;
 using ToDoList.Security.Exceptions;
 using ToDoList.BL.Queries.TaskQueries;
+using ToDoList.BL.Commands.TaskCommands;
 using ToDoList.Domain.Contracts.Request;
 using ToDoList.Domain.Contracts.Response;
 
@@ -52,9 +52,17 @@ public class TaskService : ITaskService
         return result;
     }
 
-    public Task UpdateTaskAsync(TaskRequestDto request, int taskId)
+    public async Task UpdateTaskAsync(TaskRequestDto request, int taskId)
     {
-        throw new System.NotImplementedException();
+        var validator = await _validator.ValidateAsync(request);
+
+        if (!validator.IsValid)
+            throw new BadRequestException($"Validation error: {validator}");
+        
+        if (request.Deadline < DateTime.Today)
+            throw new BadRequestException("You cannot specify a date and time lower than the current one");
+
+        await _mediator.Send(new UpdateTaskCommand(taskId, request));
     }
 
     public Task DeleteTaskAsync(int taskId)
