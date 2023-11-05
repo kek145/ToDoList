@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
-using MediatR;
+﻿using MediatR;
 using FluentValidation;
+using System.Collections.Generic;
 using ToDoList.Security.Validators;
 using ToDoList.BL.Queries.TaskQueries;
 using ToDoList.BL.Services.TaskService;
+using ToDoList.BL.Commands.TaskCommands;
 using ToDoList.Domain.Contracts.Request;
 using ToDoList.Domain.Contracts.Response;
 using ToDoList.DAL.Repositories.UnitOfWork;
@@ -27,6 +28,7 @@ public static class ServicesBuilderExtension
         serviceCollection.AddTransient<ITaskService, TaskService>();
         serviceCollection.AddTransient<IValidator<TaskRequestDto>, TaskRequestValidator>();
         serviceCollection.AddTransient<IRequestHandler<GetTaskByIdQuery, GetTaskResponseDto>, GetTaskByIdQueryHandler>();
+        serviceCollection.AddTransient<IRequestHandler<CreateTaskCommand, GetTaskResponseDto>, CreateTaskCommandHandler>();
         serviceCollection.AddTransient<IRequestHandler<GetAllTaskQuery, IEnumerable<GetTaskResponseDto>>, GetAllTaskQueryHandler>();
 
         return serviceCollection;
