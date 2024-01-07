@@ -9,213 +9,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38f3ba5b-9f07-4f99-afc7-1f5f8fb2357a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/.vs/ProjectEvaluation/todolist-api.metadata.v7.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/.vs/ProjectEvaluation/todolist-api.projects.v7.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/.vs/ToDoList-API/DesignTimeBuild/.dtbcache.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/.vs/ToDoList-API/FileContentIndex/read.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/.vs/ToDoList-API/config/applicationhost.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/.vs/ToDoList-API/v17/.futdcache.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/.vs/ToDoList-API/v17/.suo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList-API.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Configurations/Configurations/JwtConfiguration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Configurations/ToDoList.Configurations.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/Core/ApplicationContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/Interfaces/ITaskRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/Interfaces/IUserRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/Repositories/TaskRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/Repositories/UserRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/ToDoList.DAL.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/bin/Debug/net7.0/ToDoList.DAL.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/bin/Debug/net7.0/ToDoList.DAL.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/bin/Debug/net7.0/ToDoList.DAL.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/bin/Debug/net7.0/ToDoList.DAL.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/bin/Debug/net7.0/ToDoList.Domain.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/bin/Debug/net7.0/ToDoList.Domain.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/Debug/net7.0/ToDoList.DAL.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/Debug/net7.0/ToDoList.DAL.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/Debug/net7.0/ToDoList.DAL.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/Debug/net7.0/ToDoList.DAL.GlobalUsings.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/Debug/net7.0/ToDoList.DAL.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/Debug/net7.0/ToDoList.DAL.csproj.AssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/Debug/net7.0/ToDoList.DAL.csproj.BuildWithSkipAnalyzers" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/Debug/net7.0/ToDoList.DAL.csproj.CopyComplete" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/Debug/net7.0/ToDoList.DAL.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/Debug/net7.0/ToDoList.DAL.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/Debug/net7.0/ToDoList.DAL.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/Debug/net7.0/ToDoList.DAL.genruntimeconfig.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/Debug/net7.0/ToDoList.DAL.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/Debug/net7.0/ref/ToDoList.DAL.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/Debug/net7.0/refint/ToDoList.DAL.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/ToDoList.DAL.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/ToDoList.DAL.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/ToDoList.DAL.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.DAL/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/Entity/TaskEntity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/Entity/UserEntity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/Enum/Priority.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/ToDoList.Domain.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/bin/Debug/net7.0/ToDoList.Domain.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/bin/Debug/net7.0/ToDoList.Domain.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/bin/Debug/net7.0/ToDoList.Domain.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/Debug/net7.0/ToDoList.Domain.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/Debug/net7.0/ToDoList.Domain.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/Debug/net7.0/ToDoList.Domain.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/Debug/net7.0/ToDoList.Domain.GlobalUsings.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/Debug/net7.0/ToDoList.Domain.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/Debug/net7.0/ToDoList.Domain.csproj.AssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/Debug/net7.0/ToDoList.Domain.csproj.BuildWithSkipAnalyzers" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/Debug/net7.0/ToDoList.Domain.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/Debug/net7.0/ToDoList.Domain.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/Debug/net7.0/ToDoList.Domain.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/Debug/net7.0/ToDoList.Domain.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/Debug/net7.0/ref/ToDoList.Domain.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/Debug/net7.0/refint/ToDoList.Domain.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/ToDoList.Domain.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/ToDoList.Domain.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/ToDoList.Domain.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Domain/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/Helpers/HashDataHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/Implementations/AuthenticationService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/Implementations/JwtTokenService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/Implementations/RegistrationService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/Implementations/TaskService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/Interfaces/IAuthenticationService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/Interfaces/IJwtTokenService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/Interfaces/IRegistrationService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/Interfaces/ITaskService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/Models/Dto/LoginDto.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/Models/Dto/RegisterDto.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/Models/Dto/TaskDto.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/ToDoList.Services.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/Validators/DataValidator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/bin/Debug/net7.0/ToDoList.DAL.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/bin/Debug/net7.0/ToDoList.DAL.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/bin/Debug/net7.0/ToDoList.Domain.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/bin/Debug/net7.0/ToDoList.Domain.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/bin/Debug/net7.0/ToDoList.Services.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/bin/Debug/net7.0/ToDoList.Services.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/bin/Debug/net7.0/ToDoList.Services.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/Debug/net7.0/ToDoList.Services.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/Debug/net7.0/ToDoList.Services.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/Debug/net7.0/ToDoList.Services.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/Debug/net7.0/ToDoList.Services.GlobalUsings.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/Debug/net7.0/ToDoList.Services.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/Debug/net7.0/ToDoList.Services.csproj.AssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/Debug/net7.0/ToDoList.Services.csproj.BuildWithSkipAnalyzers" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/Debug/net7.0/ToDoList.Services.csproj.CopyComplete" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/Debug/net7.0/ToDoList.Services.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/Debug/net7.0/ToDoList.Services.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/Debug/net7.0/ToDoList.Services.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/Debug/net7.0/ToDoList.Services.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/Debug/net7.0/ref/ToDoList.Services.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/Debug/net7.0/refint/ToDoList.Services.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/ToDoList.Services.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/ToDoList.Services.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/ToDoList.Services.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList.Services/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/Controllers/AuthController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/Controllers/TaskController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/ToDoList.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/ToDoList.csproj.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Humanizer.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.Negotiate.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Microsoft.AspNetCore.Connections.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Microsoft.Extensions.Features.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Microsoft.OpenApi.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Mono.TextTemplating.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Npgsql.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/System.CodeDom.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/System.DirectoryServices.Protocols.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/ToDoList.DAL.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/ToDoList.DAL.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/ToDoList.Domain.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/ToDoList.Domain.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/ToDoList.Services.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/ToDoList.Services.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/ToDoList.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/ToDoList.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/ToDoList.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/ToDoList.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/ToDoList.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/runtimes/linux/lib/net7.0/System.DirectoryServices.Protocols.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/runtimes/osx/lib/net7.0/System.DirectoryServices.Protocols.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/bin/Debug/net7.0/runtimes/win/lib/net7.0/System.DirectoryServices.Protocols.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Container/ContainerCreationResult.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/ToDoList.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/ToDoList.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/ToDoList.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/ToDoList.GlobalUsings.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/ToDoList.MvcApplicationPartsAssemblyInfo.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/ToDoList.MvcApplicationPartsAssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/ToDoList.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/ToDoList.csproj.AssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/ToDoList.csproj.BuildWithSkipAnalyzers" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/ToDoList.csproj.CopyComplete" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/ToDoList.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/ToDoList.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/ToDoList.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/ToDoList.genruntimeconfig.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/ToDoList.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/apphost.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/ref/ToDoList.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/refint/ToDoList.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/staticwebassets.build.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/staticwebassets/msbuild.build.ToDoList.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.ToDoList.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.ToDoList.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/ToDoList.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/ToDoList.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/ToDoList.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/ToDoList/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/ToDoList-API/obj/Debug/docker-compose.dcproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/angular.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/src/app/app.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/src/app/app.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/src/app/app.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/src/app/app.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/src/assets/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/src/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/src/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/src/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/tsconfig.app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/ToDoList-Client/tsconfig.spec.json" beforeDir="false" />
+    <list default="true" id="38f3ba5b-9f07-4f99-afc7-1f5f8fb2357a" name="Changes" comment="UPDATE | Added project layers">
+      <change afterPath="$PROJECT_DIR$/ToDoList.Api/Controllers/ToDoController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Application/DependencyInjection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ToDoList.Backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ToDoList.Backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Api/ToDoList.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/ToDoList.Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/ToDoList.Api.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/ToDoList.Api.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Application/ToDoList.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/ToDoList.Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Application/obj/ToDoList.Application.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/obj/ToDoList.Application.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Application/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Application/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Application/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Application/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Domain/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Domain/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/ToDoList.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/ToDoList.Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/ToDoList.Infrastructure.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/ToDoList.Infrastructure.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,10 +46,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/ToDoList.Api/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 0
 }]]></component>
   <component name="ProjectId" id="2adpv47QiS1yIIZzIqKysEDmxra" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -309,14 +137,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1704658539948</updated>
-      <workItem from="1704658541327" duration="601000" />
+      <workItem from="1704658541327" duration="1336000" />
     </task>
+    <task id="LOCAL-00001" summary="UPDATE | Added project layers">
+      <option name="closed" value="true" />
+      <created>1704659179163</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1704659179163</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="UPDATE | Added project layers" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE | Added project layers" />
   </component>
 </project>

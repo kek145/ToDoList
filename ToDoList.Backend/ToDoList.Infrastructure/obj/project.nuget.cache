@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "54VhwpGZRxJQzXY1v97iRigMvBiAssQazB89VbrsgpjGIluJzepfa0HIyaktXLFwB+hMn36tLrM/BXnm41bHUQ==",
+  "dgSpecHash": "m9UQhdEb5MVB4EdVRRe3UK6j6tHxtlbh8rrnaLIoz42FLY3Z+LFPXOCK9miezR3yK7Icf/zOzDHTI4jysbIdpg==",
   "success": true,
   "projectFilePath": "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Backend\\ToDoList.Infrastructure\\ToDoList.Infrastructure.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\urabo\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\urabo\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
