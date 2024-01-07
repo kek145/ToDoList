@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ToDoList.Api.Controllers;
@@ -7,15 +8,20 @@ namespace ToDoList.Api.Controllers;
 [Route("api/todos")]
 public class ToDoController : ControllerBase
 {
-
+    
     [HttpPost]
     [Route("create")]
+    [ProducesResponseType((int)HttpStatusCode.Created)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
     public async Task<IActionResult> CreateTask()
     {
         return CreatedAtAction(null, new { id = 1 }, null);
     }
 
     [HttpGet]
+    [ProducesResponseType((int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
     public async Task<IActionResult> GetAllTask()
     {
         return Ok();
@@ -23,6 +29,8 @@ public class ToDoController : ControllerBase
 
     [HttpGet]
     [Route("completed")]
+    [ProducesResponseType((int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
     public async Task<IActionResult> GetAllCompletedTask()
     {
         return Ok();
@@ -30,6 +38,8 @@ public class ToDoController : ControllerBase
 
     [HttpGet]
     [Route("failed")]
+    [ProducesResponseType((int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
     public async Task<IActionResult> GetAllFailedTask()
     {
         return Ok();
@@ -37,6 +47,10 @@ public class ToDoController : ControllerBase
     
     [HttpGet]
     [Route("{taskId:int}")]
+    [ProducesResponseType((int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.NotFound)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
     public async Task<IActionResult> GetTaskById([FromRoute] int taskId)
     {
         return Ok();
@@ -44,6 +58,9 @@ public class ToDoController : ControllerBase
 
     [HttpGet]
     [Route("{priority:int}/priority")]
+    [ProducesResponseType((int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
     public async Task<IActionResult> GetAllTaskByPriority([FromRoute] int priority)
     {
         return Ok();
@@ -51,6 +68,10 @@ public class ToDoController : ControllerBase
 
     [HttpPatch]
     [Route("{taskId:int}/complete")]
+    [ProducesResponseType((int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.NotFound)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
     public async Task<IActionResult> CompleteTask(int taskId)
     {
         return NoContent();
@@ -58,13 +79,20 @@ public class ToDoController : ControllerBase
 
     [HttpPut]
     [Route("{taskId:int}/update")]
+    [ProducesResponseType((int)HttpStatusCode.NoContent)]
+    [ProducesResponseType((int)HttpStatusCode.NotFound)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
     public async Task<IActionResult> UpdateTask(int taskId)
     {
         return NoContent();
     }
     
-    [HttpPut]
+    [HttpDelete]
     [Route("{taskId:int}/delete")]
+    [ProducesResponseType((int)HttpStatusCode.NoContent)]
+    [ProducesResponseType((int)HttpStatusCode.NotFound)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     public async Task<IActionResult> DeleteTask(int taskId)
     {
         return NoContent();

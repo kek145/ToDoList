@@ -9,19 +9,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38f3ba5b-9f07-4f99-afc7-1f5f8fb2357a" name="Changes" comment="UPDATE | Added project layers">
-      <change afterPath="$PROJECT_DIR$/ToDoList.Api/Controllers/ToDoController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Application/DependencyInjection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/DependencyInjection.cs" afterDir="false" />
+    <list default="true" id="38f3ba5b-9f07-4f99-afc7-1f5f8fb2357a" name="Changes" comment="UPDATE | Added todo controller and endpoints">
+      <change afterPath="$PROJECT_DIR$/ToDoList.Domain/DbSet/Note.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Domain/Dto/NoteDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Domain/Enum/Priority.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Domain/Interfaces/IBaseEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Domain/Interfaces/IEntityId.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Domain/Interfaces/IUnitOfWork.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/Configurations/NoteConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/DataStore/ApplicationDbContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ToDoList.Backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ToDoList.Backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Api/Controllers/ToDoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/Controllers/ToDoController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Api/ToDoList.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/ToDoList.Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/ToDoList.Api.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/ToDoList.Api.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/ToDoList.Api.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/ToDoList.Api.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/ToDoList.Api.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/ToDoList.Api.csproj.nuget.g.targets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Application/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/DependencyInjection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Application/ToDoList.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/ToDoList.Application.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Application/obj/ToDoList.Application.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/obj/ToDoList.Application.csproj.nuget.dgspec.json" afterDir="false" />
@@ -29,10 +38,21 @@
       <change beforePath="$PROJECT_DIR$/ToDoList.Application/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Application/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Application/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Domain/ToDoList.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Domain/ToDoList.Domain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Domain/obj/Debug/net8.0/ToDoList.Domain.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Domain/obj/Debug/net8.0/ToDoList.Domain.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Domain/obj/ToDoList.Domain.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Domain/obj/ToDoList.Domain.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Domain/obj/ToDoList.Domain.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Domain/obj/ToDoList.Domain.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Domain/obj/ToDoList.Domain.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Domain/obj/ToDoList.Domain.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Domain/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Domain/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Domain/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Domain/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Domain/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Domain/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Domain/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Domain/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/DependencyInjection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/ToDoList.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/ToDoList.Infrastructure.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/ToDoList.Infrastructure.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/ToDoList.Infrastructure.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/ToDoList.Infrastructure.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/ToDoList.Infrastructure.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/ToDoList.Infrastructure.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/ToDoList.Infrastructure.csproj.nuget.g.targets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/project.packagespec.json" afterDir="false" />
@@ -63,6 +83,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    ".NET Launch Settings Profile.ToDoList.Api: https.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "Dev__Yurii",
@@ -82,7 +103,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.ToDoList.Api: http">
+  <component name="RunManager" selected=".NET Launch Settings Profile.ToDoList.Api: https">
     <configuration name="ToDoList.Api: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/ToDoList.Api/ToDoList.Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -137,7 +158,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1704658539948</updated>
-      <workItem from="1704658541327" duration="1336000" />
+      <workItem from="1704658541327" duration="4087000" />
     </task>
     <task id="LOCAL-00001" summary="UPDATE | Added project layers">
       <option name="closed" value="true" />
@@ -147,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704659179163</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="UPDATE | Added todo controller and endpoints">
+      <option name="closed" value="true" />
+      <created>1704659918856</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1704659918857</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +186,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="UPDATE | Added project layers" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE | Added project layers" />
+    <MESSAGE value="UPDATE | Added todo controller and endpoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE | Added todo controller and endpoints" />
   </component>
 </project>
