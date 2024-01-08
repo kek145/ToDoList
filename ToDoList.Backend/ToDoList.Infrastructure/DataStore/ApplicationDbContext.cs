@@ -4,11 +4,9 @@ using ToDoList.Infrastructure.Configurations;
 
 namespace ToDoList.Infrastructure.DataStore;
 
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
 {
     public DbSet<Note> Notes { get; set; } = null!;
-    
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

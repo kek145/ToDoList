@@ -16,4 +16,19 @@
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Commands\Notes\Delete\" />
+      <Folder Include="Commands\Notes\Patch\" />
+      <Folder Include="Commands\Notes\Update\" />
+      <Folder Include="Queries\Notes\GetAllCompleted\" />
+      <Folder Include="Queries\Notes\GetAllFailed\" />
+      <Folder Include="Queries\Notes\GetAll\" />
+      <Folder Include="Queries\Notes\GetById\" />
+      <Folder Include="Queries\Notes\GetByPriority\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ToDoList.Domain\ToDoList.Domain.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -1,6 +1,8 @@
 ﻿using System.Net;
 using System.Threading.Tasks;
+using ToDoList.Domain.Request;
 using Microsoft.AspNetCore.Mvc;
+using ToDoList.Application.Services.NoteService;
 
 namespace ToDoList.Api.Controllers;
 
@@ -8,15 +10,22 @@ namespace ToDoList.Api.Controllers;
 [Route("api/todos")]
 public class ToDoController : ControllerBase
 {
-    
+    private readonly INoteService _noteService;
+
+    public ToDoController(INoteService noteService)
+    {
+        _noteService = noteService;
+    }
+
     [HttpPost]
     [Route("create")]
     [ProducesResponseType((int)HttpStatusCode.Created)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> CreateTask()
+    public async Task<IActionResult> CreateTask([FromBody] NoteRequest request)
     {
-        return CreatedAtAction(null, new { id = 1 }, null);
+        var response = await _noteService.CreateNoteAsync(request);
+        return CreatedAtAction(null, null, response);
     }
 
     [HttpGet]
