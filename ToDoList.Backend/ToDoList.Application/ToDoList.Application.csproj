@@ -17,8 +17,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Commands\Notes\Patch\" />
-      <Folder Include="Commands\Notes\Update\" />
       <Folder Include="Queries\Notes\GetAllCompleted\" />
       <Folder Include="Queries\Notes\GetAllFailed\" />
       <Folder Include="Queries\Notes\GetAll\" />

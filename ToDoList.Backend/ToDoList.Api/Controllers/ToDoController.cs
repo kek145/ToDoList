@@ -90,6 +90,7 @@ public class ToDoController : ControllerBase
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
     public async Task<IActionResult> CompleteTask(int noteId)
     {
+        await _noteService.CompleteNoteAsync(noteId);
         return NoContent();
     }
 
@@ -100,8 +101,9 @@ public class ToDoController : ControllerBase
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> UpdateTask(int noteId)
+    public async Task<IActionResult> UpdateTask([FromBody] NoteRequest request, [FromRoute] int noteId)
     {
+        await _noteService.UpdateNoteAsync(request, noteId);
         return NoContent();
     }
     
