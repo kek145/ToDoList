@@ -17,14 +17,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Queries\Notes\GetAllCompleted\" />
-      <Folder Include="Queries\Notes\GetAllFailed\" />
-      <Folder Include="Queries\Notes\GetAll\" />
-      <Folder Include="Queries\Notes\GetById\" />
-      <Folder Include="Queries\Notes\GetByPriority\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\ToDoList.Domain\ToDoList.Domain.csproj" />
     </ItemGroup>
 

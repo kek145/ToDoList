@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using System;
+using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 using ToDoList.Domain.Interfaces;
@@ -20,6 +21,9 @@ public class CompleteNoteCommandHandler : IRequestHandler<CompleteNoteCommand>
 
         if (note is null || note.UserId != request.UserId)
             throw new NotFoundException("Note not found!");
+
+        if (note.Deadline < DateTime.Today)
+            throw new BadRequestException("You cannot complete the task because it has already failed!");
 
         note.Status = true;
 

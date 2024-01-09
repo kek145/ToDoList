@@ -17,10 +17,10 @@ public class NoteConfiguration : IEntityTypeConfiguration<Note>
             .IsRequired()
             .HasMaxLength(2000);
         
-        builder.Property(x => x.Priority)
-            .IsRequired()
-            .HasMaxLength(6)
-            .HasConversion<string>();
+        // builder.Property(x => x.Priority)
+        //     .IsRequired()
+        //     .HasMaxLength(6)
+        //     .HasConversion<string>();
 
         builder.Property(x => x.Status)
             .HasDefaultValue(false);

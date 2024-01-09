@@ -9,22 +9,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38f3ba5b-9f07-4f99-afc7-1f5f8fb2357a" name="Changes" comment="UPDATE | Added delete note command">
-      <change afterPath="$PROJECT_DIR$/ToDoList.Application/Commands/Notes/Patch/CompleteNoteCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Application/Commands/Notes/Patch/CompleteNoteCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Application/Commands/Notes/Update/UpdateNoteCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Application/Commands/Notes/Update/UpdateNoteCommandHandler.cs" afterDir="false" />
+    <list default="true" id="38f3ba5b-9f07-4f99-afc7-1f5f8fb2357a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ToDoList.Application/Queries/Notes/GetAll/GetAllNotesQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Application/Queries/Notes/GetAll/GetAllNotesQueryHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Application/Queries/Notes/GetAllByPriority/GetAllByPriorityNotesQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Application/Queries/Notes/GetAllByPriority/GetAllByPriorityNotesQueryHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Application/Queries/Notes/GetAllCompleted/GetAllCompletedNotesQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Application/Queries/Notes/GetAllCompleted/GetAllCompletedNotesQueryHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Application/Queries/Notes/GetAllFailed/GetAllFailedNotesQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Application/Queries/Notes/GetAllFailed/GetAllFailedNotesQueryHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Application/Queries/Notes/GetById/GetNoteByIdQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Application/Queries/Notes/GetById/GetNoteByIdQueryHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Domain/Helpers/PrioritiesHelper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ToDoList.Backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ToDoList.Backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Api/Controllers/ToDoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/Controllers/ToDoController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Api/Controllers/ToDoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/Controllers/NotesController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Application/Commands/Notes/Create/CreateNoteCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/Commands/Notes/Create/CreateNoteCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Application/Commands/Notes/Create/CreateNoteCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/Commands/Notes/Create/CreateNoteCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Application/Commands/Notes/Patch/CompleteNoteCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/Commands/Notes/Patch/CompleteNoteCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Application/Commands/Notes/Update/UpdateNoteCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/Commands/Notes/Update/UpdateNoteCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Application/MappingProfiles/DomainToResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/MappingProfiles/DomainToResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Application/Services/NoteService/INoteService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/Services/NoteService/INoteService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Application/Services/NoteService/NoteService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/Services/NoteService/NoteService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Application/ToDoList.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/ToDoList.Application.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Domain/DbSet/Note.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Domain/DbSet/Note.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Domain/Dto/NoteDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Domain/Dto/NoteDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Domain/Enum/Priority.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Domain/Enum/Priority.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Domain/Interfaces/INoteRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Domain/Interfaces/INoteRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Domain/obj/Debug/net8.0/ToDoList.Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Domain/obj/Debug/net8.0/ToDoList.Domain.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Domain/obj/Debug/net8.0/ToDoList.Domain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Domain/obj/Debug/net8.0/ToDoList.Domain.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/Configurations/NoteConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/Configurations/NoteConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/Repositories/NoteRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/Repositories/NoteRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.AssemblyInfoInputs.cache" afterDir="false" />
     </list>
@@ -133,7 +151,8 @@
       <workItem from="1704688708768" duration="3901000" />
       <workItem from="1704742909354" duration="2335000" />
       <workItem from="1704745282326" duration="427000" />
-      <workItem from="1704830070246" duration="2079000" />
+      <workItem from="1704830070246" duration="6526000" />
+      <workItem from="1704839559887" duration="2530000" />
     </task>
     <task id="LOCAL-00001" summary="UPDATE | Added project layers">
       <option name="closed" value="true" />
@@ -175,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704831305487</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="UPDATE | Added complete and update note commands">
+      <option name="closed" value="true" />
+      <created>1704832228387</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704832228387</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +216,7 @@
     <MESSAGE value="UPDATE | Application and Infrastructure" />
     <MESSAGE value="UPDATE | Added creat note service, command and handler with CQRS and MediatR" />
     <MESSAGE value="UPDATE | Added delete note command" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE | Added delete note command" />
+    <MESSAGE value="UPDATE | Added complete and update note commands" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE | Added complete and update note commands" />
   </component>
 </project>

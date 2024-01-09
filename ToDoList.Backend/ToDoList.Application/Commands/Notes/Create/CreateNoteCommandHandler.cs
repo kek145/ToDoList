@@ -4,6 +4,9 @@ using AutoMapper;
 using System.Threading;
 using ToDoList.Domain.Dto;
 using System.Threading.Tasks;
+using ToDoList.Application.Exceptions;
+using ToDoList.Domain.Enum;
+using ToDoList.Domain.Helpers;
 using ToDoList.Domain.Result;
 using ToDoList.Domain.Interfaces;
 
@@ -25,6 +28,14 @@ public class CreateNoteCommandHandler : IRequestHandler<CreateNoteCommand, NoteR
         var note = _mapper.Map<NoteDto>(request.NoteRequest);
 
         note.UserId = request.UserId;
+
+        note.Priority = request.NoteRequest.Priority switch
+        {
+            Priority.Easy => PrioritiesHelper.Easy,
+            Priority.Medium => PrioritiesHelper.Medium,
+            Priority.Hard => PrioritiesHelper.Hard,
+            _ => throw new BadRequestException("There is no such priority!")
+        };
 
         var newNote = await _unitOfWork.Notes.AddNoteAsync(note, cancellationToken);
 

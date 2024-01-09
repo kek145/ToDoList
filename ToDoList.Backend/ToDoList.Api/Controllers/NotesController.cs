@@ -3,16 +3,18 @@ using System.Threading.Tasks;
 using ToDoList.Domain.Request;
 using Microsoft.AspNetCore.Mvc;
 using ToDoList.Application.Services.NoteService;
+using ToDoList.Domain.Enum;
+using ToDoList.Domain.Helpers;
 
 namespace ToDoList.Api.Controllers;
 
 [ApiController]
-[Route("api/todos")]
-public class ToDoController : ControllerBase
+[Route("api/notes")]
+public class NotesController : ControllerBase
 {
     private readonly INoteService _noteService;
 
-    public ToDoController(INoteService noteService)
+    public NotesController(INoteService noteService)
     {
         _noteService = noteService;
     }
@@ -33,19 +35,10 @@ public class ToDoController : ControllerBase
     [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> GetAllTask()
+    public async Task<IActionResult> GetAllTask([FromQuery] QueryParameters queryParameters)
     {
-        return Ok();
-    }
-
-    [HttpGet]
-    [Route("completed")]
-    [Produces("application/json")]
-    [ProducesResponseType((int)HttpStatusCode.OK)]
-    [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> GetAllCompletedTask()
-    {
-        return Ok();
+        var response = await _noteService.GetAllNotesAsync(queryParameters);
+        return Ok(response);
     }
 
     [HttpGet]
@@ -53,9 +46,10 @@ public class ToDoController : ControllerBase
     [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> GetAllFailedTask()
+    public async Task<IActionResult> GetAllFailedTask([FromQuery] QueryParameters queryParameters)
     {
-        return Ok();
+        var response = await _noteService.GetAllFailedNotesAsync(queryParameters);
+        return Ok(response);
     }
     
     [HttpGet]
@@ -67,18 +61,31 @@ public class ToDoController : ControllerBase
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
     public async Task<IActionResult> GetTaskById([FromRoute] int noteId)
     {
-        return Ok();
+        var response = await _noteService.GetNoteByIdAsync(noteId);
+        return Ok(response);
+    }
+    
+    [HttpGet]
+    [Route("completed")]
+    [Produces("application/json")]
+    [ProducesResponseType((int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+    public async Task<IActionResult> GetAllCompletedTask([FromQuery] QueryParameters queryParameters)
+    {
+        var response = await _noteService.GetAllCompletedNotesAsync(queryParameters);
+        return Ok(response);
     }
 
     [HttpGet]
-    [Route("{priority:int}/priority")]
+    [Route("{priority}/priority")]
     [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> GetAllTaskByPriority([FromRoute] int priority)
+    public async Task<IActionResult> GetAllTaskByPriority([FromQuery] QueryParameters queryParameters, [FromRoute] Priority priority)
     {
-        return Ok();
+        var response = await _noteService.GetAllByPriorityNotesAsync(queryParameters, priority);
+        return Ok(response);
     }
 
     [HttpPatch]

@@ -2,8 +2,10 @@
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
-using ToDoList.Application.Exceptions;
 using ToDoList.Domain.Interfaces;
+using ToDoList.Application.Exceptions;
+using ToDoList.Domain.Enum;
+using ToDoList.Domain.Helpers;
 
 namespace ToDoList.Application.Commands.Notes.Update;
 
@@ -21,13 +23,21 @@ public class UpdateNoteCommandHandler : IRequestHandler<UpdateNoteCommand>
 
         if (note is null || note.UserId != request.UserId)
             throw new NotFoundException("Note not found!");
-
+        
+        
         note.Title = request.NoteRequest.Title;
         note.Title = request.NoteRequest.Description;
-        note.Priority = request.NoteRequest.Priority;
         note.Deadline = request.NoteRequest.Deadline;
         note.UpdatedAt = DateTime.UtcNow;
-        
+
+        note.Priority = request.NoteRequest.Priority switch
+        {
+            Priority.Easy => PrioritiesHelper.Easy,
+            Priority.Medium => PrioritiesHelper.Medium,
+            Priority.Hard => PrioritiesHelper.Hard,
+            _ => throw new BadRequestException("There is no such priority!")
+        };
+
         _unitOfWork.Notes.UpdateNote(note);
         await _unitOfWork.CommitAsync(cancellationToken);
     }
