@@ -6,5 +6,6 @@ namespace ToDoList.Application.Services.NoteService;
 
 public interface INoteService
 {
+    Task DeleteNoteAsync(int noteId);
     Task<NoteResponse> CreateNoteAsync(NoteRequest request);
 }

@@ -19,6 +19,7 @@ public class ToDoController : ControllerBase
 
     [HttpPost]
     [Route("create")]
+    [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.Created)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
@@ -29,6 +30,7 @@ public class ToDoController : ControllerBase
     }
 
     [HttpGet]
+    [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
     public async Task<IActionResult> GetAllTask()
@@ -38,6 +40,7 @@ public class ToDoController : ControllerBase
 
     [HttpGet]
     [Route("completed")]
+    [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
     public async Task<IActionResult> GetAllCompletedTask()
@@ -47,6 +50,7 @@ public class ToDoController : ControllerBase
 
     [HttpGet]
     [Route("failed")]
+    [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
     public async Task<IActionResult> GetAllFailedTask()
@@ -55,18 +59,20 @@ public class ToDoController : ControllerBase
     }
     
     [HttpGet]
-    [Route("{taskId:int}")]
+    [Route("{noteId:int}")]
+    [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> GetTaskById([FromRoute] int taskId)
+    public async Task<IActionResult> GetTaskById([FromRoute] int noteId)
     {
         return Ok();
     }
 
     [HttpGet]
     [Route("{priority:int}/priority")]
+    [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
@@ -76,34 +82,38 @@ public class ToDoController : ControllerBase
     }
 
     [HttpPatch]
-    [Route("{taskId:int}/complete")]
+    [Route("{noteId:int}/complete")]
+    [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> CompleteTask(int taskId)
+    public async Task<IActionResult> CompleteTask(int noteId)
     {
         return NoContent();
     }
 
     [HttpPut]
-    [Route("{taskId:int}/update")]
+    [Route("{noteId:int}/update")]
+    [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.NoContent)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> UpdateTask(int taskId)
+    public async Task<IActionResult> UpdateTask(int noteId)
     {
         return NoContent();
     }
     
     [HttpDelete]
-    [Route("{taskId:int}/delete")]
+    [Route("{noteId:int}/delete")]
+    [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.NoContent)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-    public async Task<IActionResult> DeleteTask(int taskId)
+    public async Task<IActionResult> DeleteTask(int noteId)
     {
+        await _noteService.DeleteNoteAsync(noteId);
         return NoContent();
     }
 }

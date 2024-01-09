@@ -5,6 +5,7 @@ using ToDoList.Domain.Result;
 using ToDoList.Domain.Request;
 using ToDoList.Application.Exceptions;
 using ToDoList.Application.Commands.Notes.Create;
+using ToDoList.Application.Commands.Notes.Delete;
 
 namespace ToDoList.Application.Services.NoteService;
 
@@ -17,6 +18,16 @@ public class NoteService : INoteService
     {
         _mediator = mediator;
         _validator = validator;
+    }
+
+    public async Task DeleteNoteAsync(int noteId)
+    {
+        if (noteId <= 0)
+            throw new BadRequestException("Id cannot be less than or equal to zero!");
+
+        var command = new DeleteNoteCommand(1, noteId);
+
+        await _mediator.Send(command);
     }
 
     public async Task<NoteResponse> CreateNoteAsync(NoteRequest request)
