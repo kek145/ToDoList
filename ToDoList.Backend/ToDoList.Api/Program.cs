@@ -1,5 +1,6 @@
 using ToDoList.Application;
 using ToDoList.Infrastructure;
+using ToDoList.Api.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,6 +20,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.AddGlobalErrorHandling();
 
 app.MapControllers();
 
