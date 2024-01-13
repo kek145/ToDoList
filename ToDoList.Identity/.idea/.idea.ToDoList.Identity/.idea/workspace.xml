@@ -12,23 +12,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d9dd063-d732-479c-9fcd-bd44477fd0d4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/.idea/.idea.ToDoList.Backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/.idea/.idea.ToDoList.Backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/Controllers/NotesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/Controllers/NotesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/Debug/net8.0/ToDoList.Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/Debug/net8.0/ToDoList.Domain.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/Debug/net8.0/ToDoList.Domain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/Debug/net8.0/ToDoList.Domain.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/rider.project.restore.info" afterDir="false" />
+    <list default="true" id="1d9dd063-d732-479c-9fcd-bd44477fd0d4" name="Changes" comment="UPDATE | Added identity service">
+      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/Controllers/AuthenticationController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/Controllers/RegistrationController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/Controllers/TokenController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ToDoList.Identity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ToDoList.Identity/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/ToDoList.Identity.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/ToDoList.Identity.Api.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,16 +27,27 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://D:/GitHub/FullStack/ToDoList/ToDoList.Backend/ToDoList.Api/Controllers/NotesController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/Controllers/NotesController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/GitHub/FullStack/ToDoList/ToDoList.Backend/ToDoList.Api/Controllers/NotesController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 3
 }]]></component>
   <component name="ProjectId" id="2at9uZ5sEmorrXvo7NiXsz1lrgo" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    ".NET Launch Settings Profile.ToDoList.Identity.Api: https.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "Dev__Yurii",
@@ -167,14 +167,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705127232871</updated>
-      <workItem from="1705127235025" duration="482000" />
+      <workItem from="1705127235025" duration="1203000" />
     </task>
+    <task id="LOCAL-00001" summary="UPDATE | Added identity service">
+      <option name="closed" value="true" />
+      <created>1705127784422</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1705127784422</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="UPDATE | Added identity service" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE | Added identity service" />
   </component>
 </project>

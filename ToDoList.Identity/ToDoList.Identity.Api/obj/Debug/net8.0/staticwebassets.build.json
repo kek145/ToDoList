@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "iH2DEeUIBF7hR1MMDqvXq1chBgEHgaywFLZXe9IMRDk=",
+  "Source": "ToDoList.Identity.Api",
+  "BasePath": "_content/ToDoList.Identity.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
