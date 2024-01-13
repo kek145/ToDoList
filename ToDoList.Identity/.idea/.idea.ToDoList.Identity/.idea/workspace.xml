@@ -12,31 +12,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d9dd063-d732-479c-9fcd-bd44477fd0d4" name="Changes" comment="UPDATE | Added identity service">
+    <list default="true" id="1d9dd063-d732-479c-9fcd-bd44477fd0d4" name="Changes" comment="UPDATE | Added layers in identity microservice">
+      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Application/DependencyInjection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/DbSet/User.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/DependencyInjection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Interfaces/IBaseEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Interfaces/IEntityId.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Infrastructure/DataStore/ApplicationDbContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Infrastructure/DependencyInjection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ToDoList.Identity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ToDoList.Identity/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/ToDoList.Identity.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/ToDoList.Identity.Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.runtimeconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.runtimeconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.MvcApplicationPartsAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.MvcApplicationPartsAssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.genruntimeconfig.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ref/ToDoList.Identity.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ref/ToDoList.Identity.Api.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/refint/ToDoList.Identity.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/refint/ToDoList.Identity.Api.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/ToDoList.Identity.Api.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/ToDoList.Identity.Api.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/ToDoList.Identity.Api.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/ToDoList.Identity.Api.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/ToDoList.Identity.Api.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/ToDoList.Identity.Api.csproj.nuget.g.targets" afterDir="false" />
@@ -44,49 +34,9 @@
       <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/ToDoList.Identity.Application.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/obj/Debug/net8.0/ToDoList.Identity.Application.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/obj/Debug/net8.0/ToDoList.Identity.Application.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/obj/Debug/net8.0/ToDoList.Identity.Application.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/obj/Debug/net8.0/ToDoList.Identity.Application.GlobalUsings.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/obj/Debug/net8.0/ToDoList.Identity.Application.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/obj/ToDoList.Identity.Application.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/obj/ToDoList.Identity.Application.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/obj/ToDoList.Identity.Application.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/obj/rider.project.restore.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/ToDoList.Identity.Domain.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/obj/Debug/net8.0/ToDoList.Identity.Domain.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/obj/Debug/net8.0/ToDoList.Identity.Domain.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/obj/Debug/net8.0/ToDoList.Identity.Domain.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/obj/Debug/net8.0/ToDoList.Identity.Domain.GlobalUsings.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/obj/Debug/net8.0/ToDoList.Identity.Domain.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/obj/ToDoList.Identity.Domain.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/obj/ToDoList.Identity.Domain.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/obj/ToDoList.Identity.Domain.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/obj/rider.project.restore.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastucture/ToDoList.Identity.Infrastucture.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastucture/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastucture/obj/Debug/net8.0/ToDoList.Identity.Infrastucture.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastucture/obj/Debug/net8.0/ToDoList.Identity.Infrastucture.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastucture/obj/Debug/net8.0/ToDoList.Identity.Infrastucture.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastucture/obj/Debug/net8.0/ToDoList.Identity.Infrastucture.GlobalUsings.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastucture/obj/Debug/net8.0/ToDoList.Identity.Infrastucture.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastucture/obj/ToDoList.Identity.Infrastucture.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastucture/obj/ToDoList.Identity.Infrastucture.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastucture/obj/ToDoList.Identity.Infrastucture.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastucture/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastucture/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastucture/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastucture/obj/rider.project.restore.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/ToDoList.Identity.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Application/ToDoList.Identity.Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/ToDoList.Identity.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/ToDoList.Identity.Domain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastructure/ToDoList.Identity.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Infrastructure/ToDoList.Identity.Infrastructure.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,10 +47,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://D:/GitHub/FullStack/ToDoList/ToDoList.Backend/ToDoList.Api/Controllers/NotesController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/Controllers/NotesController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/GitHub/FullStack/ToDoList/ToDoList.Backend/ToDoList.Api/Controllers/NotesController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/GitHub/FullStack/ToDoList/ToDoList.Identity/ToDoList.Identity.Application/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/GitHub/FullStack/ToDoList/ToDoList.Identity/ToDoList.Identity.Domain/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -237,7 +187,7 @@
       <option name="presentableId" value="Default" />
       <updated>1705127232871</updated>
       <workItem from="1705127235025" duration="1203000" />
-      <workItem from="1705180825948" duration="2567000" />
+      <workItem from="1705180825948" duration="3516000" />
     </task>
     <task id="LOCAL-00001" summary="UPDATE | Added identity service">
       <option name="closed" value="true" />
@@ -247,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705127784422</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="UPDATE | Added layers in identity microservice">
+      <option name="closed" value="true" />
+      <created>1705183820094</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705183820094</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +215,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="UPDATE | Added identity service" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE | Added identity service" />
+    <MESSAGE value="UPDATE | Added layers in identity microservice" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE | Added layers in identity microservice" />
   </component>
 </project>

@@ -25,7 +25,17 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Application\\ToDoList.Identity.Application.csproj": {
+                "projectPath": "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Application\\ToDoList.Identity.Application.csproj"
+              },
+              "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Domain\\ToDoList.Identity.Domain.csproj": {
+                "projectPath": "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Domain\\ToDoList.Identity.Domain.csproj"
+              },
+              "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Infrastructure\\ToDoList.Identity.Infrastructure.csproj": {
+                "projectPath": "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Infrastructure\\ToDoList.Identity.Infrastructure.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -68,6 +78,221 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Application\\ToDoList.Identity.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Application\\ToDoList.Identity.Application.csproj",
+        "projectName": "ToDoList.Identity.Application",
+        "projectPath": "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Application\\ToDoList.Identity.Application.csproj",
+        "packagesPath": "C:\\Users\\urabo\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\urabo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.9.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Domain\\ToDoList.Identity.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Domain\\ToDoList.Identity.Domain.csproj",
+        "projectName": "ToDoList.Identity.Domain",
+        "projectPath": "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Domain\\ToDoList.Identity.Domain.csproj",
+        "packagesPath": "C:\\Users\\urabo\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\urabo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Infrastructure\\ToDoList.Identity.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Infrastructure\\ToDoList.Identity.Infrastructure.csproj",
+        "projectName": "ToDoList.Identity.Infrastructure",
+        "projectPath": "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Infrastructure\\ToDoList.Identity.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\urabo\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\urabo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "EFCore.NamingConventions": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
