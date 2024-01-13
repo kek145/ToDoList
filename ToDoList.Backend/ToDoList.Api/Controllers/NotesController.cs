@@ -1,10 +1,10 @@
 ﻿using System.Net;
+using ToDoList.Domain.Enum;
 using System.Threading.Tasks;
 using ToDoList.Domain.Request;
+using ToDoList.Domain.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using ToDoList.Application.Services.NoteService;
-using ToDoList.Domain.Enum;
-using ToDoList.Domain.Helpers;
 
 namespace ToDoList.Api.Controllers;
 
@@ -25,7 +25,7 @@ public class NotesController : ControllerBase
     [ProducesResponseType((int)HttpStatusCode.Created)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> CreateTask([FromBody] NoteRequest request)
+    public async Task<IActionResult> CreateNote([FromBody] NoteRequest request)
     {
         var response = await _noteService.CreateNoteAsync(request);
         return CreatedAtAction(null, null, response);
@@ -35,7 +35,7 @@ public class NotesController : ControllerBase
     [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> GetAllTask([FromQuery] QueryParameters queryParameters)
+    public async Task<IActionResult> GetAllNotes([FromQuery] QueryParameters queryParameters)
     {
         var response = await _noteService.GetAllNotesAsync(queryParameters);
         return Ok(response);
@@ -46,7 +46,7 @@ public class NotesController : ControllerBase
     [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> GetAllFailedTask([FromQuery] QueryParameters queryParameters)
+    public async Task<IActionResult> GetAllFailedNotes([FromQuery] QueryParameters queryParameters)
     {
         var response = await _noteService.GetAllFailedNotesAsync(queryParameters);
         return Ok(response);
@@ -59,7 +59,7 @@ public class NotesController : ControllerBase
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> GetTaskById([FromRoute] int noteId)
+    public async Task<IActionResult> GetNoteById([FromRoute] int noteId)
     {
         var response = await _noteService.GetNoteByIdAsync(noteId);
         return Ok(response);
@@ -70,7 +70,7 @@ public class NotesController : ControllerBase
     [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> GetAllCompletedTask([FromQuery] QueryParameters queryParameters)
+    public async Task<IActionResult> GetAllCompletedNotes([FromQuery] QueryParameters queryParameters)
     {
         var response = await _noteService.GetAllCompletedNotesAsync(queryParameters);
         return Ok(response);
@@ -82,7 +82,7 @@ public class NotesController : ControllerBase
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> GetAllTaskByPriority([FromQuery] QueryParameters queryParameters, [FromRoute] Priority priority)
+    public async Task<IActionResult> GetAllNotesByPriority([FromQuery] QueryParameters queryParameters, [FromRoute] Priority priority)
     {
         var response = await _noteService.GetAllByPriorityNotesAsync(queryParameters, priority);
         return Ok(response);
@@ -95,7 +95,7 @@ public class NotesController : ControllerBase
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> CompleteTask(int noteId)
+    public async Task<IActionResult> CompleteNote(int noteId)
     {
         await _noteService.CompleteNoteAsync(noteId);
         return NoContent();
@@ -108,7 +108,7 @@ public class NotesController : ControllerBase
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> UpdateTask([FromBody] NoteRequest request, [FromRoute] int noteId)
+    public async Task<IActionResult> UpdateNote([FromBody] NoteRequest request, [FromRoute] int noteId)
     {
         await _noteService.UpdateNoteAsync(request, noteId);
         return NoContent();
