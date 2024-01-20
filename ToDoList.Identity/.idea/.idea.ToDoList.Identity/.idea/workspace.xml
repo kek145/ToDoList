@@ -12,242 +12,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d9dd063-d732-479c-9fcd-bd44477fd0d4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Api/Controllers/NotesController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Api/Extensions/ApplicationBuilderExtension.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Api/Middlewares/GlobalErrorHandlerMiddleware.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Api/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Api/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Api/ToDoList.Backend.Api.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Api/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Commands/Notes/Create/CreateNoteCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Commands/Notes/Create/CreateNoteCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Commands/Notes/Delete/DeleteNoteCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Commands/Notes/Delete/DeleteTaskCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Commands/Notes/Patch/CompleteNoteCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Commands/Notes/Patch/CompleteNoteCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Commands/Notes/Update/UpdateNoteCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Commands/Notes/Update/UpdateNoteCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/DependencyInjection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Exceptions/BadRequestException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Exceptions/NotFoundException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/MappingProfiles/DomainToResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/MappingProfiles/NoteMappingProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/MappingProfiles/RequestToDomain.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Queries/Notes/GetAll/GetAllNotesQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Queries/Notes/GetAll/GetAllNotesQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Queries/Notes/GetAllByPriority/GetAllByPriorityNotesQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Queries/Notes/GetAllByPriority/GetAllByPriorityNotesQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Queries/Notes/GetAllCompleted/GetAllCompletedNotesQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Queries/Notes/GetAllCompleted/GetAllCompletedNotesQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Queries/Notes/GetAllFailed/GetAllFailedNotesQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Queries/Notes/GetAllFailed/GetAllFailedNotesQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Queries/Notes/GetById/GetNoteByIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Queries/Notes/GetById/GetNoteByIdQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Services/NoteService/INoteService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Services/NoteService/NoteService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/ToDoList.Backend.Application.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Application/Validators/Note/NoteRequestValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Domain/DbSet/Note.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Domain/Dto/NoteDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Domain/Enum/Priority.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Domain/Helpers/PrioritiesHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Domain/Helpers/QueryParameters.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Domain/Interfaces/IBaseEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Domain/Interfaces/IEntityId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Domain/Interfaces/INoteRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Domain/Interfaces/IUnitOfWork.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Domain/Request/NoteRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Domain/Result/NoteResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Domain/Result/PagedResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Domain/ToDoList.Backend.Domain.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Infrastructure/Configurations/NoteConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Infrastructure/DataStore/ApplicationDbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Infrastructure/DependencyInjection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Infrastructure/Repositories/NoteRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Infrastructure/ToDoList.Backend.Infrastructure.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.Infrastructure/UnitOfWork/UnitOfWork.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/Controllers/LoginController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/Controllers/RefreshTokenController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Requests/LoginRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Requests/RegistrationRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Responses/BaseResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.idea.ToDoList.dir/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.idea.ToDoList.dir/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.idea.ToDoList.dir/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.idea.ToDoList.dir/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/.idea/.idea.ToDoList.Backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/.idea/.idea.ToDoList.Backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/Controllers/NotesController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/Extensions/ApplicationBuilderExtension.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/Middlewares/GlobalErrorHandlerMiddleware.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/ToDoList.Api.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.GlobalUsings.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/Debug/net8.0/ToDoList.Api.csproj.AssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/ToDoList.Api.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/ToDoList.Api.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/ToDoList.Api.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Api/obj/rider.project.restore.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Commands/Notes/Create/CreateNoteCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Commands/Notes/Create/CreateNoteCommandHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Commands/Notes/Delete/DeleteNoteCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Commands/Notes/Delete/DeleteTaskCommandHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Commands/Notes/Patch/CompleteNoteCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Commands/Notes/Patch/CompleteNoteCommandHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Commands/Notes/Update/UpdateNoteCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Commands/Notes/Update/UpdateNoteCommandHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/DependencyInjection.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Exceptions/BadRequestException.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Exceptions/NotFoundException.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/MappingProfiles/DomainToResponse.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/MappingProfiles/NoteMappingProfile.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/MappingProfiles/RequestToDomain.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Queries/Notes/GetAll/GetAllNotesQuery.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Queries/Notes/GetAll/GetAllNotesQueryHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Queries/Notes/GetAllByPriority/GetAllByPriorityNotesQuery.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Queries/Notes/GetAllByPriority/GetAllByPriorityNotesQueryHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Queries/Notes/GetAllCompleted/GetAllCompletedNotesQuery.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Queries/Notes/GetAllCompleted/GetAllCompletedNotesQueryHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Queries/Notes/GetAllFailed/GetAllFailedNotesQuery.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Queries/Notes/GetAllFailed/GetAllFailedNotesQueryHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Queries/Notes/GetById/GetNoteByIdQuery.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Queries/Notes/GetById/GetNoteByIdQueryHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Services/NoteService/INoteService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Services/NoteService/NoteService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/ToDoList.Application.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/Validators/Note/NoteRequestValidator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.GlobalUsings.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/Debug/net8.0/ToDoList.Application.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/ToDoList.Application.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/ToDoList.Application.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/ToDoList.Application.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Application/obj/rider.project.restore.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Backend.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/DbSet/Note.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/Dto/NoteDto.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/Enum/Priority.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/Helpers/PrioritiesHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/Helpers/QueryParameters.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/Interfaces/IBaseEntity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/Interfaces/IEntityId.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/Interfaces/INoteRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/Interfaces/IUnitOfWork.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/Request/NoteRequest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/Result/NoteResponse.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/Result/PagedResult.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/ToDoList.Domain.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/Debug/net8.0/ToDoList.Domain.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/Debug/net8.0/ToDoList.Domain.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/Debug/net8.0/ToDoList.Domain.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/Debug/net8.0/ToDoList.Domain.GlobalUsings.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/Debug/net8.0/ToDoList.Domain.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/ToDoList.Domain.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/ToDoList.Domain.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/ToDoList.Domain.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Domain/obj/rider.project.restore.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/Configurations/NoteConfiguration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/DataStore/ApplicationDbContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/DependencyInjection.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/Migrations/20240111165829_Initial.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/Migrations/20240111165829_Initial.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/Repositories/NoteRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/ToDoList.Infrastructure.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/UnitOfWork/UnitOfWork.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.GlobalUsings.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/Debug/net8.0/ToDoList.Infrastructure.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/ToDoList.Infrastructure.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/ToDoList.Infrastructure.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/ToDoList.Infrastructure.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToDoList.Backend/ToDoList.Infrastructure/obj/rider.project.restore.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ToDoList.Identity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ToDoList.Identity/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/Controllers/AuthenticationController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/Controllers/RegistrationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/Controllers/RegistrationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/Controllers/TokenController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/ToDoList.Identity.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/ToDoList.Identity.Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/ToDoList.Identity.Api.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/bin/Debug/net8.0/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ToDoList.Identity.Api.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ref/ToDoList.Identity.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/ref/ToDoList.Identity.Api.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/refint/ToDoList.Identity.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/Debug/net8.0/refint/ToDoList.Identity.Api.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/ToDoList.Identity.Api.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/ToDoList.Identity.Api.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/ToDoList.Identity.Api.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/ToDoList.Identity.Api.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Api/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/Commands/Create/CreateUserCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/DependencyInjection.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/Exceptions/BadRequestException.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/Exceptions/NotFoundException.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/Services/Registration/IRegistrationService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/Services/Registration/RegistrationService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/ToDoList.Identity.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Application/ToDoList.Identity.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/Validators/RegistrationRequestValidator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/DbSet/RefreshToken.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/DbSet/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/DbSet/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/Dto/RefreshTokenDto.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/Dto/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Dto/UserDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/Interfaces/IEntityId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Interfaces/IEntityId.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/Interfaces/IUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Interfaces/IBaseResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/MappingProfiles/DomainToResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/MappingProfiles/DomainToResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/MappingProfiles/RequestToDomain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/MappingProfiles/RequestToDomain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/MappingProfiles/UserMappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/MappingProfiles/UserMappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/Request/RegistrationRequest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/Response/AuthenticationResponse.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/Response/RegistrationResponse.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/ToDoList.Identity.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/ToDoList.Identity.Domain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastructure/Configurations/RefreshTokenConfiguration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastructure/Configurations/UserConfiguration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastructure/DataStore/ApplicationDbContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastructure/DependencyInjection.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastructure/Identity/PasswordHasher.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastructure/Implementations/UnitOfWork.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Infrastructure/ToDoList.Identity.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Infrastructure/ToDoList.Identity.Infrastructure.csproj" afterDir="false" />
+    <list default="true" id="1d9dd063-d732-479c-9fcd-bd44477fd0d4" name="Changes" comment="UPDATE | Added controllers and endpoints">
+      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Responses/AuthenticationResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Responses/UserResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/Interfaces/IBaseResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Interfaces/IBaseResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/Responses/BaseResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Responses/BaseResponse.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -407,7 +176,7 @@
       <workItem from="1705234149772" duration="1359000" />
       <workItem from="1705345467404" duration="4394000" />
       <workItem from="1705743627349" duration="260000" />
-      <workItem from="1705743909592" duration="5204000" />
+      <workItem from="1705743909592" duration="5562000" />
     </task>
     <task id="LOCAL-00001" summary="UPDATE | Added identity service">
       <option name="closed" value="true" />
@@ -433,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705185065103</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="UPDATE | Added controllers and endpoints">
+      <option name="closed" value="true" />
+      <created>1705752146524</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705752146525</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,6 +222,7 @@
     <MESSAGE value="UPDATE | Added identity service" />
     <MESSAGE value="UPDATE | Added layers in identity microservice" />
     <MESSAGE value="UPDATE | Added models in domain" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE | Added models in domain" />
+    <MESSAGE value="UPDATE | Added controllers and endpoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE | Added controllers and endpoints" />
   </component>
 </project>

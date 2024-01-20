@@ -30,6 +30,7 @@
       <Folder Include="Services\AuthenticationService\" />
       <Folder Include="Services\RegistrationService\" />
       <Folder Include="Services\TokenService\" />
+      <Folder Include="Validators\" />
     </ItemGroup>
 
 </Project>
