@@ -5,27 +5,23 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>disable</ImplicitUsings>
         <InvariantGlobalization>true</InvariantGlobalization>
+        <RootNamespace>ToDoList.Api</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.1" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.1.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="8.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ToDoList.Identity.Application\ToDoList.Identity.Application.csproj" />
-      <ProjectReference Include="..\ToDoList.Identity.Domain\ToDoList.Identity.Domain.csproj" />
-      <ProjectReference Include="..\ToDoList.Identity.Infrastructure\ToDoList.Identity.Infrastructure.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Extensions\" />
-      <Folder Include="Middlewares\" />
+      <ProjectReference Include="..\ToDoList.Backend.Application\ToDoList.Backend.Application.csproj" />
+      <ProjectReference Include="..\ToDoList.Backend.Infrastructure\ToDoList.Backend.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

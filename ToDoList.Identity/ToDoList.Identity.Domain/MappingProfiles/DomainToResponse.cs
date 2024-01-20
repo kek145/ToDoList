@@ -1,6 +1,8 @@
-﻿namespace ToDoList.Identity.Domain.MappingProfiles;
+﻿using AutoMapper;
 
-public class DomainToResponse
+namespace ToDoList.Identity.Domain.MappingProfiles;
+
+public class DomainToResponse : Profile
 {
     
 }

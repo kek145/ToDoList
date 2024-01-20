@@ -12,6 +12,24 @@
       <PackageReference Include="MediatR" Version="12.2.0" />
       <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ToDoList.Identity.Domain\ToDoList.Identity.Domain.csproj" />
+      <ProjectReference Include="..\ToDoList.Identity.Infrastructure\ToDoList.Identity.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Commands\RefreshTokenCommands\Create\" />
+      <Folder Include="Commands\RefreshTokenCommands\Delete\" />
+      <Folder Include="Commands\RefreshTokenCommands\Update\" />
+      <Folder Include="Commands\UserCommands\" />
+      <Folder Include="Queries\RefreshTokenQueries\" />
+      <Folder Include="Queries\UserQueries\" />
+      <Folder Include="Services\AuthenticationService\" />
+      <Folder Include="Services\RegistrationService\" />
+      <Folder Include="Services\TokenService\" />
     </ItemGroup>
 
 </Project>

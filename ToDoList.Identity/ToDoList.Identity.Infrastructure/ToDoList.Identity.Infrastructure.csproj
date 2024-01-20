@@ -18,7 +18,15 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ToDoList.Identity.Domain\ToDoList.Identity.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
       <Folder Include="Configurations\" />
+      <Folder Include="DataStore\" />
+      <Folder Include="Identity\" />
+      <Folder Include="Implementations\" />
+      <Folder Include="Repositories\" />
     </ItemGroup>
 
 </Project>

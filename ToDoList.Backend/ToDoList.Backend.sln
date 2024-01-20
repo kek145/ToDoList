@@ -10,13 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0D89BD6B-BD7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3E059546-6CF3-4A8B-AB13-F35F372941E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Application", "ToDoList.Application\ToDoList.Application.csproj", "{A0549E16-FA69-4195-911E-7906E4EF0057}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Backend.Application", "ToDoList.Backend.Application\ToDoList.Backend.Application.csproj", "{A0549E16-FA69-4195-911E-7906E4EF0057}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Domain", "ToDoList.Domain\ToDoList.Domain.csproj", "{5F35833C-9008-46F6-B7C8-65F4A39F0832}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Backend.Domain", "ToDoList.Backend.Domain\ToDoList.Backend.Domain.csproj", "{5F35833C-9008-46F6-B7C8-65F4A39F0832}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Api", "ToDoList.Api\ToDoList.Api.csproj", "{78867BA6-21A5-4EA8-AD05-ACD9727B5A3E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Backend.Api", "ToDoList.Backend.Api\ToDoList.Backend.Api.csproj", "{78867BA6-21A5-4EA8-AD05-ACD9727B5A3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Infrastructure", "ToDoList.Infrastructure\ToDoList.Infrastructure.csproj", "{29C7C36E-30A8-49E4-A861-01202658755B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Backend.Infrastructure", "ToDoList.Backend.Infrastructure\ToDoList.Backend.Infrastructure.csproj", "{29C7C36E-30A8-49E4-A861-01202658755B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

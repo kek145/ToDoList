@@ -7,14 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="MappingProfiles\" />
-      <Folder Include="Request\" />
-      <Folder Include="Response\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="AutoMapper" Version="12.0.1" />
       <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
     </ItemGroup>
 
 </Project>

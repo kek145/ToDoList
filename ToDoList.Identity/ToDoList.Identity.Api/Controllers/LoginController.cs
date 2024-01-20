@@ -6,11 +6,12 @@ namespace ToDoList.Identity.Api.Controllers;
 
 [ApiController]
 [Route("api/identity")]
-public class RegistrationController : ControllerBase
+public class LoginController : ControllerBase
 {
+
     [HttpPost]
-    [Route("registration")]
-    public async Task<IActionResult> RegistrationUser([FromBody] RegistrationRequest request)
+    [Route("login")]
+    public async Task<IActionResult> LoginUser([FromBody] LoginRequest request)
     {
         return Ok();
     }
