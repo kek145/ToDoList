@@ -22,8 +22,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Configurations\" />
-      <Folder Include="DataStore\" />
       <Folder Include="Identity\" />
       <Folder Include="Implementations\" />
       <Folder Include="Repositories\" />

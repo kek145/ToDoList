@@ -12,11 +12,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d9dd063-d732-479c-9fcd-bd44477fd0d4" name="Changes" comment="UPDATE | Added controllers and endpoints">
-      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Responses/AuthenticationResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Responses/UserResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/Interfaces/IBaseResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Interfaces/IBaseResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/Responses/BaseResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Responses/BaseResponse.cs" afterDir="false" />
+    <list default="true" id="1d9dd063-d732-479c-9fcd-bd44477fd0d4" name="Changes" comment="UPDATE | Added exceptions">
+      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Application/Validators/LoginRequestValidator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Identity.Application/Validators/RegistrationRequestValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ToDoList.Identity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ToDoList.Identity/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Application/ToDoList.Identity.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Application/ToDoList.Identity.Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Identity.Domain/Requests/RegistrationRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Identity.Domain/Requests/RegistrationRequest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +177,7 @@
       <workItem from="1705234149772" duration="1359000" />
       <workItem from="1705345467404" duration="4394000" />
       <workItem from="1705743627349" duration="260000" />
-      <workItem from="1705743909592" duration="5562000" />
+      <workItem from="1705743909592" duration="6243000" />
     </task>
     <task id="LOCAL-00001" summary="UPDATE | Added identity service">
       <option name="closed" value="true" />
@@ -210,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705752146525</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="UPDATE | Added exceptions">
+      <option name="closed" value="true" />
+      <created>1705752723605</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705752723605</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +232,7 @@
     <MESSAGE value="UPDATE | Added layers in identity microservice" />
     <MESSAGE value="UPDATE | Added models in domain" />
     <MESSAGE value="UPDATE | Added controllers and endpoints" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE | Added controllers and endpoints" />
+    <MESSAGE value="UPDATE | Added exceptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE | Added exceptions" />
   </component>
 </project>
