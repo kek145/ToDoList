@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using ToDoList.Identity.Application;
 using ToDoList.Identity.Infrastructure;
+using ToDoList.Identity.Api.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,5 +22,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapControllers();
+app.UseGlobalErrorHandling();
 
 app.Run();

@@ -1,7 +1,9 @@
-﻿using MediatR;
+﻿using System;
+using MediatR;
 using FluentValidation;
 using ToDoList.Domain.Enum;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using ToDoList.Domain.Result;
 using ToDoList.Domain.Helpers;
 using ToDoList.Domain.Request;
@@ -22,39 +24,47 @@ public class NoteService : INoteService
 {
     private readonly IMediator _mediator;
     private readonly IValidator<NoteRequest> _validator;
+    private readonly IHttpContextAccessor _contextAccessor;
 
-    public NoteService(IMediator mediator, IValidator<NoteRequest> validator)
+    public NoteService(IMediator mediator, IValidator<NoteRequest> validator, IHttpContextAccessor contextAccessor)
     {
         _mediator = mediator;
         _validator = validator;
+        _contextAccessor = contextAccessor;
     }
 
     public async Task DeleteNoteAsync(int noteId)
     {
+        var userId = Convert.ToInt32(_contextAccessor.HttpContext.User.FindFirst("UserId")?.Value);
+        
         if (noteId <= 0)
             throw new BadRequestException("Id cannot be less than or equal to zero!");
 
-        var command = new DeleteNoteCommand(1, noteId);
+        var command = new DeleteNoteCommand(userId, noteId);
 
         await _mediator.Send(command);
     }
 
     public async Task CompleteNoteAsync(int noteId)
     {
+        var userId = Convert.ToInt32(_contextAccessor.HttpContext.User.FindFirst("UserId")?.Value);
+        
         if (noteId <= 0)
             throw new BadRequestException("Id cannot be less than or equal to zero!");
 
-        var command = new CompleteNoteCommand(noteId, 1);
+        var command = new CompleteNoteCommand(noteId, userId);
 
         await _mediator.Send(command);
     }
 
     public async Task<NoteResponse> GetNoteByIdAsync(int noteId)
     {
+        var userId = Convert.ToInt32(_contextAccessor.HttpContext.User.FindFirst("UserId")?.Value);
+        
         if (noteId <= 0)
             throw new BadRequestException("Id cannot be less than or equal to zero!");
 
-        var query = new GetNoteByIdQuery(noteId, 1);
+        var query = new GetNoteByIdQuery(noteId, userId);
 
         var result = await _mediator.Send(query);
 
@@ -63,6 +73,8 @@ public class NoteService : INoteService
 
     public async Task UpdateNoteAsync(NoteRequest request, int noteId)
     {
+        var userId = Convert.ToInt32(_contextAccessor.HttpContext.User.FindFirst("UserId")?.Value);
+        
         if (noteId <= 0)
             throw new BadRequestException("Id cannot be less than or equal to zero!");
 
@@ -71,19 +83,21 @@ public class NoteService : INoteService
         if (!validator.IsValid)
             throw new BadRequestException($"Validation error: {validator}");
 
-        var command = new UpdateNoteCommand(1, noteId, request);
+        var command = new UpdateNoteCommand(userId, noteId, request);
 
         await _mediator.Send(command);
     }
 
     public async Task<NoteResponse> CreateNoteAsync(NoteRequest request)
     {
+        var userId = Convert.ToInt32(_contextAccessor.HttpContext.User.FindFirst("UserId")?.Value);
+        
         var validator = await _validator.ValidateAsync(request);
 
         if (!validator.IsValid)
             throw new BadRequestException($"Validation error: {validator}");
 
-        var command = new CreateNoteCommand(request, 1);
+        var command = new CreateNoteCommand(request, userId);
 
         var result = await _mediator.Send(command);
 
@@ -92,7 +106,9 @@ public class NoteService : INoteService
 
     public async Task<PagedResult<NoteResponse>> GetAllNotesAsync(QueryParameters queryParameters)
     {
-        var query = new GetAllNotesQuery(queryParameters, 1);
+        var userId = Convert.ToInt32(_contextAccessor.HttpContext.User.FindFirst("UserId")?.Value);
+        
+        var query = new GetAllNotesQuery(queryParameters, userId);
 
         var result = await _mediator.Send(query);
 
@@ -101,7 +117,9 @@ public class NoteService : INoteService
 
     public async Task<PagedResult<NoteResponse>> GetAllFailedNotesAsync(QueryParameters queryParameters)
     {
-        var query = new GetAllFailedNotesQuery(queryParameters, 1);
+        var userId = Convert.ToInt32(_contextAccessor.HttpContext.User.FindFirst("UserId")?.Value);
+        
+        var query = new GetAllFailedNotesQuery(queryParameters, userId);
 
         var result = await _mediator.Send(query);
 
@@ -110,7 +128,9 @@ public class NoteService : INoteService
 
     public async Task<PagedResult<NoteResponse>> GetAllCompletedNotesAsync(QueryParameters queryParameters)
     {
-        var query = new GetAllCompletedNotesQuery(queryParameters, 1);
+        var userId = Convert.ToInt32(_contextAccessor.HttpContext.User.FindFirst("UserId")?.Value);
+        
+        var query = new GetAllCompletedNotesQuery(queryParameters, userId);
 
         var result = await _mediator.Send(query);
 
@@ -119,11 +139,13 @@ public class NoteService : INoteService
 
     public async Task<PagedResult<NoteResponse>> GetAllByPriorityNotesAsync(QueryParameters queryParameters, Priority priority)
     {
+        var userId = Convert.ToInt32(_contextAccessor.HttpContext.User.FindFirst("UserId")?.Value);
+        
         var query = priority switch
         {
-            Priority.Easy => new GetAllByPriorityNotesQuery(queryParameters, PrioritiesHelper.Easy, 1),
-            Priority.Medium => new GetAllByPriorityNotesQuery(queryParameters, PrioritiesHelper.Medium, 1),
-            Priority.Hard => new GetAllByPriorityNotesQuery(queryParameters, PrioritiesHelper.Hard, 1),
+            Priority.Easy => new GetAllByPriorityNotesQuery(queryParameters, PrioritiesHelper.Easy, userId),
+            Priority.Medium => new GetAllByPriorityNotesQuery(queryParameters, PrioritiesHelper.Medium, userId),
+            Priority.Hard => new GetAllByPriorityNotesQuery(queryParameters, PrioritiesHelper.Hard, userId),
             _ => throw new BadRequestException("There is no such priority!")
         };
 

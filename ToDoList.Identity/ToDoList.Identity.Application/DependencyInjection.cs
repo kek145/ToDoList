@@ -1,7 +1,9 @@
 ﻿using System;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
+using ToDoList.Identity.Application.Services.AuthenticationService;
 using ToDoList.Identity.Application.Services.RegistrationService;
+using ToDoList.Identity.Application.Services.TokenService;
 
 namespace ToDoList.Identity.Application;
 
@@ -11,7 +13,9 @@ public static class DependencyInjection
     {
         var assembly = typeof(DependencyInjection).Assembly;
 
+        serviceCollection.AddTransient<ITokenService, TokenService>();
         serviceCollection.AddTransient<IRegistrationService, RegistrationService>();
+        serviceCollection.AddTransient<IAuthenticationService, AuthenticationService>();
 
         serviceCollection.AddValidatorsFromAssembly(assembly);
         serviceCollection.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
