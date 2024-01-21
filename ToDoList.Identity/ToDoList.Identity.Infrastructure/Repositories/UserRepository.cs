@@ -8,6 +8,7 @@ using AutoMapper.QueryableExtensions;
 using ToDoList.Identity.Domain.DbSet;
 using ToDoList.Identity.Domain.Interfaces;
 using ToDoList.Identity.Infrastructure.DataStore;
+using UserDto = ToDoList.Identity.Domain.Dto.UserDto;
 
 namespace ToDoList.Identity.Infrastructure.Repositories;
 
@@ -32,14 +33,17 @@ public class UserRepository : IUserRepository
     public async Task<UserDto> AddUserAsync(UserDto userDto, CancellationToken cancellationToken)
     {
         if (userDto is null)
-            throw new ArgumentNullException(nameof(userDto),"User is null!");
+            throw new ArgumentNullException(nameof(userDto), "User is null!");
 
         var userDtoToUser = _mapper.Map<User>(userDto);
-        
-        var newUser = await _context.Users.AddAsync(userDtoToUser, cancellationToken);
 
-        var result = _mapper.Map<UserDto>(newUser);
+        var user = await _context.Users.AddAsync(userDtoToUser, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
+
+        var newUser = user.Entity;
         
+        var result = _mapper.Map<UserDto>(newUser);
+    
         return result;
     }
 }

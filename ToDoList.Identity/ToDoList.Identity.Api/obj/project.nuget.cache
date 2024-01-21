@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qj++zQ9yTyPY8zanXY9ShlYo+zODf040pZvu1wt8sx99EZsZnn15gEkTbjwBUEmCJP4TTzIpda8b+Ww8dTI1Gg==",
+  "dgSpecHash": "DQQjQMrIZq47kdCWOCATWmF288nMJds4zGbAG5bvm/4i4n5QGdlyYItjWbn0moBezeT8vHGSgf60qeht9dhSOw==",
   "success": true,
   "projectFilePath": "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Api\\ToDoList.Identity.Api.csproj",
   "expectedPackageFiles": [

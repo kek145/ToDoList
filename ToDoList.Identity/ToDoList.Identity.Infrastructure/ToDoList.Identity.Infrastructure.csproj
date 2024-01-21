@@ -21,9 +21,4 @@
       <ProjectReference Include="..\ToDoList.Identity.Domain\ToDoList.Identity.Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Identity\" />
-      <Folder Include="Implementations\" />
-    </ItemGroup>
-
 </Project>

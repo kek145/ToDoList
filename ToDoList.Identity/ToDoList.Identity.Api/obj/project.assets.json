@@ -3301,7 +3301,8 @@
       "outputPath": "D:\\GitHub\\FullStack\\ToDoList\\ToDoList.Identity\\ToDoList.Identity.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\urabo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\urabo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
