@@ -2,6 +2,7 @@
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using ToDoList.Application.Services.NoteService;
+using ToDoList.Application.Services.RegistrationService;
 
 namespace ToDoList.Application;
 
@@ -14,6 +15,7 @@ public static class DependencyInjection
         serviceCollection.AddValidatorsFromAssembly(assembly);
         
         serviceCollection.AddTransient<INoteService, NoteService>();
+        serviceCollection.AddTransient<IRegistrationService, RegistrationService>();
         
         serviceCollection.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         
