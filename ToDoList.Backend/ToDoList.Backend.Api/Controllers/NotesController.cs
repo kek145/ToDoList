@@ -31,7 +31,7 @@ public class NotesController : ControllerBase
     public async Task<IActionResult> CreateNote([FromBody] NoteRequest request)
     {
         var response = await _noteService.CreateNoteAsync(request);
-        return CreatedAtAction(null, null, response);
+        return StatusCode((int)response.StatusCode, response);
     }
 
     [HttpGet]
@@ -41,7 +41,7 @@ public class NotesController : ControllerBase
     public async Task<IActionResult> GetAllNotes([FromQuery] QueryParameters queryParameters)
     {
         var response = await _noteService.GetAllNotesAsync(queryParameters);
-        return Ok(response);
+        return StatusCode((int)response.StatusCode, response);
     }
 
     [HttpGet]
@@ -52,7 +52,7 @@ public class NotesController : ControllerBase
     public async Task<IActionResult> GetAllFailedNotes([FromQuery] QueryParameters queryParameters)
     {
         var response = await _noteService.GetAllFailedNotesAsync(queryParameters);
-        return Ok(response);
+        return StatusCode((int)response.StatusCode, response);
     }
     
     [HttpGet]
@@ -65,7 +65,7 @@ public class NotesController : ControllerBase
     public async Task<IActionResult> GetNoteById([FromRoute] int noteId)
     {
         var response = await _noteService.GetNoteByIdAsync(noteId);
-        return Ok(response);
+        return StatusCode((int)response.StatusCode, response);
     }
     
     [HttpGet]
@@ -76,7 +76,7 @@ public class NotesController : ControllerBase
     public async Task<IActionResult> GetAllCompletedNotes([FromQuery] QueryParameters queryParameters)
     {
         var response = await _noteService.GetAllCompletedNotesAsync(queryParameters);
-        return Ok(response);
+        return StatusCode((int)response.StatusCode, response);
     }
 
     [HttpGet]
@@ -88,7 +88,7 @@ public class NotesController : ControllerBase
     public async Task<IActionResult> GetAllNotesByPriority([FromQuery] QueryParameters queryParameters, [FromRoute] Priority priority)
     {
         var response = await _noteService.GetAllByPriorityNotesAsync(queryParameters, priority);
-        return Ok(response);
+        return StatusCode((int)response.StatusCode, response);
     }
 
     [HttpPatch]
