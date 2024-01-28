@@ -466,6 +466,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # Rider Idea
+*.idea/
 .idea/
 bin/
 obj/
