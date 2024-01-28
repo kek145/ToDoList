@@ -10,23 +10,71 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38f3ba5b-9f07-4f99-afc7-1f5f8fb2357a" name="Changes" comment="UPDATE | Added Dtos, configurations and mappings">
-      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/AuthenticationService/AuthenticationService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/AuthenticationService/IAuthenticationService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/TokenService/ITokenService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/TokenService/TokenService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Validators/User/LoginRequestValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Validators/User/RegistrationRequestValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Domain/Request/LoginRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Domain/Result/AuthenticationResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/RefreshTokens/CreateTokenCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/RefreshTokens/CreateTokenCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Users/Create/CreateUserCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Users/Create/CreateUserCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Helpers/MessageResponseHelper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Users/GetUserByEmailQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Users/GetUserByEmailQueryHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Domain/Abstractions/IBaseEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Domain/Abstractions/IBaseResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Domain/Abstractions/IEntityId.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Domain/Repositories/IRefreshTokenRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Domain/Repositories/IUserRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/Repositories/RefreshTokenRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/Repositories/UserRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ToDoList.Backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ToDoList.Backend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Api/Controllers/IdentityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Api/Controllers/IdentityController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Api/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Api/Controllers/NotesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Api/Controllers/NotesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Api/Middlewares/GlobalErrorHandlerMiddleware.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Api/Middlewares/GlobalErrorHandlerMiddleware.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Notes/Create/CreateNoteCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Notes/Create/CreateNoteCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Notes/Create/CreateNoteCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Notes/Create/CreateNoteCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Notes/Delete/DeleteNoteCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Notes/Delete/DeleteNoteCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Notes/Delete/DeleteTaskCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Notes/Delete/DeleteTaskCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Notes/Patch/CompleteNoteCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Notes/Patch/CompleteNoteCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Notes/Patch/CompleteNoteCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Notes/Patch/CompleteNoteCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Notes/Update/UpdateNoteCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Notes/Update/UpdateNoteCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Notes/Update/UpdateNoteCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Commands/Notes/Update/UpdateNoteCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/MappingProfiles/DomainToResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/MappingProfiles/DomainToResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/MappingProfiles/RequestToDomain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/MappingProfiles/RequestToDomain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetAll/GetAllNotesQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetAll/GetAllNotesQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetAll/GetAllNotesQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetAll/GetAllNotesQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetAllByPriority/GetAllByPriorityNotesQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetAllByPriority/GetAllByPriorityNotesQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetAllByPriority/GetAllByPriorityNotesQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetAllByPriority/GetAllByPriorityNotesQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetAllCompleted/GetAllCompletedNotesQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetAllCompleted/GetAllCompletedNotesQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetAllCompleted/GetAllCompletedNotesQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetAllCompleted/GetAllCompletedNotesQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetAllFailed/GetAllFailedNotesQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetAllFailed/GetAllFailedNotesQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetAllFailed/GetAllFailedNotesQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetAllFailed/GetAllFailedNotesQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetById/GetNoteByIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetById/GetNoteByIdQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetById/GetNoteByIdQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Queries/Notes/GetById/GetNoteByIdQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/AuthenticationService/AuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/AuthenticationService/AuthenticationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/AuthenticationService/IAuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/AuthenticationService/IAuthenticationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/NoteService/INoteService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/NoteService/INoteService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/NoteService/NoteService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/NoteService/NoteService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/RegistrationService/IRegistrationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/RegistrationService/IRegistrationService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/RegistrationService/RegistrationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/RegistrationService/RegistrationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/Migrations/20240121084844_Initial.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/Migrations/20240121084844_Initial.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/TokenService/ITokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/TokenService/ITokenService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/TokenService/TokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/Services/TokenService/TokenService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Application/ToDoList.Backend.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Application/ToDoList.Backend.Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Domain/DbSet/Note.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Domain/DbSet/Note.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Domain/DbSet/RefreshToken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Domain/DbSet/RefreshToken.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Domain/DbSet/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Domain/DbSet/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Domain/Dto/NoteDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Domain/Dto/NoteDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Domain/Dto/RefreshTokenDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Domain/Dto/RefreshTokenDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Domain/Dto/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Domain/Dto/UserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Domain/Implementations/BaseResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Domain/Implementations/BaseResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Domain/Interfaces/IBaseEntity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Domain/Interfaces/IBaseResponse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Domain/Interfaces/IEntityId.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Domain/Interfaces/INoteRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Domain/Repositories/INoteRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Domain/Interfaces/IUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Domain/Interfaces/IUnitOfWork.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/Configurations/UserConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/Configurations/UserConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/DataStore/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/DataStore/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/Implementations/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/Implementations/UnitOfWork.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/Repositories/NoteRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/Repositories/NoteRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/ToDoList.Backend.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.Backend.Infrastructure/ToDoList.Backend.Infrastructure.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,11 +85,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://D:/GitHub/FullStack/ToDoList/ToDoList.Backend/ToDoList.Backend.Infrastructure/DataStore/ApplicationDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/8e941eb42f819adb116b881195158b3887a70a1c/src/Mvc/Mvc.Core/src/Infrastructure/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/bf5e279d9239bfef5bb1b8d6212f1b971c434606/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/AsyncTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/bf5e279d9239bfef5bb1b8d6212f1b971c434606/src/libraries/System.Private.CoreLib/src/System/Threading/ExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/bf5e279d9239bfef5bb1b8d6212f1b971c434606/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Task.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/bf5e279d9239bfef5bb1b8d6212f1b971c434606/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskContinuation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/78c860a4a0696d27b2942ef6996b8ceec84aec6b56a4221bd8ce81cc42954d/RequestHandlerWrapper.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <option name="selectedTabId" value="Toolset" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -148,6 +201,10 @@
       <workItem from="1706204015946" duration="687000" />
       <workItem from="1706211414637" duration="1351000" />
       <workItem from="1706290013618" duration="2406000" />
+      <workItem from="1706300008146" duration="3031000" />
+      <workItem from="1706340336509" duration="5089000" />
+      <workItem from="1706345744780" duration="2795000" />
+      <workItem from="1706428831293" duration="9112000" />
     </task>
     <task id="LOCAL-00001" summary="UPDATE | Added project layers">
       <option name="closed" value="true" />
@@ -249,5 +306,13 @@
     <MESSAGE value="UPDATE | Added base response" />
     <MESSAGE value="UPDATE | Added Dtos, configurations and mappings" />
     <option name="LAST_COMMIT_MESSAGE" value="UPDATE | Added Dtos, configurations and mappings" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#ToDoList.Domain.Dto.NoteDto" memberName="Id" />
+        <PinnedItemInfo parentTag="Type#ToDoList.Domain.Dto.UserDto" memberName="Id" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

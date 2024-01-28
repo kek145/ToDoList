@@ -19,6 +19,14 @@ public class DomainToResponse : Profile
                 opt => opt.MapFrom(src => src.Status))
             .ForMember(dest => dest.Deadline,
                 opt => opt.MapFrom(src => src.Deadline));
+
+        CreateMap<UserDto, UserResponse>()
+            .ForMember(dest => dest.UserId,
+                opt => opt.MapFrom(src => src.Id))
+            .ForMember(dest => dest.FullName,
+                opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"))
+            .ForMember(dest => dest.Email,
+                opt => opt.MapFrom(src => src.Email));
         
         CreateMap<PagedResult<NoteDto>, PagedResult<NoteResponse>>()
             .ForMember(dest => dest.Items, opt => opt.MapFrom(src => src.Items));

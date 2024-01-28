@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Text;
+using AutoMapper;
 using ToDoList.Domain.Dto;
 using ToDoList.Domain.Request;
 
@@ -17,5 +18,17 @@ public class RequestToDomain : Profile
                 opt => opt.MapFrom(src => src.Priority))
             .ForMember(dest => dest.Deadline,
                 opt => opt.MapFrom(src => src.Deadline));
+
+        CreateMap<RegistrationRequest, UserDto>()
+            .ForMember(dest => dest.FirstName,
+                opt => opt.MapFrom(src => src.FirstName))
+            .ForMember(dest => dest.LastName,
+                opt => opt.MapFrom(src => src.LastName))
+            .ForMember(dest => dest.Email,
+                opt => opt.MapFrom(src => src.Email))
+            .ForMember(dest => dest.PasswordHash,
+                opt => opt.MapFrom(src => Encoding.UTF8.GetBytes(src.Password)))
+            .ForMember(dest => dest.PasswordSalt,
+                opt => opt.MapFrom(src => Encoding.UTF8.GetBytes(src.Password)));
     }
 }

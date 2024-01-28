@@ -1,26 +1,45 @@
-﻿using MediatR;
+﻿using System.Net;
+using MediatR;
 using AutoMapper;
 using System.Threading.Tasks;
+using FluentValidation;
+using ToDoList.Application.Commands.Users.Create;
+using ToDoList.Application.Exceptions;
 using ToDoList.Domain.Result;
 using ToDoList.Domain.Request;
-using ToDoList.Domain.Interfaces;
+using ToDoList.Domain.Abstractions;
+using ToDoList.Domain.Implementations;
 
 namespace ToDoList.Application.Services.RegistrationService;
 
 public class RegistrationService : IRegistrationService
 {
-    private readonly IMapper _mapper;
     private readonly IMediator _mediator;
+    private readonly IValidator<RegistrationRequest> _validator;
 
-    public RegistrationService(IMapper mapper, IMediator mediator)
+    public RegistrationService(IMediator mediator, IValidator<RegistrationRequest> validator)
     {
-        _mapper = mapper;
         _mediator = mediator;
+        _validator = validator;
     }
 
 
-    public Task<IBaseResponse<UserResponse>> RegistrationAsync(RegistrationRequest request)
+    public async Task<IBaseResponse<UserResponse>> RegistrationAsync(RegistrationRequest request)
     {
-        throw new System.NotImplementedException();
+        var validation = await _validator.ValidateAsync(request);
+
+        if (!validation.IsValid)
+            throw new BadRequestException($"Validation error: {validation}!");
+
+        var command = new CreateUserCommand(request);
+
+        var data = await _mediator.Send(command);
+
+        return new BaseResponse<UserResponse>
+        {
+            StatusCode = HttpStatusCode.Created,
+            Message = "Registration completed successfully!",
+            Data = data
+        };
     }
 }

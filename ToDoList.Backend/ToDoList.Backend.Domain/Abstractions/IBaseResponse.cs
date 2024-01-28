@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 
-namespace ToDoList.Domain.Interfaces;
+namespace ToDoList.Domain.Abstractions;
 
 public interface IBaseResponse<T>
 {

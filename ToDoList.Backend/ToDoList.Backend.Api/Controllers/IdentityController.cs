@@ -23,13 +23,15 @@ public class IdentityController : ControllerBase
     [Route("registration")]
     public async Task<IActionResult> Registration([FromBody] RegistrationRequest request)
     {
-        return Ok();
+        var response = await _registrationService.RegistrationAsync(request);
+        return StatusCode((int)response.StatusCode, response);
     }
 
     [HttpPost]
     [Route("login")]
     public async Task<IActionResult> Login(LoginRequest request)
     {
-        return Ok();
+        var response = await _authenticationService.LoginAsync(request);
+        return Ok(response);
     }
 }

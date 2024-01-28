@@ -1,28 +1,24 @@
 ﻿using MediatR;
-using AutoMapper;
 using System.Threading;
+using ToDoList.Domain.Dto;
 using System.Threading.Tasks;
-using ToDoList.Domain.Result;
 using ToDoList.Domain.Interfaces;
+using ToDoList.Domain.Result;
+using ToDoList.Domain.Repositories;
 
 namespace ToDoList.Application.Queries.Notes.GetAllCompleted;
 
-public class GetAllCompletedNotesQueryHandler : IRequestHandler<GetAllCompletedNotesQuery, PagedResult<NoteResponse>>
+public class GetAllCompletedNotesQueryHandler : IRequestHandler<GetAllCompletedNotesQuery, PagedResult<NoteDto>>
 {
-    private readonly IMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
 
-    public GetAllCompletedNotesQueryHandler(IMapper mapper, IUnitOfWork unitOfWork)
+    public GetAllCompletedNotesQueryHandler(IUnitOfWork unitOfWork)
     {
-        _mapper = mapper;
         _unitOfWork = unitOfWork;
     }
-    public async Task<PagedResult<NoteResponse>> Handle(GetAllCompletedNotesQuery request, CancellationToken cancellationToken)
+    public async Task<PagedResult<NoteDto>> Handle(GetAllCompletedNotesQuery request, CancellationToken cancellationToken)
     {
         var notes = await _unitOfWork.Notes.GetAllCompletedNotesAsync(request.QueryParameters, request.UserId, cancellationToken);
-
-        var result = _mapper.Map<PagedResult<NoteResponse>>(notes);
-
-        return result;
+        return notes;
     }
 }

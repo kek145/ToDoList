@@ -27,5 +27,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(x => x.PasswordSalt)
             .IsRequired()
             .HasMaxLength(1000);
+
+        builder.HasIndex(x => x.Email)
+            .IsUnique();
     }
 }

@@ -1,12 +1,12 @@
 ﻿using System.Net;
 using ToDoList.Domain.Enum;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using ToDoList.Domain.Request;
 using ToDoList.Domain.Helpers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using ToDoList.Application.Services.NoteService;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace ToDoList.Api.Controllers;
 
@@ -56,13 +56,13 @@ public class NotesController : ControllerBase
     }
     
     [HttpGet]
-    [Route("{noteId:int}")]
+    [Route("{noteId:long}")]
     [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> GetNoteById([FromRoute] int noteId)
+    public async Task<IActionResult> GetNoteById([FromRoute] long noteId)
     {
         var response = await _noteService.GetNoteByIdAsync(noteId);
         return StatusCode((int)response.StatusCode, response);
@@ -105,25 +105,25 @@ public class NotesController : ControllerBase
     }
 
     [HttpPut]
-    [Route("{noteId:int}/update")]
+    [Route("{noteId:long}/update")]
     [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.NoContent)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-    public async Task<IActionResult> UpdateNote([FromBody] NoteRequest request, [FromRoute] int noteId)
+    public async Task<IActionResult> UpdateNote([FromBody] NoteRequest request, [FromRoute] long noteId)
     {
         await _noteService.UpdateNoteAsync(request, noteId);
         return NoContent();
     }
     
     [HttpDelete]
-    [Route("{noteId:int}/delete")]
+    [Route("{noteId:long}/delete")]
     [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.NoContent)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-    public async Task<IActionResult> DeleteTask(int noteId)
+    public async Task<IActionResult> DeleteTask(long noteId)
     {
         await _noteService.DeleteNoteAsync(noteId);
         return NoContent();

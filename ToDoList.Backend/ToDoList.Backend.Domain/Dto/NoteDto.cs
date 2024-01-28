@@ -14,5 +14,5 @@ public class NoteDto
     public DateTime CreatedAt { get; init; }
     public DateTime? UpdatedAt { get; set; }
     public int UserId { get; set; }
-    public User User { get; init; } = new();
+    public UserDto? User { get; init; }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Net;
 using MediatR;
+using System.Net;
+using AutoMapper;
 using FluentValidation;
 using ToDoList.Domain.Enum;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ using ToDoList.Domain.Result;
 using ToDoList.Domain.Helpers;
 using ToDoList.Domain.Request;
 using Microsoft.AspNetCore.Http;
-using ToDoList.Domain.Interfaces;
+using ToDoList.Domain.Abstractions;
 using ToDoList.Application.Exceptions;
 using ToDoList.Domain.Implementations;
 using ToDoList.Application.Commands.Notes.Patch;
@@ -16,6 +17,7 @@ using ToDoList.Application.Queries.Notes.GetAll;
 using ToDoList.Application.Commands.Notes.Delete;
 using ToDoList.Application.Commands.Notes.Create;
 using ToDoList.Application.Commands.Notes.Update;
+using ToDoList.Application.Helpers;
 using ToDoList.Application.Queries.Notes.GetById;
 using ToDoList.Application.Queries.Notes.GetAllFailed;
 using ToDoList.Application.Queries.Notes.GetAllCompleted;
@@ -25,18 +27,20 @@ namespace ToDoList.Application.Services.NoteService;
 
 public class NoteService : INoteService
 {
+    private readonly IMapper _mapper;
     private readonly IMediator _mediator;
     private readonly IValidator<NoteRequest> _validator;
     private readonly IHttpContextAccessor _contextAccessor;
 
-    public NoteService(IMediator mediator, IValidator<NoteRequest> validator, IHttpContextAccessor contextAccessor)
+    public NoteService(IMapper mapper, IMediator mediator, IValidator<NoteRequest> validator, IHttpContextAccessor contextAccessor)
     {
+        _mapper = mapper;
         _mediator = mediator;
         _validator = validator;
         _contextAccessor = contextAccessor;
     }
 
-    public async Task DeleteNoteAsync(int noteId)
+    public async Task<HttpStatusCode> DeleteNoteAsync(long noteId)
     {
         var userId = Convert.ToInt32(_contextAccessor.HttpContext.User.FindFirst("UserId")?.Value);
         
@@ -45,10 +49,12 @@ public class NoteService : INoteService
 
         var command = new DeleteNoteCommand(userId, noteId);
 
-        await _mediator.Send(command);
+        var result = await _mediator.Send(command);
+
+        return result > 0 ? HttpStatusCode.NoContent : HttpStatusCode.NotFound;
     }
 
-    public async Task CompleteNoteAsync(int noteId)
+    public async Task<HttpStatusCode> CompleteNoteAsync(long noteId)
     {
         var userId = Convert.ToInt32(_contextAccessor.HttpContext.User.FindFirst("UserId")?.Value);
         
@@ -57,10 +63,12 @@ public class NoteService : INoteService
 
         var command = new CompleteNoteCommand(noteId, userId);
 
-        await _mediator.Send(command);
+        var result = await _mediator.Send(command);
+        
+        return result > 0 ? HttpStatusCode.NoContent : HttpStatusCode.NotFound;
     }
 
-    public async Task<IBaseResponse<NoteResponse>> GetNoteByIdAsync(int noteId)
+    public async Task<IBaseResponse<NoteResponse>> GetNoteByIdAsync(long noteId)
     {
         var userId = Convert.ToInt32(_contextAccessor.HttpContext.User.FindFirst("UserId")?.Value);
         
@@ -69,17 +77,19 @@ public class NoteService : INoteService
 
         var query = new GetNoteByIdQuery(noteId, userId);
 
-        var result = await _mediator.Send(query);
+        var note = await _mediator.Send(query);
+
+        var data = _mapper.Map<NoteResponse>(note);
 
         return new BaseResponse<NoteResponse>
         {
             StatusCode = HttpStatusCode.OK,
-            Message = "Success",
-            Data = result
+            Message = MessageResponseHelper.SUCCESS,
+            Data = data
         };
     }
 
-    public async Task UpdateNoteAsync(NoteRequest request, int noteId)
+    public async Task<HttpStatusCode> UpdateNoteAsync(NoteRequest request, long noteId)
     {
         var userId = Convert.ToInt32(_contextAccessor.HttpContext.User.FindFirst("UserId")?.Value);
         
@@ -93,7 +103,9 @@ public class NoteService : INoteService
 
         var command = new UpdateNoteCommand(userId, noteId, request);
 
-        await _mediator.Send(command);
+        var result = await _mediator.Send(command);
+        
+        return result > 0 ? HttpStatusCode.NoContent : HttpStatusCode.NotFound;
     }
 
     public async Task<IBaseResponse<NoteResponse>> CreateNoteAsync(NoteRequest request)
@@ -107,13 +119,15 @@ public class NoteService : INoteService
 
         var command = new CreateNoteCommand(request, userId);
 
-        var result = await _mediator.Send(command);
+        var note = await _mediator.Send(command);
+
+        var data = _mapper.Map<NoteResponse>(note);
 
         return new BaseResponse<NoteResponse>
         {
             StatusCode = HttpStatusCode.Created,
-            Message = "Success",
-            Data = result
+            Message = MessageResponseHelper.SUCCESS,
+            Data = data
         };
     }
 
@@ -123,13 +137,15 @@ public class NoteService : INoteService
         
         var query = new GetAllNotesQuery(queryParameters, userId);
 
-        var result = await _mediator.Send(query);
+        var notes = await _mediator.Send(query);
+
+        var data = _mapper.Map<PagedResult<NoteResponse>>(notes);
 
         return new BaseResponse<PagedResult<NoteResponse>>
         {
             StatusCode = HttpStatusCode.OK,
-            Message = "Success",
-            Data = result
+            Message = MessageResponseHelper.SUCCESS,
+            Data = data
         };
     }
 
@@ -139,13 +155,15 @@ public class NoteService : INoteService
         
         var query = new GetAllFailedNotesQuery(queryParameters, userId);
 
-        var result = await _mediator.Send(query);
+        var notes = await _mediator.Send(query);
+
+        var data = _mapper.Map<PagedResult<NoteResponse>>(notes);
 
         return new BaseResponse<PagedResult<NoteResponse>>
         {
             StatusCode = HttpStatusCode.OK,
-            Message = "Success",
-            Data = result
+            Message = MessageResponseHelper.SUCCESS,
+            Data = data
         };
     }
 
@@ -155,13 +173,15 @@ public class NoteService : INoteService
         
         var query = new GetAllCompletedNotesQuery(queryParameters, userId);
 
-        var result = await _mediator.Send(query);
+        var notes = await _mediator.Send(query);
+
+        var data = _mapper.Map<PagedResult<NoteResponse>>(notes);
 
         return new BaseResponse<PagedResult<NoteResponse>>
         {
             StatusCode = HttpStatusCode.OK,
-            Message = "Success",
-            Data = result
+            Message = MessageResponseHelper.SUCCESS,
+            Data = data
         };
     }
 
@@ -177,13 +197,15 @@ public class NoteService : INoteService
             _ => throw new BadRequestException("There is no such priority!")
         };
 
-        var result = await _mediator.Send(query);
+        var notes = await _mediator.Send(query);
+
+        var data = _mapper.Map<PagedResult<NoteResponse>>(notes);
 
         return new BaseResponse<PagedResult<NoteResponse>>
         {
             StatusCode = HttpStatusCode.OK,
-            Message = "Success",
-            Data = result
+            Message = MessageResponseHelper.SUCCESS,
+            Data = data
         };
     }
 }

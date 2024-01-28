@@ -3,12 +3,11 @@ using AutoMapper;
 using System.Linq;
 using System.Threading;
 using ToDoList.Domain.Dto;
-
 using ToDoList.Domain.DbSet;
 using ToDoList.Domain.Result;
 using System.Threading.Tasks;
 using ToDoList.Domain.Helpers;
-using ToDoList.Domain.Interfaces;
+using ToDoList.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper.QueryableExtensions;
 using ToDoList.Infrastructure.DataStore;
@@ -32,16 +31,21 @@ public class NoteRepository : INoteRepository
             .AsQueryable().ProjectTo<NoteDto>(_mapper.ConfigurationProvider);
     }
 
-    public async Task DeleteNoteAsync(int noteId, CancellationToken cancellationToken = default)
+    public async Task<long> CompleteNoteAsync(long noteId, CancellationToken cancellationToken)
     {
-        var note = await GetNoteByIdAsync(noteId, cancellationToken);
-
-        var noteDto = _mapper.Map<Note>(note);
-
-        _context.Notes.Remove(noteDto);
+        return await _context.Notes
+            .Where(x => x.Id == noteId)
+            .ExecuteUpdateAsync(x => x.SetProperty(c => c.Status, true), cancellationToken);
     }
 
-    public async Task<NoteDto?> GetNoteByIdAsync(int noteId, CancellationToken cancellationToken = default)
+    public async Task<long> DeleteNoteAsync(long noteId, CancellationToken cancellationToken = default)
+    {
+        return await _context.Notes
+            .Where(x => x.Id == noteId)
+            .ExecuteDeleteAsync(cancellationToken);
+    }
+
+    public async Task<NoteDto?> GetNoteByIdAsync(long noteId, CancellationToken cancellationToken = default)
     {
         var note = await _context.Notes
             .AsNoTracking()
@@ -52,10 +56,17 @@ public class NoteRepository : INoteRepository
         return result;
     }
 
-    public void UpdateNote(NoteDto noteDto)
+    public async Task<long> UpdateNoteAsync(long noteId, NoteDto noteDto, CancellationToken cancellationToken)
     {
-        var note = _mapper.Map<Note>(noteDto);
-        _context.Notes.Update(note);
+        return await _context.Notes
+            .Where(x => x.Id == noteId)
+            .ExecuteUpdateAsync(x => x
+                    .SetProperty(c => c.Title, noteDto.Title)
+                    .SetProperty(c => c.Description, noteDto.Description)
+                    .SetProperty(c => c.Priority, noteDto.Priority)
+                    .SetProperty(c => c.Deadline, noteDto.Deadline)
+                    .SetProperty(c => c.UpdatedAt, DateTime.UtcNow), 
+            cancellationToken);
     }
 
     public async Task<NoteDto> AddNoteAsync(NoteDto noteDto, CancellationToken cancellationToken = default)
@@ -79,20 +90,10 @@ public class NoteRepository : INoteRepository
             .Where(x => x.Status == false &&
                         x.Deadline > DateTime.UtcNow &&
                         x.UserId == userId)
+            .ProjectTo<NoteDto>(_mapper.ConfigurationProvider)
             .OrderBy(x => x.CreatedAt);
 
-        return await PaginationAsync(queryParameters, query.Select(x => new NoteDto
-        {
-            Id = x.Id,
-            Title = x.Title,
-            Description = x.Description,
-            Priority = x.Priority,
-            Status = x.Status,
-            Deadline = x.Deadline,
-            CreatedAt = x.CreatedAt,
-            UpdatedAt = x.UpdatedAt,
-            UserId = x.UserId
-        }), cancellationToken);
+        return await PaginationAsync(queryParameters, query, cancellationToken);
     }
 
     public async Task<PagedResult<NoteDto>> GetAllFailedNotesAsync(QueryParameters queryParameters, int userId, CancellationToken cancellationToken = default)
@@ -105,20 +106,10 @@ public class NoteRepository : INoteRepository
             .Where(x => x.Status == false &&
                         x.Deadline < DateTime.UtcNow &&
                         x.UserId == userId)
+            .ProjectTo<NoteDto>(_mapper.ConfigurationProvider)
             .OrderBy(x => x.CreatedAt);
 
-        return await PaginationAsync(queryParameters, query.Select(x => new NoteDto
-        {
-            Id = x.Id,
-            Title = x.Title,
-            Description = x.Description,
-            Priority = x.Priority,
-            Status = x.Status,
-            Deadline = x.Deadline,
-            CreatedAt = x.CreatedAt,
-            UpdatedAt = x.UpdatedAt,
-            UserId = x.UserId
-        }), cancellationToken);
+        return await PaginationAsync(queryParameters, query, cancellationToken);
     }
 
     public async Task<PagedResult<NoteDto>> GetAllCompletedNotesAsync(QueryParameters queryParameters, int userId, CancellationToken cancellationToken = default)

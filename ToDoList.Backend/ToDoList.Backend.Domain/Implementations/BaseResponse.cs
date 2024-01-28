@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Net;
-using ToDoList.Domain.Interfaces;
+﻿using System.Net;
+using System.Collections.Generic;
+using ToDoList.Domain.Abstractions;
 
 namespace ToDoList.Domain.Implementations;
 

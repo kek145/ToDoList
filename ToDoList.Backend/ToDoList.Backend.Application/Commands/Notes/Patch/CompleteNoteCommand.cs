@@ -2,4 +2,4 @@
 
 namespace ToDoList.Application.Commands.Notes.Patch;
 
-public sealed record CompleteNoteCommand(int NoteId, int UserId) : IRequest;
+public sealed record CompleteNoteCommand(long NoteId, int UserId) : IRequest<long>;

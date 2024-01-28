@@ -1,4 +1,5 @@
 ﻿using ToDoList.Domain.Interfaces;
+using ToDoList.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 using ToDoList.Infrastructure.DataStore;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +15,8 @@ public static class DependencyInjection
     {
         serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
         serviceCollection.AddScoped<INoteRepository, NoteRepository>();
+        serviceCollection.AddScoped<IUserRepository, UserRepository>();
+        serviceCollection.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
         
         serviceCollection.AddDbContext<ApplicationDbContext>(options =>
         {

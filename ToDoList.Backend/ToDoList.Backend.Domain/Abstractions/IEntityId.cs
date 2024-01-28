@@ -1,4 +1,4 @@
-﻿namespace ToDoList.Domain.Interfaces;
+﻿namespace ToDoList.Domain.Abstractions;
 
 public interface IEntityId<T> where T : struct 
 {

@@ -1,5 +1,5 @@
 ﻿using System;
-using ToDoList.Domain.Interfaces;
+using ToDoList.Domain.Abstractions;
 
 namespace ToDoList.Domain.DbSet;
 
@@ -9,5 +9,5 @@ public class RefreshToken : IEntityId<int>
     public string Token { get; set; } = string.Empty;
     public DateTime ExpiresDate { get; set; }
     public int UserId { get; set; }
-    public User User { get; set; } = new();
+    public User? User { get; set; }
 }

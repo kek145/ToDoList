@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using ToDoList.Application.Exceptions;
+using ToDoList.Application.Helpers;
+using ToDoList.Domain.Implementations;
 
 namespace ToDoList.Api.Middlewares;
 
@@ -61,7 +64,14 @@ public class GlobalErrorHandlerMiddleware
             statusCode = HttpStatusCode.InternalServerError;
         }
 
-        var exceptionResult = JsonSerializer.Serialize(new { error = message, status = statusCode });
+        var error = new BaseResponse<object>
+        {
+            StatusCode = statusCode,
+            Message = MessageResponseHelper.ERROR,
+            Errors = [message]
+        };
+        
+        var exceptionResult = JsonSerializer.Serialize(new { error });
         context.Response.ContentType = "application/json";
         context.Response.StatusCode = (int)statusCode;
 

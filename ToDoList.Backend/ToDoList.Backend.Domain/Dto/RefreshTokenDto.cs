@@ -5,9 +5,9 @@ namespace ToDoList.Domain.Dto;
 
 public class RefreshTokenDto
 {
-    public int Id { get; set; }
-    public string Token { get; set; } = string.Empty;
-    public DateTime ExpiresDate { get; set; }
-    public int UserId { get; set; }
-    public UserDto User { get; set; } = new();
+    public int Id { get; init; }
+    public string Token { get; init; } = string.Empty;
+    public DateTime ExpiresDate { get; init; }
+    public int UserId { get; init; }
+    public User? User { get; init; }
 }
