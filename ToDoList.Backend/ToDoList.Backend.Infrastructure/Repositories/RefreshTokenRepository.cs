@@ -29,10 +29,10 @@ public class RefreshTokenRepository : IRefreshTokenRepository
             .ProjectTo<RefreshTokenDto>(_mapper.ConfigurationProvider);
     }
 
-    public async Task<int> DeleteRefreshTokenAsync(int tokenId, CancellationToken cancellationToken = default)
+    public async Task<int> DeleteRefreshTokenAsync(int userId, CancellationToken cancellationToken = default)
     {
         return await _context.RefreshTokens
-            .Where(x => x.Id == tokenId)
+            .Where(x => x.UserId == userId)
             .ExecuteDeleteAsync(cancellationToken);
     }
 

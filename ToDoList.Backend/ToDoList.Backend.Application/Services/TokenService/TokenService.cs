@@ -9,7 +9,8 @@ using ToDoList.Domain.Result;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.Extensions.Configuration;
-using ToDoList.Application.Commands.RefreshTokens;
+using ToDoList.Application.Commands.RefreshTokens.Create;
+using ToDoList.Application.Commands.RefreshTokens.Delete;
 
 namespace ToDoList.Application.Services.TokenService;
 
@@ -22,6 +23,19 @@ public class TokenService : ITokenService
     {
         _mediator = mediator;
         _configuration = configuration;
+    }
+
+    public async Task DeleteTokenAsync(int userId)
+    {
+        if (userId <= 0)
+            throw new UnauthorizedAccessException("userId cannot be less than or equal to zero!");
+
+        var command = new DeleteTokenCommand(userId);
+
+        var result = await _mediator.Send(command);
+
+        if (result <= 0)
+            throw new UnauthorizedAccessException("userId cannot be less than or equal to zero!");
     }
 
     public async Task SaveTokenAsync(int userId, string refreshToken)

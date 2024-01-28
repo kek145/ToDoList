@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ToDoList.Application.Exceptions;
 using ToDoList.Domain.Interfaces;
 
-namespace ToDoList.Application.Commands.RefreshTokens;
+namespace ToDoList.Application.Commands.RefreshTokens.Create;
 
 public class CreateTokenCommandHandler : IRequestHandler<CreateTokenCommand>
 {
