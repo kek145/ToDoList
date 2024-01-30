@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ToDoList.Domain.Interfaces;
 
-namespace ToDoList.Application.Queries.Users;
+namespace ToDoList.Application.Queries.Users.GetByEmail;
 
 public class GetUserByEmailQueryHandler : IRequestHandler<GetUserByEmailQuery, UserDto>
 {

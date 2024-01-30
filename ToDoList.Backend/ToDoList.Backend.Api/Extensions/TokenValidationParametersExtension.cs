@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using System;
+using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -17,12 +18,12 @@ public static class TokenValidationParametersExtension
         {
             RequireAudience = true,
             RequireExpirationTime = true,
-            RoleClaimType = ClaimTypes.Role,
             ValidateAudience = true,
             ValidAudience = audience,
             ValidateIssuer = true,
             ValidIssuer = issuer,
             ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero,
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key)),
         };

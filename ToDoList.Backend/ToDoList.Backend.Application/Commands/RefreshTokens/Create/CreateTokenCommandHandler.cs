@@ -44,6 +44,7 @@ public class CreateTokenCommandHandler : IRequestHandler<CreateTokenCommand>
                 UserId = request.UserId
             };
             await _unitOfWork.RefreshTokens.AddRefreshTokenAsync(newToken, cancellationToken);
+            await _unitOfWork.CommitAsync(cancellationToken);
         }
     }
 }

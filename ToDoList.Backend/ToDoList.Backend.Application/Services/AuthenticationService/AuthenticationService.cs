@@ -8,8 +8,8 @@ using ToDoList.Domain.Request;
 using Microsoft.AspNetCore.Http;
 using ToDoList.Application.Exceptions;
 using ToDoList.Infrastructure.Identity;
-using ToDoList.Application.Queries.Users;
 using ToDoList.Application.Services.TokenService;
+using ToDoList.Application.Queries.Users.GetByEmail;
 
 namespace ToDoList.Application.Services.AuthenticationService;
 
@@ -59,14 +59,16 @@ public class AuthenticationService : IAuthenticationService
         {
             HttpOnly = true,
             Secure = true,
-            SameSite = SameSiteMode.Strict
+            SameSite = SameSiteMode.Strict,
+            Expires = DateTimeOffset.UtcNow.AddDays(30)
         });
         
         _contextAccessor.HttpContext.Response.Cookies.Append("X-Access-Token", tokens.AccessToken, new CookieOptions
         {
             HttpOnly = true,
             Secure = true,
-            SameSite = SameSiteMode.Strict
+            SameSite = SameSiteMode.Strict,
+            Expires = DateTimeOffset.UtcNow.AddHours(1)
         });
 
         return new AuthenticationResponse
