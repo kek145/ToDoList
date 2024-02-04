@@ -80,7 +80,7 @@ public class NotesController : ControllerBase
     }
 
     [HttpGet]
-    [Route("{priority}/priority")]
+    [Route("{priority}")]
     [Produces("application/json")]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
