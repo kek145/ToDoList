@@ -1,0 +1,35 @@
+<div class="center-container">
+    <form class="registration-form">
+
+        <h1>Sign up</h1>
+
+        <!-- First Name -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="First name" name="firstName" required>
+        </mat-form-field>
+      
+        <!-- Last Name -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Last name" name="lastName" required>
+        </mat-form-field>
+      
+        <!-- Email -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email" name="email" required>
+        </mat-form-field>
+        
+        <!-- Password -->
+        <mat-form-field class="example-full-width">
+          <input matInput type="password" placeholder="Password" name="password" ngModel required>
+        </mat-form-field>
+      
+        <!-- Confirm Password -->
+        <mat-form-field class="example-full-width">
+          <input matInput type="password" placeholder="Confirm password" name="confirmPassword" ngModel required>
+        </mat-form-field>
+      
+        <!-- Submit Button -->
+        <button class="button" mat-raised-button color="primary" type="submit">Sign up</button>
+      </form>
+      
+</div>
