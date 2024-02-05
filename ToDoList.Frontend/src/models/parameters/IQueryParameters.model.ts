@@ -1,4 +1,4 @@
-export interface IQueryParameters {
+export interface IQueryParametersModel {
     pageNumber: number,
     pageSize: number;
 }
