@@ -42,6 +42,12 @@
         <mat-error *ngIf="registrationForm.controls.password.errors['required']">
           Password is required
         </mat-error>
+        <mat-error *ngIf="registrationForm.controls.password.errors['minlength']">
+          Password must be at least 8 characters long
+        </mat-error>
+        <mat-error *ngIf="registrationForm.controls.password.errors['invalidPassword']">
+          Password must contain at least one special character
+        </mat-error>
       </mat-error>
     </mat-form-field>
 
@@ -51,6 +57,9 @@
       <mat-error *ngIf="registrationForm.controls.confirmPassword.invalid && registrationForm.controls.confirmPassword.touched && registrationForm.controls.confirmPassword.errors">
         <mat-error *ngIf="registrationForm.controls.confirmPassword.errors['required']">
           Confirm password is required
+        </mat-error>
+        <mat-error *ngIf="passwordsMatchValidator(registrationForm.controls.confirmPassword) && !registrationForm.controls.confirmPassword.errors['required']">
+          Password not match
         </mat-error>
       </mat-error>
     </mat-form-field>

@@ -8,7 +8,8 @@ namespace ToDoList.Api.Extensions;
 
 public static class ServiceBuilderExtension
 {
-    public static IServiceCollection AddAuthenticationAndAuthorization(this IServiceCollection serviceCollection, IConfiguration configuration)
+    public static IServiceCollection AddAuthenticationAndAuthorization(this IServiceCollection serviceCollection,
+        IConfiguration configuration)
     {
         serviceCollection.AddSwaggerGen(options =>
         {
@@ -21,7 +22,7 @@ public static class ServiceBuilderExtension
             });
             options.OperationFilter<SecurityRequirementsOperationFilter>();
         });
-    
+
 
         serviceCollection.AddAuthentication(options =>
         {
@@ -33,33 +34,7 @@ public static class ServiceBuilderExtension
             options.RequireHttpsMetadata = false;
             options.TokenValidationParameters = TokenValidationParametersExtension.AddTokenParameters(configuration);
         });
-        
-        return serviceCollection;
-    }
 
-    public static IServiceCollection AddCorsPolicy(this IServiceCollection serviceCollection)
-    {
-        serviceCollection.AddCors(options =>
-        {
-            options.AddPolicy("React", policy =>
-            {
-                policy.WithOrigins("http://localhost:3000")
-                    .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowAnyOrigin()
-                    .AllowCredentials();
-            });
-            
-            options.AddPolicy("Angular", policy =>
-            {
-                policy.WithOrigins("http://localhost:4200")
-                    .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowAnyOrigin()
-                    .AllowCredentials();
-            });
-        });
-        
         return serviceCollection;
     }
 }
