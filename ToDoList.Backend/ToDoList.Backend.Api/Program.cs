@@ -16,6 +16,8 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddAuthenticationAndAuthorization(builder.Configuration);
 
 builder.Services.AddApplication().AddInfrastructure(builder.Configuration);
+
+builder.Services.AddCorsPolicy();
     
 
 var app = builder.Build();
@@ -29,6 +31,9 @@ if (app.Environment.IsDevelopment())
 app.UseAuthentication();
 app.UseAuthorization();
 app.AddGlobalErrorHandling();
+
+app.UseCors("React");
+app.UseCors("Angular");
 
 app.MapControllers();
 

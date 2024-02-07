@@ -25,12 +25,39 @@ public static class ServiceBuilderExtension
 
         serviceCollection.AddAuthentication(options =>
         {
-            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
         }).AddJwtBearer(options =>
         {
             options.RequireHttpsMetadata = false;
             options.TokenValidationParameters = TokenValidationParametersExtension.AddTokenParameters(configuration);
+        });
+        
+        return serviceCollection;
+    }
+
+    public static IServiceCollection AddCorsPolicy(this IServiceCollection serviceCollection)
+    {
+        serviceCollection.AddCors(options =>
+        {
+            options.AddPolicy("React", policy =>
+            {
+                policy.WithOrigins("http://localhost:3000")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowAnyOrigin()
+                    .AllowCredentials();
+            });
+            
+            options.AddPolicy("Angular", policy =>
+            {
+                policy.WithOrigins("http://localhost:4200")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowAnyOrigin()
+                    .AllowCredentials();
+            });
         });
         
         return serviceCollection;

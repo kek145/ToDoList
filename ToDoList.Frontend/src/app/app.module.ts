@@ -31,6 +31,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,9 +45,11 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,
+    ReactiveFormsModule,
+
     CommonModule,
     MatInputModule,
+    MatFormFieldModule,
     MatSelectModule,
     MatAutocompleteModule,
     MatToolbarModule,
