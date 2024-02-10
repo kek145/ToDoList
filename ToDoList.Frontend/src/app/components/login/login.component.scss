@@ -5,8 +5,8 @@
   height: 85vh;
 }
 
-.login-form {
-  width: 300px;
+.registration-form {
+  width: 350px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -14,7 +14,7 @@
   border: 2px solid #ccc;
 }
 
-.login-form h1 {
+.registration-form h1 {
   text-align: center;
   color: #333;
   margin-bottom: 20px;
@@ -22,9 +22,11 @@
 
 .example-full-width {
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 35px;
 }
 
+
 .button {
+  margin-top: 5px;
   width: 100%;
 }

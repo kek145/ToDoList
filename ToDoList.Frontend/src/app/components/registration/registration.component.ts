@@ -1,13 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { IdentityService } from 'src/api/services/identity.service';
 import { IRegistrationRequestModel } from 'src/models/request/IRegistrationRequest.model';
+import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { IUserResponseModel } from 'src/models/response/IUserResponse.model';
+import { IBaseResponseModel } from 'src/models/response/IBaseResponse.model';
+import { HttpStatusCode } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorModalComponent } from '../error-modal/error-modal.component';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent {
   registrationModel!: IRegistrationRequestModel;
 
   registrationForm = new FormGroup({
@@ -17,11 +24,7 @@ export class RegistrationComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(8)]),
     confirmPassword: new FormControl('', Validators.required)});
 
-  constructor(private formBuilder: FormBuilder) { }
-
-  ngOnInit(): void {
-    
-  }
+  constructor(private identityService: IdentityService, private dialog: MatDialog, private router: Router) { }
 
   public validatePassword(control: FormControl) {
     const pattern = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
@@ -41,9 +44,32 @@ export class RegistrationComponent implements OnInit {
   onSubmit() {
     if (this.registrationForm.valid) {
       this.registrationModel = this.registrationForm.value as IRegistrationRequestModel;
-      alert("ok");
+      this.identityService.identityRegistration(this.registrationModel).subscribe({
+        next: (_response: IBaseResponseModel<IUserResponseModel>) => {
+          if (_response.statusCode === HttpStatusCode.Created) {
+            alert(_response.data.email);
+          } else {
+            alert(_response.message);
+          }
+        },
+        error: (_error: any) => { // Change this line to use an arrow function
+          if(_error.error.statusCode === HttpStatusCode.BadRequest) {
+            const dialogRef = this.dialog.open(ErrorModalComponent, {
+              width: '550px',
+              height: '350px',
+              data: { message: `${_error.error.errors[0]}` }
+            });
+        
+            dialogRef.afterClosed().subscribe((_result: any) => {
+              console.log('The error modal was closed');
+            });
+          }
+          else {
+            this.router.navigateByUrl('500');
+          }
+        }
+      });
     }
   }
-
-
+  
 }
