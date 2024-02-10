@@ -1,0 +1,18 @@
+/* error-modal.component.scss */
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-content h1 {
+    margin-top: 50px;
+    font-size: 24px;
+}
+
+.modal-content p {
+  font-size: 18px;
+}
