@@ -34,6 +34,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorModalComponent } from './components/error-modal/error-modal.component';
+import { SuccessModalComponent } from './components/success-modal/success-modal.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ErrorModalComponent } from './components/error-modal/error-modal.compon
     HomeComponent,
     LoginComponent,
     ErrorModalComponent,
+    SuccessModalComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,15 +8,17 @@ namespace ToDoList.Api.Controllers;
 
 [ApiController]
 [Route("api/identity")]
-public class IdentityController : ControllerBase
+public class IdentityController(IRegistrationService registrationService, IAuthenticationService authenticationService) : ControllerBase
 {
-    private readonly IRegistrationService _registrationService;
-    private readonly IAuthenticationService _authenticationService;
-
-    public IdentityController(IRegistrationService registrationService, IAuthenticationService authenticationService)
+    private readonly IRegistrationService _registrationService = registrationService;
+    private readonly IAuthenticationService _authenticationService = authenticationService;
+    
+    [HttpPost]
+    [Route("login")]
+    public async Task<IActionResult> Login(LoginRequest request)
     {
-        _registrationService = registrationService;
-        _authenticationService = authenticationService;
+        var response = await _authenticationService.LoginAsync(request);
+        return Ok(response);
     }
 
     [HttpPost]
@@ -25,13 +27,5 @@ public class IdentityController : ControllerBase
     {
         var response = await _registrationService.RegistrationAsync(request);
         return StatusCode((int)response.StatusCode, response);
-    }
-
-    [HttpPost]
-    [Route("login")]
-    public async Task<IActionResult> Login(LoginRequest request)
-    {
-        var response = await _authenticationService.LoginAsync(request);
-        return Ok(response);
     }
 }

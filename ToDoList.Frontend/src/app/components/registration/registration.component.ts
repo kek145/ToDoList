@@ -8,6 +8,7 @@ import { HttpStatusCode } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorModalComponent } from '../error-modal/error-modal.component';
 import { Route, Router } from '@angular/router';
+import { SuccessModalComponent } from '../success-modal/success-modal.component';
 
 @Component({
   selector: 'app-registration',
@@ -47,12 +48,17 @@ export class RegistrationComponent {
       this.identityService.identityRegistration(this.registrationModel).subscribe({
         next: (_response: IBaseResponseModel<IUserResponseModel>) => {
           if (_response.statusCode === HttpStatusCode.Created) {
-            alert(_response.data.email);
-          } else {
+            const dialogRef = this.dialog.open(SuccessModalComponent, {
+              width: '550px',
+              height: '350px',
+              data: { message: `${_response.message}` }
+            });
+          } 
+          else {
             alert(_response.message);
           }
         },
-        error: (_error: any) => { // Change this line to use an arrow function
+        error: (_error: any) => {
           if(_error.error.statusCode === HttpStatusCode.BadRequest) {
             const dialogRef = this.dialog.open(ErrorModalComponent, {
               width: '550px',

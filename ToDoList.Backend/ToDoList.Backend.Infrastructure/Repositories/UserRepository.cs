@@ -11,16 +11,10 @@ using ToDoList.Infrastructure.DataStore;
 
 namespace ToDoList.Infrastructure.Repositories;
 
-public class UserRepository : IUserRepository
+public class UserRepository(IMapper mapper, ApplicationDbContext context) : IUserRepository
 {
-    private readonly IMapper _mapper;
-    private readonly ApplicationDbContext _context;
-
-    public UserRepository(IMapper mapper, ApplicationDbContext context)
-    {
-        _mapper = mapper;
-        _context = context;
-    }
+    private readonly IMapper _mapper = mapper;
+    private readonly ApplicationDbContext _context = context;
 
     public IQueryable<UserDto> GetAll()
     {

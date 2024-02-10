@@ -12,16 +12,10 @@ using ToDoList.Domain.Repositories;
 
 namespace ToDoList.Application.Commands.Notes.Create;
 
-public class CreateNoteCommandHandler : IRequestHandler<CreateNoteCommand, NoteDto>
+public class CreateNoteCommandHandler(IMapper mapper, IUnitOfWork unitOfWork) : IRequestHandler<CreateNoteCommand, NoteDto>
 {
-    private readonly IMapper _mapper;
-    private readonly IUnitOfWork _unitOfWork;
-
-    public CreateNoteCommandHandler(IMapper mapper, IUnitOfWork unitOfWork)
-    {
-        _mapper = mapper;
-        _unitOfWork = unitOfWork;
-    }
+    private readonly IMapper _mapper = mapper;
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task<NoteDto> Handle(CreateNoteCommand request, CancellationToken cancellationToken)
     {

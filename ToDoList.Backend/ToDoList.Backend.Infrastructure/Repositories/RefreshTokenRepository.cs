@@ -11,16 +11,10 @@ using ToDoList.Infrastructure.DataStore;
 
 namespace ToDoList.Infrastructure.Repositories;
 
-public class RefreshTokenRepository : IRefreshTokenRepository
+public class RefreshTokenRepository(IMapper mapper, ApplicationDbContext context) : IRefreshTokenRepository
 {
-    private readonly IMapper _mapper;
-    private readonly ApplicationDbContext _context;
-
-    public RefreshTokenRepository(IMapper mapper, ApplicationDbContext context)
-    {
-        _mapper = mapper;
-        _context = context;
-    }
+    private readonly IMapper _mapper = mapper;
+    private readonly ApplicationDbContext _context = context;
 
     public IQueryable<RefreshTokenDto> GetAll()
     {

@@ -19,24 +19,12 @@ using ToDoList.Application.Commands.RefreshTokens.Delete;
 
 namespace ToDoList.Application.Services.TokenService;
 
-public class TokenService : ITokenService
+public class TokenService(IMapper mapper, IMediator mediator, IConfiguration configuration, IHttpContextAccessor httpContextAccessor) : ITokenService
 {
-    private readonly IMapper _mapper;
-    private readonly IMediator _mediator;
-    private readonly IConfiguration _configuration;
-    private readonly IHttpContextAccessor _contextAccessor;
-
-    public TokenService(
-        IMapper mapper,
-        IMediator mediator,
-        IConfiguration configuration,
-        IHttpContextAccessor httpContextAccessor)
-    {
-        _mapper = mapper;
-        _mediator = mediator;
-        _configuration = configuration;
-        _contextAccessor = httpContextAccessor;
-    }
+    private readonly IMapper _mapper = mapper;
+    private readonly IMediator _mediator = mediator;
+    private readonly IConfiguration _configuration = configuration;
+    private readonly IHttpContextAccessor _contextAccessor = httpContextAccessor;
 
     public async Task DeleteTokenAsync(int userId)
     {

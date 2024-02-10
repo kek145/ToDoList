@@ -8,15 +8,9 @@ using ToDoList.Domain.Interfaces;
 
 namespace ToDoList.Application.Queries.Users.GetByEmail;
 
-public class GetUserByEmailQueryHandler : IRequestHandler<GetUserByEmailQuery, UserDto>
+public class GetUserByEmailQueryHandler(IUnitOfWork unitOfWork) : IRequestHandler<GetUserByEmailQuery, UserDto>
 {
-    private readonly IUnitOfWork _unitOfWork;
-
-    public GetUserByEmailQueryHandler(IUnitOfWork unitOfWork)
-    {
-        _unitOfWork = unitOfWork;
-    }
-
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task<UserDto> Handle(GetUserByEmailQuery request, CancellationToken cancellationToken)
     {

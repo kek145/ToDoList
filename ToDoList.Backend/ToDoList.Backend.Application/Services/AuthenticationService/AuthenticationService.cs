@@ -13,27 +13,13 @@ using ToDoList.Application.Queries.Users.GetByEmail;
 
 namespace ToDoList.Application.Services.AuthenticationService;
 
-public class AuthenticationService : IAuthenticationService
+public class AuthenticationService(IMapper mapper, IMediator mediator, ITokenService tokenService, IValidator<LoginRequest> validator, IHttpContextAccessor contextAccessor) : IAuthenticationService
 {
-    private readonly IMapper _mapper;
-    private readonly IMediator _mediator;
-    private readonly ITokenService _tokenService;
-    private readonly IValidator<LoginRequest> _validator;
-    private readonly IHttpContextAccessor _contextAccessor;
-
-    public AuthenticationService(
-        IMapper mapper,
-        IMediator mediator,
-        ITokenService tokenService,
-        IValidator<LoginRequest> validator,
-        IHttpContextAccessor contextAccessor)
-    {
-        _mapper = mapper;
-        _mediator = mediator;
-        _tokenService = tokenService;
-        _validator = validator;
-        _contextAccessor = contextAccessor;
-    }
+    private readonly IMapper _mapper = mapper;
+    private readonly IMediator _mediator = mediator;
+    private readonly ITokenService _tokenService = tokenService;
+    private readonly IValidator<LoginRequest> _validator = validator;
+    private readonly IHttpContextAccessor _contextAccessor = contextAccessor;
 
     public async Task<AuthenticationResponse> LoginAsync(LoginRequest request)
     {

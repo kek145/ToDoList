@@ -25,20 +25,12 @@ using ToDoList.Application.Queries.Notes.GetAllByPriority;
 
 namespace ToDoList.Application.Services.NoteService;
 
-public class NoteService : INoteService
+public class NoteService(IMapper mapper, IMediator mediator, IValidator<NoteRequest> validator, IHttpContextAccessor contextAccessor) : INoteService
 {
-    private readonly IMapper _mapper;
-    private readonly IMediator _mediator;
-    private readonly IValidator<NoteRequest> _validator;
-    private readonly IHttpContextAccessor _contextAccessor;
-
-    public NoteService(IMapper mapper, IMediator mediator, IValidator<NoteRequest> validator, IHttpContextAccessor contextAccessor)
-    {
-        _mapper = mapper;
-        _mediator = mediator;
-        _validator = validator;
-        _contextAccessor = contextAccessor;
-    }
+    private readonly IMapper _mapper = mapper;
+    private readonly IMediator _mediator = mediator;
+    private readonly IValidator<NoteRequest> _validator = validator;
+    private readonly IHttpContextAccessor _contextAccessor = contextAccessor;
 
     public async Task<HttpStatusCode> DeleteNoteAsync(long noteId)
     {
@@ -84,7 +76,7 @@ public class NoteService : INoteService
         return new BaseResponse<NoteResponse>
         {
             StatusCode = HttpStatusCode.OK,
-            Message = MessageResponseHelper.SUCCESS,
+            Message = MessageResponseHelper.Success,
             Data = data
         };
     }
@@ -126,7 +118,7 @@ public class NoteService : INoteService
         return new BaseResponse<NoteResponse>
         {
             StatusCode = HttpStatusCode.Created,
-            Message = MessageResponseHelper.SUCCESS,
+            Message = MessageResponseHelper.Success,
             Data = data
         };
     }
@@ -144,7 +136,7 @@ public class NoteService : INoteService
         return new BaseResponse<PagedResult<NoteResponse>>
         {
             StatusCode = HttpStatusCode.OK,
-            Message = MessageResponseHelper.SUCCESS,
+            Message = MessageResponseHelper.Success,
             Data = data
         };
     }
@@ -162,7 +154,7 @@ public class NoteService : INoteService
         return new BaseResponse<PagedResult<NoteResponse>>
         {
             StatusCode = HttpStatusCode.OK,
-            Message = MessageResponseHelper.SUCCESS,
+            Message = MessageResponseHelper.Success,
             Data = data
         };
     }
@@ -180,7 +172,7 @@ public class NoteService : INoteService
         return new BaseResponse<PagedResult<NoteResponse>>
         {
             StatusCode = HttpStatusCode.OK,
-            Message = MessageResponseHelper.SUCCESS,
+            Message = MessageResponseHelper.Success,
             Data = data
         };
     }
@@ -204,7 +196,7 @@ public class NoteService : INoteService
         return new BaseResponse<PagedResult<NoteResponse>>
         {
             StatusCode = HttpStatusCode.OK,
-            Message = MessageResponseHelper.SUCCESS,
+            Message = MessageResponseHelper.Success,
             Data = data
         };
     }

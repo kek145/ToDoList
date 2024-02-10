@@ -4,18 +4,12 @@ using ToDoList.Domain.Dto;
 using ToDoList.Domain.Result;
 using System.Threading.Tasks;
 using ToDoList.Domain.Interfaces;
-using ToDoList.Domain.Repositories;
 
 namespace ToDoList.Application.Queries.Notes.GetAll;
 
-public class GetAllNotesQueryHandler : IRequestHandler<GetAllNotesQuery ,PagedResult<NoteDto>>
+public class GetAllNotesQueryHandler(IUnitOfWork unitOfWork) : IRequestHandler<GetAllNotesQuery ,PagedResult<NoteDto>>
 {
-    private readonly IUnitOfWork _unitOfWork;
-
-    public GetAllNotesQueryHandler(IUnitOfWork unitOfWork)
-    {
-        _unitOfWork = unitOfWork;
-    }
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task<PagedResult<NoteDto>> Handle(GetAllNotesQuery request, CancellationToken cancellationToken)
     {

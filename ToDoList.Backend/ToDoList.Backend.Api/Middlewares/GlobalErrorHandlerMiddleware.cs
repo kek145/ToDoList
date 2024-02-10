@@ -9,14 +9,9 @@ using ToDoList.Domain.Implementations;
 
 namespace ToDoList.Api.Middlewares;
 
-public class GlobalErrorHandlerMiddleware
+public class GlobalErrorHandlerMiddleware(RequestDelegate next)
 {
-    private readonly RequestDelegate _next;
-
-    public GlobalErrorHandlerMiddleware(RequestDelegate next)
-    {
-        _next = next;
-    }
+    private readonly RequestDelegate _next = next;
 
     public async Task InvokeAsync(HttpContext context)
     {
@@ -39,36 +34,43 @@ public class GlobalErrorHandlerMiddleware
 
         if (exceptionType == typeof(BadRequestException))
         {
-            message = $"BadRequest error: {ex.Message}";
+            message = $"{ex.Message}";
             statusCode = HttpStatusCode.BadRequest;
         }
         else if (exceptionType == typeof(NotImplementedException))
         {
-            message = $"Not implemented error: {ex.Message}";
+            message = $"{ex.Message}";
             statusCode = HttpStatusCode.NotImplemented;
         }
         else if (exceptionType == typeof(NotFoundException))
         {
-            message = $"Not found error: {ex.Message}";
+            message = $"{ex.Message}";
             statusCode = HttpStatusCode.NotFound;
         }
         else if(exceptionType == typeof(UnauthorizedAccessException))
         {
-            message = $"Unauthorized error: {ex.Message}";
+            message = $"{ex.Message}";
             statusCode = HttpStatusCode.Unauthorized;
         }
         else
         {
-            message = $"Internal server error: {ex.Message}";
+            message = $"{ex.Message}";
             statusCode = HttpStatusCode.InternalServerError;
         }
         
-        var exceptionResult = JsonSerializer.Serialize(new BaseResponse<object>
+        var options = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        };
+
+        var response = new BaseResponse<object>
         {
             StatusCode = statusCode,
-            Message = MessageResponseHelper.ERROR,
+            Message = MessageResponseHelper.Error,
             Errors = [message]
-        });
+        };
+
+        var exceptionResult = JsonSerializer.Serialize(response, options);
         context.Response.ContentType = "application/json";
         context.Response.StatusCode = (int)statusCode;
 

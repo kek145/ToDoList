@@ -1,18 +1,13 @@
-﻿using System.Threading;
+﻿using MediatR;
+using System.Threading;
 using System.Threading.Tasks;
-using MediatR;
 using ToDoList.Domain.Interfaces;
 
 namespace ToDoList.Application.Commands.RefreshTokens.Delete;
 
-public class DeleteTokenCommandHandler : IRequestHandler<DeleteTokenCommand, int>
+public class DeleteTokenCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<DeleteTokenCommand, int>
 {
-    private readonly IUnitOfWork _unitOfWork;
-
-    public DeleteTokenCommandHandler(IUnitOfWork unitOfWork)
-    {
-        _unitOfWork = unitOfWork;
-    }
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task<int> Handle(DeleteTokenCommand request, CancellationToken cancellationToken)
     {

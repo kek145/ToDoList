@@ -40,7 +40,7 @@ if (app.Environment.IsDevelopment())
 app.UseCors("FrontEnd");
 app.UseAuthentication();
 app.UseAuthorization();
-// app.AddGlobalErrorHandling();
+app.AddGlobalErrorHandling();
 
 app.MapControllers();
 

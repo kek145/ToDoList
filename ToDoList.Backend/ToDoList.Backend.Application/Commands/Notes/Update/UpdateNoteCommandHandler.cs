@@ -7,16 +7,10 @@ using ToDoList.Domain.Interfaces;
 
 namespace ToDoList.Application.Commands.Notes.Update;
 
-public class UpdateNoteCommandHandler : IRequestHandler<UpdateNoteCommand, long>
+public class UpdateNoteCommandHandler(IMapper mapper, IUnitOfWork unitOfWork) : IRequestHandler<UpdateNoteCommand, long>
 {
-    private readonly IMapper _mapper;
-    private readonly IUnitOfWork _unitOfWork;
-
-    public UpdateNoteCommandHandler(IMapper mapper, IUnitOfWork unitOfWork)
-    {
-        _mapper = mapper;
-        _unitOfWork = unitOfWork;
-    }
+    private readonly IMapper _mapper = mapper;
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
     
     public async Task<long> Handle(UpdateNoteCommand request, CancellationToken cancellationToken)
     {

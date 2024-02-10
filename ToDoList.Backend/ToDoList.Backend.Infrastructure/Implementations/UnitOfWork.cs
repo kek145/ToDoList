@@ -6,26 +6,13 @@ using ToDoList.Infrastructure.DataStore;
 
 namespace ToDoList.Infrastructure.Implementations;
 
-public class UnitOfWork : IUnitOfWork
+public class UnitOfWork(ApplicationDbContext context, IUserRepository users, INoteRepository notes, IRefreshTokenRepository refreshTokens) : IUnitOfWork
 {
-    private readonly ApplicationDbContext _context;
-    
-    public IUserRepository Users { get; set; }
-    public INoteRepository Notes { get; set; }
-    public IRefreshTokenRepository RefreshTokens { get; set; }
+    private readonly ApplicationDbContext _context = context;
 
-
-    public UnitOfWork(
-        ApplicationDbContext context,
-        IUserRepository users,
-        INoteRepository notes,
-        IRefreshTokenRepository refreshTokens)
-    {
-        _context = context;
-        Users = users;
-        Notes = notes;
-        RefreshTokens = refreshTokens;
-    }
+    public IUserRepository Users { get; set; } = users;
+    public INoteRepository Notes { get; set; } = notes;
+    public IRefreshTokenRepository RefreshTokens { get; set; } = refreshTokens;
 
     public void Dispose()
     {

@@ -7,15 +7,9 @@ using ToDoList.Domain.Interfaces;
 
 namespace ToDoList.Application.Queries.Notes.GetAllFailed;
 
-public class GetAllFailedNotesQueryHandler : IRequestHandler<GetAllFailedNotesQuery, PagedResult<NoteDto>>
+public class GetAllFailedNotesQueryHandler(IUnitOfWork unitOfWork) : IRequestHandler<GetAllFailedNotesQuery, PagedResult<NoteDto>>
 {
-    private readonly IUnitOfWork _unitOfWork;
-
-    public GetAllFailedNotesQueryHandler(IUnitOfWork unitOfWork)
-    {
-        _unitOfWork = unitOfWork;
-    }
-    
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
     public async Task<PagedResult<NoteDto>> Handle(GetAllFailedNotesQuery request, CancellationToken cancellationToken)
     {
         var notes = await _unitOfWork.Notes.GetAllFailedNotesAsync(request.QueryParameters, request.UserId, cancellationToken);

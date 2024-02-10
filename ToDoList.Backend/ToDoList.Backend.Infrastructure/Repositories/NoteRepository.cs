@@ -14,16 +14,10 @@ using ToDoList.Infrastructure.DataStore;
 
 namespace ToDoList.Infrastructure.Repositories;
 
-public class NoteRepository : INoteRepository
+public class NoteRepository(IMapper mapper, ApplicationDbContext context) : INoteRepository
 {
-    private readonly IMapper _mapper;
-    private readonly ApplicationDbContext _context;
-
-    public NoteRepository(IMapper mapper, ApplicationDbContext context)
-    {
-        _mapper = mapper;
-        _context = context;
-    }
+    private readonly IMapper _mapper = mapper;
+    private readonly ApplicationDbContext _context = context;
 
     public IQueryable<NoteDto> GetAll()
     {

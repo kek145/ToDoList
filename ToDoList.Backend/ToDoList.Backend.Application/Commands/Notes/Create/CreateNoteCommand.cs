@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using ToDoList.Domain.Dto;
-using ToDoList.Domain.Result;
 using ToDoList.Domain.Request;
 
 namespace ToDoList.Application.Commands.Notes.Create;

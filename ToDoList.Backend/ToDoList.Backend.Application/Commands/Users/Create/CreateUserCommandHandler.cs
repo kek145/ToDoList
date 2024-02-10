@@ -11,16 +11,11 @@ using ToDoList.Infrastructure.Identity;
 
 namespace ToDoList.Application.Commands.Users.Create;
 
-public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, UserResponse>
+public class CreateUserCommandHandler(IMapper mapper, IUnitOfWork unitOfWork) : IRequestHandler<CreateUserCommand, UserResponse>
 {
-    private readonly IMapper _mapper;
-    private readonly IUnitOfWork _unitOfWork;
-
-    public CreateUserCommandHandler(IMapper mapper, IUnitOfWork unitOfWork)
-    {
-        _mapper = mapper;
-        _unitOfWork = unitOfWork;
-    }
+    private readonly IMapper _mapper = mapper;
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
+    
 
     public async Task<UserResponse> Handle(CreateUserCommand request, CancellationToken cancellationToken)
     {

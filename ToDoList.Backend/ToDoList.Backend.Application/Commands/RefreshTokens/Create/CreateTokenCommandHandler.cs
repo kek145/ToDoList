@@ -3,21 +3,15 @@ using MediatR;
 using System.Threading;
 using ToDoList.Domain.Dto;
 using System.Threading.Tasks;
-using ToDoList.Domain.Repositories;
+using ToDoList.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using ToDoList.Application.Exceptions;
-using ToDoList.Domain.Interfaces;
 
 namespace ToDoList.Application.Commands.RefreshTokens.Create;
 
-public class CreateTokenCommandHandler : IRequestHandler<CreateTokenCommand>
+public class CreateTokenCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<CreateTokenCommand>
 {
-    private readonly IUnitOfWork _unitOfWork;
-
-    public CreateTokenCommandHandler(IUnitOfWork unitOfWork)
-    {
-        _unitOfWork = unitOfWork;
-    }
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task Handle(CreateTokenCommand request, CancellationToken cancellationToken)
     {

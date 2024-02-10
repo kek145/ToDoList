@@ -6,14 +6,9 @@ namespace ToDoList.Api.Controllers;
 
 [ApiController]
 [Route("api")]
-public class RefreshTokenController : ControllerBase
+public class RefreshTokenControllerRefreshTokenController(ITokenService tokenService) : ControllerBase
 {
-    private readonly ITokenService _tokenService;
-
-    public RefreshTokenController(ITokenService tokenService)
-    {
-        _tokenService = tokenService;
-    }
+    private readonly ITokenService _tokenService = tokenService;
 
     [HttpPost]
     [Route("refresh-token")]

@@ -1,21 +1,15 @@
 ﻿using MediatR;
 using System.Threading;
-using System.Threading.Tasks;
 using ToDoList.Domain.Dto;
-using ToDoList.Domain.Interfaces;
+using System.Threading.Tasks;
 using ToDoList.Domain.Result;
-using ToDoList.Domain.Repositories;
+using ToDoList.Domain.Interfaces;
 
 namespace ToDoList.Application.Queries.Notes.GetAllByPriority;
 
-public class GetAllByPriorityNotesQueryHandler : IRequestHandler<GetAllByPriorityNotesQuery, PagedResult<NoteDto>>
+public class GetAllByPriorityNotesQueryHandler(IUnitOfWork unitOfWork) : IRequestHandler<GetAllByPriorityNotesQuery, PagedResult<NoteDto>>
 {
-    private readonly IUnitOfWork _unitOfWork;
-
-    public GetAllByPriorityNotesQueryHandler(IUnitOfWork unitOfWork)
-    {
-        _unitOfWork = unitOfWork;
-    }
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
     
     public async Task<PagedResult<NoteDto>> Handle(GetAllByPriorityNotesQuery request, CancellationToken cancellationToken)
     {

@@ -12,7 +12,7 @@ using ToDoList.Infrastructure.DataStore;
 namespace ToDoList.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240207205010_Initial")]
+    [Migration("20240210211007_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -37,7 +37,7 @@ namespace ToDoList.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 2, 7, 20, 50, 10, 488, DateTimeKind.Utc).AddTicks(2059))
+                        .HasDefaultValue(new DateTime(2024, 2, 10, 21, 10, 6, 983, DateTimeKind.Utc).AddTicks(9821))
                         .HasColumnName("created_at");
 
                     b.Property<DateTime>("Deadline")
