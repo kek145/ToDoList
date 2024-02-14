@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using ToDoList.Domain.Request;
 using Microsoft.AspNetCore.Mvc;
 using ToDoList.Application.Services.RegistrationService;
@@ -27,5 +30,18 @@ public class IdentityController(IRegistrationService registrationService, IAuthe
     {
         var response = await _registrationService.RegistrationAsync(request);
         return StatusCode((int)response.StatusCode, response);
+    }
+
+    [HttpGet]
+    [Route("auth")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    public IActionResult GetUserId()
+    {
+        var userId = Convert.ToInt32(HttpContext.User.FindFirst("UserId")?.Value);
+
+        if (userId <= 0)
+            return Unauthorized(new { error = "error 401" });
+        
+        return Ok(new { Id = userId });
     }
 }

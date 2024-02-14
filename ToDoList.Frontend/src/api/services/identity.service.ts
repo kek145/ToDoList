@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs';
+import { jwtDecode } from 'jwt-decode';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { IdentityEndPoints } from '../identity/IdentityEndPoints';
 import { ILoginRequestModel } from 'src/models/request/ILoginRequest.model';
@@ -17,10 +18,23 @@ export class IdentityService {
   constructor(private httpClient: HttpClient) { }
 
   public identityLogin(login: ILoginRequestModel) : Observable<IAuthenticationResponseModel> {
-    return this.httpClient.post<IAuthenticationResponseModel>(`${environment.httpUrlApi}${IdentityEndPoints.login}`, login, { withCredentials: true });
+    const headers = new HttpHeaders().set('Content-type', 'application/json');
+    return this.httpClient.post<IAuthenticationResponseModel>(`${environment.httpUrlApi}${IdentityEndPoints.login}`, login, { headers: headers, withCredentials: true });
   }
 
   public identityRegistration(registration: IRegistrationRequestModel) : Observable<IBaseResponseModel<IUserResponseModel>> {
-    return this.httpClient.post<IBaseResponseModel<IUserResponseModel>>(`${environment.httpUrlApi}${IdentityEndPoints.registration}`, registration, { withCredentials: true })
+    const headers = new HttpHeaders().set('Content-type', 'application/json');
+    return this.httpClient.post<IBaseResponseModel<IUserResponseModel>>(`${environment.httpUrlApi}${IdentityEndPoints.registration}`, registration, { headers: headers, withCredentials: true })
+  }
+
+  public identityUserId() : Observable<number> {
+    const headers = new HttpHeaders().set('Content-type', 'application/json');
+    return this.httpClient.get<number>(`${environment.httpUrlApi}api/identity/auth`, { headers: headers, withCredentials: true });
+  }
+
+  public isLogged(): boolean {
+    const token = localStorage.getItem("X-Access-Token");
+    return token !== null;
   }
 }
+

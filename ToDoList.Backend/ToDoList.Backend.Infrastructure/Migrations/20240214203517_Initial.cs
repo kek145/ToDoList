@@ -40,7 +40,7 @@ namespace ToDoList.Infrastructure.Migrations
                     priority = table.Column<string>(type: "character varying(6)", maxLength: 6, nullable: false),
                     status = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false),
                     deadline = table.Column<DateTime>(type: "timestamp with time zone", maxLength: 500, nullable: false),
-                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 2, 10, 21, 10, 6, 983, DateTimeKind.Utc).AddTicks(9821)),
+                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 2, 14, 20, 35, 16, 873, DateTimeKind.Utc).AddTicks(5953)),
                     updated_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     user_id = table.Column<int>(type: "integer", nullable: false)
                 },

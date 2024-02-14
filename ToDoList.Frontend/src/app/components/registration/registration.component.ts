@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { HttpStatusCode } from '@angular/common/http';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IdentityService } from 'src/api/services/identity.service';
-import { IRegistrationRequestModel } from 'src/models/request/IRegistrationRequest.model';
-import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { ErrorModalComponent } from '../error-modal/error-modal.component';
 import { IUserResponseModel } from 'src/models/response/IUserResponse.model';
 import { IBaseResponseModel } from 'src/models/response/IBaseResponse.model';
-import { HttpStatusCode } from '@angular/common/http';
-import { MatDialog } from '@angular/material/dialog';
-import { ErrorModalComponent } from '../error-modal/error-modal.component';
-import { Route, Router } from '@angular/router';
 import { SuccessModalComponent } from '../success-modal/success-modal.component';
+import { IRegistrationRequestModel } from 'src/models/request/IRegistrationRequest.model';
 
 @Component({
   selector: 'app-registration',
@@ -48,7 +48,7 @@ export class RegistrationComponent {
       this.identityService.identityRegistration(this.registrationModel).subscribe({
         next: (_response: IBaseResponseModel<IUserResponseModel>) => {
           if (_response.statusCode === HttpStatusCode.Created) {
-            const dialogRef = this.dialog.open(SuccessModalComponent, {
+            this.dialog.open(SuccessModalComponent, {
               width: '550px',
               height: '350px',
               data: { message: `${_response.message}` }
