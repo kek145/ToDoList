@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IdentityService } from 'src/api/services/identity.service';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  constructor(private identityService: IdentityService) {}
+
+  protected isUserLogged(): boolean {
+    return this.identityService.isLogged();
+  }
+
+  protected logout(): void {
+    localStorage.clear();
+  }
 }

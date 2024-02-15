@@ -1,35 +1,42 @@
 <div class="center-container">
-    <form [formGroup]="registrationForm" class="registration-form" (ngSubmit)="onSubmit(loginModel)">
-      <h1>Sign in</h1>
-  
-      <!-- Email -->
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Email" formControlName="email">
-        <mat-error *ngIf="registrationForm.controls.email.invalid && registrationForm.controls.email.touched && registrationForm.controls.email.errors">
-          <mat-error *ngIf="registrationForm.controls.email.errors['required']">
-            Email is required
+    <ng-container *ngIf="!loading">
+      <form [formGroup]="registrationForm" class="registration-form" (ngSubmit)="onSubmit(loginModel)">
+        <h1>Sign in</h1>
+    
+        <!-- Email -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email" formControlName="email">
+          <mat-error *ngIf="registrationForm.controls.email.invalid && registrationForm.controls.email.touched && registrationForm.controls.email.errors">
+            <mat-error *ngIf="registrationForm.controls.email.errors['required']">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="registrationForm.controls.email.errors['email']">
+              Email invalid
+            </mat-error>
           </mat-error>
-          <mat-error *ngIf="registrationForm.controls.email.errors['email']">
-            Email invalid
+        </mat-form-field>
+    
+        <!-- Password -->
+        <mat-form-field class="example-full-width">
+          <input matInput type="password" placeholder="Password" formControlName="password">
+          <mat-error *ngIf="registrationForm.controls.password.invalid && registrationForm.controls.password.touched && registrationForm.controls.password.errors">
+            <mat-error *ngIf="registrationForm.controls.password.errors['required']">
+              Password is required
+            </mat-error>
+            <mat-error *ngIf="registrationForm.controls.password.errors['minlength']">
+              Password must be at least 8 characters long
+            </mat-error>
           </mat-error>
-        </mat-error>
-      </mat-form-field>
-  
-      <!-- Password -->
-      <mat-form-field class="example-full-width">
-        <input matInput type="password" placeholder="Password" formControlName="password">
-        <mat-error *ngIf="registrationForm.controls.password.invalid && registrationForm.controls.password.touched && registrationForm.controls.password.errors">
-          <mat-error *ngIf="registrationForm.controls.password.errors['required']">
-            Password is required
-          </mat-error>
-          <mat-error *ngIf="registrationForm.controls.password.errors['minlength']">
-            Password must be at least 8 characters long
-          </mat-error>
-        </mat-error>
-      </mat-form-field>
-  
-      <!-- Submit Button -->
-      <button class="button" mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid">Sign in</button>
-    </form>
-  </div>
+        </mat-form-field>
+    
+        <!-- Submit Button -->
+        <button class="button" mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid">Sign in</button>
+      </form>
+    </ng-container>
+    <ng-container *ngIf="loading">
+      <div class="content">
+        <app-loader></app-loader>
+      </div>
+    </ng-container>
+</div>
   

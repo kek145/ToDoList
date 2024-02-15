@@ -34,7 +34,7 @@ namespace ToDoList.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 2, 14, 20, 35, 16, 873, DateTimeKind.Utc).AddTicks(5953))
+                        .HasDefaultValue(new DateTime(2024, 2, 15, 19, 27, 47, 416, DateTimeKind.Utc).AddTicks(6303))
                         .HasColumnName("created_at");
 
                     b.Property<DateTime>("Deadline")

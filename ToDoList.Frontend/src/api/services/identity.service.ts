@@ -18,18 +18,15 @@ export class IdentityService {
   constructor(private httpClient: HttpClient) { }
 
   public identityLogin(login: ILoginRequestModel) : Observable<IAuthenticationResponseModel> {
-    const headers = new HttpHeaders().set('Content-type', 'application/json');
-    return this.httpClient.post<IAuthenticationResponseModel>(`${environment.httpUrlApi}${IdentityEndPoints.login}`, login, { headers: headers, withCredentials: true });
+    return this.httpClient.post<IAuthenticationResponseModel>(`${environment.httpUrlApi}${IdentityEndPoints.login}`, login, { withCredentials: true });
   }
 
   public identityRegistration(registration: IRegistrationRequestModel) : Observable<IBaseResponseModel<IUserResponseModel>> {
-    const headers = new HttpHeaders().set('Content-type', 'application/json');
-    return this.httpClient.post<IBaseResponseModel<IUserResponseModel>>(`${environment.httpUrlApi}${IdentityEndPoints.registration}`, registration, { headers: headers, withCredentials: true })
+    return this.httpClient.post<IBaseResponseModel<IUserResponseModel>>(`${environment.httpUrlApi}${IdentityEndPoints.registration}`, registration, { withCredentials: true })
   }
 
   public identityUserId() : Observable<number> {
-    const headers = new HttpHeaders().set('Content-type', 'application/json');
-    return this.httpClient.get<number>(`${environment.httpUrlApi}api/identity/auth`, { headers: headers, withCredentials: true });
+    return this.httpClient.get<number>(`${environment.httpUrlApi}api/identity/auth`, { withCredentials: true });
   }
 
   public isLogged(): boolean {

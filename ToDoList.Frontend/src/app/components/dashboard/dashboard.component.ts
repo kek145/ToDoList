@@ -1,3 +1,4 @@
+import { HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { IdentityService } from 'src/api/services/identity.service';
 
@@ -16,7 +17,9 @@ export class DashboardComponent implements OnInit {
         this.data = _response.id;
       },
       error: (_error: any) => {
-        alert("error123!@#");
+        if(_error.statusCode === HttpStatusCode.Unauthorized) {
+          alert("error123!@#");
+        }
       }
     });
   }

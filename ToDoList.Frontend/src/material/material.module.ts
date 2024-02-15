@@ -21,6 +21,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -28,6 +29,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   declarations: [],
   exports: [
     CommonModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,

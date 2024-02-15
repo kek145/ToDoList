@@ -2,4 +2,4 @@
 
 namespace ToDoList.Application.Commands.RefreshTokens.Delete;
 
-public record DeleteTokenCommand(int UserId) : IRequest<int>;
+public sealed record DeleteTokenCommand(int UserId) : IRequest<int>;

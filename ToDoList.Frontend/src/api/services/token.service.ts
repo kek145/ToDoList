@@ -13,7 +13,6 @@ export class TokenService {
   constructor(private httpClient: HttpClient) { }
 
   public refreshToken() : Observable<IAuthenticationResponseModel> {
-    const headers = new HttpHeaders().set('Content-type', 'application/json');
-    return this.httpClient.post<IAuthenticationResponseModel>(`${environment.httpUrlApi}${RefreshTokenEndPoint.refreshToken}`, {}, { headers: headers, withCredentials: true });
+    return this.httpClient.post<IAuthenticationResponseModel>(`${environment.httpUrlApi}${RefreshTokenEndPoint.refreshToken}`, {}, { withCredentials: true });
   }
 }

@@ -16,6 +16,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { SuccessModalComponent } from './components/success-modal/success-modal.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthInterceptor } from 'src/interceptors/auth.interceptor';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AuthInterceptor } from 'src/interceptors/auth.interceptor';
     RegistrationComponent,
     SuccessModalComponent,
     DashboardComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule, 

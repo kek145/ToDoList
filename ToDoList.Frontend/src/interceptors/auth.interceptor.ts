@@ -4,7 +4,8 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpErrorResponse
+  HttpErrorResponse,
+  HttpStatusCode
 } from '@angular/common/http';
 import { BehaviorSubject, Observable, catchError, finalize, switchMap, throwError } from 'rxjs';
 import { Router } from '@angular/router';
@@ -19,7 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private auth: IdentityService, private tokenService: TokenService, private router: Router) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('X-Access-Token');
 
     if (token) {
       request = request.clone({
@@ -29,7 +30,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        if (error.status === 401 && this.auth.isLogged()) {
+        if (error.status === HttpStatusCode.Unauthorized && this.auth.isLogged()) {
           if (this.isRefreshing) {
             return this.refreshTokenSubject.pipe(
               switchMap(() => {
@@ -47,13 +48,13 @@ export class AuthInterceptor implements HttpInterceptor {
             return this.tokenService.refreshToken().pipe(
               switchMap((jwtDto: IAuthenticationResponseModel) => {
                 this.refreshTokenSubject.next(jwtDto.refreshToken);
-                localStorage.setItem('jwtToken', jwtDto.accessToken);
+                localStorage.setItem('X-Access-Token', jwtDto.accessToken);
                 return next.handle(this.addToken(request));
               }),
               catchError((refreshError: HttpErrorResponse) => {
-                if (refreshError.status === 401) {
+                if (refreshError.status === HttpStatusCode.Unauthorized || refreshError.status === HttpStatusCode.NotFound) {
                   localStorage.clear();
-                  this.router.navigateByUrl('/sign-in');
+                  this.router.navigateByUrl('/login');
                 }
                 return throwError(refreshError);
               }),
@@ -62,7 +63,8 @@ export class AuthInterceptor implements HttpInterceptor {
               })
             );
           }
-        } else {
+        }
+        else {
           return throwError(error);
         }
       })
@@ -70,7 +72,7 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   private addToken(request: HttpRequest<any>): HttpRequest<any> {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('X-Access-Token');
     return request.clone({
       setHeaders: {
         Authorization: `Bearer ${token}`

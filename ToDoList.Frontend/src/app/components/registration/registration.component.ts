@@ -17,6 +17,7 @@ import { IRegistrationRequestModel } from 'src/models/request/IRegistrationReque
 })
 export class RegistrationComponent {
   registrationModel!: IRegistrationRequestModel;
+  loading = false; // Флаг для отображения загрузки
 
   registrationForm = new FormGroup({
     firstName: new FormControl('', Validators.required),
@@ -44,6 +45,7 @@ export class RegistrationComponent {
 
   onSubmit() {
     if (this.registrationForm.valid) {
+      this.loading = true; // Показать загрузку перед запросом
       this.registrationModel = this.registrationForm.value as IRegistrationRequestModel;
       this.identityService.identityRegistration(this.registrationModel).subscribe({
         next: (_response: IBaseResponseModel<IUserResponseModel>) => {
@@ -53,10 +55,12 @@ export class RegistrationComponent {
               height: '350px',
               data: { message: `${_response.message}` }
             });
+            this.router.navigateByUrl('/login');
           } 
           else {
             alert(_response.message);
           }
+          this.loading = false;
         },
         error: (_error: any) => {
           if(_error.error.statusCode === HttpStatusCode.BadRequest) {
@@ -71,8 +75,9 @@ export class RegistrationComponent {
             });
           }
           else {
-            this.router.navigateByUrl('500');
+            this.router.navigateByUrl('/500');
           }
+          this.loading = false;
         }
       });
     }

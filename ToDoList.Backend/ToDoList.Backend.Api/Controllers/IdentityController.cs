@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using ToDoList.Domain.Request;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using ToDoList.Application.Services.RegistrationService;
 using ToDoList.Application.Services.AuthenticationService;
 
