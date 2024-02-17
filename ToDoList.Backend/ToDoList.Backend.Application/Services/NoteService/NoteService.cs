@@ -10,6 +10,7 @@ using ToDoList.Domain.Helpers;
 using ToDoList.Domain.Request;
 using Microsoft.AspNetCore.Http;
 using ToDoList.Domain.Abstractions;
+using ToDoList.Application.Helpers;
 using ToDoList.Application.Exceptions;
 using ToDoList.Domain.Implementations;
 using ToDoList.Application.Commands.Notes.Patch;
@@ -17,7 +18,6 @@ using ToDoList.Application.Queries.Notes.GetAll;
 using ToDoList.Application.Commands.Notes.Delete;
 using ToDoList.Application.Commands.Notes.Create;
 using ToDoList.Application.Commands.Notes.Update;
-using ToDoList.Application.Helpers;
 using ToDoList.Application.Queries.Notes.GetById;
 using ToDoList.Application.Queries.Notes.GetAllFailed;
 using ToDoList.Application.Queries.Notes.GetAllCompleted;
@@ -118,7 +118,7 @@ public class NoteService(IMapper mapper, IMediator mediator, IValidator<NoteRequ
         return new BaseResponse<NoteResponse>
         {
             StatusCode = HttpStatusCode.Created,
-            Message = MessageResponseHelper.Success,
+            Message = "Note created successfully",
             Data = data
         };
     }

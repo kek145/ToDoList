@@ -17,15 +17,15 @@ export class LoginComponent {
   loginModel!: ILoginRequestModel;
   loading = false;
 
-  registrationForm = new FormGroup({
+  loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(8)])});
 
   constructor(private identityService: IdentityService, private dialog: MatDialog, private router: Router) { }
 
-  onSubmit(login: ILoginRequestModel) : void {
-    if (this.registrationForm.valid) {
-      this.loginModel = this.registrationForm.value as ILoginRequestModel;
+  onSubmit() : void {
+    if (this.loginForm.valid) {
+      this.loginModel = this.loginForm.value as ILoginRequestModel;
 
       this.loading = true;
 

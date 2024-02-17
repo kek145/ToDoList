@@ -34,7 +34,7 @@ public class CreateTokenCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler
             var newToken = new RefreshTokenDto
             {
                 Token = request.RefreshToken,
-                ExpiresDate = DateTime.UtcNow.AddSeconds(30),
+                ExpiresDate = DateTime.UtcNow.AddDays(30),
                 UserId = request.UserId
             };
             await _unitOfWork.RefreshTokens.AddRefreshTokenAsync(newToken, cancellationToken);

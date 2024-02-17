@@ -12,7 +12,7 @@ namespace ToDoList.Api.Controllers;
 [ApiController]
 [Route("api/notes")]
 [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-public class NotesControllerNotesController(INoteService noteService) : ControllerBase
+public class NotesController(INoteService noteService) : ControllerBase
 {
     private readonly INoteService _noteService = noteService;
 

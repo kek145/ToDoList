@@ -19,7 +19,7 @@ builder.Services.AddApplication().AddInfrastructure(builder.Configuration);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("FrontEnd", policy =>
+    options.AddPolicy("Angular", policy =>
     {
         policy.WithOrigins("http://localhost:4200")
             .AllowAnyHeader()
@@ -37,7 +37,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("FrontEnd");
+app.UseCors("Angular");
 app.UseAuthentication();
 app.UseAuthorization();
 app.AddGlobalErrorHandling();

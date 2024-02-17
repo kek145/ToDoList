@@ -14,5 +14,5 @@ public class Note : IEntityId<long>, IBaseEntity
     public DateTime CreatedAt { get; set; }
     public DateTime? UpdatedAt { get; set; }
     public int UserId { get; set; }
-    public User? User { get; set; }
+    public virtual User? User { get; set; }
 }

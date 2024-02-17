@@ -1,8 +1,8 @@
-<div class="center-container">  
+<div class="center-container">
   <ng-container *ngIf="!loading">
     <form [formGroup]="registrationForm" class="registration-form" (ngSubmit)="onSubmit()">
       <h1>Sign up</h1>
-  
+
       <!-- First Name -->
       <mat-form-field class="example-full-width">
         <input matInput placeholder="First name" formControlName="firstName">
@@ -12,7 +12,7 @@
           </mat-error>
         </mat-error>
       </mat-form-field>
-  
+
       <!-- Last Name -->
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Last name" formControlName="lastName">
@@ -22,7 +22,7 @@
           </mat-error>
         </mat-error>
       </mat-form-field>
-  
+
       <!-- Email -->
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Email" formControlName="email">
@@ -35,7 +35,7 @@
           </mat-error>
         </mat-error>
       </mat-form-field>
-  
+
       <!-- Password -->
       <mat-form-field class="example-full-width">
         <input matInput type="password" placeholder="Password" formControlName="password">
@@ -48,7 +48,7 @@
           </mat-error>
         </mat-error>
       </mat-form-field>
-  
+
       <!-- Confirm Password -->
       <mat-form-field class="example-full-width">
         <input matInput type="password" placeholder="Confirm password" formControlName="confirmPassword">
@@ -56,12 +56,9 @@
           <mat-error *ngIf="registrationForm.controls.confirmPassword.errors['required']">
             Confirm password is required
           </mat-error>
-          <mat-error *ngIf="passwordsMatchValidator(registrationForm.controls.confirmPassword) && !registrationForm.controls.confirmPassword.errors['required']">
-            Password not match
-          </mat-error>
         </mat-error>
       </mat-form-field>
-  
+
       <!-- Submit Button -->
       <button class="button" mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid">Sign up</button>
     </form>

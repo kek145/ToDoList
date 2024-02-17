@@ -16,7 +16,7 @@ import { IRegistrationRequestModel } from 'src/models/request/IRegistrationReque
 })
 export class RegistrationComponent {
   registrationModel!: IRegistrationRequestModel;
-  loading = false; // Флаг для отображения загрузки
+  loading: boolean = false;
 
   registrationForm = new FormGroup({
     firstName: new FormControl('', Validators.required),
@@ -26,21 +26,6 @@ export class RegistrationComponent {
     confirmPassword: new FormControl('', Validators.required)});
 
   constructor(private identityService: IdentityService, private dialog: MatDialog, private router: Router) { }
-
-  public validatePassword(control: FormControl) {
-    const pattern = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    const valid = pattern.test(control.value);
-    return valid ? null : { invalidPassword: true };
-  }
-
-
-  public passwordsMatchValidator(formGroup: FormControl) {
-    const password = formGroup.get('password')!.value;
-    const confirmPassword = formGroup.get('confirmPassword')!.value;
-
-    return password === confirmPassword ? null : { passwordsMismatch: true };
-  }
-
 
   onSubmit() {
     if (this.registrationForm.valid) {

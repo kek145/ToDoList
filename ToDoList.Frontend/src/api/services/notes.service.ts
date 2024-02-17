@@ -8,6 +8,7 @@ import { INoteResponseModel } from 'src/models/response/INoteResponse.model';
 import { NotesEndPoints } from '../note/NotesEndPoints';
 import { IQueryParametersModel } from 'src/models/parameters/IQueryParameters.model';
 import { Priority } from 'src/enum/Priority.enum';
+import {IPagedResultModel} from "../../models/response/IPagedResult.model";
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +27,8 @@ export class NotesService {
     return this.httpClient.get<IBaseResponseModel<INoteResponseModel>>(`${environment.httpUrlApi}${NotesEndPoints.getById(noteId)}`);
   }
 
-  public getNotes(queryParameters: IQueryParametersModel): Observable<IBaseResponseModel<INoteResponseModel>> {
-    return this.httpClient.get<IBaseResponseModel<INoteResponseModel>>(`${environment.httpUrlApi}${NotesEndPoints.getAllNotes(queryParameters)}`, { withCredentials: true });
+  public getNotes(queryParameters: IQueryParametersModel): Observable<IBaseResponseModel<IPagedResultModel<INoteResponseModel>>> {
+    return this.httpClient.get<IBaseResponseModel<IPagedResultModel<INoteResponseModel>>>(`${environment.httpUrlApi}${NotesEndPoints.getAllNotes(queryParameters)}`, { withCredentials: true });
   }
 
   public getFailedNotes(queryParameters: IQueryParametersModel): Observable<IBaseResponseModel<INoteResponseModel>> {
