@@ -2,12 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpStatusCode } from '@angular/common/http';
+import {ModalComponent} from "../modal/modal.component";
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IdentityService } from 'src/api/services/identity.service';
-import { ErrorModalComponent } from '../error-modal/error-modal.component';
 import { IUserResponseModel } from 'src/models/response/IUserResponse.model';
 import { IBaseResponseModel } from 'src/models/response/IBaseResponse.model';
-import { SuccessModalComponent } from '../success-modal/success-modal.component';
 import { IRegistrationRequestModel } from 'src/models/request/IRegistrationRequest.model';
 
 @Component({
@@ -33,7 +32,7 @@ export class RegistrationComponent {
     const valid = pattern.test(control.value);
     return valid ? null : { invalidPassword: true };
   }
-  
+
 
   public passwordsMatchValidator(formGroup: FormControl) {
     const password = formGroup.get('password')!.value;
@@ -41,7 +40,7 @@ export class RegistrationComponent {
 
     return password === confirmPassword ? null : { passwordsMismatch: true };
   }
-  
+
 
   onSubmit() {
     if (this.registrationForm.valid) {
@@ -50,13 +49,13 @@ export class RegistrationComponent {
       this.identityService.identityRegistration(this.registrationModel).subscribe({
         next: (_response: IBaseResponseModel<IUserResponseModel>) => {
           if (_response.statusCode === HttpStatusCode.Created) {
-            this.dialog.open(SuccessModalComponent, {
+            this.dialog.open(ModalComponent, {
               width: '550px',
               height: '350px',
-              data: { message: `${_response.message}` }
+              data: { status: 'Success', message: `${_response.message}` }
             });
             this.router.navigateByUrl('/login');
-          } 
+          }
           else {
             alert(_response.message);
           }
@@ -64,12 +63,12 @@ export class RegistrationComponent {
         },
         error: (_error: any) => {
           if(_error.error.statusCode === HttpStatusCode.BadRequest) {
-            const dialogRef = this.dialog.open(ErrorModalComponent, {
+            const dialogRef = this.dialog.open(ModalComponent, {
               width: '550px',
               height: '350px',
-              data: { message: `${_error.error.errors[0]}` }
+              data: { status: 'Error', message: `${_error.error.errors[0]}` }
             });
-        
+
             dialogRef.afterClosed().subscribe((_result: any) => {
               console.log('The error modal was closed');
             });
@@ -82,5 +81,5 @@ export class RegistrationComponent {
       });
     }
   }
-  
+
 }

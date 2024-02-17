@@ -1,11 +1,11 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { HttpStatusCode } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
+import { HttpStatusCode } from '@angular/common/http';
+import {ModalComponent} from "../modal/modal.component";
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IdentityService } from 'src/api/services/identity.service';
 import { ILoginRequestModel } from 'src/models/request/ILoginRequest.model';
-import { ErrorModalComponent } from '../error-modal/error-modal.component';
 import { IAuthenticationResponseModel } from 'src/models/response/IAuthenticationResponse.model';
 
 @Component({
@@ -37,12 +37,12 @@ export class LoginComponent {
         },
         error: (_error: any) => {
           if(_error.error.statusCode === HttpStatusCode.Unauthorized) {
-            const dialogRef = this.dialog.open(ErrorModalComponent, {
+            const dialogRef = this.dialog.open(ModalComponent, {
               width: '550px',
               height: '350px',
-              data: { message: `${_error.error.errors[0]}` }
+              data: { status: 'Error', message: `${_error.error.errors[0]}` }
             });
-        
+
             dialogRef.afterClosed().subscribe((_result: any) => {
               console.log('The error modal was closed');
             });
