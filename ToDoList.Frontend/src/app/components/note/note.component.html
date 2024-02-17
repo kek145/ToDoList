@@ -1,0 +1,40 @@
+<div class="container">
+  <ng-container *ngIf="!loading">
+    <form class="note__form" [formGroup]="noteForm" (ngSubmit)="onSubmit();">
+      <h1>Create note</h1>
+
+      <mat-form-field class="title__field">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Title" formControlName="title">
+      </mat-form-field>
+
+      <mat-form-field class="description__field">
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Description your note" formControlName="description"></textarea>
+      </mat-form-field>
+
+      <mat-form-field class="priority__field">
+        <mat-label>Priority</mat-label>
+        <mat-select formControlName="priority" [(value)]="priority">
+          <mat-option *ngFor="let e of enumValues(priorityEnum)" [value]="e">{{ e | priority }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="deadline__field">
+        <mat-label>Deadline</mat-label>
+        <input matInput formControlName="deadline" [matDatepicker]="picker">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <button class="button__submit" mat-raised-button color="primary" type="submit" [disabled]="noteForm.invalid">Submit</button>
+
+    </form>
+  </ng-container>
+
+  <ng-container *ngIf="loading">
+    <div class="content__loader">
+      <app-loader></app-loader>
+    </div>
+  </ng-container>
+</div>
