@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
+import { PriorityPipe } from './pipes/priority.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from 'src/material/material.module';
@@ -17,7 +18,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { PriorityPipe } from './pipes/priority.pipe';
+import { CreateUpdateComponent } from './components/create-update/create-update.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PriorityPipe } from './pipes/priority.pipe';
     DashboardComponent,
     RegistrationComponent,
     NoteComponent,
-    PriorityPipe
+    PriorityPipe,
+    CreateUpdateComponent,
   ],
   imports: [
     FormsModule,

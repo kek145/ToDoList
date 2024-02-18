@@ -1,26 +1,20 @@
+
 .title {
-    margin: auto;
+  text-align: center;
+  margin: 0 auto;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-// .mat-toolbar {
-//   flex-shrink: 0;
-// }
-
-.main-content {
-  flex-grow: 1;
-}
-
-.mat-elevation-z2 {
+.footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  z-index: 2;
+}
+
+
+.mat-toolbar {
+  z-index: 1; /* Установите более низкий z-index для вашего mat-toolbar */
+}
+
+.mat-paginator {
+  z-index: 2; /* Установите более высокий z-index для вашей пагинации */
 }

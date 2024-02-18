@@ -2,21 +2,21 @@
 using System.Threading;
 using ToDoList.Domain.Dto;
 using System.Threading.Tasks;
-using ToDoList.Domain.Interfaces;
+using ToDoList.Domain.Repositories;
 using ToDoList.Application.Exceptions;
 
 namespace ToDoList.Application.Queries.Notes.GetById;
 
-public class GetNoteByIdQueryHandler(IUnitOfWork unitOfWork) : IRequestHandler<GetNoteByIdQuery, NoteDto>
+public class GetNoteByIdQueryHandler(INoteRepository noteRepository) : IRequestHandler<GetNoteByIdQuery, NoteDto>
 {
-    private readonly IUnitOfWork _unitOfWork = unitOfWork;
+    private readonly INoteRepository _noteRepository = noteRepository;
     
     public async Task<NoteDto> Handle(GetNoteByIdQuery request, CancellationToken cancellationToken)
     {
-        var note = await _unitOfWork.Notes.GetNoteByIdAsync(request.NoteId, cancellationToken);
+        var note = await _noteRepository.GetNoteByIdAsync(request.NoteId, cancellationToken);
 
         if (note is null || note.UserId != request.UserId)
-            throw new NotFoundException("Note not found!");
+            throw new NotFoundException("Note not found!!!");
 
         return note;
     }

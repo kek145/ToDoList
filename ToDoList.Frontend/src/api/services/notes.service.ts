@@ -27,20 +27,20 @@ export class NotesService {
     return this.httpClient.get<IBaseResponseModel<INoteResponseModel>>(`${environment.httpUrlApi}${NotesEndPoints.getById(noteId)}`);
   }
 
-  public getNotes(queryParameters: IQueryParametersModel): Observable<IBaseResponseModel<IPagedResultModel<INoteResponseModel>>> {
+  public getAllNotes(queryParameters: IQueryParametersModel): Observable<IBaseResponseModel<IPagedResultModel<INoteResponseModel>>> {
     return this.httpClient.get<IBaseResponseModel<IPagedResultModel<INoteResponseModel>>>(`${environment.httpUrlApi}${NotesEndPoints.getAllNotes(queryParameters)}`, { withCredentials: true });
   }
 
-  public getFailedNotes(queryParameters: IQueryParametersModel): Observable<IBaseResponseModel<INoteResponseModel>> {
-    return this.httpClient.get<IBaseResponseModel<INoteResponseModel>>(`${environment.httpUrlApi}${NotesEndPoints.getFailedNotes(queryParameters)}`, { withCredentials: true });
+  public getFailedNotes(queryParameters: IQueryParametersModel): Observable<IBaseResponseModel<IPagedResultModel<INoteResponseModel>>> {
+    return this.httpClient.get<IBaseResponseModel<IPagedResultModel<INoteResponseModel>>>(`${environment.httpUrlApi}${NotesEndPoints.getFailedNotes(queryParameters)}`, { withCredentials: true });
   }
 
-  public getCompletedNotes(queryParameters: IQueryParametersModel): Observable<IBaseResponseModel<INoteResponseModel>> {
-    return this.httpClient.get<IBaseResponseModel<INoteResponseModel>>(`${environment.httpUrlApi}${NotesEndPoints.getCompletedNotes(queryParameters)}`, { withCredentials: true });
+  public getCompletedNotes(queryParameters: IQueryParametersModel): Observable<IBaseResponseModel<IPagedResultModel<INoteResponseModel>>> {
+    return this.httpClient.get<IBaseResponseModel<IPagedResultModel<INoteResponseModel>>>(`${environment.httpUrlApi}${NotesEndPoints.getCompletedNotes(queryParameters)}`, { withCredentials: true });
   }
 
-  public getNotesByPriority(queryParameters: IQueryParametersModel, priority: Priority): Observable<IBaseResponseModel<INoteResponseModel>> {
-    return this.httpClient.get<IBaseResponseModel<INoteResponseModel>>(`${environment.httpUrlApi}${NotesEndPoints.getByPriorityNotes(queryParameters, priority)}`, { withCredentials: true });
+  public getNotesByPriority(queryParameters: IQueryParametersModel, priority: Priority): Observable<IBaseResponseModel<IPagedResultModel<INoteResponseModel>>> {
+    return this.httpClient.get<IBaseResponseModel<IPagedResultModel<INoteResponseModel>>>(`${environment.httpUrlApi}${NotesEndPoints.getByPriorityNotes(queryParameters, priority)}`, { withCredentials: true });
   }
 
   // PATCH requests

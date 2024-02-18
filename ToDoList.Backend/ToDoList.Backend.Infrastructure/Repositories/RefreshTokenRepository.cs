@@ -35,6 +35,7 @@ public class RefreshTokenRepository(IMapper mapper, ApplicationDbContext context
         var refreshToken = _mapper.Map<RefreshToken>(refreshTokenDto);
 
         var newToken = await _context.RefreshTokens.AddAsync(refreshToken, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
 
         var result = _mapper.Map<RefreshTokenDto>(newToken.Entity);
 

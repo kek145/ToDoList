@@ -68,6 +68,7 @@ public class NoteRepository(IMapper mapper, ApplicationDbContext context) : INot
         var note = _mapper.Map<Note>(noteDto);
 
         var task = await _context.Notes.AddAsync(note, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
 
         var result = _mapper.Map<NoteDto>(task.Entity);
 

@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
-import {MatDialog} from "@angular/material/dialog";
+import {Component, Inject} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
+import {HttpStatusCode} from "@angular/common/http";
 import {Priority} from "../../../enum/Priority.enum";
+import {ModalComponent} from "../modal/modal.component";
 import { enumHelper } from "../../../helpers/enum.helper";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {NotesService} from "../../../api/services/notes.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {INoteRequestModel} from "../../../models/request/INoteRequest.model";
 import {IBaseResponseModel} from "../../../models/response/IBaseResponse.model";
 import {INoteResponseModel} from "../../../models/response/INoteResponse.model";
 import {IErrorResponseModel} from "../../../models/response/IErrorResponse.model";
-import {ModalComponent} from "../modal/modal.component";
-import {HttpStatusCode} from "@angular/common/http";
 
 @Component({
   selector: 'app-note',

@@ -5,17 +5,15 @@ using ToDoList.Domain.Dto;
 using ToDoList.Domain.Enum;
 using System.Threading.Tasks;
 using ToDoList.Domain.Helpers;
-using ToDoList.Domain.Interfaces;
 using ToDoList.Application.Exceptions;
-using ToDoList.Domain.Interfaces;
 using ToDoList.Domain.Repositories;
 
 namespace ToDoList.Application.Commands.Notes.Create;
 
-public class CreateNoteCommandHandler(IMapper mapper, IUnitOfWork unitOfWork) : IRequestHandler<CreateNoteCommand, NoteDto>
+public class CreateNoteCommandHandler(IMapper mapper, INoteRepository noteRepository) : IRequestHandler<CreateNoteCommand, NoteDto>
 {
     private readonly IMapper _mapper = mapper;
-    private readonly IUnitOfWork _unitOfWork = unitOfWork;
+    private readonly INoteRepository _noteRepository = noteRepository;
 
     public async Task<NoteDto> Handle(CreateNoteCommand request, CancellationToken cancellationToken)
     {
@@ -31,8 +29,7 @@ public class CreateNoteCommandHandler(IMapper mapper, IUnitOfWork unitOfWork) : 
             _ => throw new BadRequestException("There is no such priority!")
         };
 
-        var newNote = await _unitOfWork.Notes.AddNoteAsync(note, cancellationToken);
-        await _unitOfWork.CommitAsync(cancellationToken);
+        var newNote = await _noteRepository.AddNoteAsync(note, cancellationToken);
 
         return newNote;
     }

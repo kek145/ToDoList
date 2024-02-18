@@ -1,20 +1,20 @@
-using System.Threading;
-using System.Threading.Tasks;
 using MediatR;
+using System.Threading;
+using ToDoList.Domain.Dto;
+using System.Threading.Tasks;
+using ToDoList.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 using ToDoList.Application.Exceptions;
-using ToDoList.Domain.Dto;
-using ToDoList.Domain.Interfaces;
 
 namespace ToDoList.Application.Queries.RefreshTokens;
 
-public class GetRefreshTokenByNameQueryHandler(IUnitOfWork unitOfWork) : IRequestHandler<GetRefreshTokenByNameQuery, RefreshTokenDto>
+public class GetRefreshTokenByNameQueryHandler(IRefreshTokenRepository refreshTokenRepository) : IRequestHandler<GetRefreshTokenByNameQuery, RefreshTokenDto>
 {
-    private readonly IUnitOfWork _unitOfWork = unitOfWork;
+    private readonly IRefreshTokenRepository _refreshTokenRepository = refreshTokenRepository;
     
     public async Task<RefreshTokenDto> Handle(GetRefreshTokenByNameQuery request, CancellationToken cancellationToken)
     {
-        var token = await _unitOfWork.RefreshTokens
+        var token = await _refreshTokenRepository
             .GetAll()
             .FirstOrDefaultAsync(x => x.Token == request.RefreshToken, cancellationToken);
 

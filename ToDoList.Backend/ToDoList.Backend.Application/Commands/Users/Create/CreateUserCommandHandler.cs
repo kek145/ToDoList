@@ -4,17 +4,17 @@ using System.Threading;
 using ToDoList.Domain.Dto;
 using System.Threading.Tasks;
 using ToDoList.Domain.Result;
-using ToDoList.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using ToDoList.Domain.Repositories;
 using ToDoList.Application.Exceptions;
 using ToDoList.Infrastructure.Identity;
 
 namespace ToDoList.Application.Commands.Users.Create;
 
-public class CreateUserCommandHandler(IMapper mapper, IUnitOfWork unitOfWork) : IRequestHandler<CreateUserCommand, UserResponse>
+public class CreateUserCommandHandler(IMapper mapper, IUserRepository userRepository) : IRequestHandler<CreateUserCommand, UserResponse>
 {
     private readonly IMapper _mapper = mapper;
-    private readonly IUnitOfWork _unitOfWork = unitOfWork;
+    private readonly IUserRepository _userRepository = userRepository;
     
 
     public async Task<UserResponse> Handle(CreateUserCommand request, CancellationToken cancellationToken)
@@ -23,7 +23,7 @@ public class CreateUserCommandHandler(IMapper mapper, IUnitOfWork unitOfWork) : 
         
         PasswordHasher.CreatePasswordHash(request.RegistrationRequest.Password, out var passwordHash, out var passwordSalt);
         
-        var isEmailExists = await _unitOfWork.Users
+        var isEmailExists = await _userRepository
             .GetAll()
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Email == request.RegistrationRequest.Email, cancellationToken);
@@ -34,13 +34,10 @@ public class CreateUserCommandHandler(IMapper mapper, IUnitOfWork unitOfWork) : 
         userDto.PasswordHash = passwordHash;
         userDto.PasswordSalt = passwordSalt;
 
-        var addUser = await _unitOfWork.Users.AddUserAsync(userDto, cancellationToken);
-        await _unitOfWork.CommitAsync(cancellationToken);
+        var newUser = await _userRepository.AddUserAsync(userDto, cancellationToken);
 
-        var savedUser = await _unitOfWork.Users
-            .GetAll()
-            .FirstOrDefaultAsync(x => x.Email == addUser.Email, cancellationToken);
+        var result = _mapper.Map<UserResponse>(newUser);
         
-        return _mapper.Map<UserResponse>(savedUser);
+        return result;
     }
 }

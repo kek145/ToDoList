@@ -56,7 +56,7 @@ public class NotesController(INoteService noteService) : ControllerBase
     }
 
     [HttpGet]
-    [Route("{priority}")]
+    [Route("{priority}/priority")]
     public async Task<IActionResult> GetAllNotesByPriority([FromQuery] QueryParameters queryParameters, [FromRoute] Priority priority)
     {
         var response = await _noteService.GetAllByPriorityNotesAsync(queryParameters, priority);

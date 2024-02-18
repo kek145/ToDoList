@@ -26,6 +26,7 @@ public class UserRepository(IMapper mapper, ApplicationDbContext context) : IUse
         var user = _mapper.Map<User>(userDto);
 
         var newUser = await _context.Users.AddAsync(user, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
 
         var result = _mapper.Map<UserDto>(newUser.Entity);
 

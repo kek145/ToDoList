@@ -3,19 +3,19 @@ using MediatR;
 using System.Threading;
 using ToDoList.Domain.Dto;
 using System.Threading.Tasks;
-using ToDoList.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using ToDoList.Application.Exceptions;
+using ToDoList.Domain.Repositories;
 
 namespace ToDoList.Application.Commands.RefreshTokens.Create;
 
-public class CreateTokenCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<CreateTokenCommand>
+public class CreateTokenCommandHandler(IRefreshTokenRepository refreshTokenRepository) : IRequestHandler<CreateTokenCommand>
 {
-    private readonly IUnitOfWork _unitOfWork = unitOfWork;
+    private readonly IRefreshTokenRepository _refreshTokenRepository = refreshTokenRepository;
 
     public async Task Handle(CreateTokenCommand request, CancellationToken cancellationToken)
     {
-        var token = await _unitOfWork.RefreshTokens
+        var token = await _refreshTokenRepository
             .GetAll()
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.UserId == request.UserId, cancellationToken);
@@ -23,7 +23,7 @@ public class CreateTokenCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler
         if (token is not null)
         {
             var updateToken =
-                await _unitOfWork.RefreshTokens.UpdateRefreshTokenAsync(token.Id, request.RefreshToken, cancellationToken);
+                await _refreshTokenRepository.UpdateRefreshTokenAsync(token.Id, request.RefreshToken, cancellationToken);
 
             if (updateToken <= 0)
                 throw new BadRequestException("token bad!");
@@ -37,8 +37,7 @@ public class CreateTokenCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler
                 ExpiresDate = DateTime.UtcNow.AddDays(30),
                 UserId = request.UserId
             };
-            await _unitOfWork.RefreshTokens.AddRefreshTokenAsync(newToken, cancellationToken);
-            await _unitOfWork.CommitAsync(cancellationToken);
+            await _refreshTokenRepository.AddRefreshTokenAsync(newToken, cancellationToken);
         }
     }
 }
