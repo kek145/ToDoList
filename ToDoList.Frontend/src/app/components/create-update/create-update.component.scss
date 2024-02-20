@@ -1,0 +1,33 @@
+.note__form {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 100px;
+  min-width: 150px;
+  max-width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  padding: 20px;
+}
+
+.note__form h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.button__submit {
+  width: 50%;
+}
+
+.content__loader {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title__field, .description__field, .priority__field, .deadline__field {
+  width: 100%;
+}

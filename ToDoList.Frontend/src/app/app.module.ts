@@ -7,7 +7,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from 'src/material/material.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
-import { NoteComponent } from './components/note/note.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from 'src/interceptors/auth.interceptor';
 import { ModalComponent } from './components/modal/modal.component';
@@ -31,7 +30,6 @@ import { CreateUpdateComponent } from './components/create-update/create-update.
     LoaderComponent,
     DashboardComponent,
     RegistrationComponent,
-    NoteComponent,
     PriorityPipe,
     CreateUpdateComponent,
   ],

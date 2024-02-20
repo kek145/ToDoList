@@ -6,6 +6,7 @@
         <ImplicitUsings>disable</ImplicitUsings>
         <InvariantGlobalization>true</InvariantGlobalization>
         <RootNamespace>ToDoList.Api</RootNamespace>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
