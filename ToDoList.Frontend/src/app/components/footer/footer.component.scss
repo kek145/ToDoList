@@ -1,0 +1,20 @@
+
+.title {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.mat-toolbar {
+  z-index: 1; /* Установите более низкий z-index для вашего mat-toolbar */
+}
+
+.mat-paginator {
+  z-index: 2; /* Установите более высокий z-index для вашей пагинации */
+}
