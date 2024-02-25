@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using System.Threading;
 using ToDoList.Domain.Dto;
-using ToDoList.Domain.Result;
 using System.Threading.Tasks;
+using ToDoList.Domain.Response;
 using ToDoList.Domain.Repositories;
 
 namespace ToDoList.Application.Queries.Notes.GetAllFailed;

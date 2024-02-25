@@ -14,10 +14,7 @@ public class GetUserByEmailQueryHandler(IUserRepository userRepository) : IReque
 
     public async Task<UserDto> Handle(GetUserByEmailQuery request, CancellationToken cancellationToken)
     {
-        var email = await _userRepository
-            .GetAll()
-            .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.Email == request.Email, cancellationToken);
+        var email = await _userRepository.GetUserByEmail(request.Email, cancellationToken);
 
         if (email is null)
             throw new UnauthorizedAccessException("Invalid email");

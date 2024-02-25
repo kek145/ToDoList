@@ -7,6 +7,8 @@ namespace ToDoList.Domain.Repositories;
 
 public interface IUserRepository
 {
-    IQueryable<UserDto> GetAll();
+    Task<UserDto?> GetUserById(int userId, CancellationToken cancellationToken = default);
+    Task<string> GetUserFullName(int userId, CancellationToken cancellationToken = default);
+    Task<UserDto?> GetUserByEmail(string email, CancellationToken cancellationToken = default);
     Task<UserDto> AddUserAsync(UserDto userDto, CancellationToken cancellationToken = default);
 }

@@ -2,7 +2,7 @@
 using System.Threading;
 using ToDoList.Domain.Dto;
 using System.Threading.Tasks;
-using ToDoList.Domain.Result;
+using ToDoList.Domain.Response;
 using ToDoList.Domain.Repositories;
 
 namespace ToDoList.Application.Queries.Notes.GetAllByPriority;

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using ToDoList.Domain.Dto;
-using ToDoList.Domain.Result;
+using ToDoList.Domain.Response;
 
 namespace ToDoList.Application.MappingProfiles;
 

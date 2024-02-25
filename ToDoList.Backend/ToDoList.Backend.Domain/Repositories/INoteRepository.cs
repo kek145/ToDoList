@@ -2,9 +2,8 @@
 using System.Threading;
 using ToDoList.Domain.Dto;
 using System.Threading.Tasks;
-using ToDoList.Domain.Enum;
 using ToDoList.Domain.Helpers;
-using ToDoList.Domain.Result;
+using ToDoList.Domain.Response;
 
 namespace ToDoList.Domain.Repositories;
 

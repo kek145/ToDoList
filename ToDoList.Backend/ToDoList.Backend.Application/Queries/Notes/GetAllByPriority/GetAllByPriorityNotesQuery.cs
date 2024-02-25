@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using ToDoList.Domain.Dto;
-using ToDoList.Domain.Result;
 using ToDoList.Domain.Helpers;
+using ToDoList.Domain.Response;
 
 namespace ToDoList.Application.Queries.Notes.GetAllByPriority;
 

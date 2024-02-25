@@ -1,9 +1,9 @@
 ﻿using System.Net;
 using ToDoList.Domain.Enum;
 using System.Threading.Tasks;
-using ToDoList.Domain.Result;
 using ToDoList.Domain.Helpers;
 using ToDoList.Domain.Request;
+using ToDoList.Domain.Response;
 using ToDoList.Domain.Abstractions;
 
 namespace ToDoList.Application.Services.NoteService;

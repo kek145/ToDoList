@@ -1,7 +1,7 @@
 import {MatDialog} from "@angular/material/dialog";
 import {HttpStatusCode} from "@angular/common/http";
 import {MatTableDataSource} from "@angular/material/table";
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {NotesService} from "../../../api/services/notes.service";
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
 import {IPagedResultModel} from "../../../models/response/IPagedResult.model";
@@ -11,13 +11,14 @@ import {IErrorResponseModel} from "../../../models/response/IErrorResponse.model
 import {IQueryParametersModel} from "../../../models/parameters/IQueryParameters.model";
 import {Priority} from "../../../enum/Priority.enum";
 import {enumHelper} from "../../../helpers/enum.helper";
+import {CreateUpdateComponent} from "../create-update/create-update.component";
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements AfterViewInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -44,7 +45,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private noteService: NotesService, private dialog: MatDialog) { }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.getAllNotes(this.parameters)
   }
 
@@ -55,7 +56,6 @@ export class DashboardComponent implements OnInit {
   }
 
   public onPriorityChange(): void {
-    // Обновляем параметры запроса
     this.parameters.pageNumber = 1;
     this.getAllNotesByPriority(this.parameters, this.priority);
   }
@@ -151,7 +151,15 @@ export class DashboardComponent implements OnInit {
   }
 
   public updateNote(noteId: number): void {
+    const dialogRef = this.dialog.open(CreateUpdateComponent, {
+      width: '1200px',
+      height: '700px',
+      data: { action: 'Update', noteId: noteId }
+    });
 
+    dialogRef.afterClosed().subscribe((_result: any) => {
+      console.log('The error modal was closed');
+    });
   }
 
   private loadTabData(): void {

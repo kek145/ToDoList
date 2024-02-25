@@ -1,4 +1,4 @@
-﻿namespace ToDoList.Domain.Result;
+﻿namespace ToDoList.Domain.Response;
 
 public class AuthenticationResponse
 {

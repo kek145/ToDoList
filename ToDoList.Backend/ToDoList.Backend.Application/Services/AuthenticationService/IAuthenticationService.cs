@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using ToDoList.Domain.Result;
 using ToDoList.Domain.Request;
+using ToDoList.Domain.Response;
 
 namespace ToDoList.Application.Services.AuthenticationService;
 

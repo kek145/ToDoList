@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using ToDoList.Domain.Result;
+using ToDoList.Domain.Response;
 
 namespace ToDoList.Application.Services.TokenService;
 

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Globalization;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using ToDoList.Domain.Result;
+using ToDoList.Domain.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ToDoList.Domain.Result;
+namespace ToDoList.Domain.Response;
 
 public class PagedResult<T>
 {
