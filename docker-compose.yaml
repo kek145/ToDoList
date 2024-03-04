@@ -12,7 +12,7 @@ services:
     environment:
       POSTGRES_DB: "todo_list"
       POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "B0g0m0l4ik2k4@"
+      POSTGRES_PASSWORD: "your postgres password"
     ports:
       - "5432:5432"
     restart: always
