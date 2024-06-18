@@ -40,6 +40,11 @@ export class CreateUpdateComponent {
     this.minDate.setDate(this.minDate.getDate() + 1);
   }
 
+  actionTranslations: {[key: string]: string} = {
+    'Create': 'Створити',
+    'Update': 'Оновити'
+  };
+
   public onSubmit(): void {
     if (this.noteForm.valid) {
       this.loading = true;
@@ -48,7 +53,6 @@ export class CreateUpdateComponent {
         this.createNote(request);
       }
       else if(this.data.action === 'Update') {
-        console.log("ok");
         this.updateNote(request, this.data.noteId);
       }
       else {
@@ -63,7 +67,7 @@ export class CreateUpdateComponent {
         const dialogRef = this.dialog.open(ModalComponent, {
           width: '550px',
           height: '350px',
-          data: {status: 'Success', message: "Note updates successfully!"}
+          data: {status: 'Success', message: "Нотатку успішно оновлена"}
         });
 
         dialogRef.afterClosed().subscribe((_result: any) => {

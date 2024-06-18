@@ -28,6 +28,10 @@ export class DashboardComponent implements AfterViewInit {
   public priorityEnum = Priority;
   public enumValues = enumHelper;
 
+  protected priority1 = {
+    'Easy': 'Легкий'
+  }
+
   public showButtons: boolean = true;
 
   public dataSource!: MatTableDataSource<INoteResponseModel>;

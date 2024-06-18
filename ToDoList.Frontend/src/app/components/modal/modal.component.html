@@ -1,9 +1,8 @@
 <div class="modal-content">
   <div [ngClass]="{'success': data.status === 'Success', 'error': data.status === 'Error'}">
-    <h1>{{data.status}}</h1>
+    <h1>{{ data.status | statusTranslate }}</h1>
   </div>
 
   <p>{{ data.message }}</p>
-  <button class="button" color="primary" mat-button [mat-dialog-close]="'close'">Close</button>
+  <button class="button" color="primary" mat-button [mat-dialog-close]="'close'">Закрити</button>
 </div>
-

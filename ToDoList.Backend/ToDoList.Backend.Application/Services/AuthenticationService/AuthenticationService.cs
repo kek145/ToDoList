@@ -13,7 +13,8 @@ using ToDoList.Application.Queries.Users.GetByEmail;
 
 namespace ToDoList.Application.Services.AuthenticationService;
 
-public class AuthenticationService(IMapper mapper, IMediator mediator, ITokenService tokenService, IValidator<LoginRequest> validator, IHttpContextAccessor contextAccessor) : IAuthenticationService
+public class AuthenticationService(IMapper mapper, IMediator mediator, ITokenService tokenService,
+    IValidator<LoginRequest> validator, IHttpContextAccessor contextAccessor) : IAuthenticationService
 {
     private readonly IMapper _mapper = mapper;
     private readonly IMediator _mediator = mediator;
@@ -33,7 +34,7 @@ public class AuthenticationService(IMapper mapper, IMediator mediator, ITokenSer
         var user = await _mediator.Send(query);
 
         if (!PasswordHasher.VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
-            throw new UnauthorizedAccessException("Invalid password");
+            throw new UnauthorizedAccessException("Недійсний пароль!");
 
         var response = _mapper.Map<UserResponse>(user);
 

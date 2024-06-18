@@ -16,7 +16,7 @@ public class GetNoteByIdQueryHandler(INoteRepository noteRepository) : IRequestH
         var note = await _noteRepository.GetNoteByIdAsync(request.NoteId, cancellationToken);
 
         if (note is null || note.UserId != request.UserId)
-            throw new NotFoundException("Note not found!!!");
+            throw new NotFoundException("Примітка не знайдена!");
 
         return note;
     }

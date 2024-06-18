@@ -2,7 +2,7 @@
 
 public static class PrioritiesHelper
 {
-    public const string Easy = "Easy";
-    public const string Medium = "Medium";
-    public const string Hard = "Hard";
+    public const string Easy = "Легкий";
+    public const string Medium = "Сердній";
+    public const string Hard = "Жорсткий";
 }

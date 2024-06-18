@@ -8,22 +8,22 @@ public class NoteRequestValidator : AbstractValidator<NoteRequest>
     public NoteRequestValidator()
     {
         RuleFor(x => x.Title)
-            .NotEmpty().WithMessage("Title is required")
-            .MaximumLength(1000).WithMessage("No more than 500 characters")
-            .NotNull().WithMessage("Title is null");
+            .NotEmpty().WithMessage("Необхідно вказати назву")
+            .NotNull().WithMessage("Необхідно вказати назву")
+            .MaximumLength(1000).WithMessage("Не більше 1000 символів");
         
         RuleFor(x => x.Description)
-            .NotEmpty().WithMessage("Description is required")
-            .MaximumLength(2000).WithMessage("No more than 2000 characters")
-            .NotNull().WithMessage("Description is null");
+            .NotEmpty().WithMessage("Потрібен опис")
+            .NotNull().WithMessage("Потрібен опис")
+            .MaximumLength(2000).WithMessage("Не більше 2000 символів");
         
         RuleFor(x => x.Priority)
-            .NotEmpty().WithMessage("Priority is required")
-            .Must(x => !x.ToString().Contains(' ')).WithMessage("Spaces are not allowed")
-            .NotNull().WithMessage("Priority is null");
-        
+            .NotEmpty().WithMessage("Потрібен пріоритет")
+            .NotNull().WithMessage("Потрібен пріоритет")
+            .Must(x => !x.ToString().Contains(' ')).WithMessage("Пробіли не допускаються");
+
         RuleFor(x => x.Deadline)
-            .NotEmpty().WithMessage("Deadline is required")
-            .NotNull().WithMessage("Deadline is null");
+            .NotNull().WithMessage("Термін обов’язковий")
+            .NotEmpty().WithMessage("Термін обов’язковий");
     }
 }

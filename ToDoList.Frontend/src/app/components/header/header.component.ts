@@ -1,22 +1,23 @@
-import {Component, AfterViewInit } from '@angular/core';
+import {Component, AfterViewInit, OnInit } from '@angular/core';
 import { IdentityService } from 'src/api/services/identity.service';
 import {MatDialog} from "@angular/material/dialog";
 import {ModalComponent} from "../modal/modal.component";
 import {CreateUpdateComponent} from "../create-update/create-update.component";
 import {AccountService} from "../../../api/services/account.service";
 import {IUserFullNameResponseModel} from "../../../models/response/IUserFullNameResponseModel";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements AfterViewInit {
+export class HeaderComponent implements OnInit {
   public fullName: string = '';
   private isAuthenticated: boolean = false;
-  constructor(private identityService: IdentityService, private accountService: AccountService, private dialog: MatDialog) {}
+  constructor(private identityService: IdentityService, private accountService: AccountService, private dialog: MatDialog, private router: Router) {}
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.isAuthenticated = this.isUserLogged();
     if(this.isAuthenticated) {
       this.getUserFullName();
@@ -40,6 +41,7 @@ export class HeaderComponent implements AfterViewInit {
   }
 
   protected logout(): void {
+    this.router.navigateByUrl("/login")
     localStorage.clear();
   }
 

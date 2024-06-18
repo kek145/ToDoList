@@ -17,7 +17,7 @@ public class GetUserByEmailQueryHandler(IUserRepository userRepository) : IReque
         var email = await _userRepository.GetUserByEmail(request.Email, cancellationToken);
 
         if (email is null)
-            throw new UnauthorizedAccessException("Invalid email");
+            throw new UnauthorizedAccessException("Недійсна електронна адреса!");
 
         return email;
     }

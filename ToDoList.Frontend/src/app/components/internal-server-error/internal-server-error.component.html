@@ -1,1 +1,19 @@
-<h1>500 error</h1>
+<div class="error-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon class="error-icon">error_outline</mat-icon>
+          <span class="error-code">500</span> Internal Server Error
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+            Ой! З нашого боку щось пішло не так.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="goHome()">Go to Home</button>
+      </mat-card-actions>
+    </mat-card>
+</div>
+  

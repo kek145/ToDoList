@@ -118,7 +118,7 @@ public class NoteService(IMapper mapper, IMediator mediator, IValidator<NoteRequ
         return new BaseResponse<NoteResponse>
         {
             StatusCode = HttpStatusCode.Created,
-            Message = "Note created successfully",
+            Message = "Нотатку створено успішно",
             Data = data
         };
     }

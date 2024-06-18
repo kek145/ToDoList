@@ -28,7 +28,9 @@ export class NotesService {
   }
 
   public getAllNotes(queryParameters: IQueryParametersModel): Observable<IBaseResponseModel<IPagedResultModel<INoteResponseModel>>> {
-    return this.httpClient.get<IBaseResponseModel<IPagedResultModel<INoteResponseModel>>>(`${environment.httpUrlApi}${NotesEndPoints.getAllNotes(queryParameters)}`, { withCredentials: true });
+    return this.httpClient.get<IBaseResponseModel<IPagedResultModel<INoteResponseModel>>>(`
+      ${environment.httpUrlApi}${NotesEndPoints.getAllNotes(queryParameters)}`
+      , { withCredentials: true });
   }
 
   public getFailedNotes(queryParameters: IQueryParametersModel): Observable<IBaseResponseModel<IPagedResultModel<INoteResponseModel>>> {

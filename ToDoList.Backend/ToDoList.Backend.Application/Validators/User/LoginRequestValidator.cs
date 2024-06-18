@@ -8,13 +8,13 @@ public class LoginRequestValidator : AbstractValidator<LoginRequest>
     public LoginRequestValidator()
     {
         RuleFor(x => x.Email)
-            .NotNull().WithMessage("Email is null")
-            .NotEmpty().WithMessage("Email is required")
-            .EmailAddress().WithMessage("You entered an incorrect email format")
-            .Must(email => !email.Contains(' ')).WithMessage("Email must not contain spaces.");
+            .NotNull().WithMessage("Необхідно вказати адресу електронної пошти")
+            .NotEmpty().WithMessage("Необхідно вказати адресу електронної пошти")
+            .EmailAddress().WithMessage("Ви ввели неправильний формат електронної пошти")
+            .Must(email => !email.Contains(' ')).WithMessage("Електронна адреса не повинна містити пробілів");
 
         RuleFor(user => user.Password)
-            .NotEmpty().WithMessage("The password must not be empty.")
-            .Must(password => !password.Contains(' ')).WithMessage("The password must not contain spaces.");
+            .NotEmpty().WithMessage("Пароль не повинен бути порожнім")
+            .Must(password => !password.Contains(' ')).WithMessage("Пароль не повинен містити пробілів.");
     }
 }

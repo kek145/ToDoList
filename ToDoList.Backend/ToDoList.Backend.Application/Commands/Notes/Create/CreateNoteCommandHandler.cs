@@ -26,7 +26,7 @@ public class CreateNoteCommandHandler(IMapper mapper, INoteRepository noteReposi
             Priority.Easy => PrioritiesHelper.Easy,
             Priority.Medium => PrioritiesHelper.Medium,
             Priority.Hard => PrioritiesHelper.Hard,
-            _ => throw new BadRequestException("There is no such priority!")
+            _ => throw new BadRequestException("Такого пріоритету немає!")
         };
 
         var newNote = await _noteRepository.AddNoteAsync(note, cancellationToken);

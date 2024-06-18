@@ -6,7 +6,7 @@ namespace ToDoList.Api.Controllers;
 
 [ApiController]
 [Route("api")]
-public class RefreshTokenControllerRefreshTokenController(ITokenService tokenService) : ControllerBase
+public class RefreshTokenController(ITokenService tokenService) : ControllerBase
 {
     private readonly ITokenService _tokenService = tokenService;
 

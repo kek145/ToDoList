@@ -1,9 +1,9 @@
 .title {
-    margin-left: 10px;
+    margin-right: -100px;
 }
 
 .spacer{
-    margin-left: 1500px;
+    margin-left: 1600px;
 }
 
 .btn__signup {
@@ -23,5 +23,102 @@
 }
 
 .user__info{
-    margin-left: 100px;
+    margin-left: 170px;
 }
+
+
+@media (max-width: 1600px) {
+    .title {
+        margin-left: 10px;
+        font-size: 20px;
+    }
+
+    .user__info {
+        font-size: 16px;
+        margin-left: -100px;
+    }
+
+    .btn__signup, .btn__signin, .btn__logout {
+        font-size: 14px;
+    }
+
+    .mat-toolbar {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 900px) {
+    .title {
+        font-size: 18px;
+    }
+
+    .user__info {
+        font-size: 14px;
+    }
+
+    .btn__signup, .btn__signin, .btn__logout {
+        font-size: 12px;
+    }
+
+    .mat-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .spacer, .spacer__logout {
+        flex: unset;
+    }
+
+    .btn__signup, .btn__signin {
+        margin-bottom: 5px;
+    }
+}
+
+
+@media (max-width: 1280px) {
+    .title {
+        margin-left: 10px;
+        font-size: 20px;
+    }
+
+    .user__info {
+        font-size: 16px;
+        margin-left: -450px;
+    }
+
+    .btn__signup, .btn__signin, .btn__logout {
+        font-size: 14px;
+    }
+
+    .mat-toolbar {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 720px) {
+    .title {
+        font-size: 18px;
+    }
+
+    .user__info {
+        font-size: 14px;
+    }
+
+    .btn__signup, .btn__signin, .btn__logout {
+        font-size: 12px;
+    }
+
+    .mat-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .spacer, .spacer__logout {
+        flex: unset;
+    }
+
+    .btn__signup, .btn__signin {
+        margin-bottom: 5px;
+    }
+}
+

@@ -1,3 +1,4 @@
+using System.Net;
 using System.Threading.Tasks;
 using ToDoList.Domain.Response;
 
@@ -5,5 +6,6 @@ namespace ToDoList.Application.Services.UserService;
 
 public interface IUserService
 {
-    Task<UserFullNameResponse> GetUserFullName();
+    Task<HttpStatusCode> DeleteUserAccountAsync();
+    Task<UserFullNameResponse> GetUserFullNameAsync();
 }

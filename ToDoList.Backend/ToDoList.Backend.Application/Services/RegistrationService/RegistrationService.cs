@@ -22,7 +22,7 @@ public class RegistrationService(IMediator mediator, IValidator<RegistrationRequ
         var validation = await _validator.ValidateAsync(request);
 
         if (!validation.IsValid)
-            throw new BadRequestException($"{validation}");
+            throw new BadRequestException($"Validation error: {validation}");
 
         var command = new CreateUserCommand(request);
 
@@ -31,7 +31,7 @@ public class RegistrationService(IMediator mediator, IValidator<RegistrationRequ
         return new BaseResponse<UserResponse>
         {
             StatusCode = HttpStatusCode.Created,
-            Message = "Registration completed successfully!",
+            Message = "Реєстрацію успішно завершено!",
             Data = data
         };
     }

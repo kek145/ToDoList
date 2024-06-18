@@ -1,5 +1,6 @@
 ﻿using System;
 using AutoMapper;
+using System.Linq;
 using System.Threading;
 using ToDoList.Domain.Dto;
 using ToDoList.Domain.DbSet;
@@ -13,6 +14,13 @@ public class UserRepository(IMapper mapper, ApplicationDbContext context) : IUse
 {
     private readonly IMapper _mapper = mapper;
     private readonly ApplicationDbContext _context = context;
+    public async Task<int> DeleteUserAsync(int userId, CancellationToken cancellationToken)
+    {
+        return await _context.Users
+            .Where(x => x.Id == userId)
+            .ExecuteDeleteAsync(cancellationToken);
+    }
+
     public async Task<UserDto?> GetUserById(int userId, CancellationToken cancellationToken = default)
     {
         var user = await _context.Users

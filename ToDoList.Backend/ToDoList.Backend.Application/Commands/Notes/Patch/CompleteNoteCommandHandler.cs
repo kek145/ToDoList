@@ -16,10 +16,10 @@ public class CompleteNoteCommandHandler(INoteRepository noteRepository) : IReque
         var note = await _noteRepository.GetNoteByIdAsync(request.NoteId, cancellationToken);
 
         if (note is null || note.UserId != request.UserId)
-            throw new NotFoundException("Note not found!");
+            throw new NotFoundException("Примітка не знайдена!");
 
         if (note.Deadline < DateTime.UtcNow)
-            throw new BadRequestException("You cannot complete the task because it has already failed!");
+            throw new BadRequestException("Ви не можете виконати завдання, тому що воно вже не виконано!");
 
         var result = await _noteRepository.CompleteNoteAsync(note.Id, cancellationToken);
 

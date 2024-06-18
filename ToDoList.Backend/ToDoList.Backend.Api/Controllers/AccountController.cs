@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Application.Services.UserService;
 using ToDoList.Domain.Response;
+using Microsoft.AspNetCore.Authorization;
+using ToDoList.Application.Services.UserService;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace ToDoList.Api.Controllers;
 
@@ -18,7 +18,15 @@ public class AccountController(IUserService userService) : ControllerBase
     [Route("full-name")]
     public async Task<ActionResult<UserFullNameResponse>> GetUserFull()
     {
-        var response = await _userService.GetUserFullName();
+        var response = await _userService.GetUserFullNameAsync();
         return Ok(response);
+    }
+
+    [HttpDelete]
+    [Route("delete")]
+    public async Task<IActionResult> DeleteAccountAsync()
+    {
+        var result = await _userService.DeleteUserAccountAsync();
+        return StatusCode((int)result);
     }
 }

@@ -1,11 +1,11 @@
 <div class="container">
   <div class="notes__category">
-    <button class="button" mat-raised-button color="primary" type="submit" (click)="getAllNotes(this.parameters)">All Notes</button>
-    <button class="button" mat-raised-button color="primary" type="submit" (click)="getAllCompletedNotes(this.parameters)">Completed Notes</button>
-    <button class="button" mat-raised-button color="primary" type="submit" (click)="getAllFailedNotes(this.parameters)">Failed Notes</button>
+    <button class="button" mat-raised-button color="primary" type="submit" (click)="getAllNotes(this.parameters)">Усі нотатки</button>
+    <button class="button" mat-raised-button color="primary" type="submit" (click)="getAllCompletedNotes(this.parameters)">Завершені нотатки</button>
+    <button class="button" mat-raised-button color="primary" type="submit" (click)="getAllFailedNotes(this.parameters)">Невдалі нотатки</button>
 
     <mat-form-field class="priority__field">
-      <mat-label>Priority</mat-label>
+      <mat-label>Пріорітет</mat-label>
       <mat-select [(value)]="priority" (selectionChange)="onPriorityChange()">
         <mat-option *ngFor="let e of enumValues(priorityEnum)" [value]="e">{{ e | priority }}</mat-option>
       </mat-select>
@@ -15,36 +15,38 @@
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Columns definition -->
     <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <th mat-header-cell *matHeaderCellDef>Назва</th>
       <td mat-cell *matCellDef="let note">{{ note.title }}</td>
     </ng-container>
 
     <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef>Description</th>
-      <td mat-cell class="mat-column-description" *matCellDef="let note">{{ note.description }}</td>
+      <th mat-header-cell *matHeaderCellDef>Опис</th>
+      <td mat-cell *matCellDef="let note" fxFlex="1 1 auto" class="description-cell">{{ note.description }}</td>
     </ng-container>
+    
 
     <ng-container matColumnDef="priority">
-      <th mat-header-cell *matHeaderCellDef>Priority</th>
+      <th mat-header-cell *matHeaderCellDef>Пріорітет</th>
       <td mat-cell *matCellDef="let note">{{ note.priority }}</td>
     </ng-container>
+    
 
     <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <th mat-header-cell *matHeaderCellDef>Статус</th>
       <td mat-cell *matCellDef="let note">
-        <span *ngIf="note.status">Completed</span>
-        <span *ngIf="!note.status">Pending</span>
+        <span *ngIf="note.status">Виконано</span>
+        <span *ngIf="!note.status">В очікуванні</span>
       </td>
     </ng-container>
 
 
     <ng-container matColumnDef="deadline">
-      <th mat-header-cell *matHeaderCellDef>Deadline</th>
+      <th mat-header-cell *matHeaderCellDef>Дедлайн</th>
       <td mat-cell *matCellDef="let note">{{ note.deadline }}</td>
     </ng-container>
 
     <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <th mat-header-cell *matHeaderCellDef>Дія</th>
       <td mat-cell *matCellDef="let note">
         <div class="button-group">
           <button mat-icon-button color="primary" *ngIf="showButtons" (click)="updateNote(note.id)">

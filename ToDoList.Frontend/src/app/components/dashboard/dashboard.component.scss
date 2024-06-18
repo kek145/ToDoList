@@ -37,3 +37,7 @@ table {
 }
 
 
+.description-cell {
+  white-space: normal; /* Дозволяє тексту переноситись */
+  word-wrap: break-word; /* Переносить слова, якщо вони надто довгі */
+}

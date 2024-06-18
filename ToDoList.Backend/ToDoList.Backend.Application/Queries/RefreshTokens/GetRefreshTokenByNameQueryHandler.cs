@@ -19,7 +19,7 @@ public class GetRefreshTokenByNameQueryHandler(IRefreshTokenRepository refreshTo
             .FirstOrDefaultAsync(x => x.Token == request.RefreshToken, cancellationToken);
 
         if (token is null)
-            throw new NotFoundException("Refresh token not found!");
+            throw new NotFoundException("Маркер оновлення не знайдено!");
         
         return token;
     }

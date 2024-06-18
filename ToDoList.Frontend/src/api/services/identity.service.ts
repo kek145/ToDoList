@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -15,6 +15,9 @@ import { IAuthenticationResponseModel } from 'src/models/response/IAuthenticatio
 })
 export class IdentityService {
 
+  private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.isLogged());
+  isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
+
   constructor(private httpClient: HttpClient) { }
 
   public identityLogin(login: ILoginRequestModel) : Observable<IAuthenticationResponseModel> {
@@ -27,6 +30,10 @@ export class IdentityService {
 
   public identityUserId() : Observable<number> {
     return this.httpClient.get<number>(`${environment.httpUrlApi}api/identity/auth`, { withCredentials: true });
+  }
+
+  setAuthenticated(isAuthenticated: boolean): void {
+    this.isAuthenticatedSubject.next(isAuthenticated);
   }
 
   public isLogged(): boolean {

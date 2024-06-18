@@ -26,7 +26,7 @@ public class CreateUserCommandHandler(IMapper mapper, IUserRepository userReposi
             .GetUserByEmail(request.RegistrationRequest.Email, cancellationToken);
 
         if (isEmailExists is not null)
-            throw new BadRequestException($"User with this email: {request.RegistrationRequest.Email} is already registered!");
+            throw new BadRequestException($"Користувач із цією електронною адресою: {request.RegistrationRequest.Email} вже зареєстрований!");
 
         userDto.PasswordHash = passwordHash;
         userDto.PasswordSalt = passwordSalt;

@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { CreateUpdateComponent } from './components/create-update/create-update.component';
+import { StatusTranslatePipe } from './pipes/statusTranslate.pipe';
+import { InternalServerErrorComponent } from './components/internal-server-error/internal-server-error.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +31,10 @@ import { CreateUpdateComponent } from './components/create-update/create-update.
     FooterComponent,
     LoaderComponent,
     DashboardComponent,
+    InternalServerErrorComponent,
     RegistrationComponent,
     PriorityPipe,
+    StatusTranslatePipe,
     CreateUpdateComponent,
   ],
   imports: [

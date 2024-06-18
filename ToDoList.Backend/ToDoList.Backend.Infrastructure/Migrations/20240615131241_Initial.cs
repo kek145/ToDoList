@@ -37,10 +37,10 @@ namespace ToDoList.Infrastructure.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     title = table.Column<string>(type: "character varying(1000)", maxLength: 1000, nullable: false),
                     description = table.Column<string>(type: "character varying(2000)", maxLength: 2000, nullable: false),
-                    priority = table.Column<string>(type: "character varying(6)", maxLength: 6, nullable: false),
+                    priority = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     status = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false),
                     deadline = table.Column<DateTime>(type: "timestamp with time zone", maxLength: 500, nullable: false),
-                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 2, 25, 10, 24, 6, 32, DateTimeKind.Utc).AddTicks(595)),
+                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 6, 15, 13, 12, 40, 969, DateTimeKind.Utc).AddTicks(6622)),
                     updated_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     user_id = table.Column<int>(type: "integer", nullable: false)
                 },

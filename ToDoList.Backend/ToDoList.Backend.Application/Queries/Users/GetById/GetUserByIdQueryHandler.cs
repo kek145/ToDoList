@@ -16,7 +16,7 @@ public class GetUserByIdQueryHandler(IUserRepository userRepository) : IRequestH
             .GetUserById(request.UserId, cancellationToken);
 
         if (user is null)
-            throw new NotFoundException("User not found!");
+            throw new NotFoundException("Користувач не знайдений!");
 
         return user;
     }

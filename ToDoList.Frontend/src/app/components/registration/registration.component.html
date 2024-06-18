@@ -1,66 +1,66 @@
 <div class="center-container">
   <ng-container *ngIf="!loading">
     <form [formGroup]="registrationForm" class="registration-form" (ngSubmit)="onSubmit()">
-      <h1>Sign up</h1>
+      <h1>Зареєструватися</h1>
 
       <!-- First Name -->
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="First name" formControlName="firstName">
+        <input matInput placeholder="Ім'я" formControlName="firstName">
         <mat-error *ngIf="registrationForm.controls.firstName.invalid && registrationForm.controls.firstName.touched && registrationForm.controls.firstName.errors">
           <mat-error *ngIf="registrationForm.controls.firstName.errors['required']">
-            FirstName is required
+            Необхідно вказати ім'я
           </mat-error>
         </mat-error>
       </mat-form-field>
 
       <!-- Last Name -->
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Last name" formControlName="lastName">
+        <input matInput placeholder="Прізвище" formControlName="lastName">
         <mat-error *ngIf="registrationForm.controls.lastName.invalid && registrationForm.controls.lastName.touched && registrationForm.controls.lastName.errors">
           <mat-error *ngIf="registrationForm.controls.lastName.errors['required']">
-            LastName is required
+            Необхідно вказати прізвище
           </mat-error>
         </mat-error>
       </mat-form-field>
 
       <!-- Email -->
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Email" formControlName="email">
+        <input matInput placeholder="Електронна пошта" formControlName="email">
         <mat-error *ngIf="registrationForm.controls.email.invalid && registrationForm.controls.email.touched && registrationForm.controls.email.errors">
           <mat-error *ngIf="registrationForm.controls.email.errors['required']">
-            Email is required
+            Необхідно вказати адресу електронної пошти
           </mat-error>
           <mat-error *ngIf="registrationForm.controls.email.errors['email']">
-            Email invalid
+            Електронна адреса недійсна
           </mat-error>
         </mat-error>
       </mat-form-field>
 
       <!-- Password -->
       <mat-form-field class="example-full-width">
-        <input matInput type="password" placeholder="Password" formControlName="password">
+        <input matInput type="password" placeholder="Пароль" formControlName="password">
         <mat-error *ngIf="registrationForm.controls.password.invalid && registrationForm.controls.password.touched && registrationForm.controls.password.errors">
           <mat-error *ngIf="registrationForm.controls.password.errors['required']">
-            Password is required
+            Необхідно ввести пароль
           </mat-error>
           <mat-error *ngIf="registrationForm.controls.password.errors['minlength']">
-            Password must be at least 8 characters long
+            Пароль має бути не менше 8 символів
           </mat-error>
         </mat-error>
       </mat-form-field>
 
       <!-- Confirm Password -->
       <mat-form-field class="example-full-width">
-        <input matInput type="password" placeholder="Confirm password" formControlName="confirmPassword">
+        <input matInput type="password" placeholder="Підтвердьте пароль" formControlName="confirmPassword">
         <mat-error *ngIf="registrationForm.controls.confirmPassword.invalid && registrationForm.controls.confirmPassword.touched && registrationForm.controls.confirmPassword.errors">
           <mat-error *ngIf="registrationForm.controls.confirmPassword.errors['required']">
-            Confirm password is required
+            Потрібно підтвердити пароль
           </mat-error>
         </mat-error>
       </mat-form-field>
 
       <!-- Submit Button -->
-      <button class="button" mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid">Sign up</button>
+      <button class="button" mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid">Зареєструватися</button>
     </form>
   </ng-container>
 
