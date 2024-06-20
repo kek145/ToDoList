@@ -25,6 +25,11 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
+
+        policy.WithOrigins("http://localhost:5001")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
     });
 });
     
@@ -37,10 +42,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseSwagger();
+app.UseSwaggerUI();
+
 app.UseCors("Client");
 app.UseAuthentication();
 app.UseAuthorization();
 app.AddGlobalErrorHandling();
+app.ApplyMigrations();
 
 app.MapControllers();
 

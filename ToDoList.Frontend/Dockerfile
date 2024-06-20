@@ -1,29 +1,28 @@
-# Use the official Node.js 14 image as a base
-FROM node:18.18.0 AS build-end
+# Первый этап: сборка Angular-приложения
+FROM node:18.18.0 AS build-env
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy the package.json and package-lock.json files to the container
 COPY package*.json ./
 
-# Install dependencies
 RUN npm install
 
-# Copy the remaining application code to the container
 COPY . .
 
-# Build the Angular application
-RUN npm run build --prod
+RUN npm run build
 
-# Use NGINX as a lightweight web server to serve the Angular application
-FROM nginx:alpine
+# Второй этап: настройка Apache сервера
+FROM httpd:alpine3.15
 
-# Copy the built Angular application from the previous stage to NGINX's html directory
-COPY --from=build-end /app/dist/to-do-list.frontend /usr/share/nginx/html
+WORKDIR /usr/local/apache2/htdocs
 
-# Expose port 80
-EXPOSE 80
+# Копируем конфигурацию Apache
+COPY httpd.conf /usr/local/apache2/conf/httpd.conf
 
-# Start NGINX when the container starts
-CMD ["nginx", "-g", "daemon off;"]
+# Копируем собранные файлы Angular в каталог htdocs Apache
+COPY --from=build-env /app/dist/to-do-list.frontend/ .
+
+# Добавляем .htaccess файл, если он необходим
+COPY .htaccess /usr/local/apache2/htdocs/
+
+# Ваш файл Dockerfile готов для сборки Angular-приложения и запуска его с использованием Apache в контейнере Docker

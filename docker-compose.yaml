@@ -1,6 +1,5 @@
 version: "3.9"
 
-
 networks:
   web-app:
     driver: bridge
@@ -10,9 +9,9 @@ services:
     container_name: postgres
     image: postgres:latest
     environment:
-      POSTGRES_DB: "todo_list"
+      POSTGRES_DB: "todolist_db"
       POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "your postgres password"
+      POSTGRES_PASSWORD: "postgres"
     ports:
       - "5432:5432"
     restart: always
@@ -32,7 +31,7 @@ services:
       context: ./ToDoList.Backend
       dockerfile: Dockerfile
     environment:
-      - ConnectionStrings__DefaultConnection=Server=database; Port=5432; Database=todo_list; User Id=postgres; Password=B0g0m0l4ik2k4@
+      - ConnectionStrings__DefaultConnection=Server=database;Port=5432;Database=todolist_db;User Id=postgres;Password=postgres
       - ASPNETCORE_URLS=http://+:80
     networks:
       - web-app
@@ -41,18 +40,11 @@ services:
     image: frontend
     container_name: frontend
     ports:
-      - "5001:4200"
+      - "5001:80"
     build:
       context: ./ToDoList.Frontend
       dockerfile: Dockerfile
     networks:
       - web-app
-  
-  # proxy:
-  #   image: nginx:mainline
-  #   volumes:
-  #     - ./nginx.conf:/etc/nginx/nginx.conf
-  #   ports:
-  #     - "80:80"
 volumes:
   app-data:

@@ -19,7 +19,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAuthenticated = this.isUserLogged();
-    if(this.isAuthenticated) {
+  }
+
+  ngAfterViewInit(): void {
+    if (this.isAuthenticated) {
       this.getUserFullName();
     }
   }

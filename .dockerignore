@@ -30,3 +30,5 @@ HiveStore.WebApp/bin
 HiveStore.WebApp/obj
 HiveStore.WebApp/ClientApp/node_modules
 HiveStore.WebApp/out
+node_modules
+dist
